@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>El Santísimo Te Espera · Inicio</title>
+
+    <!-- Fuentes desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+
+    <style>
+        /* ===== RESET Y BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #faf3e8;
+            color: #2c2c2c;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+            padding: 1rem;
+        }
+
+        /* ===== ENCABEZADO ===== */
+        .site-header {
+            text-align: center;
+            padding: 2rem 0 1.5rem;
+            border-bottom: 2px solid rgba(201, 169, 110, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .site-header h1 {
+            font-family: 'Lora', serif;
+            font-weight: 600;
+            font-size: 2.2rem;
+            color: #2c2c2c;
+            letter-spacing: 1px;
+        }
+
+        .site-header h1 span {
+            color: #b8944c;
+        }
+
+        .site-header p {
+            font-size: 1rem;
+            color: #6b5e4e;
+            margin-top: 0.3rem;
+            font-style: italic;
+        }
+
+        /* ===== FEED ===== */
+        .feed {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        /* ===== TARJETA (CARD) ===== */
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Clase para ocultar tarjetas (usada por JS) */
+        .card.hidden-card {
+            display: none;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #e8ddd0;
+        }
+
+        .card-content {
+            padding: 1.5rem 1.2rem 1.8rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-family: 'Lora', serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #2c2c2c;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .card-title a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .card-title a:hover {
+            color: #b8944c;
+        }
+
+        .card-excerpt {
+            font-size: 0.95rem;
+            color: #4d4439;
+            margin-bottom: 1.2rem;
+            flex: 1;
+        }
+
+        .card-btn {
+            align-self: flex-start;
+            background: transparent;
+            border: 1.5px solid #b8944c;
+            color: #b8944c;
+            padding: 0.6rem 1.8rem;
+            border-radius: 40px;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+            letter-spacing: 0.5px;
+        }
+
+        .card-btn:hover {
+            background: #b8944c;
+            color: #ffffff;
+        }
+
+        /* ===== BOTÓN "CARGAR MÁS" ===== */
+        .load-more-wrapper {
+            text-align: center;
+            margin: 3rem 0 1rem;
+        }
+
+        #load-more-btn {
+            background: transparent;
+            border: 2px solid #b8944c;
+            color: #b8944c;
+            padding: 0.9rem 3rem;
+            border-radius: 60px;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        #load-more-btn:hover {
+            background: #b8944c;
+            color: #ffffff;
+            box-shadow: 0 6px 20px rgba(184, 148, 76, 0.3);
+        }
+
+        #load-more-btn.hidden {
+            display: none;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (min-width: 600px) {
+            .feed {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .feed {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .site-header h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        /* ===== PIE DE PÁGINA ===== */
+        .site-footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(201, 169, 110, 0.2);
+            font-size: 0.85rem;
+            color: #8a7a68;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <h1>El Santísimo <span>Te Espera</span></h1>
+        <p>Oraciones para el alma · Actualizadas con frecuencia</p>
+    </header>
+
+    <main>
+        <section class="feed" id="card-feed">
+
+            <!-- ========================================================= -->
+            <!-- TARJETA 1 · Jesús, quiero empezar de nuevo hoy            -->
+            <!-- ========================================================= -->
+            <article class="card">
+                <img class="card-image" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgAQDnWLWo7pKuevE7DVLc0jpr1DxITQVfrtlDZk9w94L78yRTTWXS8dD39YE4a9xcAR_J5cCHc_b7R2oQNieg6emlAL1N4O38bj-Ueh1OutIC6CHwD6zj6u54Z3QFyTtfAeyj5zeclhee8ange9iInEPZPq0PckC3JQ6fD5yyljZL-zNdTyUm7IuY20ew/s1376/djeij.png" alt="Jesús, quiero empezar de nuevo hoy" />
+                <div class="card-content">
+                    <h2 class="card-title">
+                        <a href="oracion1.html">Jesús, Quiero Empezar de Nuevo Hoy</a>
+                    </h2>
+                    <p class="card-excerpt">
+                        Si has tocado fondo y necesitas una segunda oportunidad, Jesús te espera con los brazos abiertos...
+                    </p>
+                    <a href="oracion1.html" class="card-btn">Ver o leer oración completa</a>
+                </div>
+            </article>
+
+            <!-- ========================================================= -->
+            <!-- TARJETA 2 · SÁNAME, SEÑOR: Oración de Sanación            -->
+            <!-- ========================================================= -->
+            <article class="card">
+                <img class="card-image" src="https://i.postimg.cc/W1HTyJ5S/maxresdefault-(7).jpg" alt="SÁNAME, SEÑOR: Oración de Sanación" />
+                <div class="card-content">
+                    <h2 class="card-title">
+                        <a href="oracion2.html">SÁNAME, SEÑOR: Oración de Sanación</a>
+                    </h2>
+                    <p class="card-excerpt">
+                        Acércate con tu fragilidad y permite que Jesús te abrace en medio de la oscuridad...
+                    </p>
+                    <a href="oracion2.html" class="card-btn">Ver o leer oración completa</a>
+                </div>
+            </article>
+
+            <!-- ========================================================= -->
+            <!-- TARJETA 3 · Jesús, quítame esta ansiedad                  -->
+            <!-- ========================================================= -->
+            <article class="card">
+    <img class="card-image" src="https://i.postimg.cc/0Qf525Gg/maxresdefault-(7).webp" alt="Jesús, quítame esta ansiedad" />
+    <div class="card-content">
+        <h2 class="card-title">
+            <a href="oracion3.html">Jesús, quítame esta ansiedad 🙏</a>
+        </h2>
+        <p class="card-excerpt">
+            Silencia tu corazón y colócate en la presencia del Santísimo Sacramento para encontrar paz...
+        </p>
+        <a href="oracion3.html" class="card-btn">Ver o leer oración completa</a>
+    </div>
+</article>
+
+            <!-- ========================================================= -->
+            <!-- TARJETA 4·                 -->
+            <!-- ========================================================= -->
+            <article class="card">
+    <img class="card-image" src="https://i.postimg.cc/MpH3q60Z/maxresdefault-(8).jpg" alt="Jesús, Sana lo que Duele por Dentro" />
+    <div class="card-content">
+        <h2 class="card-title">
+            <a href="oracion4.html">Jesús, Sana lo que Duele por Dentro 🙏</a>
+        </h2>
+        <p class="card-excerpt">
+            Silencia tu corazón y colócate en la presencia del Santísimo Sacramento para recibir sanación interior...
+        </p>
+        <a href="oracion4.html" class="card-btn">Ver o leer oración completa</a>
+    </div>
+</article>
+
+            
+
+            <!-- ========================================================= -->
+            <!-- TARJETA 5 · Jesús, quítame esta ansiedad                  -->
+            <!-- ========================================================= -->
+            <article class="card">
+    <img class="card-image" src="https://i.postimg.cc/BnC7GmV0/maxresdefault-(8).webp" alt="Señor, ya no tengo fuerzas para seguir" />
+    <div class="card-content">
+        <h2 class="card-title">
+            <a href="oracion5.html">Señor, ya no tengo fuerzas para seguir 🙏</a>
+        </h2>
+        <p class="card-excerpt">
+            Acércate sin máscaras y descansa en la presencia del Santísimo Sacramento...
+        </p>
+        <a href="oracion5.html" class="card-btn">Ver o leer oración completa</a>
+    </div>
+</article>
+
+            <!-- ========================================================= -->
+            <!-- TARJETA 6 · Jesús, quítame esta ansiedad                  -->
+            <!-- ========================================================= -->
+            <article class="card">
+    <img class="card-image" src="https://i.postimg.cc/wBCm4pQg/maxresdefault-(9).webp" alt="Santo, Santo, Santo eres Señor" />
+    <div class="card-content">
+        <h2 class="card-title">
+            <a href="oracion6.html">Santo, Santo, Santo eres Señor 🙏</a>
+        </h2>
+        <p class="card-excerpt">
+            Contempla, adora y descansa en la presencia del Santísimo Sacramento...
+        </p>
+        <a href="oracion6.html" class="card-btn">Ver o leer oración completa</a>
+    </div>
+</article>
+
+            <!-- ========================================================= -->
+            <!-- TARJETA 7 · Jesús, quítame esta ansiedad                  -->
+            <!-- ========================================================= -->
+            <article class="card">
+    <img class="card-image" src="https://i.postimg.cc/zBd1XJ21/maxresdefault-(9).jpg" alt="Jesús, Tú eres mi medicina" />
+    <div class="card-content">
+        <h2 class="card-title">
+            <a href="oracion7.html">Jesús, Tú eres mi medicina 🙏</a>
+        </h2>
+        <p class="card-excerpt">
+            Pon tu sufrimiento y tu enfermedad en las manos de Jesús, el Médico divino...
+        </p>
+        <a href="oracion7.html" class="card-btn">Ver o leer oración completa</a>
+    </div>
+</article>
+
+            
+            <!-- ========================================================= -->
+            <!-- TARJETA 8 · Jesús, quítame esta ansiedad                  -->
+            <!-- ========================================================= -->
+            <article class="card">
+    <img class="card-image" src="https://i.postimg.cc/GpV5MHfn/maxresdefault-(10).jpg" alt="Quédate con Jesús… todo va a estar bien" />
+    <div class="card-content">
+        <h2 class="card-title">
+            <a href="oracion8.html">Quédate con Jesús… todo va a estar bien ❤️</a>
+        </h2>
+        <p class="card-excerpt">
+            Silencia tu corazón, respira y déjate mirar por Jesús en el Santísimo Sacramento...
+        </p>
+        <a href="oracion8.html" class="card-btn">Ver o leer oración completa</a>
+    </div>
+</article>
+
+
+            <!-- ========================================================= -->
+            <!-- TARJETA 9 ·                -->
+            <!-- ========================================================= -->
+            <article class="card">
+    <img class="card-image" src="https://i.postimg.cc/vZ1703w7/maxresdefault-(11).jpg" alt="Déjate abrazar por Jesús" />
+    <div class="card-content">
+        <h2 class="card-title">
+            <a href="oracion9.html">Déjate abrazar por Jesús ❤️</a>
+        </h2>
+        <p class="card-excerpt">
+            Silencia tu corazón, respira y déjate mirar por Jesús en el Santísimo Sacramento...
+        </p>
+        <a href="oracion9.html" class="card-btn">Ver o leer oración completa</a>
+    </div>
+</article>
+
+
+            <!-- ========================================================= -->
+            <!-- TARJETA 10 ·             -->
+            <!-- ========================================================= -->
+            <article class="card">
+    <img class="card-image" src="https://i.postimg.cc/SRFNpQnQ/maxresdefault-(10).webp" alt="Jesús Sacramentado, no me dejes caer" />
+    <div class="card-content">
+        <h2 class="card-title">
+            <a href="oracion10.html">Jesús Sacramentado, no me dejes caer 😭</a>
+        </h2>
+        <p class="card-excerpt">
+            Cuando te sientas frágil, tentado o al borde del abismo, corre a Jesús Sacramentado...
+        </p>
+        <a href="oracion10.html" class="card-btn">Ver o leer oración completa</a>
+    </div>
+</article>
+
+
+            <!-- ========================================================= -->
+            <!-- TARJETA 11 ·                -->
+            <!-- ========================================================= -->
+            <article class="card">
+    <img class="card-image" src="https://i.postimg.cc/T140PSXf/maxresdefault-(12).jpg" alt="Jesús me está sanando" />
+    <div class="card-content">
+        <h2 class="card-title">
+            <a href="oracion11.html">Jesús me está sanando</a>
+        </h2>
+        <p class="card-excerpt">
+            Si el pecado, la culpa o el cansancio espiritual han pesado sobre tu corazón, Jesús te espera...
+        </p>
+        <a href="oracion11.html" class="card-btn">Ver o leer oración completa</a>
+    </div>
+</article>
+
+
+            <!-- ========================================================= -->
+            <!-- TARJETA 12 ·               -->
+            <!-- ========================================================= -->
+            <article class="card">
+    <img class="card-image" src="https://i.postimg.cc/mZJ7t7HM/maxresdefault-(11).webp" alt="Jesús, hoy te devuelvo el control de mi vida" />
+    <div class="card-content">
+        <h2 class="card-title">
+            <a href="oracion12.html">Jesús, hoy te devuelvo el control de mi vida 🙏</a>
+        </h2>
+        <p class="card-excerpt">
+            Si el cansancio de querer controlarlo todo te agobia, Jesús te espera en el Santísimo Sacramento...
+        </p>
+        <a href="oracion12.html" class="card-btn">Ver o leer oración completa</a>
+    </div>
+</article>
+
+
+            <!-- ========================================================= -->
+            <!-- TARJETA 13 ·                -->
+            <!-- ========================================================= -->
+            <article class="card">
+    <img class="card-image" src="https://i.postimg.cc/TYjJyCvF/maxresdefault-(13).jpg" alt="¿Sientes que Dios no te responde?" />
+    <div class="card-content">
+        <h2 class="card-title">
+            <a href="oracion13.html">¿Sientes que Dios no te responde? ❤️</a>
+        </h2>
+        <p class="card-excerpt">
+            Cuando el silencio de Dios parece durar demasiado, Jesús está obrando en lo profundo...
+        </p>
+        <a href="oracion13.html" class="card-btn">Ver o leer oración completa</a>
+    </div>
+</article>
+
+
+            <!-- ========================================================= -->
+            <!-- TARJETA 14 ·                -->
+            <!-- ========================================================= -->
+            <article class="card">
+    <img class="card-image" src="https://i.postimg.cc/6pgqBx1s/maxresdefault-(12).webp" alt="Cuando Dios guarda silencio" />
+    <div class="card-content">
+        <h2 class="card-title">
+            <a href="oracion14.html">Cuando Dios guarda silencio 🙏</a>
+        </h2>
+        <p class="card-excerpt">
+            Cuando el cielo parece de bronce y la oración se vuelve difícil, Jesús te sostiene...
+        </p>
+        <a href="oracion14.html" class="card-btn">Ver o leer oración completa</a>
+    </div>
+</article>
+
+
+            <!-- ========================================================= -->
+            <!-- TARJETA 15 ·                 -->
+            <!-- ========================================================= -->
+            <article class="card">
+    <img class="card-image" src="https://i.postimg.cc/FzS5bwV1/maxresdefault-(13).webp" alt="Jesús, te pido por mis hijos" />
+    <div class="card-content">
+        <h2 class="card-title">
+            <a href="oracion15.html">Jesús, te pido por mis hijos 🙏</a>
+        </h2>
+        <p class="card-excerpt">
+            Pon a tus hijos en las manos de Jesús, presente en el Santísimo Sacramento...
+        </p>
+        <a href="oracion15.html" class="card-btn">Ver o leer oración completa</a>
+    </div>
+</article>
+
+
+            
+
+            <!--
+                ══════════════════════════════════════════════════════════════════
+                INSTRUCCIONES PARA AÑADIR NUEVAS TARJETAS:
+                1. Copia el bloque <article class="card"> ... </article>
+                2. PÉGALO JUSTO ANTES DE ESTE COMENTARIO.
+                3. Cambia la imagen, título, extracto y enlace (href).
+                4. El JavaScript de abajo mostrará automáticamente
+                   las primeras 6 y ocultará el resto hasta que
+                   pulses "Cargar más oraciones".
+                ══════════════════════════════════════════════════════════════════
+            -->
+
+        </section>
+
+        <!-- ===== BOTÓN CARGAR MÁS ===== -->
+        <div class="load-more-wrapper">
+            <button id="load-more-btn">Cargar más oraciones</button>
+        </div>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>Que la paz del Señor te acompañe siempre.</p>
+    </footer>
+
+    <!-- ===== JAVASCRIPT PARA PAGINACIÓN AUTOMÁTICA ===== -->
+    <script>
+        (function() {
+            const CARDS_PER_PAGE = 6; // Número de tarjetas visibles al inicio
+            const feed = document.getElementById('card-feed');
+            const loadBtn = document.getElementById('load-more-btn');
+
+            // Obtener todas las tarjetas (elementos <article class="card">)
+            const allCards = Array.from(feed.querySelectorAll('.card'));
+            const totalCards = allCards.length;
+
+            // Si hay menos o igual a CARDS_PER_PAGE, ocultar el botón directamente
+            if (totalCards <= CARDS_PER_PAGE) {
+                loadBtn.classList.add('hidden');
+                return; // No hace falta paginación
+            }
+
+            // Variable para llevar la cuenta de cuántas se están mostrando
+            let visibleCount = CARDS_PER_PAGE;
+
+            // Función para actualizar la visibilidad
+            function updateCards() {
+                allCards.forEach((card, index) => {
+                    if (index < visibleCount) {
+                        card.classList.remove('hidden-card');
+                    } else {
+                        card.classList.add('hidden-card');
+                    }
+                });
+
+                // Si ya se mostraron todas, ocultar el botón
+                if (visibleCount >= totalCards) {
+                    loadBtn.classList.add('hidden');
+                } else {
+                    loadBtn.classList.remove('hidden');
+                }
+            }
+
+            // Función para cargar más (se ejecuta al hacer clic)
+            function loadMore() {
+                visibleCount += CARDS_PER_PAGE;
+                if (visibleCount > totalCards) {
+                    visibleCount = totalCards;
+                }
+                updateCards();
+            }
+
+            // Asignar evento al botón
+            loadBtn.addEventListener('click', loadMore);
+
+            // Inicializar: mostrar las primeras CARDS_PER_PAGE
+            updateCards();
+        })();
+    </script>
+
+</body>
+</html>

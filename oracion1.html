@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jesús, Quiero Empezar de Nuevo Hoy · El Santísimo Te Espera</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+
+    <style>
+        /* ===== RESET Y BASE ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: #faf3e8;
+            color: #2c2c2c;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+            padding: 1.2rem;
+            padding-top: 1rem;
+        }
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 1.5rem 2.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+        }
+
+        /* ===== NAVEGACIÓN STICKY ===== */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            padding: 0.7rem 1rem;
+            border-radius: 60px;
+            max-width: 820px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(184, 148, 76, 0.15);
+            flex-wrap: wrap;
+        }
+        .sticky-nav .nav-left,
+        .sticky-nav .nav-right {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        .sticky-nav a {
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #b8944c;
+            border: 1.5px solid #b8944c;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            transition: 0.2s;
+            white-space: nowrap;
+            font-weight: 400;
+        }
+        .sticky-nav a:hover {
+            background: #b8944c;
+            color: #fff;
+        }
+        .sticky-nav a.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+            border-color: #ccc;
+            color: #999;
+        }
+        .sticky-nav .nav-home {
+            background: #faf3e8;
+        }
+
+        /* ===== BOTÓN VOLVER ===== */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            font-size: 0.9rem;
+            color: #b8944c;
+            text-decoration: none;
+            border: 1.5px solid #b8944c;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .back-link:hover { background: #b8944c; color: #ffffff; }
+
+        .oracion-title {
+            font-family: 'Lora', serif;
+            font-weight: 600;
+            font-size: 2rem;
+            color: #2c2c2c;
+            margin-bottom: 1.8rem;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        /* ===== VIDEO WRAPPER ===== */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            background: #e8ddd0;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ===== PUBLICIDAD ===== */
+        .ad-comment {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #a09280;
+            margin: 0.5rem 0 1.8rem;
+            border: 1px dashed #dcd0c0;
+            padding: 0.6rem;
+            border-radius: 12px;
+            background: #f8f2ea;
+        }
+
+        /* ===== ESTILOS DE LA ORACIÓN ===== */
+        .oracion-container {
+            max-width: 100%;
+            margin: 20px 0;
+            padding: 24px 28px;
+            background: #fcf9f5;
+            border-radius: 20px;
+            border: 1px solid #e8dccc;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+        .oracion-container .oracion-intro {
+            text-align: center;
+            color: #7a4a2e;
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #e8dccc;
+        }
+        .oracion-container .oracion-intro span {
+            display: block;
+            font-size: 0.9rem;
+            color: #a67c5b;
+            margin-top: 4px;
+        }
+        .oracion-container .oracion-texto {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: #3d2b1f;
+            text-align: left;
+            padding: 0 4px;
+        }
+        .oracion-container .oracion-texto p {
+            margin-bottom: 16px;
+            text-indent: 0;
+        }
+        .oracion-container .oracion-texto em {
+            color: #7a4a2e;
+            font-style: italic;
+        }
+        .oracion-container .oracion-texto strong {
+            color: #5a3a2a;
+            font-weight: bold;
+        }
+        .oracion-container .oracion-texto h3 {
+            color: #7a4a2e;
+            font-size: 1.3rem;
+            font-weight: normal;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #e8dccc;
+            padding-bottom: 6px;
+        }
+        .oracion-container .oracion-texto blockquote {
+            background: #f4efe8;
+            padding: 16px 20px;
+            border-radius: 12px;
+            margin: 16px 0;
+            border-left: 4px solid #b8863a;
+        }
+        .oracion-container .oracion-texto blockquote p {
+            font-style: italic;
+            font-size: 1.05rem;
+            color: #3d2b1f;
+            margin: 0;
+        }
+        .oracion-container .silencio {
+            text-align: center;
+            font-style: italic;
+            color: #a67c5b;
+            font-size: 0.95rem;
+            margin: 18px 0;
+            padding: 8px 16px;
+            background: #f4efe8;
+            border-radius: 30px;
+            letter-spacing: 1px;
+        }
+        .oracion-container .oracion-footer {
+            text-align: center;
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 2px solid #e8dccc;
+            font-size: 1rem;
+            color: #7a4a2e;
+            font-weight: bold;
+        }
+        .oracion-container .oracion-footer span {
+            font-size: 1.3rem;
+        }
+
+        /* ===== SECCIONES EXTRAS ===== */
+        .seccion-extra {
+            max-width: 100%;
+            margin: 30px 0;
+            padding: 20px 24px;
+            background: #fcf9f5;
+            border-radius: 16px;
+            border: 1px solid #e8dccc;
+            font-family: Georgia, serif;
+        }
+        .seccion-extra h3 {
+            color: #7a4a2e;
+            font-size: 1.4rem;
+            font-weight: normal;
+            text-align: center;
+            border-bottom: 2px solid #e8dccc;
+            padding-bottom: 12px;
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+        .seccion-extra p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #3d2b1f;
+        }
+        .seccion-extra blockquote {
+            background: #f4efe8;
+            padding: 16px 20px;
+            border-radius: 12px;
+            margin: 16px 0;
+            border-left: 4px solid #b8863a;
+        }
+        .seccion-extra blockquote p {
+            font-style: italic;
+            font-size: 1.05rem;
+            color: #3d2b1f;
+            margin: 0;
+        }
+        hr {
+            border: 1px solid #e8dccc;
+            margin: 30px 0;
+        }
+
+        /* ===== WIDGET MÁS ORACIONES ===== */
+        .related-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(201, 169, 110, 0.2);
+        }
+        .related-section h3 {
+            font-family: 'Lora', serif;
+            font-weight: 400;
+            color: #6b5e4e;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+        .related-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        .related-card {
+            background: #faf3e8;
+            border-radius: 16px;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: #2c2c2c;
+            transition: background 0.2s, transform 0.2s;
+            border: 1px solid transparent;
+        }
+        .related-card:hover {
+            background: #f5ede2;
+            transform: translateX(4px);
+            border-color: #b8944c;
+        }
+        .related-card img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 12px;
+            background: #e8ddd0;
+            flex-shrink: 0;
+        }
+        .related-card .info {
+            flex: 1;
+        }
+        .related-card .info h4 {
+            font-family: 'Lora', serif;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+        .related-card .info p {
+            font-size: 0.8rem;
+            color: #6b5e4e;
+            margin: 0;
+        }
+        .related-card .info .mini-btn {
+            display: inline-block;
+            margin-top: 0.3rem;
+            font-size: 0.7rem;
+            border: 1px solid #b8944c;
+            color: #b8944c;
+            padding: 0.1rem 0.8rem;
+            border-radius: 20px;
+        }
+        .ad-footer {
+            margin-top: 2.5rem;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #a09280;
+            border-top: 1px solid #eee4d8;
+            padding-top: 1.5rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (min-width: 600px) {
+            body { padding: 2rem; }
+            .container { padding: 3rem 2.5rem; }
+            .oracion-title { font-size: 2.4rem; }
+            .related-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 768px) {
+            .related-grid { grid-template-columns: repeat(4, 1fr); }
+            .related-card { flex-direction: column; text-align: center; padding: 1.2rem; }
+            .related-card img { width: 100%; height: 140px; }
+        }
+        @media (max-width: 500px) {
+            .sticky-nav .nav-left a span, .sticky-nav .nav-right a span { display: none; }
+            .oracion-container { padding: 14px 16px; margin: 12px 0; }
+            .oracion-container .oracion-texto { font-size: 1.15rem; line-height: 2; }
+            .oracion-container .oracion-texto h3 { font-size: 1.1rem; }
+            .seccion-extra { padding: 14px 16px; }
+            .seccion-extra h3 { font-size: 1.2rem; }
+            .seccion-extra p { font-size: 1rem; }
+            .seccion-extra blockquote p { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== BARRA STICKY ===== -->
+    <nav class="sticky-nav" id="stickyNav">
+        <div class="nav-left">
+            <a href="index.html" class="nav-home">🏠 Inicio</a>
+            <a href="#" id="prevLink" class="disabled">‹ <span>Anterior</span></a>
+        </div>
+        <div class="nav-right">
+            <a href="#" id="nextLink" class="disabled"><span>Siguiente</span> ›</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- ===== VOLVER AL INICIO ===== -->
+        <a href="index.html" class="back-link">← Volver al inicio</a>
+
+        <!-- ===== TÍTULO ===== -->
+        <h1 class="oracion-title" id="oracionTitle">Jesús, Quiero Empezar de Nuevo Hoy</h1>
+
+        <!-- ===== VIDEO (ARRIBA) ===== -->
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/jQpVQVAZLx0" 
+                    title="Oración - Jesús, quiero empezar de nuevo hoy" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen loading="lazy">
+            </iframe>
+        </div>
+
+        <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
+        <!-- [CÓDIGO PUBLICITARIO 1 - descomenta cuando quieras activar] -->
+        <!-- 
+        <div class="ad-comment">
+            <script async="async" data-cfasync="false" src="https://prodtrousers.com/6e4b65616bcb6effdc2cfe5a9b2069da/invoke.js"></script>
+            <div id="container-6e4b65616bcb6effdc2cfe5a9b2069da"></div>
+        </div>
+        -->
+
+        <!-- ===== ORACIÓN COMPLETA ===== -->
+        <div class="oracion-container">
+            <div class="oracion-intro">
+                📖 Oración completa para leer y meditar
+                <span>Si has tocado fondo y necesitas una segunda oportunidad, Jesús te espera con los brazos abiertos</span>
+            </div>
+
+            <!-- ===== CÓDIGO PUBLICITARIO (comentado hasta que actives) ===== -->
+            <!-- 
+            <div style="margin: 20px 0;">
+                <script async="async" data-cfasync="false" src="https://prodtrousers.com/6e4b65616bcb6effdc2cfe5a9b2069da/invoke.js"></script>
+                <div id="container-6e4b65616bcb6effdc2cfe5a9b2069da"></div>
+            </div>
+            -->
+
+            <div class="oracion-texto">
+                <p><em>Señor Jesús, me presento ante Ti tal y como estoy.</em></p>
+                <p>Te miro en este altar, sabiendo que Tú eres el único juez que en lugar de condenar, abraza.</p>
+                <p>Hoy no vengo a presumir mis virtudes ni a contarte mis éxitos. Hoy vengo porque <strong>me he equivocado.</strong> He fallado, Señor. He tomado malas decisiones, he lastimado a otras personas, y me he lastimado a mí mismo.</p>
+                <p>Vengo con un sentimiento profundo de culpa y con la cabeza baja, porque siento que he tocado fondo. Pero en lugar de huir de Ti y esconderme en la vergüenza, he decidido correr hacia tu presencia, porque sé muy bien que <strong>solo Tú puedes restaurar lo que se ha roto en mi vida.</strong></p>
+
+                <div class="silencio">🕯️ Silencio para presentar nuestras faltas a Jesús con honestidad</div>
+
+                <p>Al mirarte en el Sagrario, viene a mi mente la historia de <strong>Santa María Magdalena</strong>. Ella era una mujer señalada por la sociedad, juzgada por sus errores del pasado, apartada por aquellos que se creían perfectos.</p>
+                <p>Pero cuando se encontró contigo... Tú no le tiraste piedras. Tú no le echaste en cara sus equivocaciones. Tú la miraste con una ternura infinita y le devolviste su dignidad. Le diste la oportunidad de empezar desde cero, y ella se convirtió en una de tus amigas más fieles.</p>
+                <p>Jesús, <strong>yo necesito esa misma mirada tuya sobre mí.</strong> Necesito que me mires no como el mundo me etiqueta, ni siquiera como yo mismo me juzgo cuando soy mi peor crítico... Necesito que me mires como lo haces Tú: <strong>como a un hijo amado que pide ser rescatado.</strong></p>
+
+                <div class="silencio">🕯️ Silencio para sentir la mirada misericordiosa de Jesús</div>
+
+                <p>Hoy te digo con el corazón en la mano: <strong>Jesús, quiero empezar de nuevo.</strong></p>
+                <p>No quiero vivir siendo esclavo de mis errores del pasado. Limpia mis malas intenciones, corrige mis malos hábitos y dame la fuerza de voluntad para no volver a tropezar con la misma piedra.</p>
+                <p>Y Señor, te pido una gracia muy especial: <strong>dame la valentía que necesito para acercarme muy pronto al Sacramento de la Confesión.</strong> Quítame el miedo y la vergüenza. Que pueda arrodillarme ante un sacerdote para soltar todos mis pecados, escuchar tus palabras de absolución y sellar allí esta nueva oportunidad que hoy me regalas.</p>
+
+                <div class="silencio">🕯️ Silencio para tomar la firme decisión de confesarse</div>
+
+                <p>Señor, toma los pedazos que quedan de mi confianza y <strong>ayúdame a reconstruir mi vida sobre la roca firme de tu amor.</strong></p>
+                <p>Desde este momento, renuncio a mirar hacia atrás con amargura. Voy a levantar la vista hacia el frente, sabiendo que me estás tomando de la mano. Ayúdame también a perdonarme a mí mismo, porque si Tú ya me estás abriendo las puertas de tu misericordia, <strong>¿quién soy yo para seguir condenándome?</strong></p>
+                <p>Lléname de tu Espíritu Santo. Que donde antes había frustración, hoy nazca la paciencia. Que donde había vicios o debilidades, hoy brote una voluntad de hierro, sostenida únicamente por Ti. <strong>Hazme una persona completamente nueva.</strong></p>
+
+                <div class="silencio">🕯️ Silencio para entregar a Dios el control de nuestro futuro</div>
+
+                <p>Al contemplarte en el pan consagrado, escucho en mi interior tu promesa de amor: <em>“Vengan a mí los que están agobiados, y yo los haré descansar”</em>.</p>
+                <p><strong>Gracias, Jesús.</strong> Gracias porque tu misericordia es inmensamente más grande que todas mis faltas juntas. Gracias porque siempre hay una segunda oportunidad a tu lado. Me levanto de este momento de oración con la cabeza en alto, no por mis méritos, sino porque Tú me has devuelto la dignidad.</p>
+                <p>Me quedo aquí, disfrutando de esta paz, de esta hoja en blanco que me regalas hoy para reescribir mi historia a tu lado.</p>
+                <p><strong>Señor, bendice mi nuevo caminar.</strong> Que el sacramento de la reconciliación me limpie por completo y que no me aleje de Ti ni un solo milímetro en esta nueva oportunidad. Confío plenamente en tu amor que todo lo transforma.</p>
+
+                <p style="text-align: center; font-size: 1.4rem; margin-top: 24px; color: #7a4a2e;"><strong>Amén.</strong></p>
+            </div>
+
+            <div class="oracion-footer">
+                <span>†</span> Jesús, quiero empezar de nuevo hoy. Que el Santísimo Sacramento te dé una nueva oportunidad <span>†</span>
+            </div>
+        </div>
+
+        <!-- ===== SECCIONES EXTRAS ===== -->
+        <hr>
+
+        <div class="seccion-extra">
+            <h3>🕊️ Reflexión: la misericordia de Dios siempre es nueva</h3>
+            <p><strong>“Jesús, quiero empezar de nuevo hoy”</strong>. Estas palabras nacen del corazón de quien ha reconocido su fragilidad y anhela la misericordia de Dios. Todos hemos fallado. Todos hemos tomado caminos equivocados. Pero <strong>Dios nunca cierra la puerta a un alma arrepentida.</strong></p>
+            <p>Santa <strong>María Magdalena</strong> es un testimonio vivo de que no importa el pasado. Ella fue juzgada, señalada y despreciada, pero una sola mirada de Jesús cambió su vida para siempre. <strong>No hay error que no pueda ser perdonado. No hay caída que no pueda ser levantada.</strong></p>
+            <blockquote>
+                <p>“Jesús, confío en que Tú puedes hacer nuevas todas las cosas. Ayúdame a perdonarme a mí mismo y a caminar hacia adelante sin mirar atrás.”</p>
+            </blockquote>
+        </div>
+
+        <hr>
+
+        <div class="seccion-extra">
+            <h3>📖 La promesa de un nuevo comienzo</h3>
+            <p>La Sagrada Escritura está llena de promesas de restauración. En <strong>2 Corintios 5,17</strong> leemos: <em>“Si alguno está en Cristo, es una nueva creación. Lo viejo ha pasado, ha llegado lo nuevo”</em>. Esta es la promesa que hoy podemos abrazar: <strong>Dios puede hacer nuevas todas las cosas en nuestra vida.</strong></p>
+            <p>El <strong>Salmo 103,12</strong> nos asegura: <em>“Cuanto dista el oriente del occidente, así aleja de nosotros nuestras transgresiones”</em>. Cuando Dios perdona, no solo borra el pecado, sino que <strong>lo arroja al mar del olvido</strong>. No debemos vivir atados a un pasado que Él ya ha perdonado.</p>
+            <p>Si hoy has sentido el deseo de empezar de nuevo, <strong>no lo pospongas</strong>. Jesús te espera en el Sacramento de la Confesión y en la Eucaristía para darte la fuerza que necesitas para comenzar de nuevo.</p>
+        </div>
+
+        <hr>
+
+        <div class="seccion-extra" style="text-align: center;">
+            <h3>🙏 Comparte esta oración</h3>
+            <p>Si esta oración ha tocado tu corazón, compártela con alguien que también necesite escuchar que <strong>siempre hay una segunda oportunidad en Jesús</strong>. No guardes este mensaje de esperanza solo para ti.</p>
+            <p style="font-size: 1.1rem; color: #7a4a2e; font-weight: bold; margin-top: 16px;">Jesús, quiero empezar de nuevo hoy. Que el Santísimo Sacramento te dé una nueva oportunidad. 🙏</p>
+        </div>
+
+        <hr>
+
+        <!-- ===== WIDGET "MÁS ORACIONES PARA TI" ===== -->
+        <div class="related-section">
+            <h3>✦ Más oraciones para ti ✦</h3>
+            <div class="related-grid" id="relatedGrid">
+                <!-- Generado por JavaScript -->
+            </div>
+        </div>
+
+        <!-- ===== PUBLICIDAD 2 (comentada) ===== -->
+        <!-- [CÓDIGO PUBLICITARIO 2 - descomenta cuando quieras activar] -->
+        <!-- 
+        <div class="ad-footer">
+            <script async="async" data-cfasync="false" src="https://prodtrousers.com/6e4b65616bcb6effdc2cfe5a9b2069da/invoke.js"></script>
+            <div id="container-6e4b65616bcb6effdc2cfe5a9b2069da"></div>
+        </div>
+        -->
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- CARGA EL ARCHIVO DE DATOS (EXTERNO)                        -->
+    <!-- ========================================================= -->
+    <script src="oraciones-data.js"></script>
+
+    <!-- ========================================================= -->
+    <!-- SCRIPT PRINCIPAL (navegación y widget)                     -->
+    <!-- ========================================================= -->
+    <script>
+        (function() {
+            if (typeof misOraciones === 'undefined' || misOraciones.length === 0) {
+                console.warn('No se encontraron oraciones. Verifica oraciones-data.js');
+                document.getElementById('oracionTitle').textContent = 'Oración no encontrada';
+                return;
+            }
+
+            const currentPath = window.location.pathname;
+            const currentFileName = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+
+            let currentIndex = -1;
+            for (let i = 0; i < misOraciones.length; i++) {
+                const urlParts = misOraciones[i].url.split('/');
+                const fileName = urlParts[urlParts.length - 1];
+                if (fileName === currentFileName) {
+                    currentIndex = i;
+                    break;
+                }
+            }
+
+            if (currentIndex === -1) {
+                document.getElementById('stickyNav').style.display = 'none';
+                document.getElementById('oracionTitle').textContent = 'Oración no encontrada';
+                return;
+            }
+
+            // Configurar botones Anterior / Siguiente
+            const prevLink = document.getElementById('prevLink');
+            const nextLink = document.getElementById('nextLink');
+
+            if (currentIndex > 0) {
+                prevLink.href = misOraciones[currentIndex - 1].url;
+                prevLink.classList.remove('disabled');
+            } else {
+                prevLink.href = '#';
+                prevLink.classList.add('disabled');
+            }
+
+            if (currentIndex < misOraciones.length - 1) {
+                nextLink.href = misOraciones[currentIndex + 1].url;
+                nextLink.classList.remove('disabled');
+            } else {
+                nextLink.href = '#';
+                nextLink.classList.add('disabled');
+            }
+
+            // Generar widget "Más oraciones"
+            const relatedGrid = document.getElementById('relatedGrid');
+            let others = misOraciones.filter((item, idx) => idx !== currentIndex);
+            const toShow = others.slice(0, 4);
+
+            if (toShow.length === 0) {
+                relatedGrid.innerHTML = '<p style="text-align:center;color:#a09280;">Pronto más oraciones disponibles.</p>';
+            } else {
+                let html = '';
+                toShow.forEach(item => {
+                    html += `
+                        <a href="${item.url}" class="related-card">
+                            <img src="${item.img}" alt="${item.titulo}" loading="lazy" />
+                            <div class="info">
+                                <h4>${item.titulo}</h4>
+                                <p>Ver o leer completa</p>
+                                <span class="mini-btn">➜ Abrir</span>
+                            </div>
+                        </a>
+                    `;
+                });
+                relatedGrid.innerHTML = html;
+            }
+        })();
+    </script>
+
+</body>
+</html>
