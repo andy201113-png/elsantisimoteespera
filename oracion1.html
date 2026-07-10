@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jesús, Quiero Empezar de Nuevo Hoy · El Santísimo Te Espera</title>
 
+    <!-- ===== FUENTES ===== -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+
+    <!-- ===== PLYR CSS ===== -->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
 
     <style>
         /* ===== RESET Y BASE ===== */
@@ -107,23 +110,101 @@
             text-align: center;
         }
 
-        /* ===== VIDEO WRAPPER ===== */
-        .video-wrapper {
+        /* ===== CONTENEDOR DEL VIDEO ===== */
+        .video-container {
             position: relative;
+            width: 100%;
             padding-bottom: 56.25%; /* 16:9 */
             height: 0;
             overflow: hidden;
             border-radius: 16px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.5rem;
             background: #e8ddd0;
         }
-        .video-wrapper iframe {
+        .video-container .plyr {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            border-radius: 16px;
+        }
+        /* Aseguramos que los controles siempre sean visibles */
+        .video-container .plyr__controls {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        /* Fullscreen */
+        .video-container.fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            padding-bottom: 0;
+            z-index: 9999;
+            background: #000;
+            border-radius: 0;
+        }
+        .video-container.fullscreen .plyr {
+            border-radius: 0;
+        }
+        .video-container.fullscreen .btn-salir-fullscreen {
+            display: flex;
+        }
+
+        .btn-salir-fullscreen {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
             border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 30;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-salir-fullscreen:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* ===== BOTONES DE ADELANTAR/RETROCEDER ===== */
+        .video-controls-extra {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 0.5rem 0 1.5rem;
+            flex-wrap: wrap;
+        }
+        .video-controls-extra button {
+            background: #b8944c;
+            color: #fff;
+            border: none;
+            border-radius: 40px;
+            padding: 0.6rem 1.8rem;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 12px rgba(184, 148, 76, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .video-controls-extra button:hover {
+            background: #a67c3a;
+            transform: scale(1.02);
+        }
+        .video-controls-extra button:active {
+            transform: scale(0.96);
         }
 
         /* ===== PUBLICIDAD ===== */
@@ -182,15 +263,6 @@
         .oracion-container .oracion-texto strong {
             color: #5a3a2a;
             font-weight: bold;
-        }
-        .oracion-container .oracion-texto h3 {
-            color: #7a4a2e;
-            font-size: 1.3rem;
-            font-weight: normal;
-            margin-top: 24px;
-            margin-bottom: 12px;
-            border-bottom: 1px solid #e8dccc;
-            padding-bottom: 6px;
         }
         .oracion-container .oracion-texto blockquote {
             background: #f4efe8;
@@ -365,11 +437,15 @@
             .sticky-nav .nav-left a span, .sticky-nav .nav-right a span { display: none; }
             .oracion-container { padding: 14px 16px; margin: 12px 0; }
             .oracion-container .oracion-texto { font-size: 1.15rem; line-height: 2; }
-            .oracion-container .oracion-texto h3 { font-size: 1.1rem; }
+            .oracion-container .oracion-texto blockquote p { font-size: 1rem; }
             .seccion-extra { padding: 14px 16px; }
             .seccion-extra h3 { font-size: 1.2rem; }
             .seccion-extra p { font-size: 1rem; }
             .seccion-extra blockquote p { font-size: 1rem; }
+            .video-controls-extra button {
+                font-size: 0.9rem;
+                padding: 0.5rem 1.2rem;
+            }
         }
     </style>
 </head>
@@ -394,25 +470,30 @@
         <!-- ===== TÍTULO ===== -->
         <h1 class="oracion-title" id="oracionTitle">Jesús, Quiero Empezar de Nuevo Hoy</h1>
 
-        <!-- ===== VIDEO (ARRIBA) ===== -->
-        <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/jQpVQVAZLx0" 
-                    title="Oración - Jesús, quiero empezar de nuevo hoy" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen loading="lazy">
-            </iframe>
+        <!-- ===== VIDEO CON PLYR (SIN BOTÓN "VER VIDEO") ===== -->
+        <div class="video-container" id="videoContainer">
+            <video id="player" playsinline controls>
+                <source src="https://cdn.videy.co/nnGjlBkJ1.mp4" type="video/mp4" />
+                Tu navegador no soporta la reproducción de video.
+            </video>
+            <!-- Botón para salir de pantalla completa (solo visible en fullscreen) -->
+            <button class="btn-salir-fullscreen" id="btnSalirFullscreen">✕</button>
+        </div>
+
+        <!-- ===== BOTONES DE ADELANTAR/RETROCEDER (10s) ===== -->
+        <div class="video-controls-extra">
+            <button id="btnRewind">⏪ -10s</button>
+            <button id="btnForward">+10s ⏩</button>
         </div>
 
         <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
         <!-- [CÓDIGO PUBLICITARIO 1 - descomenta cuando quieras activar] -->
         <!-- 
         <div class="ad-comment">
-            <script async="async" data-cfasync="false" src="https://prodtrousers.com/6e4b65616bcb6effdc2cfe5a9b2069da/invoke.js"></script>
-            <div id="container-6e4b65616bcb6effdc2cfe5a9b2069da"></div>
+            <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+            <div id="container-..."></div>
         </div>
         -->
-        
-
 
         <!-- ===== ORACIÓN COMPLETA ===== -->
         <div class="oracion-container">
@@ -421,11 +502,11 @@
                 <span>Si has tocado fondo y necesitas una segunda oportunidad, Jesús te espera con los brazos abiertos</span>
             </div>
 
-            <!-- ===== CÓDIGO PUBLICITARIO (comentado hasta que actives) ===== -->
+            <!-- ===== CÓDIGO PUBLICITARIO (comentado) ===== -->
             <!-- 
             <div style="margin: 20px 0;">
-                <script async="async" data-cfasync="false" src="https://prodtrousers.com/6e4b65616bcb6effdc2cfe5a9b2069da/invoke.js"></script>
-                <div id="container-6e4b65616bcb6effdc2cfe5a9b2069da"></div>
+                <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+                <div id="container-..."></div>
             </div>
             -->
 
@@ -511,12 +592,10 @@
         <!-- [CÓDIGO PUBLICITARIO 2 - descomenta cuando quieras activar] -->
         <!-- 
         <div class="ad-footer">
-            <script async="async" data-cfasync="false" src="https://prodtrousers.com/6e4b65616bcb6effdc2cfe5a9b2069da/invoke.js"></script>
-            <div id="container-6e4b65616bcb6effdc2cfe5a9b2069da"></div>
+            <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+            <div id="container-..."></div>
         </div>
         -->
-       
-
 
     </div>
 
@@ -599,6 +678,101 @@
                 relatedGrid.innerHTML = html;
             }
         })();
+    </script>
+
+    <!-- ========================================================= -->
+    <!-- PLYR Y CONTROLES                                           -->
+    <!-- ========================================================= -->
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+    <script>
+        // ===== 1. INICIALIZAR PLYR =====
+        const player = new Plyr('#player', {
+            controls: [
+                'play-large',
+                'play',
+                'progress',
+                'current-time',
+                'mute',
+                'volume',
+                'fullscreen'
+            ],
+            settings: ['quality'],
+            invertTime: false,
+            autoplay: false,
+            muted: false,
+            disableContextMenu: true,
+            hideControls: false,      // Controles siempre visibles
+            clickToPlay: true,
+            resetOnEnd: true,
+            fullscreen: {
+                enabled: true,
+                fallback: true,
+                iosNative: true
+            }
+        });
+
+        // ===== 2. BOTÓN SALIR DE FULLSCREEN =====
+        const container = document.getElementById('videoContainer');
+        const btnSalir = document.getElementById('btnSalirFullscreen');
+
+        btnSalir.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (player.fullscreen.enabled) {
+                player.fullscreen.exit();
+            } else {
+                if (document.exitFullscreen) document.exitFullscreen();
+                else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+                else if (document.msExitFullscreen) document.msExitFullscreen();
+            }
+        });
+
+        // ===== 3. GESTIONAR FULLSCREEN =====
+        function handleFullscreenChange() {
+            const isFullscreen = !!(document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement);
+            if (isFullscreen) {
+                container.classList.add('fullscreen');
+            } else {
+                container.classList.remove('fullscreen');
+            }
+        }
+
+        document.addEventListener('fullscreenchange', handleFullscreenChange);
+        document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+        document.addEventListener('msfullscreenchange', handleFullscreenChange);
+
+        // ===== 4. BOTONES DE ADELANTAR/RETROCEDER 10s =====
+        document.getElementById('btnRewind').addEventListener('click', function() {
+            const currentTime = player.currentTime;
+            player.currentTime = Math.max(0, currentTime - 10);
+        });
+
+        document.getElementById('btnForward').addEventListener('click', function() {
+            const currentTime = player.currentTime;
+            const duration = player.duration;
+            player.currentTime = Math.min(duration, currentTime + 10);
+        });
+
+        // ===== 5. CLICK EN EL CONTENEDOR PARA FULLSCREEN (opcional) =====
+        container.addEventListener('click', function(e) {
+            // Si el clic no fue en un botón ni en los controles de Plyr
+            if (!e.target.closest('button') && !e.target.closest('.plyr__controls')) {
+                // Si el video está reproduciendo, entrar en fullscreen si no lo está
+                if (player.playing) {
+                    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+                        if (player.fullscreen.enabled) player.fullscreen.enter();
+                        else {
+                            const videoEl = document.getElementById('player');
+                            if (videoEl.requestFullscreen) videoEl.requestFullscreen();
+                            else if (videoEl.webkitRequestFullscreen) videoEl.webkitRequestFullscreen();
+                            else if (videoEl.msRequestFullscreen) videoEl.msRequestFullscreen();
+                        }
+                    }
+                } else {
+                    // Si está pausado, reproducir
+                    player.play();
+                }
+            }
+        });
     </script>
 
 </body>
