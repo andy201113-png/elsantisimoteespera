@@ -102,54 +102,7 @@ const misOraciones = [
         img: "https://i.postimg.cc/FzS5bwV1/maxresdefault-(13).webp"
     }
     ,
-    { 
-        id: 6, 
-        titulo: "Oración de protección", 
-        url: "oracion6.html", 
-        img: "https://via.placeholder.com/400x200/e8ddd0/2c2c2c?text=Protección" 
-    }
-    ,
-    { 
-        id: 6, 
-        titulo: "Oración de protección", 
-        url: "oracion6.html", 
-        img: "https://via.placeholder.com/400x200/e8ddd0/2c2c2c?text=Protección" 
-    }
-    ,
-    { 
-        id: 6, 
-        titulo: "Oración de protección", 
-        url: "oracion6.html", 
-        img: "https://via.placeholder.com/400x200/e8ddd0/2c2c2c?text=Protección" 
-    }
-    ,
-    { 
-        id: 6, 
-        titulo: "Oración de protección", 
-        url: "oracion6.html", 
-        img: "https://via.placeholder.com/400x200/e8ddd0/2c2c2c?text=Protección" 
-    }
-    ,
-    { 
-        id: 6, 
-        titulo: "Oración de protección", 
-        url: "oracion6.html", 
-        img: "https://via.placeholder.com/400x200/e8ddd0/2c2c2c?text=Protección" 
-    }
-    ,
-    { 
-        id: 6, 
-        titulo: "Oración de protección", 
-        url: "oracion6.html", 
-        img: "https://via.placeholder.com/400x200/e8ddd0/2c2c2c?text=Protección" 
-    }
-    ,
-    { 
-        id: 6, 
-        titulo: "Oración de protección", 
-        url: "oracion6.html", 
-        img: "https://via.placeholder.com/400x200/e8ddd0/2c2c2c?text=Protección" 
-    }
+    
     
 
     // =========================================================

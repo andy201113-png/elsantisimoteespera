@@ -101,7 +101,7 @@
             background: linear-gradient(135deg, #1e2a1e, #2a2a1e);
             border-radius: 24px;
             padding: 2rem 1.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             color: #f0ece6;
             text-align: center;
             border: 1px solid rgba(201, 169, 110, 0.15);
@@ -147,6 +147,115 @@
         }
 
         .daily-prayer .daily-link:hover {
+            background: rgba(201, 169, 110, 0.25);
+        }
+
+        /* ===== BOTÓN ORACIÓN ALEATORIA ===== */
+        .random-btn-wrapper {
+            text-align: center;
+            margin: 0 0 1.8rem;
+        }
+
+        .random-btn-wrapper a {
+            display: inline-block;
+            background: rgba(201, 169, 110, 0.08);
+            border: 1px solid rgba(201, 169, 110, 0.15);
+            color: #c9a05e;
+            padding: 0.7rem 2.2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Open Sans', sans-serif;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .random-btn-wrapper a:hover {
+            background: rgba(201, 169, 110, 0.18);
+            border-color: rgba(201, 169, 110, 0.3);
+            transform: scale(1.02);
+        }
+
+        /* ===== MODAL ===== */
+        #randomModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(6px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        #randomModal .modal-content {
+            background: #1e1e1e;
+            border-radius: 24px;
+            max-width: 600px;
+            width: 100%;
+            padding: 2rem;
+            border: 1px solid rgba(201, 169, 110, 0.15);
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.95) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        #randomModal .modal-close {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            background: transparent;
+            border: none;
+            color: #a89888;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.2s;
+            line-height: 1;
+        }
+
+        #randomModal .modal-close:hover {
+            color: #f0ece6;
+        }
+
+        #randomModal .modal-title {
+            font-family: 'Lora', serif;
+            color: #f0ece6;
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        #randomModal .modal-excerpt {
+            color: #b0a89e;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        #randomModal .modal-link {
+            display: inline-block;
+            background: rgba(201, 169, 110, 0.15);
+            color: #c9a05e;
+            padding: 0.6rem 2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid rgba(201, 169, 110, 0.2);
+            transition: background 0.2s;
+        }
+
+        #randomModal .modal-link:hover {
             background: rgba(201, 169, 110, 0.25);
         }
 
@@ -311,6 +420,9 @@
             .daily-prayer h2 {
                 font-size: 1.8rem;
             }
+            #randomModal .modal-title {
+                font-size: 1.8rem;
+            }
         }
 
         @media (min-width: 1024px) {
@@ -341,6 +453,12 @@
             .scroll-indicator .arrow {
                 font-size: 1.8rem;
             }
+            #randomModal .modal-content {
+                padding: 1.5rem;
+            }
+            #randomModal .modal-title {
+                font-size: 1.3rem;
+            }
         }
 
         /* ===== PIE DE PÁGINA ===== */
@@ -359,7 +477,7 @@
     <header class="site-header">
         <h1>El Santísimo <span>Te Espera</span></h1>
         <p class="subtitle">Oraciones para el alma · Actualizadas con frecuencia</p>
-        <div class="update-badge">✨ Nuevas oraciones cada semana · Mantente en paz</div>
+        <div class="update-badge">✨ Nuevas oraciones cada semana · Confía en el Señor</div>
     </header>
 
     <main>
@@ -380,6 +498,13 @@
             <h2 id="dailyTitle">Cargando...</h2>
             <p class="daily-excerpt" id="dailyExcerpt"></p>
             <a href="#" class="daily-link" id="dailyLink">Leer oración completa →</a>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- BOTÓN ORACIÓN ALEATORIA                                   -->
+        <!-- ========================================================= -->
+        <div class="random-btn-wrapper">
+            <a href="#" id="randomPrayerBtn">🙏 Oración aleatoria</a>
         </div>
 
         <!-- ========================================================= -->
@@ -686,7 +811,19 @@
     </footer>
 
     <!-- ========================================================= -->
-    <!-- JAVASCRIPT (PAGINACIÓN + ORACIÓN DEL DÍA)                -->
+    <!-- MODAL PARA ORACIÓN ALEATORIA                              -->
+    <!-- ========================================================= -->
+    <div id="randomModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <h2 class="modal-title" id="modalTitle">Cargando...</h2>
+            <p class="modal-excerpt" id="modalExcerpt"></p>
+            <a href="#" class="modal-link" id="modalLink">Leer oración completa →</a>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- JAVASCRIPT                                                 -->
     <!-- ========================================================= -->
     <script>
         // =============================================================
@@ -764,6 +901,64 @@
 
             loadBtn.addEventListener('click', loadMore);
             updateCards();
+        })();
+
+        // =============================================================
+        // 3. ORACIÓN ALEATORIA (MODAL)
+        // =============================================================
+        (function randomPrayerModal() {
+            const prayersData = [
+                { title: "Jesús, Quiero Empezar de Nuevo Hoy", excerpt: "Si has tocado fondo y necesitas una segunda oportunidad, Jesús te espera con los brazos abiertos.", link: "oracion1.html" },
+                { title: "SÁNAME, SEÑOR: Oración de Sanación", excerpt: "Acércate con tu fragilidad y permite que Jesús te abrace en medio de la oscuridad.", link: "oracion2.html" },
+                { title: "Jesús, quítame esta ansiedad", excerpt: "Silencia tu corazón y colócate en la presencia del Santísimo Sacramento para encontrar paz.", link: "oracion3.html" },
+                { title: "Jesús, Sana lo que Duele por Dentro", excerpt: "Silencia tu corazón y colócate en la presencia del Santísimo Sacramento para recibir sanación interior.", link: "oracion4.html" },
+                { title: "Señor, ya no tengo fuerzas para seguir", excerpt: "Acércate sin máscaras y descansa en la presencia del Santísimo Sacramento.", link: "oracion5.html" },
+                { title: "Santo, Santo, Santo eres Señor", excerpt: "Contempla, adora y descansa en la presencia del Santísimo Sacramento.", link: "oracion6.html" },
+                { title: "Jesús, Tú eres mi medicina", excerpt: "Pon tu sufrimiento y tu enfermedad en las manos de Jesús, el Médico divino.", link: "oracion7.html" },
+                { title: "Quédate con Jesús… todo va a estar bien", excerpt: "Silencia tu corazón, respira y déjate mirar por Jesús en el Santísimo Sacramento.", link: "oracion8.html" },
+                { title: "Déjate abrazar por Jesús", excerpt: "Silencia tu corazón, respira y déjate mirar por Jesús en el Santísimo Sacramento.", link: "oracion9.html" },
+                { title: "Jesús Sacramentado, no me dejes caer", excerpt: "Cuando te sientas frágil, tentado o al borde del abismo, corre a Jesús Sacramentado.", link: "oracion10.html" },
+                { title: "Jesús me está sanando", excerpt: "Si el pecado, la culpa o el cansancio espiritual han pesado sobre tu corazón, Jesús te espera.", link: "oracion11.html" },
+                { title: "Jesús, hoy te devuelvo el control de mi vida", excerpt: "Si el cansancio de querer controlarlo todo te agobia, Jesús te espera en el Santísimo Sacramento.", link: "oracion12.html" },
+                { title: "¿Sientes que Dios no te responde?", excerpt: "Cuando el silencio de Dios parece durar demasiado, Jesús está obrando en lo profundo.", link: "oracion13.html" },
+                { title: "Cuando Dios guarda silencio", excerpt: "Cuando el cielo parece de bronce y la oración se vuelve difícil, Jesús te sostiene.", link: "oracion14.html" },
+                { title: "Jesús, te pido por mis hijos", excerpt: "Pon a tus hijos en las manos de Jesús, presente en el Santísimo Sacramento.", link: "oracion15.html" }
+            ];
+
+            const btn = document.getElementById('randomPrayerBtn');
+            const modal = document.getElementById('randomModal');
+            const closeBtn = document.getElementById('closeModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalExcerpt = document.getElementById('modalExcerpt');
+            const modalLink = document.getElementById('modalLink');
+
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const randomIndex = Math.floor(Math.random() * prayersData.length);
+                const prayer = prayersData[randomIndex];
+                modalTitle.textContent = prayer.title;
+                modalExcerpt.textContent = prayer.excerpt;
+                modalLink.href = prayer.link;
+                modal.style.display = 'flex';
+            });
+
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+
+            // Cerrar al hacer clic fuera del contenido
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+
+            // Cerrar con tecla ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.style.display === 'flex') {
+                    modal.style.display = 'none';
+                }
+            });
         })();
     </script>
 
