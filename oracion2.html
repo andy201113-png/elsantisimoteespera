@@ -42,9 +42,14 @@
             padding-top: 1rem;
             min-height: 100vh;
         }
-        .container {
+
+        /* ===== CONTENEDOR PRINCIPAL CON landmark ===== */
+        main {
             max-width: 820px;
             margin: 0 auto;
+        }
+
+        .container {
             background: #1e1e1e;
             border-radius: 24px;
             padding: 2rem 1.5rem 2.5rem;
@@ -152,7 +157,6 @@
             visibility: visible !important;
         }
 
-        /* Fullscreen */
         .video-container.fullscreen {
             position: fixed;
             top: 0;
@@ -220,7 +224,7 @@
         .ad-comment {
             text-align: center;
             font-size: 0.75rem;
-            color: #b0a8a0; /* 🔥 Cambio: más claro */
+            color: #b0a8a0;
             margin: 0.5rem 0 1.8rem;
             border: 1px dashed #333;
             padding: 0.6rem;
@@ -251,7 +255,7 @@
         .oracion-container .oracion-intro span {
             display: block;
             font-size: 0.9rem;
-            color: #d0c8be; /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             margin-top: 4px;
         }
         .oracion-container .oracion-texto {
@@ -273,7 +277,8 @@
             color: #f0ece6;
             font-weight: bold;
         }
-        .oracion-container .oracion-texto h3 {
+        /* 🔥 Cambio: h3 → h2 para jerarquía correcta */
+        .oracion-container .oracion-texto h2 {
             color: #c9a05e;
             font-size: 1.3rem;
             font-weight: normal;
@@ -298,7 +303,7 @@
         .oracion-container .silencio {
             text-align: center;
             font-style: italic;
-            color: #d0c8be; /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             font-size: 0.95rem;
             margin: 18px 0;
             padding: 8px 16px;
@@ -329,7 +334,8 @@
             border: 1px solid rgba(201, 169, 110, 0.08);
             font-family: Georgia, serif;
         }
-        .seccion-extra h3 {
+        /* 🔥 Cambio: h3 → h2 */
+        .seccion-extra h2 {
             color: #c9a05e;
             font-size: 1.4rem;
             font-weight: normal;
@@ -417,7 +423,7 @@
         }
         .related-card .info p {
             font-size: 0.8rem;
-            color: #d0c8be; /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             margin: 0;
         }
         .related-card .info .mini-btn {
@@ -434,7 +440,7 @@
             margin-top: 2.5rem;
             text-align: center;
             font-size: 0.75rem;
-            color: #b0a8a0; /* 🔥 Cambio: más claro */
+            color: #b0a8a0;
             border-top: 1px solid #222;
             padding-top: 1.5rem;
         }
@@ -456,10 +462,10 @@
             .sticky-nav .nav-left a span, .sticky-nav .nav-right a span { display: none; }
             .oracion-container { padding: 14px 16px; margin: 12px 0; }
             .oracion-container .oracion-texto { font-size: 1.15rem; line-height: 2; }
-            .oracion-container .oracion-texto h3 { font-size: 1.1rem; }
+            .oracion-container .oracion-texto h2 { font-size: 1.1rem; }
             .oracion-container .oracion-texto blockquote p { font-size: 1rem; }
             .seccion-extra { padding: 14px 16px; }
-            .seccion-extra h3 { font-size: 1.2rem; }
+            .seccion-extra h2 { font-size: 1.2rem; }
             .seccion-extra p { font-size: 1rem; }
             .seccion-extra blockquote p { font-size: 1rem; }
             .video-controls-extra button { font-size: 0.9rem; padding: 0.5rem 1.2rem; }
@@ -479,159 +485,165 @@
         </div>
     </nav>
 
-    <div class="container">
+    <!-- ===== CONTENIDO PRINCIPAL CON <main> ===== -->
+    <main>
+        <div class="container">
 
-        <!-- ===== VOLVER AL INICIO ===== -->
-        <a href="index.html" class="back-link">← Volver al inicio</a>
+            <!-- ===== VOLVER AL INICIO ===== -->
+            <a href="index.html" class="back-link">← Volver al inicio</a>
 
-        <!-- ===== TÍTULO ===== -->
-        <h1 class="oracion-title" id="oracionTitle">SÁNAME, SEÑOR: Oración de Sanación ante el Santísimo por los Enfermos</h1>
+            <!-- ===== TÍTULO ===== -->
+            <h1 class="oracion-title" id="oracionTitle">SÁNAME, SEÑOR: Oración de Sanación ante el Santísimo por los Enfermos</h1>
 
-        <!-- ===== VIDEO CON PLYR ===== -->
-        <div class="video-container" id="videoContainer">
-            <video id="player" playsinline controls>
-                <source src="https://cdn.videy.co/O4gpD49A1.mp4" type="video/mp4" />
-                Tu navegador no soporta la reproducción de video.
-            </video>
-            <button class="btn-salir-fullscreen" id="btnSalirFullscreen">✕</button>
-        </div>
-
-        <!-- ===== BOTONES DE ADELANTAR/RETROCEDER (10s) ===== -->
-        <div class="video-controls-extra">
-            <button id="btnRewind">⏪ -10s</button>
-            <button id="btnForward">+10s ⏩</button>
-        </div>
-
-        <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
-        <!-- 
-        <div class="ad-comment">
-            <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
-            <div id="container-..."></div>
-        </div>
-        -->
-
-        <!-- ===== ORACIÓN COMPLETA ===== -->
-        <div class="oracion-container">
-
-            <div class="oracion-intro">
-                📖 Oración completa para leer y meditar
-                <span>Acércate con tu fragilidad y permite que Jesús te abrace en medio de la oscuridad</span>
+            <!-- ===== VIDEO CON PLYR ===== -->
+            <div class="video-container" id="videoContainer">
+                <video id="player" playsinline controls>
+                    <source src="https://cdn.videy.co/O4gpD49A1.mp4" type="video/mp4" />
+                    <!-- 🔥 Subtítulos (track) para accesibilidad -->
+                    <track kind="captions" srclang="es" label="Español" default />
+                    Tu navegador no soporta la reproducción de video.
+                </video>
+                <button class="btn-salir-fullscreen" id="btnSalirFullscreen">✕</button>
             </div>
 
-            <!-- ===== CÓDIGO PUBLICITARIO (comentado) ===== -->
+            <!-- ===== BOTONES DE ADELANTAR/RETROCEDER (10s) ===== -->
+            <div class="video-controls-extra">
+                <button id="btnRewind">⏪ -10s</button>
+                <button id="btnForward">+10s ⏩</button>
+            </div>
+
+            <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
             <!-- 
-            <div style="margin: 20px 0;">
+            <div class="ad-comment">
                 <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
                 <div id="container-..."></div>
             </div>
             -->
 
-            <div class="oracion-texto">
+            <!-- ===== ORACIÓN COMPLETA ===== -->
+            <div class="oracion-container">
 
-                <p><em>Señor Jesús... aquí estoy.</em></p>
+                <div class="oracion-intro">
+                    📖 Oración completa para leer y meditar
+                    <span>Acércate con tu fragilidad y permite que Jesús te abrace en medio de la oscuridad</span>
+                </div>
 
-                <p>Hoy no vengo con prisa, ni vengo a pedirte grandes cosas para el mundo exterior. Hoy me presento ante Ti con mi fragilidad a cuestas. Me pongo frente a tu Presencia Real, aquí en el altar. Sé que estás ahí, vivo, mirándome con un amor infinito desde tu Sagrario.</p>
+                <!-- ===== CÓDIGO PUBLICITARIO (comentado) ===== -->
+                <!-- 
+                <div style="margin: 20px 0;">
+                    <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+                    <div id="container-..."></div>
+                </div>
+                -->
 
-                <p>Me acerco con el cuerpo debilitado, tal vez desde el silencio de una cama, o cargando con un malestar que hoy me pesa en el alma. Te adoro, Jesús, en tu humilde presencia. Te alabo porque, aun en mi pequeñez y en mi quebranto, Tú sigues siendo mi Dios, mi refugio y mi paz.</p>
+                <div class="oracion-texto">
 
-                <p>Aquí, ante Ti, dejo caer mis defensas. No tengo que fingir que soy fuerte. Tú me conoces, sabes cómo me siento y cuánto me cuesta sostener la mirada en estos momentos.</p>
+                    <p><em>Señor Jesús... aquí estoy.</em></p>
 
-                <div class="silencio">🕯️ Silencio para conectar con el silencio del Sagrario</div>
+                    <p>Hoy no vengo con prisa, ni vengo a pedirte grandes cosas para el mundo exterior. Hoy me presento ante Ti con mi fragilidad a cuestas. Me pongo frente a tu Presencia Real, aquí en el altar. Sé que estás ahí, vivo, mirándome con un amor infinito desde tu Sagrario.</p>
 
-                <p>Jesús, tengo que ser sincero contigo. La enfermedad ha tocado mi vida y, a veces, la incertidumbre y el miedo intentan apagar mi luz. Hay días en los que el cuerpo duele, la mente se llena de preguntas y el desánimo llama a mi puerta. En esas horas difíciles, siento que mi fe tiembla.</p>
+                    <p>Me acerco con el cuerpo debilitado, tal vez desde el silencio de una cama, o cargando con un malestar que hoy me pesa en el alma. Te adoro, Jesús, en tu humilde presencia. Te alabo porque, aun en mi pequeñez y en mi quebranto, Tú sigues siendo mi Dios, mi refugio y mi paz.</p>
 
-                <p>Por eso, hoy te suplico con el corazón en la mano: <strong>Señor, aumenta mi fe.</strong></p>
+                    <p>Aquí, ante Ti, dejo caer mis defensas. No tengo que fingir que soy fuerte. Tú me conoces, sabes cómo me siento y cuánto me cuesta sostener la mirada en estos momentos.</p>
 
-                <p>No permitas que este quebranto físico me haga dudar de tu amor. Cuando el panorama se ponga gris y no entienda el porqué de esta prueba, susúrrame al oído que sigues estando al timón de mi vida. Dame una fe inquebrantable, una fe que no dependa de cómo me siento físicamente, sino de la certeza absoluta de que nunca me dejas solo.</p>
+                    <div class="silencio">🕯️ Silencio para conectar con el silencio del Sagrario</div>
 
-                <div class="silencio">🕯️ Silencio para interiorizar la petición</div>
+                    <p>Jesús, tengo que ser sincero contigo. La enfermedad ha tocado mi vida y, a veces, la incertidumbre y el miedo intentan apagar mi luz. Hay días en los que el cuerpo duele, la mente se llena de preguntas y el desánimo llama a mi puerta. En esas horas difíciles, siento que mi fe tiembla.</p>
 
-                <p>Tú eres el Dios de los milagros, Jesús. Eres el mismo que caminaba por Galilea devolviendo la vista a los ciegos y la fuerza a los paralíticos. Creo firmemente en tu poder sanador. Por eso, con la confianza de un hijo que recurre a su padre, te pido: si entra en tus planes, si crees que es lo mejor para mí, <strong>devuélveme la salud.</strong> Alivia este sufrimiento, restaura mis fuerzas y sana mi cuerpo.</p>
+                    <p>Por eso, hoy te suplico con el corazón en la mano: <strong>Señor, aumenta mi fe.</strong></p>
 
-                <p>Tú sabes cuánto deseo volver a estar bien, recuperar la energía y dejar atrás esta limitación.</p>
+                    <p>No permitas que este quebranto físico me haga dudar de tu amor. Cuando el panorama se ponga gris y no entienda el porqué de esta prueba, susúrrame al oído que sigues estando al timón de mi vida. Dame una fe inquebrantable, una fe que no dependa de cómo me siento físicamente, sino de la certeza absoluta de que nunca me dejas solo.</p>
 
-                <p>Pero, Señor... si tu plan para mí en este momento es transitar por este sendero; si tu voluntad es que yo viva esta prueba por un tiempo más, te pido algo aún más grande: <strong>dame la gracia de aceptar lo que venga con paz.</strong> Que mi voluntad se rinda con dulzura a la tuya. No quiero rebelarme contra tu amor. Ayúdame a confiar en que, incluso en medio de este malestar, Tú estás obrando un bien mayor en mi alma que ahora mismo no alcanzo a comprender.</p>
+                    <div class="silencio">🕯️ Silencio para interiorizar la petición</div>
 
-                <div class="silencio">🕯️ Silencio para entregar el control a Dios</div>
+                    <p>Tú eres el Dios de los milagros, Jesús. Eres el mismo que caminaba por Galilea devolviendo la vista a los ciegos y la fuerza a los paralíticos. Creo firmemente en tu poder sanador. Por eso, con la confianza de un hijo que recurre a su padre, te pido: si entra en tus planes, si crees que es lo mejor para mí, <strong>devuélveme la salud.</strong> Alivia este sufrimiento, restaura mis fuerzas y sana mi cuerpo.</p>
 
-                <p>En este momento de silencio, me viene a la mente el testimonio de la joven <strong>Beata Chiara Luce Badano</strong>. Ella, siendo apenas una adolescente, enfrentó una enfermedad muy grave y dolorosa. Perdió la movilidad de sus piernas, pero nunca perdió la sonrisa ni la esperanza. Cuando el sufrimiento arreciaba, ella te miraba a la cruz y te decía con total abandono:</p>
+                    <p>Tú sabes cuánto deseo volver a estar bien, recuperar la energía y dejar atrás esta limitación.</p>
 
+                    <p>Pero, Señor... si tu plan para mí en este momento es transitar por este sendero; si tu voluntad es que yo viva esta prueba por un tiempo más, te pido algo aún más grande: <strong>dame la gracia de aceptar lo que venga con paz.</strong> Que mi voluntad se rinda con dulzura a la tuya. No quiero rebelarme contra tu amor. Ayúdame a confiar en que, incluso en medio de este malestar, Tú estás obrando un bien mayor en mi alma que ahora mismo no alcanzo a comprender.</p>
+
+                    <div class="silencio">🕯️ Silencio para entregar el control a Dios</div>
+
+                    <p>En este momento de silencio, me viene a la mente el testimonio de la joven <strong>Beata Chiara Luce Badano</strong>. Ella, siendo apenas una adolescente, enfrentó una enfermedad muy grave y dolorosa. Perdió la movilidad de sus piernas, pero nunca perdió la sonrisa ni la esperanza. Cuando el sufrimiento arreciaba, ella te miraba a la cruz y te decía con total abandono:</p>
+
+                    <blockquote>
+                        <p>“Si Tú lo quieres, Jesús, yo también lo quiero”.</p>
+                    </blockquote>
+
+                    <p>Señor, qué palabras tan sencillas, pero qué abismo de fe tan gigante encierran. Hoy quiero hacer mía esa oración. <strong>Ayúdame a pronunciarla no con resignación amarga, sino con amor confiado.</strong> Si Tú permites esta debilidad, yo la acepto. Si Tú deseas que pase por esta purificación, yo también lo quiero, porque sé que me llevas de la mano y que mi sufrimiento unido al tuyo en la Cruz tiene un valor de amor inmenso.</p>
+
+                    <div class="silencio">🕯️ Silencio para repetir la frase en el corazón</div>
+
+                    <p><strong>Refúgiame en tu corazón, bien cerquita de Ti.</strong> Que al mirarte aquí en el altar, en este pan consagrado, recuerde que te entregaste por mí por completo, y que hoy te sigues quedando aquí para ser mi alimento y mi fortaleza.</p>
+
+                    <p>Jesús, en las noches más largas, cuando el sueño se aleja y el silencio de la habitación se vuelve pesado, <strong>abrázame en esta oscuridad.</strong> Que pueda sentir la calidez de tu presencia a mi lado. Recuérdame que no estoy solo en esta cama de dolor; Tú estás aquí, sufriendo conmigo, sosteniendo mi cabeza y dándome el aliento que me falta.</p>
+
+                    <p>Hazme comprender que mi valor no depende de lo que puedo hacer o producir, sino de lo mucho que me amas. En mi fragilidad actual, soy un reflejo de tu propia entrega. Que cada punzada de malestar sea una oportunidad para decirte: <em>“Te amo, confío en Ti, me ofrezco a Ti”</em>.</p>
+
+                    <p><strong>Señor Jesús, pongo en tus manos mis diagnósticos, mis tratamientos, mis temores y mis esperanzas.</strong> Recibo de Ti la paz que el mundo no puede dar. Me abandono a tu santa voluntad, sabiendo que me amas con amor eterno.</p>
+
+                    <p><strong>Quédate conmigo hoy y siempre.</strong></p>
+
+                    <p style="text-align: center; font-size: 1.4rem; margin-top: 24px; color: #c9a05e;"><strong>Amén.</strong></p>
+
+                </div>
+
+                <div class="oracion-footer">
+                    <span>†</span> Jesús, abrázame en esta oscuridad. Que el Santísimo Sacramento sea tu refugio y tu paz <span>†</span>
+                </div>
+
+            </div>
+
+            <!-- ===== SECCIONES EXTRAS ===== -->
+            <hr>
+
+            <div class="seccion-extra">
+                <!-- 🔥 Cambiado de h3 a h2 -->
+                <h2>🕊️ Reflexión sobre el sufrimiento y la confianza</h2>
+                <p>La enfermedad y el dolor son experiencias que nos confrontan con nuestra fragilidad. En esos momentos, la fe se pone a prueba y surgen preguntas sin respuesta. Sin embargo, <strong>la fe no es la ausencia de dudas, sino la decisión de confiar a pesar de ellas.</strong></p>
+                <p>El testimonio de la <strong>Beata Chiara Luce Badano</strong> es un faro de luz para quienes atraviesan la oscuridad de la enfermedad. Con solo 18 años, enfrentó un osteosarcoma con una sonrisa y una entrega total a la voluntad de Dios. Su frase <em>“Si Tú lo quieres, Jesús, yo también lo quiero”</em> no es resignación, es <strong>amor confiado</strong>. Es la certeza de que Dios nunca permite algo que no sea para nuestro bien, aunque ahora no lo comprendamos.</p>
                 <blockquote>
-                    <p>“Si Tú lo quieres, Jesús, yo también lo quiero”.</p>
+                    <p>“Jesús, en mi debilidad, confío en Ti. Aunque no entienda el camino, sé que Tú caminas a mi lado. Abrázame en esta oscuridad y dame la paz que solo Tú puedes dar.”</p>
                 </blockquote>
-
-                <p>Señor, qué palabras tan sencillas, pero qué abismo de fe tan gigante encierran. Hoy quiero hacer mía esa oración. <strong>Ayúdame a pronunciarla no con resignación amarga, sino con amor confiado.</strong> Si Tú permites esta debilidad, yo la acepto. Si Tú deseas que pase por esta purificación, yo también lo quiero, porque sé que me llevas de la mano y que mi sufrimiento unido al tuyo en la Cruz tiene un valor de amor inmenso.</p>
-
-                <div class="silencio">🕯️ Silencio para repetir la frase en el corazón</div>
-
-                <p><strong>Refúgiame en tu corazón, bien cerquita de Ti.</strong> Que al mirarte aquí en el altar, en este pan consagrado, recuerde que te entregaste por mí por completo, y que hoy te sigues quedando aquí para ser mi alimento y mi fortaleza.</p>
-
-                <p>Jesús, en las noches más largas, cuando el sueño se aleja y el silencio de la habitación se vuelve pesado, <strong>abrázame en esta oscuridad.</strong> Que pueda sentir la calidez de tu presencia a mi lado. Recuérdame que no estoy solo en esta cama de dolor; Tú estás aquí, sufriendo conmigo, sosteniendo mi cabeza y dándome el aliento que me falta.</p>
-
-                <p>Hazme comprender que mi valor no depende de lo que puedo hacer o producir, sino de lo mucho que me amas. En mi fragilidad actual, soy un reflejo de tu propia entrega. Que cada punzada de malestar sea una oportunidad para decirte: <em>“Te amo, confío en Ti, me ofrezco a Ti”</em>.</p>
-
-                <p><strong>Señor Jesús, pongo en tus manos mis diagnósticos, mis tratamientos, mis temores y mis esperanzas.</strong> Recibo de Ti la paz que el mundo no puede dar. Me abandono a tu santa voluntad, sabiendo que me amas con amor eterno.</p>
-
-                <p><strong>Quédate conmigo hoy y siempre.</strong></p>
-
-                <p style="text-align: center; font-size: 1.4rem; margin-top: 24px; color: #c9a05e;"><strong>Amén.</strong></p>
-
             </div>
 
-            <div class="oracion-footer">
-                <span>†</span> Jesús, abrázame en esta oscuridad. Que el Santísimo Sacramento sea tu refugio y tu paz <span>†</span>
+            <hr>
+
+            <div class="seccion-extra">
+                <h2>📖 La promesa de Dios en medio del sufrimiento</h2>
+                <p>La Sagrada Escritura nos asegura que <strong>Dios está cerca de los que sufren</strong>. El Salmo 34,19 nos dice: <em>“El Señor está cerca de los que tienen el corazón quebrantado; salva a los de espíritu abatido”</em>. No importa cuán oscura sea la noche, <strong>Dios no se aleja</strong>. Está ahí, en el silencio, sosteniéndonos.</p>
+                <p>San Pablo nos recuerda en Romanos 8,28: <em>“Sabemos que todo contribuye para bien de los que aman a Dios”</em>. Esta promesa no significa que todo será fácil, sino que <strong>Dios puede sacar un bien mayor de cualquier situación</strong>, incluso de la enfermedad y el dolor. Confiar en esto es un acto de fe profunda.</p>
+                <p>Cuando el sufrimiento aprieta, podemos aferrarnos a la certeza de que <strong>Jesús camina con nosotros</strong>. Él no prometió una vida sin cruces, pero sí prometió estar con nosotros en cada paso del camino.</p>
             </div>
 
-        </div>
+            <hr>
 
-        <!-- ===== SECCIONES EXTRAS ===== -->
-        <hr>
-
-        <div class="seccion-extra">
-            <h3>🕊️ Reflexión sobre el sufrimiento y la confianza</h3>
-            <p>La enfermedad y el dolor son experiencias que nos confrontan con nuestra fragilidad. En esos momentos, la fe se pone a prueba y surgen preguntas sin respuesta. Sin embargo, <strong>la fe no es la ausencia de dudas, sino la decisión de confiar a pesar de ellas.</strong></p>
-            <p>El testimonio de la <strong>Beata Chiara Luce Badano</strong> es un faro de luz para quienes atraviesan la oscuridad de la enfermedad. Con solo 18 años, enfrentó un osteosarcoma con una sonrisa y una entrega total a la voluntad de Dios. Su frase <em>“Si Tú lo quieres, Jesús, yo también lo quiero”</em> no es resignación, es <strong>amor confiado</strong>. Es la certeza de que Dios nunca permite algo que no sea para nuestro bien, aunque ahora no lo comprendamos.</p>
-            <blockquote>
-                <p>“Jesús, en mi debilidad, confío en Ti. Aunque no entienda el camino, sé que Tú caminas a mi lado. Abrázame en esta oscuridad y dame la paz que solo Tú puedes dar.”</p>
-            </blockquote>
-        </div>
-
-        <hr>
-
-        <div class="seccion-extra">
-            <h3>📖 La promesa de Dios en medio del sufrimiento</h3>
-            <p>La Sagrada Escritura nos asegura que <strong>Dios está cerca de los que sufren</strong>. El Salmo 34,19 nos dice: <em>“El Señor está cerca de los que tienen el corazón quebrantado; salva a los de espíritu abatido”</em>. No importa cuán oscura sea la noche, <strong>Dios no se aleja</strong>. Está ahí, en el silencio, sosteniéndonos.</p>
-            <p>San Pablo nos recuerda en Romanos 8,28: <em>“Sabemos que todo contribuye para bien de los que aman a Dios”</em>. Esta promesa no significa que todo será fácil, sino que <strong>Dios puede sacar un bien mayor de cualquier situación</strong>, incluso de la enfermedad y el dolor. Confiar en esto es un acto de fe profunda.</p>
-            <p>Cuando el sufrimiento aprieta, podemos aferrarnos a la certeza de que <strong>Jesús camina con nosotros</strong>. Él no prometió una vida sin cruces, pero sí prometió estar con nosotros en cada paso del camino.</p>
-        </div>
-
-        <hr>
-
-        <div class="seccion-extra" style="text-align: center;">
-            <h3>🙏 Comparte esta oración</h3>
-            <p>Si esta oración ha traído consuelo a tu corazón, compártela con alguien que también esté atravesando un momento de enfermedad o dolor. <strong>Nadie debe cargar solo con su cruz.</strong></p>
-            <p style="font-size: 1.1rem; color: #c9a05e; font-weight: bold; margin-top: 16px;">Jesús, abrázame en esta oscuridad. Que el Santísimo Sacramento sea tu refugio y tu paz. 🙏</p>
-        </div>
-
-        <hr>
-
-        <!-- ===== WIDGET "MÁS ORACIONES PARA TI" ===== -->
-        <div class="related-section">
-            <h3>✦ Más oraciones para ti ✦</h3>
-            <div class="related-grid" id="relatedGrid">
-                <!-- Generado por JavaScript -->
+            <div class="seccion-extra" style="text-align: center;">
+                <h2>🙏 Comparte esta oración</h2>
+                <p>Si esta oración ha traído consuelo a tu corazón, compártela con alguien que también esté atravesando un momento de enfermedad o dolor. <strong>Nadie debe cargar solo con su cruz.</strong></p>
+                <p style="font-size: 1.1rem; color: #c9a05e; font-weight: bold; margin-top: 16px;">Jesús, abrázame en esta oscuridad. Que el Santísimo Sacramento sea tu refugio y tu paz. 🙏</p>
             </div>
-        </div>
 
-        <!-- ===== PUBLICIDAD 2 (comentada) ===== -->
-        <!-- 
-        <div class="ad-footer">
-            <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
-            <div id="container-..."></div>
-        </div>
-        -->
+            <hr>
 
-    </div>
+            <!-- ===== WIDGET "MÁS ORACIONES PARA TI" ===== -->
+            <div class="related-section">
+                <h3>✦ Más oraciones para ti ✦</h3>
+                <div class="related-grid" id="relatedGrid">
+                    <!-- Generado por JavaScript -->
+                </div>
+            </div>
+
+            <!-- ===== PUBLICIDAD 2 (comentada) ===== -->
+            <!-- 
+            <div class="ad-footer">
+                <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+                <div id="container-..."></div>
+            </div>
+            -->
+
+        </div>
+    </main>
 
     <!-- ========================================================= -->
     <!-- CARGA EL ARCHIVO DE DATOS (EXTERNO)                        -->
