@@ -14,6 +14,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
 
     <style>
+        /* =============================================================
+                🔥 MEJORA 1: TAMAÑO BASE DE LETRA GIGANTE (20px)
+                ============================================================= */
+        html {
+            font-size: 20px;   /* Antes era 16px, ahora todo es un 25% más grande */
+        }
+
         /* ===== RESET Y BASE ===== */
         * {
             margin: 0;
@@ -45,7 +52,7 @@
         .site-header h1 {
             font-family: 'Lora', serif;
             font-weight: 600;
-            font-size: 2.2rem;
+            font-size: 2.5rem;      /* 📌 Más grande */
             color: #f0ece6;
             letter-spacing: 1px;
         }
@@ -55,7 +62,7 @@
         }
 
         .site-header .subtitle {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: #a89888;
             margin-top: 0.3rem;
             font-style: italic;
@@ -67,24 +74,26 @@
             background: rgba(201, 169, 110, 0.12);
             padding: 0.3rem 1.4rem;
             border-radius: 40px;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             color: #c9a05e;
             border: 1px solid rgba(201, 169, 110, 0.15);
         }
 
-        /* ===== INDICADOR DE SCROLL (FLECHA ANIMADA) ===== */
+        /* =============================================================
+                🔥 MEJORA 2: FLECHA Y TEXTO "BAJA CON EL DEDO"
+                ============================================================= */
         .scroll-indicator {
             text-align: center;
             margin: 1.5rem 0 1.8rem;
             color: #a89888;
-            font-size: 1.3rem;          /* 📌 Más grande */
+            font-size: 1.5rem;         /* 📌 Texto enorme */
             animation: float 2.5s ease-in-out infinite;
-            font-weight: 400;
+            font-weight: 500;
         }
 
         .scroll-indicator .arrow {
             display: block;
-            font-size: 4rem;             /* 📌 Mucho más grande */
+            font-size: 4.5rem;          /* 📌 Flecha gigante */
             line-height: 1.2;
             color: #c9a05e;
             opacity: 0.8;
@@ -111,7 +120,7 @@
 
         .daily-prayer .daily-label {
             font-family: 'Lora', serif;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             opacity: 0.7;
@@ -121,14 +130,14 @@
 
         .daily-prayer h2 {
             font-family: 'Lora', serif;
-            font-size: 1.6rem;
+            font-size: 2rem;          /* 📌 Más grande */
             font-weight: 600;
             margin-bottom: 0.5rem;
             color: #f0ece6;
         }
 
         .daily-prayer .daily-excerpt {
-            font-size: 0.95rem;
+            font-size: 1.1rem;
             opacity: 0.85;
             max-width: 500px;
             margin: 0 auto 1rem;
@@ -139,19 +148,20 @@
             display: inline-block;
             background: rgba(201, 169, 110, 0.15);
             color: #c9a05e;
-            padding: 0.6rem 2.2rem;
-            border-radius: 40px;
+            padding: 0.7rem 2.5rem;
+            border-radius: 60px;
             text-decoration: none;
             font-weight: 600;
             border: 1px solid rgba(201, 169, 110, 0.2);
             transition: background 0.2s;
+            font-size: 1.1rem;
         }
 
         .daily-prayer .daily-link:hover {
             background: rgba(201, 169, 110, 0.25);
         }
 
-        /* ===== BOTÓN ORACIÓN DEL MOMENTO (MEJORADO PARA MAYORES) ===== */
+        /* ===== BOTÓN ORACIÓN DEL MOMENTO ===== */
         .random-btn-wrapper {
             text-align: center;
             margin: 0 0 1rem;
@@ -162,13 +172,13 @@
             background: rgba(201, 169, 110, 0.08);
             border: 1px solid rgba(201, 169, 110, 0.15);
             color: #c9a05e;
-            padding: 1rem 2.8rem;        /* 📌 Más grande para tocar */
+            padding: 1.2rem 3.5rem;        /* 📌 Mucho más grande */
             border-radius: 60px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             font-family: 'Open Sans', sans-serif;
             transition: all 0.2s;
-            font-size: 1.2rem;           /* 📌 Letra más grande */
+            font-size: 1.4rem;             /* 📌 Letra enorme */
         }
 
         .random-btn-wrapper a:hover {
@@ -179,7 +189,7 @@
 
         .random-help {
             margin-top: 0.5rem;
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: #a89888;
             opacity: 0.8;
         }
@@ -226,7 +236,7 @@
             background: transparent;
             border: none;
             color: #a89888;
-            font-size: 2rem;
+            font-size: 2.5rem;
             cursor: pointer;
             transition: color 0.2s;
             line-height: 1;
@@ -239,14 +249,14 @@
         #randomModal .modal-title {
             font-family: 'Lora', serif;
             color: #f0ece6;
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             margin-bottom: 0.5rem;
             line-height: 1.3;
         }
 
         #randomModal .modal-excerpt {
             color: #b0a89e;
-            font-size: 1rem;
+            font-size: 1.1rem;
             margin-bottom: 1.5rem;
             line-height: 1.6;
         }
@@ -255,12 +265,13 @@
             display: inline-block;
             background: rgba(201, 169, 110, 0.15);
             color: #c9a05e;
-            padding: 0.6rem 2rem;
-            border-radius: 40px;
+            padding: 0.8rem 2.5rem;
+            border-radius: 60px;
             text-decoration: none;
             font-weight: 600;
             border: 1px solid rgba(201, 169, 110, 0.2);
             transition: background 0.2s;
+            font-size: 1.1rem;
         }
 
         #randomModal .modal-link:hover {
@@ -305,7 +316,7 @@
 
         .card-image {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
             background-color: #2a2a2a;
             transition: transform 0.3s ease;
@@ -321,10 +332,10 @@
             left: 12px;
             background: rgba(201, 169, 110, 0.85);
             color: #121212;
-            padding: 0.2rem 0.8rem;
+            padding: 0.3rem 1rem;
             border-radius: 40px;
-            font-size: 0.7rem;
-            font-weight: 600;
+            font-size: 0.8rem;
+            font-weight: 700;
             letter-spacing: 0.5px;
             backdrop-filter: blur(2px);
             box-shadow: 0 2px 8px rgba(0,0,0,0.3);
@@ -345,7 +356,7 @@
         .card-title {
             font-family: 'Lora', serif;
             font-weight: 600;
-            font-size: 1.4rem;
+            font-size: 1.7rem;          /* 📌 Títulos de tarjeta más grandes */
             color: #f0ece6;
             margin-bottom: 0.6rem;
             line-height: 1.3;
@@ -362,26 +373,31 @@
         }
 
         .card-excerpt {
-            font-size: 0.95rem;
+            font-size: 1.05rem;
             color: #b0a89e;
             margin-bottom: 1.2rem;
             flex: 1;
             line-height: 1.6;
         }
 
+        /* =============================================================
+                🔥 MEJORA 3: BOTONES DE TARJETA A PANTALLA COMPLETA
+                ============================================================= */
         .card-btn {
-            align-self: flex-start;
+            display: block;               /* 📌 Ocupa toda la línea */
+            width: 100%;                 /* 📌 Ancho completo */
+            text-align: center;
             background: transparent;
-            border: 1.5px solid #c9a05e;
+            border: 2px solid #c9a05e;
             color: #c9a05e;
-            padding: 0.6rem 2rem;
-            border-radius: 40px;
+            padding: 1rem 0;             /* 📌 Más alto (fácil de tocar) */
+            border-radius: 60px;
             font-family: 'Open Sans', sans-serif;
-            font-weight: 600;
-            font-size: 0.9rem;
+            font-weight: 700;
+            font-size: 1.1rem;           /* 📌 Letra grande */
             text-decoration: none;
             transition: all 0.2s ease;
-            letter-spacing: 0.5px;
+            box-sizing: border-box;
         }
 
         .card-btn:hover {
@@ -390,7 +406,9 @@
             box-shadow: 0 4px 16px rgba(201, 169, 110, 0.25);
         }
 
-        /* ===== BOTÓN CARGAR MÁS ===== */
+        /* =============================================================
+                🔥 MEJORA 4: BOTÓN "CARGAR MÁS" GIGANTE
+                ============================================================= */
         .load-more-wrapper {
             text-align: center;
             margin: 3rem 0 1rem;
@@ -398,13 +416,13 @@
 
         #load-more-btn {
             background: transparent;
-            border: 1.5px solid #c9a05e;
+            border: 2px solid #c9a05e;
             color: #c9a05e;
-            padding: 0.8rem 3rem;
+            padding: 1.2rem 4rem;         /* 📌 Enorme */
             border-radius: 60px;
             font-family: 'Open Sans', sans-serif;
-            font-weight: 600;
-            font-size: 1rem;
+            font-weight: 700;
+            font-size: 1.4rem;            /* 📌 Letra gigante */
             cursor: pointer;
             transition: all 0.25s ease;
             letter-spacing: 1px;
@@ -420,16 +438,16 @@
             display: none;
         }
 
-        /* ===== RESPONSIVE ===== */
+        /* ===== RESPONSIVE (para que no se vea feo en celulares pequeños) ===== */
         @media (min-width: 600px) {
             .feed {
                 grid-template-columns: repeat(2, 1fr);
             }
             .daily-prayer h2 {
-                font-size: 1.8rem;
+                font-size: 2.2rem;
             }
             #randomModal .modal-title {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
         }
 
@@ -438,41 +456,48 @@
                 grid-template-columns: repeat(3, 1fr);
             }
             .site-header h1 {
-                font-size: 2.8rem;
+                font-size: 3rem;
             }
             .daily-prayer h2 {
-                font-size: 2rem;
+                font-size: 2.4rem;
             }
         }
 
         @media (max-width: 480px) {
+            html {
+                font-size: 17px;   /* En celus pequeños se reduce un poquito para que quepa bien */
+            }
             .daily-prayer {
                 padding: 1.5rem 1rem;
             }
             .daily-prayer h2 {
-                font-size: 1.3rem;
+                font-size: 1.6rem;
             }
             .card-image {
                 height: 160px;
             }
             .card-title {
-                font-size: 1.2rem;
+                font-size: 1.4rem;
             }
             .scroll-indicator .arrow {
-                font-size: 3rem;    /* En móviles se reduce un poco pero sigue grande */
+                font-size: 3.5rem;
             }
             .scroll-indicator {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
             #randomModal .modal-content {
                 padding: 1.5rem;
             }
             #randomModal .modal-title {
-                font-size: 1.3rem;
+                font-size: 1.5rem;
             }
             .random-btn-wrapper a {
-                padding: 0.8rem 2rem;
-                font-size: 1rem;
+                padding: 1rem 2rem;
+                font-size: 1.2rem;
+            }
+            #load-more-btn {
+                padding: 1rem 2rem;
+                font-size: 1.2rem;
             }
         }
 
@@ -482,7 +507,7 @@
             margin-top: 3rem;
             padding-top: 1.5rem;
             border-top: 1px solid rgba(255, 255, 255, 0.04);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: #6a625a;
         }
     </style>
@@ -498,10 +523,10 @@
     <main>
 
         <!-- ========================================================= -->
-        <!-- INDICADOR DE SCROLL (FLECHA ANIMADA)                       -->
+        <!-- 🔥 INDICADOR CON TEXTO SÚPER CLARO                      -->
         <!-- ========================================================= -->
         <div class="scroll-indicator">
-            <span>Desliza para descubrir más oraciones</span>
+            <span>👇 Baja con el dedo para ver más oraciones</span>
             <span class="arrow">⌄</span>
         </div>
 
@@ -516,7 +541,7 @@
         </div>
 
         <!-- ========================================================= -->
-        <!-- BOTÓN ORACIÓN DEL MOMENTO (MEJORADO PARA MAYORES)         -->
+        <!-- BOTÓN ORACIÓN DEL MOMENTO                                 -->
         <!-- ========================================================= -->
         <div class="random-btn-wrapper">
             <a href="#" id="randomPrayerBtn">🙏 Oración del momento</a>
@@ -543,7 +568,7 @@
                     <p class="card-excerpt">
                         Si has tocado fondo y necesitas una segunda oportunidad, Jesús te espera con los brazos abiertos...
                     </p>
-                    <a href="oracion1.html" class="card-btn">Ver o leer oración completa</a>
+                    <a href="oracion1.html" class="card-btn">Ver oración completa</a>
                 </div>
             </article>
 
@@ -562,7 +587,7 @@
                     <p class="card-excerpt">
                         Acércate con tu fragilidad y permite que Jesús te abrace en medio de la oscuridad...
                     </p>
-                    <a href="oracion2.html" class="card-btn">Ver o leer oración completa</a>
+                    <a href="oracion2.html" class="card-btn">Ver oración completa</a>
                 </div>
             </article>
 
@@ -581,7 +606,7 @@
                     <p class="card-excerpt">
                         Silencia tu corazón y colócate en la presencia del Santísimo Sacramento para encontrar paz...
                     </p>
-                    <a href="oracion3.html" class="card-btn">Ver o leer oración completa</a>
+                    <a href="oracion3.html" class="card-btn">Ver oración completa</a>
                 </div>
             </article>
 
@@ -599,7 +624,7 @@
                     <p class="card-excerpt">
                         Silencia tu corazón y colócate en la presencia del Santísimo Sacramento para recibir sanación interior...
                     </p>
-                    <a href="oracion4.html" class="card-btn">Ver o leer oración completa</a>
+                    <a href="oracion4.html" class="card-btn">Ver oración completa</a>
                 </div>
             </article>
 
@@ -617,7 +642,7 @@
                     <p class="card-excerpt">
                         Acércate sin máscaras y descansa en la presencia del Santísimo Sacramento...
                     </p>
-                    <a href="oracion5.html" class="card-btn">Ver o leer oración completa</a>
+                    <a href="oracion5.html" class="card-btn">Ver oración completa</a>
                 </div>
             </article>
 
@@ -635,7 +660,7 @@
                     <p class="card-excerpt">
                         Contempla, adora y descansa en la presencia del Santísimo Sacramento...
                     </p>
-                    <a href="oracion6.html" class="card-btn">Ver o leer oración completa</a>
+                    <a href="oracion6.html" class="card-btn">Ver oración completa</a>
                 </div>
             </article>
 
@@ -653,7 +678,7 @@
                     <p class="card-excerpt">
                         Pon tu sufrimiento y tu enfermedad en las manos de Jesús, el Médico divino...
                     </p>
-                    <a href="oracion7.html" class="card-btn">Ver o leer oración completa</a>
+                    <a href="oracion7.html" class="card-btn">Ver oración completa</a>
                 </div>
             </article>
 
@@ -671,7 +696,7 @@
                     <p class="card-excerpt">
                         Silencia tu corazón, respira y déjate mirar por Jesús en el Santísimo Sacramento...
                     </p>
-                    <a href="oracion8.html" class="card-btn">Ver o leer oración completa</a>
+                    <a href="oracion8.html" class="card-btn">Ver oración completa</a>
                 </div>
             </article>
 
@@ -689,7 +714,7 @@
                     <p class="card-excerpt">
                         Silencia tu corazón, respira y déjate mirar por Jesús en el Santísimo Sacramento...
                     </p>
-                    <a href="oracion9.html" class="card-btn">Ver o leer oración completa</a>
+                    <a href="oracion9.html" class="card-btn">Ver oración completa</a>
                 </div>
             </article>
 
@@ -707,7 +732,7 @@
                     <p class="card-excerpt">
                         Cuando te sientas frágil, tentado o al borde del abismo, corre a Jesús Sacramentado...
                     </p>
-                    <a href="oracion10.html" class="card-btn">Ver o leer oración completa</a>
+                    <a href="oracion10.html" class="card-btn">Ver oración completa</a>
                 </div>
             </article>
 
@@ -725,7 +750,7 @@
                     <p class="card-excerpt">
                         Si el pecado, la culpa o el cansancio espiritual han pesado sobre tu corazón, Jesús te espera...
                     </p>
-                    <a href="oracion11.html" class="card-btn">Ver o leer oración completa</a>
+                    <a href="oracion11.html" class="card-btn">Ver oración completa</a>
                 </div>
             </article>
 
@@ -743,7 +768,7 @@
                     <p class="card-excerpt">
                         Si el cansancio de querer controlarlo todo te agobia, Jesús te espera en el Santísimo Sacramento...
                     </p>
-                    <a href="oracion12.html" class="card-btn">Ver o leer oración completa</a>
+                    <a href="oracion12.html" class="card-btn">Ver oración completa</a>
                 </div>
             </article>
 
@@ -761,7 +786,7 @@
                     <p class="card-excerpt">
                         Cuando el silencio de Dios parece durar demasiado, Jesús está obrando en lo profundo...
                     </p>
-                    <a href="oracion13.html" class="card-btn">Ver o leer oración completa</a>
+                    <a href="oracion13.html" class="card-btn">Ver oración completa</a>
                 </div>
             </article>
 
@@ -779,7 +804,7 @@
                     <p class="card-excerpt">
                         Cuando el cielo parece de bronce y la oración se vuelve difícil, Jesús te sostiene...
                     </p>
-                    <a href="oracion14.html" class="card-btn">Ver o leer oración completa</a>
+                    <a href="oracion14.html" class="card-btn">Ver oración completa</a>
                 </div>
             </article>
 
@@ -797,7 +822,7 @@
                     <p class="card-excerpt">
                         Pon a tus hijos en las manos de Jesús, presente en el Santísimo Sacramento...
                     </p>
-                    <a href="oracion15.html" class="card-btn">Ver o leer oración completa</a>
+                    <a href="oracion15.html" class="card-btn">Ver oración completa</a>
                 </div>
             </article>
 
@@ -815,7 +840,7 @@
 
         </section>
 
-        <!-- ===== BOTÓN CARGAR MÁS ===== -->
+        <!-- ===== BOTÓN CARGAR MÁS (GIGANTE) ===== -->
         <div class="load-more-wrapper">
             <button id="load-more-btn">Cargar más oraciones</button>
         </div>
