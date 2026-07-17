@@ -3,17 +3,33 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ===== META DESCRIPTION PARA SEO ===== -->
+    <meta name="description" content="Jesús, hoy te devuelvo el control de mi vida. Oración de abandono frente al Santísimo Sacramento. Confía en Dios y encuentra paz entregándole tus preocupaciones." />
+
     <title>Jesús, hoy te devuelvo el control de mi vida · Oración ante el Santísimo · El Santísimo Te Espera</title>
 
-    <!-- ===== FUENTES ===== -->
+    <!-- ============================================================= -->
+    <!-- 🔥 FUENTES OPTIMIZADAS: NO BLOQUEAN EL RENDERIZADO            -->
+    <!-- ============================================================= -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+    </noscript>
 
     <!-- ===== PLYR CSS ===== -->
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
 
     <style>
+        /* =============================================================
+                🔥 TAMAÑO BASE DE LETRA GIGANTE (20px) para mayores
+                ============================================================= */
+        html {
+            font-size: 20px;
+        }
+
         /* ===== RESET Y BASE (TEMA OSCURO) ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -204,7 +220,7 @@
         .ad-comment {
             text-align: center;
             font-size: 0.75rem;
-            color: #6a625a;
+            color: #b0a8a0; /* 🔥 Cambio: más claro */
             margin: 0.5rem 0 1.8rem;
             border: 1px dashed #333;
             padding: 0.6rem;
@@ -235,7 +251,7 @@
         .oracion-container .oracion-intro span {
             display: block;
             font-size: 0.9rem;
-            color: #a89888;
+            color: #d0c8be; /* 🔥 Cambio: más claro */
             margin-top: 4px;
         }
         .oracion-container .oracion-texto {
@@ -398,7 +414,7 @@
         }
         .related-card .info p {
             font-size: 0.8rem;
-            color: #a89888;
+            color: #d0c8be; /* 🔥 Cambio: más claro */
             margin: 0;
         }
         .related-card .info .mini-btn {
@@ -415,7 +431,7 @@
             margin-top: 2.5rem;
             text-align: center;
             font-size: 0.75rem;
-            color: #6a625a;
+            color: #b0a8a0; /* 🔥 Cambio: más claro */
             border-top: 1px solid #222;
             padding-top: 1.5rem;
         }
@@ -433,6 +449,7 @@
             .related-card img { width: 100%; height: 140px; }
         }
         @media (max-width: 500px) {
+            html { font-size: 17px; }
             .sticky-nav .nav-left a span, .sticky-nav .nav-right a span { display: none; }
             .oracion-container { padding: 14px 16px; margin: 12px 0; }
             .oracion-container .oracion-texto { font-size: 1.15rem; line-height: 2; }
@@ -484,7 +501,6 @@
         </div>
 
         <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
-        <!-- [CÓDIGO PUBLICITARIO 1 - descomenta cuando quieras activar] -->
         <!-- 
         <div class="ad-comment">
             <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
@@ -623,7 +639,6 @@
         </div>
 
         <!-- ===== PUBLICIDAD 2 (comentada) ===== -->
-        <!-- [CÓDIGO PUBLICITARIO 2 - descomenta cuando quieras activar] -->
         <!-- 
         <div class="ad-footer">
             <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
@@ -668,7 +683,6 @@
                 return;
             }
 
-            // Configurar botones Anterior / Siguiente
             const prevLink = document.getElementById('prevLink');
             const nextLink = document.getElementById('nextLink');
 

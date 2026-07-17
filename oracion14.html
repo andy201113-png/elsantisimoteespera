@@ -3,17 +3,33 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jesús, te pido por mis hijos · Oración ante el Santísimo Sacramento · El Santísimo Te Espera</title>
 
-    <!-- ===== FUENTES ===== -->
+    <!-- ===== META DESCRIPTION PARA SEO ===== -->
+    <meta name="description" content="Cuando Dios guarda silencio. Oración ante el Santísimo Sacramento para momentos de sequedad espiritual y espera. Confía en que Dios está obrando aunque no lo veas." />
+
+    <title>Cuando Dios guarda silencio · Oración ante el Santísimo · El Santísimo Te Espera</title>
+
+    <!-- ============================================================= -->
+    <!-- 🔥 FUENTES OPTIMIZADAS: NO BLOQUEAN EL RENDERIZADO            -->
+    <!-- ============================================================= -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+    </noscript>
 
     <!-- ===== PLYR CSS ===== -->
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
 
     <style>
+        /* =============================================================
+                🔥 TAMAÑO BASE DE LETRA GIGANTE (20px) para mayores
+                ============================================================= */
+        html {
+            font-size: 20px;
+        }
+
         /* ===== RESET Y BASE (TEMA OSCURO) ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -204,7 +220,7 @@
         .ad-comment {
             text-align: center;
             font-size: 0.75rem;
-            color: #6a625a;
+            color: #b0a8a0; /* 🔥 Cambio: más claro */
             margin: 0.5rem 0 1.8rem;
             border: 1px dashed #333;
             padding: 0.6rem;
@@ -235,7 +251,7 @@
         .oracion-container .oracion-intro span {
             display: block;
             font-size: 0.9rem;
-            color: #a89888;
+            color: #d0c8be; /* 🔥 Cambio: más claro */
             margin-top: 4px;
         }
         .oracion-container .oracion-texto {
@@ -290,7 +306,7 @@
         .oracion-container .silencio {
             text-align: center;
             font-style: italic;
-            color: #a89888;
+            color: #d0c8be; /* 🔥 Cambio: más claro */
             font-size: 0.95rem;
             margin: 18px 0;
             padding: 8px 16px;
@@ -348,16 +364,6 @@
             font-size: 1.05rem;
             color: #d0c8be;
             margin: 0;
-        }
-        .seccion-extra ul {
-            font-size: 1.05rem;
-            line-height: 2;
-            color: #d0c8be;
-            padding-left: 20px;
-            list-style: none;
-        }
-        .seccion-extra ul li {
-            margin-bottom: 6px;
         }
         hr {
             border: none;
@@ -419,7 +425,7 @@
         }
         .related-card .info p {
             font-size: 0.8rem;
-            color: #a89888;
+            color: #d0c8be; /* 🔥 Cambio: más claro */
             margin: 0;
         }
         .related-card .info .mini-btn {
@@ -436,7 +442,7 @@
             margin-top: 2.5rem;
             text-align: center;
             font-size: 0.75rem;
-            color: #6a625a;
+            color: #b0a8a0; /* 🔥 Cambio: más claro */
             border-top: 1px solid #222;
             padding-top: 1.5rem;
         }
@@ -454,6 +460,7 @@
             .related-card img { width: 100%; height: 140px; }
         }
         @media (max-width: 500px) {
+            html { font-size: 17px; }
             .sticky-nav .nav-left a span, .sticky-nav .nav-right a span { display: none; }
             .oracion-container { padding: 14px 16px; margin: 12px 0; }
             .oracion-container .oracion-texto { font-size: 1.15rem; line-height: 2; }
@@ -464,7 +471,6 @@
             .seccion-extra h3 { font-size: 1.2rem; }
             .seccion-extra p { font-size: 1rem; }
             .seccion-extra blockquote p { font-size: 1rem; }
-            .seccion-extra ul { font-size: 1rem; }
             .video-controls-extra button { font-size: 0.9rem; padding: 0.5rem 1.2rem; }
         }
     </style>
@@ -488,12 +494,12 @@
         <a href="index.html" class="back-link">← Volver al inicio</a>
 
         <!-- ===== TÍTULO ===== -->
-        <h1 class="oracion-title" id="oracionTitle">Jesús, te pido por mis hijos 🙏 | Oración ante el Santísimo Sacramento</h1>
+        <h1 class="oracion-title" id="oracionTitle">Cuando Dios guarda silencio 🙏 | Oración ante el Santísimo Sacramento</h1>
 
         <!-- ===== VIDEO CON PLYR ===== -->
         <div class="video-container" id="videoContainer">
             <video id="player" playsinline controls>
-                <source src="https://cdn.videy.co/ywRCsR0h1.mp4" type="video/mp4" />
+                <source src="https://cdn.videy.co/5lKVtW4i1.mp4" type="video/mp4" />
                 Tu navegador no soporta la reproducción de video.
             </video>
             <button class="btn-salir-fullscreen" id="btnSalirFullscreen">✕</button>
@@ -506,7 +512,6 @@
         </div>
 
         <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
-        <!-- [CÓDIGO PUBLICITARIO 1 - descomenta cuando quieras activar] -->
         <!-- 
         <div class="ad-comment">
             <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
@@ -519,7 +524,7 @@
 
             <div class="oracion-intro">
                 📖 Oración completa para leer y meditar
-                <span>Pon a tus hijos en las manos de Jesús, presente en el Santísimo Sacramento</span>
+                <span>Cuando el cielo parece de bronce y la oración se vuelve difícil, Jesús te sostiene</span>
             </div>
 
             <!-- ===== CÓDIGO PUBLICITARIO (comentado) ===== -->
@@ -532,60 +537,81 @@
 
             <div class="oracion-texto">
 
-                <p><em>Señor Jesús, aquí estoy frente a Ti. En el silencio de este momento, miro tu presencia real en el Sagrario.</em></p>
+                <p><strong>“Jesús, aunque no te escuche, sé que estás aquí”</strong>. Esta es la oración del alma que atraviesa la noche oscura, cuando el cielo parece de bronce y las palabras no encuentran eco. Si hoy tu oración te parece vacía, si sientes que Dios guarda silencio y tu fe se tambalea, esta Hora Santa ante el Santísimo Sacramento es para ti.</p>
 
-                <p>Vengo a buscar tu paz, pero hoy no vengo solo a hablarte de mí. Hoy traigo en mi corazón los nombres de las personas que más amo en este mundo, el regalo más grande que me has dado: <strong>mis hijos</strong>.</p>
+                <p>El silencio de Dios es una de las pruebas más duras que un creyente puede enfrentar. No es que Dios se haya ido. No es que no te escuche. Es que, a veces, su silencio es un lenguaje más profundo que las palabras. Es como un maestro que, antes de enseñar, calla para que el alumno preste atención. Es como un padre que, en lugar de dar todo lo que el hijo pide, espera a que madure para darle lo mejor.</p>
 
-                <p>Te adoro, Jesús, pan de vida, fuerza de los débiles. Te alabo porque sé que <strong>tu amor por mis hijos es todavía más grande y perfecto que el mío.</strong></p>
+                <p>Pero el silencio de Dios no es indiferencia. Es una invitación a crecer en la fe, a purificar nuestras intenciones y a aprender a amarlo por lo que Él es, no por lo que nos da. En esta Hora Santa, queremos aprender a habitar ese silencio con confianza, sabiendo que Jesús está en el Santísimo Sacramento, callado pero presente, como el amigo que se sienta a nuestro lado sin necesidad de hablar.</p>
 
-                <p>Hoy quiero depositar sus vidas, sus nombres y sus futuros a los pies de tu altar. Vengo a entregarte mis desvelos, mis preocupaciones y esos temores silenciosos que a veces me quitan el sueño por las noches. Los pongo bajo tu mirada amorosa, sabiendo que en tu presencia están seguros.</p>
+                <h3>📖 El silencio de Dios en la Biblia: Job, Elías y el corazón que espera</h3>
 
-                <div class="silencio">🕯️ Silencio para colocar mentalmente los nombres de los hijos ante el Santísimo</div>
+                <p>La Sagrada Escritura está llena de momentos en que Dios guarda silencio. Pensemos en <strong>Job</strong>, el hombre justo que perdió todo: hijos, bienes, salud. Y durante largos capítulos, Dios no responde. Sus amigos lo juzgan, su esposa lo abandona, y Job clama al cielo sin obtener respuesta. Pero al final, Dios habla, y no para justificarse, sino para revelar su grandeza. Job confiesa: <em>“De oídas te conocía, pero ahora mis ojos te ven”</em> (Job 42,5). El silencio no era castigo, sino preparación para una revelación más profunda.</p>
 
-                <p>Señor, Tú conoces el mundo en el que les ha tocado vivir. Es un camino lleno de distracciones, de peligros y de propuestas que intentan alejarlos de lo que es bueno y verdadero. <strong>Te pido que seas su escudo y su guía.</strong> Cuídalos cuando salgan a la calle, vigila sus pasos y envuelve sus vidas con tu protección.</p>
+                <p>Pensemos en <strong>Elías</strong>, el profeta que huía de Jezabel, derrotado y con deseos de morir. Dios no se le apareció en el terremoto, ni en el fuego, ni en el viento huracanado, sino en <strong>“una brisa suave y silenciosa”</strong> (1 Reyes 19,12). En medio del silencio, Dios le habló. A veces, tenemos que apagar el ruido exterior y el ruido interior para escuchar la voz de Dios que solo se percibe en el silencio.</p>
 
-                <p>Te pido por sus necesidades de cada día. Tú sabes si están preocupados por sus estudios, si buscan un trabajo, o si se sienten confundidos sobre el rumbo que deben tomar.</p>
+                <p>Y pensemos en <strong>Ana</strong>, la madre de Samuel, que oraba sin palabras, solo moviendo los labios (1 Samuel 1,13). Su oración era un susurro, casi un silencio. Dios la escuchó y le concedió un hijo. El silencio no impide que Dios oiga. Al contrario, a veces las oraciones más profundas son las que no se dicen con la boca, sino con el corazón.</p>
 
-                <p><strong>Sé su luz en la toma de decisiones.</strong> No permitas que caigan en vicios o en amistades que dañen su corazón. Y si alguno de ellos se siente solo o incomprendido, sal a su encuentro, Jesús, y hazle sentir que Tú eres el amigo que nunca falla.</p>
+                <h3>☁️ Santa Teresa de Jesús: la oración en la sequedad espiritual</h3>
 
-                <div class="silencio">🕯️ Silencio para rogar por la protección diaria de los hijos</div>
+                <p>Santa Teresa de Jesús, la gran mística y Doctora de la Iglesia, experimentó largos años de sequedad en la oración. Durante casi veinte años, tuvo dificultades para rezar, sintiendo que su oración no llegaba a Dios. Pero no abandonó. Perseveró. Y de esa perseverancia nació una vida de profunda unión con Dios.</p>
 
-                <p>Jesús, hay algo que a veces oprime mi pecho... y es ver que algunos de mis hijos se han alejado de Ti. Tal vez ya no rezan, tal vez dudan, o simplemente la prisa de la vida los ha hecho olvidarse de tu amor. Señor, <strong>no permitas que se pierdan en el desierto de la indiferencia.</strong></p>
+                <p>Teresa decía: <em>“No es necesario tener grandes pensamientos para empezar a orar. Basta con tener el corazón dispuesto a estar con quien sabemos que nos ama”</em>. También enseñaba que la oración no es sentir, sino <strong>querer sentir</strong>. Es decir, aunque no sientas nada, aunque tu mente esté en blanco o dispersa, el simple acto de quedarte ante Jesús Sacramentado, con la intención de amarlo, es ya una oración poderosa.</p>
 
-                <p>Hoy recuerdo a <strong>Santa Mónica</strong>, aquella madre ejemplar que durante casi treinta años no dejó de llorar y suplicar por la conversión de su hijo Agustín. En sus momentos de mayor desánimo, un obispo le dijo unas palabras para consolarla, que hoy grabo en mi alma:</p>
+                <p>Ella escribió en su libro <em>Camino de Perfección</em>: <em>“No te desanimes si no sientes devoción. La verdadera devoción está en la voluntad, no en la dulzura”</em>. Por eso, si hoy estás en sequedad, no te angusties. Esa sequedad, ofrecida a Jesús, puede ser más valiosa que muchos consuelos.</p>
+
+                <h3>✨ ¿Qué frutos trae el silencio de Dios?</h3>
+
+                <p>Cuando Dios guarda silencio y nosotros permanecemos fieles, se producen en nosotros transformaciones profundas:</p>
+
+                <ul>
+                    <li><strong>Fe purificada</strong> – ya no creemos por sentimientos, sino por la certeza de la palabra de Dios.</li>
+                    <li><strong>Humildad</strong> – reconocemos que no merecemos todo lo que pedimos, pero confiamos en la bondad de Dios.</li>
+                    <li><strong>Paciencia</strong> – aprendemos a esperar los tiempos de Dios, que siempre son perfectos.</li>
+                    <li><strong>Desapego</strong> – dejamos de aferrarnos a los dones y nos aferramos al Dador.</li>
+                    <li><strong>Silencio interior</strong> – aprendemos a callar nuestras ansiedades para escuchar mejor.</li>
+                </ul>
+
+                <p>No se trata de resignarse pasivamente, sino de aprender a confiar activamente, como el agricultor que siembra y espera la lluvia.</p>
+
+                <h3>🕯️ Cómo orar cuando Dios guarda silencio</h3>
+
+                <p>Si hoy tu oración está seca y sientes que Dios no responde, prueba esta guía práctica durante la Hora Santa:</p>
+
+                <ol>
+                    <li><strong>No huyas del silencio</strong>. Siéntate o arrodíllate ante el Santísimo y simplemente <strong>permanece</strong>.</li>
+                    <li><strong>No te esfuerces en pensar</strong>. La oración de quietud es más valiosa que mil palabras.</li>
+                    <li><strong>Repite una jaculatoria corta</strong> de vez en cuando, como: <em>“Jesús, confío en Ti”</em>.</li>
+                    <li><strong>Ofrece tu sequedad por alguien que sufra</strong>. Esa ofrenda puede tener un valor redentor.</li>
+                    <li><strong>Termina con un acto de fe</strong>: <em>“Aunque no te sienta, sé que estás aquí”</em>.</li>
+                </ol>
+
+                <h3>🙌 Jaculatorias para los días de silencio</h3>
+
+                <p>Cuando el silencio de Dios se alarga, repite estas frases a lo largo del día:</p>
+
+                <ul>
+                    <li>✨ <em>“Jesús, aunque no te escuche, sé que estás aquí”</em></li>
+                    <li>✨ <em>“Tu silencio me enseña a confiar”</em></li>
+                    <li>✨ <em>“No necesito sentirte para saber que me amas”</em></li>
+                    <li>✨ <em>“Señor, enséñame a esperar”</em></li>
+                </ul>
+
+                <p>Son como pequeñas anclas que te sostienen cuando la tormenta del silencio arrecia.</p>
+
+                <h3>💬 Comparte tu experiencia de silencio</h3>
+
+                <p>En los comentarios, te invitamos a escribir: <strong>“Jesús, confío en Ti aunque no te escuche”</strong>. Si quieres, comparte cuánto tiempo llevas en esta prueba (sin detalles íntimos), para que todos podamos unirnos en oración por ti. <strong>El silencio compartido se hace soportable.</strong></p>
+
+                <h3>🙏 Oración para cuando Dios guarda silencio</h3>
 
                 <blockquote>
-                    <p>“Es imposible que se pierda el hijo de tantas lágrimas”.</p>
+                    <p><em>Jesús Sacramentado, aquí estoy delante de Ti, aunque hoy no sienta tu presencia. Sé que estás aquí, velando por mí, aunque mis oídos no escuchen tu voz. A veces tus silencios me inquietan, pero quiero creer que son parte de tu plan de amor. Enséñame a esperar sin desesperar. Enséñame a confiar aunque no entienda. Purifica mi fe, mi esperanza y mi caridad en esta noche oscura. Cuando vuelva a sentir tu voz, que mi corazón esté más preparado para escucharla. Por la intercesión de Santa Teresa de Jesús, dame paciencia y fortaleza. Amén.</em></p>
                 </blockquote>
-
-                <p>Señor, acepta mis lágrimas y mis oraciones de hoy como una ofrenda por ellos. Aunque hoy parezca que están lejos de la Iglesia o de tu camino, <strong>yo confío en tu promesa.</strong> Sé que estás tejiendo un plan de amor para sus vidas y que, tarde o temprano, su corazón volverá a casa.</p>
-
-                <div class="silencio">🕯️ Silencio para pedir por la conversión de los hijos</div>
-
-                <p><strong>Médico Divino,</strong> te pido también por su salud. Tú conoces cada una de sus dolencias físicas, sus dolores de espalda, sus tensiones o cualquier enfermedad que intente restarles alegría. Te ruego que pases tu mano sanadora sobre sus cuerpos y les devuelvas el bienestar.</p>
-
-                <p>Pero sobre todo, Jesús, <strong>sana sus mentes y sus almas.</strong> En este tiempo donde tantos jóvenes sufren de ansiedad, de vacío y de tristeza profunda, te pido que seas su paz. Cura las heridas invisibles de su infancia, los rechazos que hayan sufrido y los miedos que arrastren.</p>
-
-                <p>Llena sus vidas de sentido. Que descubran que su valor no está en lo que el mundo les exige, sino en que <strong>son tus hijos amados.</strong></p>
-
-                <div class="silencio">🕯️ Silencio para pedir por la salud física y mental de los hijos</div>
-
-                <p>Jesús, dame a mí también la paciencia y la sabiduría que necesito para ser un buen padre, una buena madre o un buen abuelo. Enséñame a guiarles con el ejemplo, a hablarles con amor y a saber cuándo callar para dejar que seas Tú quien hable a sus conciencias.</p>
-
-                <p><strong>Quítame la angustia de querer controlarlo todo.</strong> Hoy te los entrego. Ya no son míos, son tuyos. Confío en que los cuidas mejor de lo que yo jamás podría hacerlo.</p>
-
-                <p>Que al mirar este pan consagrado en el altar, mi corazón descanse. Sé que estás obrando en ellos, aunque mis ojos todavía no vean los resultados.</p>
-
-                <p><strong>Señor Jesús, bendice a mis hijos hoy, mañana y siempre.</strong> Que tu gracia los acompañe en cada rincón donde se encuentren y que tu amor los abrace cuando yo no pueda hacerlo.</p>
-
-                <p><strong>En Ti confío.</strong></p>
-
-                <p style="text-align: center; font-size: 1.4rem; margin-top: 24px; color: #c9a05e;"><strong>Amén.</strong></p>
 
             </div>
 
             <div class="oracion-footer">
-                <span>†</span> Que el Santísimo Sacramento proteja y bendiga a tus hijos <span>†</span>
+                <span>†</span> Cuando Dios guarda silencio, Jesús está obrando. Que el Santísimo Sacramento te sostenga en la espera <span>†</span>
             </div>
 
         </div>
@@ -594,44 +620,23 @@
         <hr>
 
         <div class="seccion-extra">
-            <h3>🕊️ El ejemplo de Santa Mónica: esperanza para los padres que esperan</h3>
-            <p><strong>Santa Mónica</strong> es un faro de esperanza para todos los padres que rezan por sus hijos. Durante casi treinta años, lloró y suplicó a Dios por la conversión de su hijo Agustín, que vivía alejado de la fe y sumido en malas costumbres. Pero nunca perdió la confianza. Un día, un obispo le dijo: <em>“Hija, no es posible que un hijo de tantas lágrimas se pierda”</em>. Y así fue: Agustín se convirtió, fue bautizado por San Ambrosio y hoy es Doctor de la Iglesia.</p>
-            <p>Santa Mónica nos enseña que <strong>la oración perseverante nunca es en vano</strong>. Aunque los resultados tarden, Dios escucha cada súplica y cada lágrima ofrecida con fe. No desesperes por tus hijos. Sigue orando y confiando en que <strong>el amor de Dios es más grande que cualquier alejamiento</strong>.</p>
-            <blockquote>
-                <p>“Señor, así como Santa Mónica no dejó de orar por su hijo Agustín, yo no dejaré de orar por los míos. Confío en que Tú los alcanzarás donde yo no puedo llegar.”</p>
-            </blockquote>
+            <h3>📲 Lleva este refugio contigo</h3>
+            <p><strong>Agrega este sitio a la pantalla de inicio de tu teléfono</strong>: abre Chrome o Safari, toca los tres puntos (⋮) y elige <strong>"Agregar a pantalla de inicio"</strong>. Así tendrás siempre a un tap un lugar donde refugiarte en los días de silencio, sin distracciones y sin salir de este refugio espiritual.</p>
         </div>
 
         <hr>
 
         <div class="seccion-extra">
-            <h3>📖 La promesa de Dios para los hijos</h3>
-            <p>La Sagrada Escritura está llena de promesas para los hijos de aquellos que confían en Dios. En <strong>Proverbios 22,6</strong> leemos: <em>“Instruye al niño en su camino, y aun cuando sea viejo no se apartará de él”</em>. Esta no es una garantía mágica, sino una invitación a sembrar con fe y esperanza, confiando en que la semilla dará fruto en su tiempo.</p>
-            <p>El <strong>Salmo 127,3</strong> nos recuerda: <em>“Los hijos son un regalo del Señor, un premio es el fruto del vientre”</em>. Cada hijo es un don precioso que Dios nos ha confiado. Y así como Él nos los ha dado, también los cuida y los guía con su amor infinito.</p>
-            <p>Cuando la preocupación por tus hijos te abrume, recuerda las palabras de <strong>Isaías 49,15-16</strong>: <em>“¿Puede una madre olvidar a su niño de pecho? Aunque ella se olvide, yo no te olvidaré. Te tengo grabado en la palma de mis manos”</em>. Tus hijos están grabados en las manos de Dios. <strong>Él nunca los olvida.</strong></p>
-        </div>
-
-        <hr>
-
-        <div class="seccion-extra">
-            <h3>🙏 Frases para repetir por tus hijos</h3>
-            <p>Además de la Hora Santa, te invitamos a llevar estas jaculatorias en tu corazón y repetirlas a lo largo del día:</p>
-            <ul>
-                <li>✨ <em>“Jesús, cuida a mis hijos.”</em></li>
-                <li>✨ <em>“Jesús, protégelos de todo mal.”</em></li>
-                <li>✨ <em>“Jesús, llámalos de vuelta a Ti.”</em></li>
-                <li>✨ <em>“Santa Mónica, intercede por mis hijos.”</em></li>
-                <li>✨ <em>“Madre María, pon a mis hijos bajo tu manto.”</em></li>
-            </ul>
-            <p>Son breves, fáciles de memorizar y muy poderosas. Puedes rezarlas mientras cocinas, manejas o antes de dormir. <strong>Cada oración es una semilla que Dios hará germinar.</strong></p>
+            <h3>🕊️ Explora más oraciones en este sitio</h3>
+            <p>Visita nuestra página principal para descubrir más Horas Santas, adoraciones eucarísticas y oraciones profundas para los momentos de prueba y espera. Cada día añadimos nuevo contenido para ayudarte a perseverar en la fe.</p>
         </div>
 
         <hr>
 
         <div class="seccion-extra" style="text-align: center;">
-            <h3>🙏 Comparte esta oración con otros padres</h3>
-            <p>Si esta oración ha tocado tu corazón, compártela con otros padres, madres, abuelos o tutores que también necesiten poner a sus hijos en las manos de Jesús. <strong>Ningún padre o madre debe cargar solo con la preocupación por sus hijos.</strong></p>
-            <p style="font-size: 1.1rem; color: #c9a05e; font-weight: bold; margin-top: 16px;">Que el Santísimo Sacramento bendiga a tus hijos y los guarde siempre en Su amor. 🙏</p>
+            <h3>🙏 Comparte este mensaje de esperanza</h3>
+            <p>Si esta oración ha traído consuelo a tu corazón, comparte este sitio con alguien que también esté atravesando un tiempo de silencio de Dios. No guardes este tesoro solo para ti. Copia el enlace y envíalo a quien necesite recordar que <strong>el silencio de Dios no es ausencia de Dios</strong>.</p>
+            <p style="font-size: 1.1rem; color: #c9a05e; font-weight: bold; margin-top: 16px;">Cuando Dios guarda silencio, Jesús está obrando. Que el Santísimo Sacramento te sostenga en la espera. 🙏</p>
         </div>
 
         <hr>
@@ -645,7 +650,6 @@
         </div>
 
         <!-- ===== PUBLICIDAD 2 (comentada) ===== -->
-        <!-- [CÓDIGO PUBLICITARIO 2 - descomenta cuando quieras activar] -->
         <!-- 
         <div class="ad-footer">
             <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
@@ -690,7 +694,6 @@
                 return;
             }
 
-            // Configurar botones Anterior / Siguiente
             const prevLink = document.getElementById('prevLink');
             const nextLink = document.getElementById('nextLink');
 
