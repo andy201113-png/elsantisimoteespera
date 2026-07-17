@@ -7,18 +7,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- ===== 🔥 NUEVO: META DESCRIPTION PARA SEO ===== -->
+    <!-- ===== 🔥 META DESCRIPTION PARA SEO ===== -->
     <meta name="description" content="Oraciones profundas frente al Santísimo Sacramento. Encuentra paz, sanación y consuelo para el alma. Ideal para momentos de ansiedad y necesidad espiritual." />
 
-    <!-- ===== 🔥 NUEVO: POLÍTICA DE SEGURIDAD BÁSICA (CSP) ===== -->
+    <!-- ===== 🔥 POLÍTICA DE SEGURIDAD BÁSICA (CSP) ===== -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval';" />
 
     <title>El Santísimo Te Espera · Inicio</title>
 
-    <!-- Fuentes optimizadas -->
+    <!-- ============================================================= -->
+    <!-- 🔥 FUENTES OPTIMIZADAS: NO BLOQUEAN EL RENDERIZADO            -->
+    <!-- ============================================================= -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+    </noscript>
 
     <style>
         /* =============================================================
@@ -59,18 +64,18 @@
         .site-header h1 {
             font-family: 'Lora', serif;
             font-weight: 600;
-            font-size: 2.5rem;      /* 📌 Más grande */
+            font-size: 2.5rem;
             color: #f0ece6;
             letter-spacing: 1px;
         }
 
         .site-header h1 span {
-            color: #c9a05e;
+            color: #e8c88a; /* 🔥 Cambio: dorado más claro para contraste */
         }
 
         .site-header .subtitle {
             font-size: 1.1rem;
-            color: #d0c8be;          /* 🔥 Cambio: más claro para mejor contraste */
+            color: #d0c8be;
             margin-top: 0.3rem;
             font-style: italic;
         }
@@ -82,7 +87,7 @@
             padding: 0.3rem 1.4rem;
             border-radius: 40px;
             font-size: 0.9rem;
-            color: #c9a05e;
+            color: #e8c88a; /* 🔥 Cambio: dorado más claro */
             border: 1px solid rgba(201, 169, 110, 0.15);
         }
 
@@ -92,17 +97,17 @@
         .scroll-indicator {
             text-align: center;
             margin: 1.5rem 0 1.8rem;
-            color: #d0c8be;          /* 🔥 Cambio: más claro */
-            font-size: 1.5rem;         /* 📌 Texto enorme */
+            color: #d0c8be;
+            font-size: 1.5rem;
             animation: float 2.5s ease-in-out infinite;
             font-weight: 500;
         }
 
         .scroll-indicator .arrow {
             display: block;
-            font-size: 4.5rem;          /* 📌 Flecha gigante */
+            font-size: 4.5rem;
             line-height: 1.2;
-            color: #c9a05e;
+            color: #e8c88a; /* 🔥 Cambio: dorado más claro */
             opacity: 0.8;
             margin-top: 0.2rem;
         }
@@ -132,12 +137,12 @@
             letter-spacing: 2px;
             opacity: 0.7;
             margin-bottom: 0.3rem;
-            color: #c9a05e;
+            color: #e8c88a; /* 🔥 Cambio: dorado más claro */
         }
 
         .daily-prayer h2 {
             font-family: 'Lora', serif;
-            font-size: 2rem;          /* 📌 Más grande */
+            font-size: 2rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
             color: #f0ece6;
@@ -154,7 +159,7 @@
         .daily-prayer .daily-link {
             display: inline-block;
             background: rgba(201, 169, 110, 0.15);
-            color: #c9a05e;
+            color: #e8c88a; /* 🔥 Cambio: dorado más claro */
             padding: 0.7rem 2.5rem;
             border-radius: 60px;
             text-decoration: none;
@@ -178,14 +183,14 @@
             display: inline-block;
             background: rgba(201, 169, 110, 0.08);
             border: 1px solid rgba(201, 169, 110, 0.15);
-            color: #c9a05e;
-            padding: 1.2rem 3.5rem;        /* 📌 Mucho más grande */
+            color: #e8c88a; /* 🔥 Cambio: dorado más claro */
+            padding: 1.2rem 3.5rem;
             border-radius: 60px;
             text-decoration: none;
             font-weight: 700;
             font-family: 'Open Sans', sans-serif;
             transition: all 0.2s;
-            font-size: 1.4rem;             /* 📌 Letra enorme */
+            font-size: 1.4rem;
         }
 
         .random-btn-wrapper a:hover {
@@ -197,7 +202,7 @@
         .random-help {
             margin-top: 0.5rem;
             font-size: 1rem;
-            color: #d0c8be;          /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             opacity: 0.9;
         }
 
@@ -262,7 +267,7 @@
         }
 
         #randomModal .modal-excerpt {
-            color: #d0c8be;          /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             font-size: 1.1rem;
             margin-bottom: 1.5rem;
             line-height: 1.6;
@@ -271,7 +276,7 @@
         #randomModal .modal-link {
             display: inline-block;
             background: rgba(201, 169, 110, 0.15);
-            color: #c9a05e;
+            color: #e8c88a; /* 🔥 Cambio: dorado más claro */
             padding: 0.8rem 2.5rem;
             border-radius: 60px;
             text-decoration: none;
@@ -363,7 +368,7 @@
         .card-title {
             font-family: 'Lora', serif;
             font-weight: 600;
-            font-size: 1.7rem;          /* 📌 Títulos de tarjeta más grandes */
+            font-size: 1.7rem;
             color: #f0ece6;
             margin-bottom: 0.6rem;
             line-height: 1.3;
@@ -376,12 +381,12 @@
         }
 
         .card-title a:hover {
-            color: #c9a05e;
+            color: #e8c88a; /* 🔥 Cambio: dorado más claro */
         }
 
         .card-excerpt {
             font-size: 1.05rem;
-            color: #d0c8be;          /* 🔥 Cambio: más claro para mejor contraste */
+            color: #d0c8be;
             margin-bottom: 1.2rem;
             flex: 1;
             line-height: 1.6;
@@ -391,24 +396,24 @@
                 🔥 MEJORA 3: BOTONES DE TARJETA A PANTALLA COMPLETA
                 ============================================================= */
         .card-btn {
-            display: block;               /* 📌 Ocupa toda la línea */
-            width: 100%;                 /* 📌 Ancho completo */
+            display: block;
+            width: 100%;
             text-align: center;
             background: transparent;
-            border: 2px solid #c9a05e;
-            color: #c9a05e;
-            padding: 1rem 0;             /* 📌 Más alto (fácil de tocar) */
+            border: 2px solid #e8c88a; /* 🔥 Cambio: dorado más claro */
+            color: #e8c88a; /* 🔥 Cambio: dorado más claro */
+            padding: 1rem 0;
             border-radius: 60px;
             font-family: 'Open Sans', sans-serif;
             font-weight: 700;
-            font-size: 1.1rem;           /* 📌 Letra grande */
+            font-size: 1.1rem;
             text-decoration: none;
             transition: all 0.2s ease;
             box-sizing: border-box;
         }
 
         .card-btn:hover {
-            background: #c9a05e;
+            background: #e8c88a; /* 🔥 Cambio: dorado más claro */
             color: #121212;
             box-shadow: 0 4px 16px rgba(201, 169, 110, 0.25);
         }
@@ -423,20 +428,20 @@
 
         #load-more-btn {
             background: transparent;
-            border: 2px solid #c9a05e;
-            color: #c9a05e;
-            padding: 1.2rem 4rem;         /* 📌 Enorme */
+            border: 2px solid #e8c88a; /* 🔥 Cambio: dorado más claro */
+            color: #e8c88a; /* 🔥 Cambio: dorado más claro */
+            padding: 1.2rem 4rem;
             border-radius: 60px;
             font-family: 'Open Sans', sans-serif;
             font-weight: 700;
-            font-size: 1.4rem;            /* 📌 Letra gigante */
+            font-size: 1.4rem;
             cursor: pointer;
             transition: all 0.25s ease;
             letter-spacing: 1px;
         }
 
         #load-more-btn:hover {
-            background: #c9a05e;
+            background: #e8c88a; /* 🔥 Cambio: dorado más claro */
             color: #121212;
             box-shadow: 0 4px 20px rgba(201, 169, 110, 0.2);
         }
@@ -445,7 +450,7 @@
             display: none;
         }
 
-        /* ===== RESPONSIVE (para que no se vea feo en celulares pequeños) ===== */
+        /* ===== RESPONSIVE ===== */
         @media (min-width: 600px) {
             .feed {
                 grid-template-columns: repeat(2, 1fr);
@@ -472,7 +477,7 @@
 
         @media (max-width: 480px) {
             html {
-                font-size: 17px;   /* En celus pequeños se reduce un poquito para que quepa bien */
+                font-size: 17px;
             }
             .daily-prayer {
                 padding: 1.5rem 1rem;
@@ -515,7 +520,7 @@
             padding-top: 1.5rem;
             border-top: 1px solid rgba(255, 255, 255, 0.04);
             font-size: 0.9rem;
-            color: #6a625a;
+            color: #b0a8a0; /* 🔥 Cambio: gris mucho más claro para contraste AA */
         }
     </style>
 </head>
@@ -565,7 +570,7 @@
             <!-- ========================================================= -->
             <article class="card">
                 <div class="card-image-wrap">
-                    <img loading="lazy" class="card-image" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgAQDnWLWo7pKuevE7DVLc0jpr1DxITQVfrtlDZk9w94L78yRTTWXS8dD39YE4a9xcAR_J5cCHc_b7R2oQNieg6emlAL1N4O38bj-Ueh1OutIC6CHwD6zj6u54Z3QFyTtfAeyj5zeclhee8ange9iInEPZPq0PckC3JQ6fD5yyljZL-zNdTyUm7IuY20ew/s1376/djeij.png" alt="Jesús, quiero empezar de nuevo hoy" />
+                    <img loading="lazy" width="600" height="220" class="card-image" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgAQDnWLWo7pKuevE7DVLc0jpr1DxITQVfrtlDZk9w94L78yRTTWXS8dD39YE4a9xcAR_J5cCHc_b7R2oQNieg6emlAL1N4O38bj-Ueh1OutIC6CHwD6zj6u54Z3QFyTtfAeyj5zeclhee8ange9iInEPZPq0PckC3JQ6fD5yyljZL-zNdTyUm7IuY20ew/s1376/djeij.png" alt="Jesús, quiero empezar de nuevo hoy" />
                     <span class="card-badge featured">🔥 Destacado</span>
                 </div>
                 <div class="card-content">
@@ -584,7 +589,7 @@
             <!-- ========================================================= -->
             <article class="card">
                 <div class="card-image-wrap">
-                    <img loading="lazy" class="card-image" src="https://i.postimg.cc/W1HTyJ5S/maxresdefault-(7).jpg" alt="SÁNAME, SEÑOR: Oración de Sanación" />
+                    <img loading="lazy" width="600" height="220" class="card-image" src="https://i.postimg.cc/W1HTyJ5S/maxresdefault-(7).jpg" alt="SÁNAME, SEÑOR: Oración de Sanación" />
                     <span class="card-badge">✨ Nueva</span>
                 </div>
                 <div class="card-content">
@@ -603,7 +608,7 @@
             <!-- ========================================================= -->
             <article class="card">
                 <div class="card-image-wrap">
-                    <img loading="lazy" class="card-image" src="https://i.postimg.cc/0Qf525Gg/maxresdefault-(7).webp" alt="Jesús, quítame esta ansiedad" />
+                    <img loading="lazy" width="600" height="220" class="card-image" src="https://i.postimg.cc/0Qf525Gg/maxresdefault-(7).webp" alt="Jesús, quítame esta ansiedad" />
                     <span class="card-badge">💛 Popular</span>
                 </div>
                 <div class="card-content">
@@ -622,7 +627,7 @@
             <!-- ========================================================= -->
             <article class="card">
                 <div class="card-image-wrap">
-                    <img loading="lazy" class="card-image" src="https://i.postimg.cc/MpH3q60Z/maxresdefault-(8).jpg" alt="Jesús, Sana lo que Duele por Dentro" />
+                    <img loading="lazy" width="600" height="220" class="card-image" src="https://i.postimg.cc/MpH3q60Z/maxresdefault-(8).jpg" alt="Jesús, Sana lo que Duele por Dentro" />
                 </div>
                 <div class="card-content">
                     <h2 class="card-title">
@@ -640,7 +645,7 @@
             <!-- ========================================================= -->
             <article class="card">
                 <div class="card-image-wrap">
-                    <img loading="lazy" class="card-image" src="https://i.postimg.cc/BnC7GmV0/maxresdefault-(8).webp" alt="Señor, ya no tengo fuerzas para seguir" />
+                    <img loading="lazy" width="600" height="220" class="card-image" src="https://i.postimg.cc/BnC7GmV0/maxresdefault-(8).webp" alt="Señor, ya no tengo fuerzas para seguir" />
                 </div>
                 <div class="card-content">
                     <h2 class="card-title">
@@ -658,7 +663,7 @@
             <!-- ========================================================= -->
             <article class="card">
                 <div class="card-image-wrap">
-                    <img loading="lazy" class="card-image" src="https://i.postimg.cc/wBCm4pQg/maxresdefault-(9).webp" alt="Santo, Santo, Santo eres Señor" />
+                    <img loading="lazy" width="600" height="220" class="card-image" src="https://i.postimg.cc/wBCm4pQg/maxresdefault-(9).webp" alt="Santo, Santo, Santo eres Señor" />
                 </div>
                 <div class="card-content">
                     <h2 class="card-title">
@@ -676,7 +681,7 @@
             <!-- ========================================================= -->
             <article class="card">
                 <div class="card-image-wrap">
-                    <img loading="lazy" class="card-image" src="https://i.postimg.cc/zBd1XJ21/maxresdefault-(9).jpg" alt="Jesús, Tú eres mi medicina" />
+                    <img loading="lazy" width="600" height="220" class="card-image" src="https://i.postimg.cc/zBd1XJ21/maxresdefault-(9).jpg" alt="Jesús, Tú eres mi medicina" />
                 </div>
                 <div class="card-content">
                     <h2 class="card-title">
@@ -694,7 +699,7 @@
             <!-- ========================================================= -->
             <article class="card">
                 <div class="card-image-wrap">
-                    <img loading="lazy" class="card-image" src="https://i.postimg.cc/GpV5MHfn/maxresdefault-(10).jpg" alt="Quédate con Jesús… todo va a estar bien" />
+                    <img loading="lazy" width="600" height="220" class="card-image" src="https://i.postimg.cc/GpV5MHfn/maxresdefault-(10).jpg" alt="Quédate con Jesús… todo va a estar bien" />
                 </div>
                 <div class="card-content">
                     <h2 class="card-title">
@@ -712,7 +717,7 @@
             <!-- ========================================================= -->
             <article class="card">
                 <div class="card-image-wrap">
-                    <img loading="lazy" class="card-image" src="https://i.postimg.cc/vZ1703w7/maxresdefault-(11).jpg" alt="Déjate abrazar por Jesús" />
+                    <img loading="lazy" width="600" height="220" class="card-image" src="https://i.postimg.cc/vZ1703w7/maxresdefault-(11).jpg" alt="Déjate abrazar por Jesús" />
                 </div>
                 <div class="card-content">
                     <h2 class="card-title">
@@ -730,7 +735,7 @@
             <!-- ========================================================= -->
             <article class="card">
                 <div class="card-image-wrap">
-                    <img loading="lazy" class="card-image" src="https://i.postimg.cc/SRFNpQnQ/maxresdefault-(10).webp" alt="Jesús Sacramentado, no me dejes caer" />
+                    <img loading="lazy" width="600" height="220" class="card-image" src="https://i.postimg.cc/SRFNpQnQ/maxresdefault-(10).webp" alt="Jesús Sacramentado, no me dejes caer" />
                 </div>
                 <div class="card-content">
                     <h2 class="card-title">
@@ -748,7 +753,7 @@
             <!-- ========================================================= -->
             <article class="card">
                 <div class="card-image-wrap">
-                    <img loading="lazy" class="card-image" src="https://i.postimg.cc/T140PSXf/maxresdefault-(12).jpg" alt="Jesús me está sanando" />
+                    <img loading="lazy" width="600" height="220" class="card-image" src="https://i.postimg.cc/T140PSXf/maxresdefault-(12).jpg" alt="Jesús me está sanando" />
                 </div>
                 <div class="card-content">
                     <h2 class="card-title">
@@ -766,7 +771,7 @@
             <!-- ========================================================= -->
             <article class="card">
                 <div class="card-image-wrap">
-                    <img loading="lazy" class="card-image" src="https://i.postimg.cc/mZJ7t7HM/maxresdefault-(11).webp" alt="Jesús, hoy te devuelvo el control de mi vida" />
+                    <img loading="lazy" width="600" height="220" class="card-image" src="https://i.postimg.cc/mZJ7t7HM/maxresdefault-(11).webp" alt="Jesús, hoy te devuelvo el control de mi vida" />
                 </div>
                 <div class="card-content">
                     <h2 class="card-title">
@@ -784,7 +789,7 @@
             <!-- ========================================================= -->
             <article class="card">
                 <div class="card-image-wrap">
-                    <img loading="lazy" class="card-image" src="https://i.postimg.cc/TYjJyCvF/maxresdefault-(13).jpg" alt="¿Sientes que Dios no te responde?" />
+                    <img loading="lazy" width="600" height="220" class="card-image" src="https://i.postimg.cc/TYjJyCvF/maxresdefault-(13).jpg" alt="¿Sientes que Dios no te responde?" />
                 </div>
                 <div class="card-content">
                     <h2 class="card-title">
@@ -802,7 +807,7 @@
             <!-- ========================================================= -->
             <article class="card">
                 <div class="card-image-wrap">
-                    <img loading="lazy" class="card-image" src="https://i.postimg.cc/6pgqBx1s/maxresdefault-(12).webp" alt="Cuando Dios guarda silencio" />
+                    <img loading="lazy" width="600" height="220" class="card-image" src="https://i.postimg.cc/6pgqBx1s/maxresdefault-(12).webp" alt="Cuando Dios guarda silencio" />
                 </div>
                 <div class="card-content">
                     <h2 class="card-title">
@@ -820,7 +825,7 @@
             <!-- ========================================================= -->
             <article class="card">
                 <div class="card-image-wrap">
-                    <img loading="lazy" class="card-image" src="https://i.postimg.cc/FzS5bwV1/maxresdefault-(13).webp" alt="Jesús, te pido por mis hijos" />
+                    <img loading="lazy" width="600" height="220" class="card-image" src="https://i.postimg.cc/FzS5bwV1/maxresdefault-(13).webp" alt="Jesús, te pido por mis hijos" />
                 </div>
                 <div class="card-content">
                     <h2 class="card-title">
@@ -838,7 +843,7 @@
             <!-- ========================================================= -->
             <article class="card">
                 <div class="card-image-wrap">
-                    <img loading="lazy" class="card-image" src="https://i.postimg.cc/3rFQ0B09/maxresdefault-(14).jpg" alt="Jesús, Cálmame Como Calmaste el Mar" />
+                    <img loading="lazy" width="600" height="220" class="card-image" src="https://i.postimg.cc/3rFQ0B09/maxresdefault-(14).jpg" alt="Jesús, Cálmame Como Calmaste el Mar" />
                     <span class="card-badge">🌊 Paz</span>
                 </div>
                 <div class="card-content">
@@ -854,13 +859,7 @@
 
             <!--
                 ══════════════════════════════════════════════════════════════════
-                INSTRUCCIONES PARA AÑADIR NUEVAS TARJETAS:
-                1. Copia el bloque <article class="card"> ... </article>
-                2. PÉGALO JUSTO ANTES DE ESTE COMENTARIO.
-                3. Cambia la imagen, título, extracto y enlace (href).
-                4. El JavaScript de abajo mostrará automáticamente
-                   las primeras 4 y ocultará el resto hasta que
-                   pulses "Cargar más oraciones".
+                INSTRUCCIONES PARA AÑADIR NUEVAS TARJETAS...
                 ══════════════════════════════════════════════════════════════════
             -->
 
@@ -890,7 +889,7 @@
     </div>
 
     <!-- ========================================================= -->
-    <!-- JAVASCRIPT                                                 -->
+    <!-- JAVASCRIPT (sin cambios, ya está perfecto)                -->
     <!-- ========================================================= -->
     <script>
         // =============================================================
@@ -1015,14 +1014,12 @@
                 modal.style.display = 'none';
             });
 
-            // Cerrar al hacer clic fuera del contenido
             modal.addEventListener('click', function(e) {
                 if (e.target === modal) {
                     modal.style.display = 'none';
                 }
             });
 
-            // Cerrar con tecla ESC
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape' && modal.style.display === 'flex') {
                     modal.style.display = 'none';
