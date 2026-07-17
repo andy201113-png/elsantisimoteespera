@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jesús, Cálmame Como Calmaste el Mar · Oración ante el Santísimo · El Santísimo Te Espera</title>
+
+    <!-- ===== FUENTES ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+
+    <!-- ===== PLYR CSS ===== -->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+
+    <style>
+        /* ===== RESET Y BASE (TEMA OSCURO, TAMAÑO GRANDE PARA MAYORES) ===== */
+        html { font-size: 20px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #121212;
+            color: #e0dcd7;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            padding: 1.2rem;
+            padding-top: 1rem;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+            background: #1e1e1e;
+            border-radius: 24px;
+            padding: 2rem 1.5rem 2.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(201, 169, 110, 0.08);
+        }
+
+        /* ===== NAVEGACIÓN STICKY ===== */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(30, 30, 30, 0.85);
+            backdrop-filter: blur(8px);
+            padding: 0.7rem 1rem;
+            border-radius: 60px;
+            max-width: 820px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(201, 169, 110, 0.15);
+            flex-wrap: wrap;
+        }
+        .sticky-nav .nav-left,
+        .sticky-nav .nav-right {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        .sticky-nav a {
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #c9a05e;
+            border: 1.5px solid #c9a05e;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            transition: 0.2s;
+            white-space: nowrap;
+            font-weight: 400;
+        }
+        .sticky-nav a:hover {
+            background: #c9a05e;
+            color: #121212;
+        }
+        .sticky-nav a.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+            border-color: #555;
+            color: #777;
+        }
+        .sticky-nav .nav-home {
+            background: rgba(201, 169, 110, 0.1);
+        }
+
+        /* ===== BOTÓN VOLVER ===== */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            font-size: 0.9rem;
+            color: #c9a05e;
+            text-decoration: none;
+            border: 1.5px solid #c9a05e;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .back-link:hover { background: #c9a05e; color: #121212; }
+
+        .oracion-title {
+            font-family: 'Lora', serif;
+            font-weight: 600;
+            font-size: 2rem;
+            color: #f0ece6;
+            margin-bottom: 1.8rem;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        /* ===== CONTENEDOR DEL VIDEO ===== */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 16px;
+            margin-bottom: 0.5rem;
+            background: #0a0a0a;
+        }
+        .video-container .plyr {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+        }
+        .video-container .plyr__controls {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        .video-container.fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            padding-bottom: 0;
+            z-index: 9999;
+            background: #000;
+            border-radius: 0;
+        }
+        .video-container.fullscreen .plyr { border-radius: 0; }
+        .video-container.fullscreen .btn-salir-fullscreen { display: flex; }
+
+        .btn-salir-fullscreen {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 30;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-salir-fullscreen:hover { background: rgba(255,255,255,0.2); }
+
+        /* ===== BOTONES DE ADELANTAR/RETROCEDER ===== */
+        .video-controls-extra {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 0.5rem 0 1.5rem;
+            flex-wrap: wrap;
+        }
+        .video-controls-extra button {
+            background: transparent;
+            border: 1.5px solid #c9a05e;
+            color: #c9a05e;
+            padding: 0.6rem 1.8rem;
+            border-radius: 40px;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .video-controls-extra button:hover {
+            background: #c9a05e;
+            color: #121212;
+            transform: scale(1.02);
+        }
+
+        /* ===== PUBLICIDAD ===== */
+        .ad-comment {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #6a625a;
+            margin: 0.5rem 0 1.8rem;
+            border: 1px dashed #333;
+            padding: 0.6rem;
+            border-radius: 12px;
+            background: #1a1a1a;
+        }
+
+        /* ===== ESTILOS DE LA ORACIÓN (TEMA OSCURO) ===== */
+        .oracion-container {
+            max-width: 100%;
+            margin: 20px 0;
+            padding: 24px 28px;
+            background: #1a1a1a;
+            border-radius: 20px;
+            border: 1px solid rgba(201, 169, 110, 0.12);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+        .oracion-container .oracion-intro {
+            text-align: center;
+            color: #c9a05e;
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(201, 169, 110, 0.15);
+        }
+        .oracion-container .oracion-intro span {
+            display: block;
+            font-size: 0.9rem;
+            color: #a89888;
+            margin-top: 4px;
+        }
+        .oracion-container .oracion-texto {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: #e0dcd7;
+            text-align: left;
+            padding: 0 4px;
+        }
+        .oracion-container .oracion-texto p {
+            margin-bottom: 16px;
+            text-indent: 0;
+        }
+        .oracion-container .oracion-texto em {
+            color: #c9a05e;
+            font-style: italic;
+        }
+        .oracion-container .oracion-texto strong {
+            color: #f0ece6;
+            font-weight: bold;
+        }
+        .oracion-container .oracion-texto h3 {
+            color: #c9a05e;
+            font-size: 1.3rem;
+            font-weight: normal;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid rgba(201, 169, 110, 0.12);
+            padding-bottom: 6px;
+        }
+        .oracion-container .oracion-texto ul,
+        .oracion-container .oracion-texto ol {
+            padding-left: 24px;
+            margin-bottom: 16px;
+        }
+        .oracion-container .oracion-texto li {
+            margin-bottom: 8px;
+        }
+        .oracion-container .oracion-texto blockquote {
+            background: #222;
+            padding: 16px 20px;
+            border-radius: 12px;
+            margin: 16px 0;
+            border-left: 4px solid #c9a05e;
+        }
+        .oracion-container .oracion-texto blockquote p {
+            font-style: italic;
+            font-size: 1.05rem;
+            color: #d0c8be;
+            margin: 0;
+        }
+        .oracion-container .oracion-texto .pause {
+            display: block;
+            text-align: center;
+            color: #a89888;
+            font-style: italic;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            border-top: 1px dashed rgba(201, 169, 110, 0.1);
+            padding-top: 1rem;
+        }
+        .oracion-container .oracion-footer {
+            text-align: center;
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(201, 169, 110, 0.15);
+            font-size: 1rem;
+            color: #c9a05e;
+            font-weight: bold;
+        }
+        .oracion-container .oracion-footer span {
+            font-size: 1.3rem;
+        }
+
+        /* ===== SECCIONES EXTRAS ===== */
+        .seccion-extra {
+            max-width: 100%;
+            margin: 30px 0;
+            padding: 20px 24px;
+            background: #1a1a1a;
+            border-radius: 16px;
+            border: 1px solid rgba(201, 169, 110, 0.08);
+            font-family: Georgia, serif;
+        }
+        .seccion-extra h3 {
+            color: #c9a05e;
+            font-size: 1.4rem;
+            font-weight: normal;
+            text-align: center;
+            border-bottom: 1px solid rgba(201, 169, 110, 0.12);
+            padding-bottom: 12px;
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+        .seccion-extra p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #d0c8be;
+        }
+        .seccion-extra blockquote {
+            background: #222;
+            padding: 16px 20px;
+            border-radius: 12px;
+            margin: 16px 0;
+            border-left: 4px solid #c9a05e;
+        }
+        .seccion-extra blockquote p {
+            font-style: italic;
+            font-size: 1.05rem;
+            color: #d0c8be;
+            margin: 0;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid rgba(201, 169, 110, 0.08);
+            margin: 30px 0;
+        }
+
+        /* ===== WIDGET MÁS ORACIONES ===== */
+        .related-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(201, 169, 110, 0.08);
+        }
+        .related-section h3 {
+            font-family: 'Lora', serif;
+            font-weight: 400;
+            color: #c9a05e;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+        .related-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        .related-card {
+            background: #1a1a1a;
+            border-radius: 16px;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: #e0dcd7;
+            transition: background 0.2s, transform 0.2s;
+            border: 1px solid rgba(255,255,255,0.04);
+        }
+        .related-card:hover {
+            background: #222;
+            transform: translateX(4px);
+            border-color: #c9a05e;
+        }
+        .related-card img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 12px;
+            background: #2a2a2a;
+            flex-shrink: 0;
+        }
+        .related-card .info h4 {
+            font-family: 'Lora', serif;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+            color: #f0ece6;
+        }
+        .related-card .info p {
+            font-size: 0.8rem;
+            color: #a89888;
+            margin: 0;
+        }
+        .related-card .info .mini-btn {
+            display: inline-block;
+            margin-top: 0.3rem;
+            font-size: 0.7rem;
+            border: 1px solid #c9a05e;
+            color: #c9a05e;
+            padding: 0.1rem 0.8rem;
+            border-radius: 20px;
+        }
+
+        .ad-footer {
+            margin-top: 2.5rem;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #6a625a;
+            border-top: 1px solid #222;
+            padding-top: 1.5rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (min-width: 600px) {
+            body { padding: 2rem; }
+            .container { padding: 3rem 2.5rem; }
+            .oracion-title { font-size: 2.4rem; }
+            .related-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 768px) {
+            .related-grid { grid-template-columns: repeat(4, 1fr); }
+            .related-card { flex-direction: column; text-align: center; padding: 1.2rem; }
+            .related-card img { width: 100%; height: 140px; }
+        }
+        @media (max-width: 500px) {
+            html { font-size: 17px; }
+            .sticky-nav .nav-left a span, .sticky-nav .nav-right a span { display: none; }
+            .oracion-container { padding: 14px 16px; margin: 12px 0; }
+            .oracion-container .oracion-texto { font-size: 1.15rem; line-height: 2; }
+            .oracion-container .oracion-texto h3 { font-size: 1.1rem; }
+            .oracion-container .oracion-texto ul,
+            .oracion-container .oracion-texto ol { padding-left: 18px; }
+            .seccion-extra { padding: 14px 16px; }
+            .seccion-extra h3 { font-size: 1.2rem; }
+            .seccion-extra p { font-size: 1rem; }
+            .seccion-extra blockquote p { font-size: 1rem; }
+            .video-controls-extra button { font-size: 0.9rem; padding: 0.5rem 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== BARRA STICKY ===== -->
+    <nav class="sticky-nav" id="stickyNav">
+        <div class="nav-left">
+            <a href="index.html" class="nav-home">🏠 Inicio</a>
+            <a href="#" id="prevLink" class="disabled">‹ <span>Anterior</span></a>
+        </div>
+        <div class="nav-right">
+            <a href="#" id="nextLink" class="disabled"><span>Siguiente</span> ›</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- ===== VOLVER AL INICIO ===== -->
+        <a href="index.html" class="back-link">← Volver al inicio</a>
+
+        <!-- ===== TÍTULO ===== -->
+        <h1 class="oracion-title" id="oracionTitle">🙏 Jesús, Cálmame Como Calmaste el Mar | Oración frente al Santísimo para la Ansiedad y el Pánico</h1>
+
+        <!-- ===== VIDEO CON PLYR ===== -->
+        <div class="video-container" id="videoContainer">
+            <video id="player" playsinline controls>
+                <source src="https://cdn.videy.co/f5XT2eK41.mp4" type="video/mp4" />
+                Tu navegador no soporta la reproducción de video.
+            </video>
+            <button class="btn-salir-fullscreen" id="btnSalirFullscreen">✕</button>
+        </div>
+
+        <!-- ===== BOTONES DE ADELANTAR/RETROCEDER (10s) ===== -->
+        <div class="video-controls-extra">
+            <button id="btnRewind">⏪ -10s</button>
+            <button id="btnForward">+10s ⏩</button>
+        </div>
+
+        <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
+        <!-- 
+        <div class="ad-comment">
+            <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+            <div id="container-..."></div>
+        </div>
+        -->
+
+        <!-- ===== ORACIÓN COMPLETA ===== -->
+        <div class="oracion-container">
+
+            <div class="oracion-intro">
+                📖 Oración completa para leer y meditar
+                <span>Para esos momentos donde la angustia ahoga y el pánico no te deja respirar</span>
+            </div>
+
+            <!-- ===== CÓDIGO PUBLICITARIO (comentado) ===== -->
+            <!-- 
+            <div style="margin: 20px 0;">
+                <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+                <div id="container-..."></div>
+            </div>
+            -->
+
+            <div class="oracion-texto">
+
+                <p><strong>Jesús, cálmame como calmaste el mar</strong></p>
+
+                <p>Para esos momentos donde la angustia ahoga y el pánico no te deja respirar.</p>
+
+                <p><em>Tono de voz:</em> Al principio, muy empático y contenedor. A partir de la mitad, la voz debe transmitir una seguridad absoluta y guiar a la persona a respirar con pausas.</p>
+
+                <p><em>Música de fondo:</em> Pads muy atmosféricos y envolventes. Sin batería, sin ritmo marcado. Sonidos continuos que inviten a la calma total y disminuyan las pulsaciones del corazón.</p>
+
+                <p><em>Duración aproximada:</em> 7 a 8 minutos.</p>
+
+                <hr style="border-color: rgba(201,169,110,0.1); margin: 1.5rem 0;">
+
+                <h3>[0:00 - 1:30] Inicio: Validando el pánico físico y espiritual</h3>
+
+                <p>Señor Jesús... ayúdame. No tengo fuerzas para decir muchas palabras. Me acerco a Ti en este instante porque mi corazón late sin control. Siento una angustia que me oprime el pecho y que, literalmente, no me deja respirar bien.</p>
+
+                <p>Me presento ante tu altar, ante la inmensa paz que irradias desde la Hostia Santa, y te pido que seas mi refugio urgente. El miedo me está paralizando. Siento que pierdo el control de mi propia mente y que el pánico me va a ahogar.</p>
+
+                <p>Mírame, Jesús. Ve mi respiración agitada, ve este miedo inexplicable que se ha apoderado de mí. Tú sabes que no quiero sentirme así, pero mi cuerpo y mis pensamientos no me obedecen. Por favor, abrázame fuerte en este instante.</p>
+
+                <span class="pause">⏳ Silencio de 15 segundos para que la persona comience a respirar frente al Señor</span>
+
+                <h3>[1:30 - 3:00] El pasaje de San Marcos: Las aguas turbulentas</h3>
+
+                <p>En medio de este colapso que estoy sintiendo, mi memoria se aferra al Evangelio de San Marcos. Él cuenta que un día estabas en una pequeña barca con tus discípulos, y de repente, se desató una tempestad terrible.</p>
+
+                <p>Los vientos chocaban con fuerza y el agua entraba en la barca. Tus amigos estaban aterrorizados, convencidos de que iban a hundirse. Y mientras ellos gritaban de pánico, Tú dormías plácidamente en la parte de atrás de la embarcación.</p>
+
+                <p>Señor, así me siento hoy. Siento que mi vida se hunde, que el caos me supera por todos lados, y a veces mi miedo me grita que Tú estás dormido, que no te das cuenta de mi desesperación.</p>
+
+                <span class="pause">⏳ Silencio de 10 segundos para presentar el pánico interior a Jesús</span>
+
+                <h3>[3:00 - 4:45] La orden de Jesús a la tempestad</h3>
+
+                <p>Pero el Evangelio dice que cuando tus amigos te despertaron, Tú te levantaste con toda tu majestad. No entraste en pánico junto con ellos. Simplemente miraste las aguas turbulentas y diste una orden directa y firme: <em>"¡Silencio! ¡Quédate quieto!"</em>.</p>
+
+                <p>Y al instante, los vientos furiosos se detuvieron y sobrevino una calma profunda.</p>
+
+                <p><strong>Jesús, Tú eres el mismo Dios hoy que hace dos mil años.</strong> Tienes exactamente el mismo poder. Por eso, mirándote en el Sagrario, te ruego que te levantes en la barca de mi mente. Mira este caos interior que me está destruyendo y da la orden.</p>
+
+                <p>Dile a mi ansiedad: <em>"¡Silencio!"</em>. Dile a mis nervios: <em>"¡Quédense quietos!"</em>. Reprende a este pánico para que se desvanezca por completo.</p>
+
+                <span class="pause">⏳ Silencio de 15 segundos para imaginar a Jesús dando la orden a la ansiedad</span>
+
+                <h3>[4:45 - 6:15] La respiración y el ancla</h3>
+
+                <p>Tú no me diste un espíritu de cobardía, sino de poder, de amor y de dominio propio. Mientras estoy aquí contigo, decido aferrarme a Ti como mi ancla más segura.</p>
+
+                <p>Ayúdame a respirar tu paz. Que con cada exhalación, pueda expulsar este nudo en la garganta y esta sensación de peligro inminente.</p>
+
+                <p><em>(Haz una pausa en tu narración y usa un tono de voz muy suave):</em> Respira profundo... y repite conmigo en tu interior: <strong>"Jesús está en mi barca. No me voy a hundir".</strong></p>
+
+                <p>Tú estás al mando de mi vida, Señor. Tú dominas las mareas más violentas, y nada de lo que estoy enfrentando es más grande que tu poder absoluto. Yo confío en Ti. Yo sé que me vas a sacar a salvo de esta crisis.</p>
+
+                <span class="pause">⏳ Silencio de 15 segundos para repetir "Jesús está en mi barca. No me voy a hundir"</span>
+
+                <h3>[6:15 - 7:30] La calma profunda</h3>
+
+                <p>Ya puedo sentir cómo la paz de tu presencia va bajando la intensidad de mi temor. Mi cuerpo empieza a relajarse. El ruido ensordecedor de mi cabeza empieza a apagarse bajo la dulzura de tu presencia aquí en el altar.</p>
+
+                <p>Gracias, porque siempre que clamo a Ti, Tú te despiertas para defenderme. Gracias por ser el ancla que sostiene mi paz mental y mi fe cuando todo lo demás tiembla.</p>
+
+                <p>Me quedo a tu lado, en este nuevo silencio, dejando que tu luz disipe las últimas sombras de mi angustia.</p>
+
+                <h3>[7:30 - 8:00] Cierre y bendición final</h3>
+
+                <p>Señor, que tu paz incomprensible guarde mi mente y mi corazón el resto de este día y durante toda la noche. Me refugio en tus brazos, donde nada malo me puede alcanzar.</p>
+
+                <p><strong>Amén.</strong></p>
+
+                <span class="pause">⏳ Silencio final de 15 segundos mientras la música baja lentamente hasta desaparecer</span>
+
+            </div>
+
+            <div class="oracion-footer">
+                <span>†</span> Jesús, en Ti confío. Que el Santísimo Sacramento te bendiga y te dé Su paz <span>†</span>
+            </div>
+
+        </div>
+
+        <!-- ===== SECCIONES EXTRAS ===== -->
+        <hr>
+
+        <div class="seccion-extra">
+            <h3>📲 Haz de este sitio tu lugar de paz y abandono</h3>
+            <p><strong>Agrega este sitio a la pantalla de inicio de tu teléfono</strong>: abre Chrome o Safari, toca los tres puntos (⋮) y elige <strong>"Agregar a pantalla de inicio"</strong>. Así tendrás siempre a un tap un lugar donde encontrar calma en Jesús, cada vez que la ansiedad quiera apoderarse de ti.</p>
+        </div>
+
+        <hr>
+
+        <div class="seccion-extra">
+            <h3>🕊️ Explora más oraciones en este sitio</h3>
+            <p>Visita nuestra página principal para descubrir más Horas Santas, adoraciones eucarísticas y oraciones profundas para momentos de angustia, ansiedad y necesidad de paz. Cada día añadimos nuevo contenido para ayudarte a encontrar descanso en la presencia de Jesús Sacramentado.</p>
+        </div>
+
+        <hr>
+
+        <div class="seccion-extra" style="text-align: center;">
+            <h3>🙏 Comparte este mensaje de esperanza</h3>
+            <p>Si esta oración ha traído paz a tu corazón, comparte este sitio con alguien que también esté luchando contra la ansiedad o el pánico. No guardes este tesoro solo para ti. Copia el enlace y envíalo a quien necesite escuchar: <strong>"Jesús está en mi barca. No me voy a hundir"</strong>.</p>
+            <p style="font-size: 1.1rem; color: #c9a05e; font-weight: bold; margin-top: 16px;">Jesús, en Ti confío. Que el Santísimo Sacramento te bendiga y te dé Su paz. 🙏</p>
+        </div>
+
+        <hr>
+
+        <!-- ===== WIDGET "MÁS ORACIONES PARA TI" ===== -->
+        <div class="related-section">
+            <h3>✦ Más oraciones para ti ✦</h3>
+            <div class="related-grid" id="relatedGrid">
+                <!-- Generado por JavaScript -->
+            </div>
+        </div>
+
+        <!-- ===== PUBLICIDAD 2 (comentada) ===== -->
+        <!-- 
+        <div class="ad-footer">
+            <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+            <div id="container-..."></div>
+        </div>
+        -->
+
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- CARGA EL ARCHIVO DE DATOS (EXTERNO)                        -->
+    <!-- ========================================================= -->
+    <script src="oraciones-data.js"></script>
+
+    <!-- ========================================================= -->
+    <!-- SCRIPT PRINCIPAL (navegación)                              -->
+    <!-- ========================================================= -->
+    <script>
+        (function() {
+            if (typeof misOraciones === 'undefined' || misOraciones.length === 0) {
+                console.warn('No se encontraron oraciones. Verifica oraciones-data.js');
+                document.getElementById('oracionTitle').textContent = 'Oración no encontrada';
+                return;
+            }
+
+            const currentPath = window.location.pathname;
+            const currentFileName = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+
+            let currentIndex = -1;
+            for (let i = 0; i < misOraciones.length; i++) {
+                const urlParts = misOraciones[i].url.split('/');
+                const fileName = urlParts[urlParts.length - 1];
+                if (fileName === currentFileName) {
+                    currentIndex = i;
+                    break;
+                }
+            }
+
+            if (currentIndex === -1) {
+                document.getElementById('stickyNav').style.display = 'none';
+                document.getElementById('oracionTitle').textContent = 'Oración no encontrada';
+                return;
+            }
+
+            // Configurar botones Anterior / Siguiente
+            const prevLink = document.getElementById('prevLink');
+            const nextLink = document.getElementById('nextLink');
+
+            if (currentIndex > 0) {
+                prevLink.href = misOraciones[currentIndex - 1].url;
+                prevLink.classList.remove('disabled');
+            } else {
+                prevLink.href = '#';
+                prevLink.classList.add('disabled');
+            }
+
+            if (currentIndex < misOraciones.length - 1) {
+                nextLink.href = misOraciones[currentIndex + 1].url;
+                nextLink.classList.remove('disabled');
+            } else {
+                nextLink.href = '#';
+                nextLink.classList.add('disabled');
+            }
+        })();
+    </script>
+
+    <!-- ========================================================= -->
+    <!-- WIDGET "MÁS ORACIONES" (EXTERNO - ALEATORIO)              -->
+    <!-- ========================================================= -->
+    <script src="widget.js"></script>
+
+    <!-- ========================================================= -->
+    <!-- PLYR Y CONTROLES                                           -->
+    <!-- ========================================================= -->
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+    <script>
+        // ===== 1. INICIALIZAR PLYR =====
+        const player = new Plyr('#player', {
+            controls: [
+                'play-large',
+                'play',
+                'progress',
+                'current-time',
+                'mute',
+                'volume',
+                'fullscreen'
+            ],
+            settings: ['quality'],
+            invertTime: false,
+            autoplay: false,
+            muted: false,
+            disableContextMenu: true,
+            hideControls: false,
+            clickToPlay: true,
+            resetOnEnd: true,
+            fullscreen: {
+                enabled: true,
+                fallback: true,
+                iosNative: true
+            }
+        });
+
+        // ===== 2. BOTÓN SALIR DE FULLSCREEN =====
+        const container = document.getElementById('videoContainer');
+        const btnSalir = document.getElementById('btnSalirFullscreen');
+
+        btnSalir.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (player.fullscreen.enabled) {
+                player.fullscreen.exit();
+            } else {
+                if (document.exitFullscreen) document.exitFullscreen();
+                else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+                else if (document.msExitFullscreen) document.msExitFullscreen();
+            }
+        });
+
+        // ===== 3. GESTIONAR FULLSCREEN =====
+        function handleFullscreenChange() {
+            const isFullscreen = !!(document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement);
+            if (isFullscreen) {
+                container.classList.add('fullscreen');
+            } else {
+                container.classList.remove('fullscreen');
+            }
+        }
+
+        document.addEventListener('fullscreenchange', handleFullscreenChange);
+        document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+        document.addEventListener('msfullscreenchange', handleFullscreenChange);
+
+        // ===== 4. BOTONES DE ADELANTAR/RETROCEDER 10s =====
+        document.getElementById('btnRewind').addEventListener('click', function() {
+            const currentTime = player.currentTime;
+            player.currentTime = Math.max(0, currentTime - 10);
+        });
+
+        document.getElementById('btnForward').addEventListener('click', function() {
+            const currentTime = player.currentTime;
+            const duration = player.duration;
+            player.currentTime = Math.min(duration, currentTime + 10);
+        });
+
+        // ===== 5. CLICK EN EL CONTENEDOR PARA FULLSCREEN =====
+        container.addEventListener('click', function(e) {
+            if (!e.target.closest('button') && !e.target.closest('.plyr__controls')) {
+                if (player.playing) {
+                    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+                        if (player.fullscreen.enabled) player.fullscreen.enter();
+                        else {
+                            const videoEl = document.getElementById('player');
+                            if (videoEl.requestFullscreen) videoEl.requestFullscreen();
+                            else if (videoEl.webkitRequestFullscreen) videoEl.webkitRequestFullscreen();
+                            else if (videoEl.msRequestFullscreen) videoEl.msRequestFullscreen();
+                        }
+                    }
+                } else {
+                    player.play();
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

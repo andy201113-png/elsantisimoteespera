@@ -102,6 +102,13 @@ const misOraciones = [
         img: "https://i.postimg.cc/FzS5bwV1/maxresdefault-(13).webp"
     }
     ,
+
+    {
+    id: 16,
+    titulo: "🙏 Jesús, Cálmame Como Calmaste el Mar",
+    url: "oracion16.html",
+    img: "https://i.postimg.cc/3rFQ0B09/maxresdefault-(14).jpg"
+    }
     
     
 
