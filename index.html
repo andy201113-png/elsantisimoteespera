@@ -75,18 +75,19 @@
         /* ===== INDICADOR DE SCROLL (FLECHA ANIMADA) ===== */
         .scroll-indicator {
             text-align: center;
-            margin: 1rem 0 1.5rem;
+            margin: 1.5rem 0 1.8rem;
             color: #a89888;
-            font-size: 0.85rem;
+            font-size: 1.3rem;          /* 📌 Más grande */
             animation: float 2.5s ease-in-out infinite;
+            font-weight: 400;
         }
 
         .scroll-indicator .arrow {
             display: block;
-            font-size: 2.2rem;
-            line-height: 1;
+            font-size: 4rem;             /* 📌 Mucho más grande */
+            line-height: 1.2;
             color: #c9a05e;
-            opacity: 0.7;
+            opacity: 0.8;
             margin-top: 0.2rem;
         }
 
@@ -451,7 +452,10 @@
                 font-size: 1.2rem;
             }
             .scroll-indicator .arrow {
-                font-size: 1.8rem;
+                font-size: 3rem;    /* En móviles se reduce un poco pero sigue grande */
+            }
+            .scroll-indicator {
+                font-size: 1.1rem;
             }
             #randomModal .modal-content {
                 padding: 1.5rem;
