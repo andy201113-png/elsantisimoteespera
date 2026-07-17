@@ -151,10 +151,10 @@
             background: rgba(201, 169, 110, 0.25);
         }
 
-        /* ===== BOTÓN ORACIÓN ALEATORIA ===== */
+        /* ===== BOTÓN ORACIÓN DEL MOMENTO (MEJORADO PARA MAYORES) ===== */
         .random-btn-wrapper {
             text-align: center;
-            margin: 0 0 1.8rem;
+            margin: 0 0 1rem;
         }
 
         .random-btn-wrapper a {
@@ -162,19 +162,26 @@
             background: rgba(201, 169, 110, 0.08);
             border: 1px solid rgba(201, 169, 110, 0.15);
             color: #c9a05e;
-            padding: 0.7rem 2.2rem;
-            border-radius: 40px;
+            padding: 1rem 2.8rem;        /* 📌 Más grande para tocar */
+            border-radius: 60px;
             text-decoration: none;
             font-weight: 600;
             font-family: 'Open Sans', sans-serif;
             transition: all 0.2s;
-            font-size: 0.95rem;
+            font-size: 1.2rem;           /* 📌 Letra más grande */
         }
 
         .random-btn-wrapper a:hover {
             background: rgba(201, 169, 110, 0.18);
             border-color: rgba(201, 169, 110, 0.3);
             transform: scale(1.02);
+        }
+
+        .random-help {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #a89888;
+            opacity: 0.8;
         }
 
         /* ===== MODAL ===== */
@@ -463,6 +470,10 @@
             #randomModal .modal-title {
                 font-size: 1.3rem;
             }
+            .random-btn-wrapper a {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
         }
 
         /* ===== PIE DE PÁGINA ===== */
@@ -505,10 +516,11 @@
         </div>
 
         <!-- ========================================================= -->
-        <!-- BOTÓN ORACIÓN ALEATORIA                                   -->
+        <!-- BOTÓN ORACIÓN DEL MOMENTO (MEJORADO PARA MAYORES)         -->
         <!-- ========================================================= -->
         <div class="random-btn-wrapper">
-            <a href="#" id="randomPrayerBtn">🙏 Oración aleatoria</a>
+            <a href="#" id="randomPrayerBtn">🙏 Oración del momento</a>
+            <p class="random-help">Toca aquí y recibe una oración especial para hoy</p>
         </div>
 
         <!-- ========================================================= -->
