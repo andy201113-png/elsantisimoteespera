@@ -42,9 +42,14 @@
             padding-top: 1rem;
             min-height: 100vh;
         }
-        .container {
+
+        /* ===== CONTENEDOR PRINCIPAL CON landmark ===== */
+        main {
             max-width: 820px;
             margin: 0 auto;
+        }
+
+        .container {
             background: #1e1e1e;
             border-radius: 24px;
             padding: 2rem 1.5rem 2.5rem;
@@ -152,7 +157,6 @@
             visibility: visible !important;
         }
 
-        /* Fullscreen */
         .video-container.fullscreen {
             position: fixed;
             top: 0;
@@ -220,7 +224,7 @@
         .ad-comment {
             text-align: center;
             font-size: 0.75rem;
-            color: #b0a8a0; /* 🔥 Cambio: más claro */
+            color: #b0a8a0;
             margin: 0.5rem 0 1.8rem;
             border: 1px dashed #333;
             padding: 0.6rem;
@@ -251,7 +255,7 @@
         .oracion-container .oracion-intro span {
             display: block;
             font-size: 0.9rem;
-            color: #d0c8be; /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             margin-top: 4px;
         }
         .oracion-container .oracion-texto {
@@ -273,7 +277,8 @@
             color: #f0ece6;
             font-weight: bold;
         }
-        .oracion-container .oracion-texto h3 {
+        /* 🔥 Cambio: h3 → h2 para jerarquía correcta */
+        .oracion-container .oracion-texto h2 {
             color: #c9a05e;
             font-size: 1.3rem;
             font-weight: normal;
@@ -326,7 +331,8 @@
             border: 1px solid rgba(201, 169, 110, 0.08);
             font-family: Georgia, serif;
         }
-        .seccion-extra h3 {
+        /* 🔥 Cambio: h3 → h2 */
+        .seccion-extra h2 {
             color: #c9a05e;
             font-size: 1.4rem;
             font-weight: normal;
@@ -414,7 +420,7 @@
         }
         .related-card .info p {
             font-size: 0.8rem;
-            color: #d0c8be; /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             margin: 0;
         }
         .related-card .info .mini-btn {
@@ -431,7 +437,7 @@
             margin-top: 2.5rem;
             text-align: center;
             font-size: 0.75rem;
-            color: #b0a8a0; /* 🔥 Cambio: más claro */
+            color: #b0a8a0;
             border-top: 1px solid #222;
             padding-top: 1.5rem;
         }
@@ -453,11 +459,11 @@
             .sticky-nav .nav-left a span, .sticky-nav .nav-right a span { display: none; }
             .oracion-container { padding: 14px 16px; margin: 12px 0; }
             .oracion-container .oracion-texto { font-size: 1.15rem; line-height: 2; }
-            .oracion-container .oracion-texto h3 { font-size: 1.1rem; }
+            .oracion-container .oracion-texto h2 { font-size: 1.1rem; }
             .oracion-container .oracion-texto ul,
             .oracion-container .oracion-texto ol { padding-left: 18px; }
             .seccion-extra { padding: 14px 16px; }
-            .seccion-extra h3 { font-size: 1.2rem; }
+            .seccion-extra h2 { font-size: 1.2rem; }
             .seccion-extra p { font-size: 1rem; }
             .seccion-extra blockquote p { font-size: 1rem; }
             .video-controls-extra button { font-size: 0.9rem; padding: 0.5rem 1.2rem; }
@@ -477,181 +483,195 @@
         </div>
     </nav>
 
-    <div class="container">
+    <!-- ===== CONTENIDO PRINCIPAL CON <main> ===== -->
+    <main>
+        <div class="container">
 
-        <!-- ===== VOLVER AL INICIO ===== -->
-        <a href="index.html" class="back-link">← Volver al inicio</a>
+            <!-- ===== VOLVER AL INICIO ===== -->
+            <a href="index.html" class="back-link">← Volver al inicio</a>
 
-        <!-- ===== TÍTULO ===== -->
-        <h1 class="oracion-title" id="oracionTitle">Jesús me está sanando | Visita al Santísimo Sacramento y oración profunda de adoración</h1>
+            <!-- ===== TÍTULO ===== -->
+            <h1 class="oracion-title" id="oracionTitle">Jesús me está sanando | Visita al Santísimo Sacramento y oración profunda de adoración</h1>
 
-        <!-- ===== VIDEO CON PLYR ===== -->
-        <div class="video-container" id="videoContainer">
-            <video id="player" playsinline controls>
-                <source src="https://cdn.videy.co/bfLqmBV01.mp4" type="video/mp4" />
-                Tu navegador no soporta la reproducción de video.
-            </video>
-            <button class="btn-salir-fullscreen" id="btnSalirFullscreen">✕</button>
-        </div>
-
-        <!-- ===== BOTONES DE ADELANTAR/RETROCEDER (10s) ===== -->
-        <div class="video-controls-extra">
-            <button id="btnRewind">⏪ -10s</button>
-            <button id="btnForward">+10s ⏩</button>
-        </div>
-
-        <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
-        <!-- 
-        <div class="ad-comment">
-            <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
-            <div id="container-..."></div>
-        </div>
-        -->
-
-        <!-- ===== ORACIÓN COMPLETA ===== -->
-        <div class="oracion-container">
-
-            <div class="oracion-intro">
-                📖 Oración completa para leer y meditar
-                <span>Si el pecado, la culpa o el cansancio espiritual han pesado sobre tu corazón, Jesús te espera</span>
+            <!-- ===== VIDEO CON PLYR ===== -->
+            <div class="video-container" id="videoContainer">
+                <video id="player" playsinline controls>
+                    <source src="https://cdn.videy.co/bfLqmBV01.mp4" type="video/mp4" />
+                    <!-- 🔥 Subtítulos (track) para accesibilidad -->
+                    <track kind="captions" srclang="es" label="Español" default />
+                    Tu navegador no soporta la reproducción de video.
+                </video>
+                <button class="btn-salir-fullscreen" id="btnSalirFullscreen">✕</button>
             </div>
 
-            <!-- ===== CÓDIGO PUBLICITARIO (comentado) ===== -->
+            <!-- ===== BOTONES DE ADELANTAR/RETROCEDER (10s) ===== -->
+            <div class="video-controls-extra">
+                <button id="btnRewind">⏪ -10s</button>
+                <button id="btnForward">+10s ⏩</button>
+            </div>
+
+            <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
             <!-- 
-            <div style="margin: 20px 0;">
+            <div class="ad-comment">
                 <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
                 <div id="container-..."></div>
             </div>
             -->
 
-            <div class="oracion-texto">
+            <!-- ===== ORACIÓN COMPLETA ===== -->
+            <div class="oracion-container">
 
-                <p><strong>“Jesús me está sanando”</strong>. Estas palabras, pronunciadas con fe, pueden cambiar la vida de quien las dice. Si alguna vez sentiste que ya no merecías acercarte a Dios, si el pecado, la culpa o el cansancio espiritual han pesado demasiado sobre tu corazón, esta Hora Santa ante el Santísimo Sacramento es para ti. Porque hay una verdad que necesitas escuchar hoy: <strong>Jesús no te rechaza. Jesús te espera.</strong></p>
+                <div class="oracion-intro">
+                    📖 Oración completa para leer y meditar
+                    <span>Si el pecado, la culpa o el cansancio espiritual han pesado sobre tu corazón, Jesús te espera</span>
+                </div>
 
-                <p>En esta visita al Santísimo Sacramento, no venimos a mostrar nuestros méritos (porque ninguno los tiene suficientes). Venimos a mostrar nuestras heridas, nuestras caídas, nuestra debilidad. Y precisamente por eso, Jesús nos recibe con los brazos abiertos. Él no se quedó en el cielo, lejos de nosotros. Se quedó en la Eucaristía, vivo y verdadero, en la Hostia Santa, para estar cerca de los más débiles, de los cansados, de los que sienten que ya no tienen fuerzas.</p>
+                <!-- ===== CÓDIGO PUBLICITARIO (comentado) ===== -->
+                <!-- 
+                <div style="margin: 20px 0;">
+                    <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+                    <div id="container-..."></div>
+                </div>
+                -->
 
-                <h3>📖 La misericordia de Dios en la Biblia: el hijo pródigo y la oveja perdida</h3>
+                <div class="oracion-texto">
 
-                <p>La Sagrada Escritura está llena de imágenes de un Dios que no rechaza al pecador, sino que sale a buscarlo. La parábola del <strong>hijo pródigo</strong> (Lucas 15,11-32) es quizás la más hermosa: un joven pide su herencia, se va lejos, desperdicia todo en una vida disoluta, toca fondo cuidando cerdos y deseando comer su comida. Y cuando decide regresar, arrepentido, ¿qué hace su padre? <strong>Sale corriendo a su encuentro</strong>, lo abraza, lo besa, y ordena una fiesta. El padre no le reprocha. El padre lo restaura.</p>
+                    <p><strong>“Jesús me está sanando”</strong>. Estas palabras, pronunciadas con fe, pueden cambiar la vida de quien las dice. Si alguna vez sentiste que ya no merecías acercarte a Dios, si el pecado, la culpa o el cansancio espiritual han pesado demasiado sobre tu corazón, esta Hora Santa ante el Santísimo Sacramento es para ti. Porque hay una verdad que necesitas escuchar hoy: <strong>Jesús no te rechaza. Jesús te espera.</strong></p>
 
-                <p>Ese padre eres Tú, Dios. Y ese hijo pródigo somos cada uno de nosotros cuando nos alejamos. Jesús nos enseña que <strong>no hay pecado tan grande que agote la misericordia de Dios</strong>. Lo único que Él espera es que demos un paso hacia Él, así sea un paso tembloroso, lleno de vergüenza.</p>
+                    <p>En esta visita al Santísimo Sacramento, no venimos a mostrar nuestros méritos (porque ninguno los tiene suficientes). Venimos a mostrar nuestras heridas, nuestras caídas, nuestra debilidad. Y precisamente por eso, Jesús nos recibe con los brazos abiertos. Él no se quedó en el cielo, lejos de nosotros. Se quedó en la Eucaristía, vivo y verdadero, en la Hostia Santa, para estar cerca de los más débiles, de los cansados, de los que sienten que ya no tienen fuerzas.</p>
 
-                <p>También la parábola de la <strong>oveja perdida</strong> (Lucas 15,4-7) nos muestra un pastor que deja las 99 ovejas seguras y va tras la que se ha extraviado. No espera a que la oveja vuelva por sí sola. Él va a buscarla. Ese pastor es Jesús, que hoy está en el Santísimo Sacramento, buscándonos a cada uno.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>📖 La misericordia de Dios en la Biblia: el hijo pródigo y la oveja perdida</h2>
 
-                <h3>✝️ La enseñanza del Santo Cura de Ars: Jesús está preso de amor por ti</h3>
+                    <p>La Sagrada Escritura está llena de imágenes de un Dios que no rechaza al pecador, sino que sale a buscarlo. La parábola del <strong>hijo pródigo</strong> (Lucas 15,11-32) es quizás la más hermosa: un joven pide su herencia, se va lejos, desperdicia todo en una vida disoluta, toca fondo cuidando cerdos y deseando comer su comida. Y cuando decide regresar, arrepentido, ¿qué hace su padre? <strong>Sale corriendo a su encuentro</strong>, lo abraza, lo besa, y ordena una fiesta. El padre no le reprocha. El padre lo restaura.</p>
 
-                <p>San Juan Vianney, el Santo Cura de Ars, es el patrono de los párrocos y un gigante de la espiritualidad eucarística. Él pasaba largas horas frente al Sagrario, y solía decir a sus feligreses: <em>“Venid a comulgar, venid a Jesús. Venid a morir de amor junto a Él, porque Él murió de amor por vosotros.”</em> También decía: <em>“Jesús está en el Sagrario como un prisionero de amor. No tiene manos para acariciaros sino las manos del sacerdote. No tiene pies para ir a buscaros sino los pies del sacerdote. No tiene lengua para hablaros sino la lengua del sacerdote. No tiene corazón para amaros sino su propio Corazón.”</em></p>
+                    <p>Ese padre eres Tú, Dios. Y ese hijo pródigo somos cada uno de nosotros cuando nos alejamos. Jesús nos enseña que <strong>no hay pecado tan grande que agote la misericordia de Dios</strong>. Lo único que Él espera es que demos un paso hacia Él, así sea un paso tembloroso, lleno de vergüenza.</p>
 
-                <p>El Cura de Ars entendía que Jesús no se quedó en la Eucaristía por obligación, sino por <strong>amor desbordante</strong>. Está allí para que cualquier alma, por muy pecadora que sea, pueda acercarse a Él sin miedo. No necesitas estar limpio para ir a Jesús. Ve con tu suciedad, y Él te limpiará.</p>
+                    <p>También la parábola de la <strong>oveja perdida</strong> (Lucas 15,4-7) nos muestra un pastor que deja las 99 ovejas seguras y va tras la que se ha extraviado. No espera a que la oveja vuelva por sí sola. Él va a buscarla. Ese pastor es Jesús, que hoy está en el Santísimo Sacramento, buscándonos a cada uno.</p>
 
-                <h3>💖 San Juan Pablo II: La Eucaristía es el remedio para el alma cansada</h3>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>✝️ La enseñanza del Santo Cura de Ars: Jesús está preso de amor por ti</h2>
 
-                <p>San Juan Pablo II, el Papa de la Eucaristía, nos dejó una enseñanza profunda en su encíclica <em>Ecclesia de Eucharistia</em>. Él decía que la Eucaristía es <strong>“el tesoro más precioso que la Iglesia puede tener en su caminar”</strong>. Y también nos recordaba que Jesús en el Santísimo Sacramento es el <strong>“medicina de la inmortalidad, antídoto para no morir y alimento para vivir eternamente en Cristo Jesús”</strong> (cf. San Ignacio de Antioquia).</p>
+                    <p>San Juan Vianney, el Santo Cura de Ars, es el patrono de los párrocos y un gigante de la espiritualidad eucarística. Él pasaba largas horas frente al Sagrario, y solía decir a sus feligreses: <em>“Venid a comulgar, venid a Jesús. Venid a morir de amor junto a Él, porque Él murió de amor por vosotros.”</em> También decía: <em>“Jesús está en el Sagrario como un prisionero de amor. No tiene manos para acariciaros sino las manos del sacerdote. No tiene pies para ir a buscaros sino los pies del sacerdote. No tiene lengua para hablaros sino la lengua del sacerdote. No tiene corazón para amaros sino su propio Corazón.”</em></p>
 
-                <p>Juan Pablo II vivió personalmente el poder sanador de la Eucaristía. Tras el atentado en la plaza de San Pedro en 1981, atribuyó su supervivencia a la intercesión de Nuestra Señora de Fátima y a la fuerza de la comunión frecuente. Animaba a todos los fieles a visitar a Jesús Sacramentado, aunque fuera por unos minutos, especialmente a los que se sentían lejos o indignos.</p>
+                    <p>El Cura de Ars entendía que Jesús no se quedó en la Eucaristía por obligación, sino por <strong>amor desbordante</strong>. Está allí para que cualquier alma, por muy pecadora que sea, pueda acercarse a Él sin miedo. No necesitas estar limpio para ir a Jesús. Ve con tu suciedad, y Él te limpiará.</p>
 
-                <p>Por eso hoy, inspirados en estos dos grandes santos eucarísticos, venimos a decirle a Jesús: <strong>“Sé que me estás sanando, aunque no lo sienta del todo. Confío en Tu misericordia.”</strong></p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>💖 San Juan Pablo II: La Eucaristía es el remedio para el alma cansada</h2>
 
-                <h3>✨ ¿Qué sanación trae esta Hora Santa?</h3>
+                    <p>San Juan Pablo II, el Papa de la Eucaristía, nos dejó una enseñanza profunda en su encíclica <em>Ecclesia de Eucharistia</em>. Él decía que la Eucaristía es <strong>“el tesoro más precioso que la Iglesia puede tener en su caminar”</strong>. Y también nos recordaba que Jesús en el Santísimo Sacramento es el <strong>“medicina de la inmortalidad, antídoto para no morir y alimento para vivir eternamente en Cristo Jesús”</strong> (cf. San Ignacio de Antioquia).</p>
 
-                <p>En esta adoración ante el Santísimo, pedimos especialmente a Jesús:</p>
+                    <p>Juan Pablo II vivió personalmente el poder sanador de la Eucaristía. Tras el atentado en la plaza de San Pedro en 1981, atribuyó su supervivencia a la intercesión de Nuestra Señora de Fátima y a la fuerza de la comunión frecuente. Animaba a todos los fieles a visitar a Jesús Sacramentado, aunque fuera por unos minutos, especialmente a los que se sentían lejos o indignos.</p>
 
-                <ul>
-                    <li><strong>Sanación del corazón herido</strong> – por el pecado, el rencor, la culpa o el rechazo.</li>
-                    <li><strong>Paz interior</strong> – para calmar la ansiedad, el miedo a Dios o la sensación de no merecer perdón.</li>
-                    <li><strong>Restauración de la esperanza</strong> – cuando el cansancio espiritual nos ha hecho dudar de la bondad de Dios.</li>
-                    <li><strong>Fuerza para volver a empezar</strong> – después de una caída, una recaída o un alejamiento prolongado.</li>
-                    <li><strong>Certeza del amor de Dios</strong> – saber que, aunque todos te juzguen, Jesús te acoge.</li>
-                </ul>
+                    <p>Por eso hoy, inspirados en estos dos grandes santos eucarísticos, venimos a decirle a Jesús: <strong>“Sé que me estás sanando, aunque no lo sienta del todo. Confío en Tu misericordia.”</strong></p>
 
-                <p>No se trata de una sanación mágica instantánea, sino de un proceso de encuentro real con Jesús Eucaristía. Cada visita al Santísimo, cada mirada de fe a la Hostia Santa, es un <strong>rayo de sol que va derritiendo el hielo del corazón</strong>. Tal vez no notes un cambio espectacular de un día para otro, pero si perseveras, Jesús te irá sanando silenciosamente.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>✨ ¿Qué sanación trae esta Hora Santa?</h2>
 
-                <h3>🕯️ Cómo hacer una Visita al Santísimo para recibir sanación</h3>
+                    <p>En esta adoración ante el Santísimo, pedimos especialmente a Jesús:</p>
 
-                <p>Si hoy quieres experimentar esa sanación, aquí tienes una guía práctica para esta adoración:</p>
+                    <ul>
+                        <li><strong>Sanación del corazón herido</strong> – por el pecado, el rencor, la culpa o el rechazo.</li>
+                        <li><strong>Paz interior</strong> – para calmar la ansiedad, el miedo a Dios o la sensación de no merecer perdón.</li>
+                        <li><strong>Restauración de la esperanza</strong> – cuando el cansancio espiritual nos ha hecho dudar de la bondad de Dios.</li>
+                        <li><strong>Fuerza para volver a empezar</strong> – después de una caída, una recaída o un alejamiento prolongado.</li>
+                        <li><strong>Certeza del amor de Dios</strong> – saber que, aunque todos te juzguen, Jesús te acoge.</li>
+                    </ul>
 
-                <ol>
-                    <li><strong>Llega con sencillez</strong>. No necesitas palabras bonitas ni un corazón perfecto. Jesús te espera tal como eres.</li>
-                    <li><strong>Reconoce tu herida o tu pecado</strong> (sin caer en desánimo). Di interiormente: <em>“Jesús, esto es lo que me pesa. Míralo con misericordia.”</em></li>
-                    <li><strong>Mira a la Hostia Santa</strong> (si estás en una iglesia) o cierra los ojos y visualiza a Jesús presente. No importa si no sientes nada. La fe basta.</li>
-                    <li><strong>Repite con confianza:</strong> <em>“Jesús, yo sé que me estás sanando. Aunque no lo vea, lo creo.”</em></li>
-                    <li><strong>Permanece en silencio unos minutos.</strong> Deja que el amor de Jesús haga su trabajo sin que tú interfieras.</li>
-                    <li><strong>Termina con un acto de acción de gracias</strong>, aunque no entiendas lo que ha pasado. La gratitud abre la puerta a la sanación.</li>
-                </ol>
+                    <p>No se trata de una sanación mágica instantánea, sino de un proceso de encuentro real con Jesús Eucaristía. Cada visita al Santísimo, cada mirada de fe a la Hostia Santa, es un <strong>rayo de sol que va derritiendo el hielo del corazón</strong>. Tal vez no notes un cambio espectacular de un día para otro, pero si perseveras, Jesús te irá sanando silenciosamente.</p>
 
-                <h3>🙌 Jaculatorias para cuando la culpa te persiga</h3>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🕯️ Cómo hacer una Visita al Santísimo para recibir sanación</h2>
 
-                <p>Cuando sientas que no mereces acercarte a Dios, repite estas frases a lo largo del día:</p>
+                    <p>Si hoy quieres experimentar esa sanación, aquí tienes una guía práctica para esta adoración:</p>
 
-                <ul>
-                    <li>✨ <em>“Jesús, no me rechaces. Confío en Tu misericordia.”</em></li>
-                    <li>✨ <em>“Sagrado Corazón de Jesús, en Ti confío.”</em></li>
-                    <li>✨ <em>“Jesús me está sanando, aunque yo no lo sienta.”</em></li>
-                    <li>✨ <em>“No importa lo que hice. Jesús me espera en el Sagrario.”</em></li>
-                </ul>
+                    <ol>
+                        <li><strong>Llega con sencillez</strong>. No necesitas palabras bonitas ni un corazón perfecto. Jesús te espera tal como eres.</li>
+                        <li><strong>Reconoce tu herida o tu pecado</strong> (sin caer en desánimo). Di interiormente: <em>“Jesús, esto es lo que me pesa. Míralo con misericordia.”</em></li>
+                        <li><strong>Mira a la Hostia Santa</strong> (si estás en una iglesia) o cierra los ojos y visualiza a Jesús presente. No importa si no sientes nada. La fe basta.</li>
+                        <li><strong>Repite con confianza:</strong> <em>“Jesús, yo sé que me estás sanando. Aunque no lo vea, lo creo.”</em></li>
+                        <li><strong>Permanece en silencio unos minutos.</strong> Deja que el amor de Jesús haga su trabajo sin que tú interfieras.</li>
+                        <li><strong>Termina con un acto de acción de gracias</strong>, aunque no entiendas lo que ha pasado. La gratitud abre la puerta a la sanación.</li>
+                    </ol>
 
-                <p>Ten estas frases en un lugar visible o guardadas en tu móvil. Serán como un bálsamo para los momentos de desaliento.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🙌 Jaculatorias para cuando la culpa te persiga</h2>
 
-                <h3>💬 Comparte tu proceso de sanación</h3>
+                    <p>Cuando sientas que no mereces acercarte a Dios, repite estas frases a lo largo del día:</p>
 
-                <p>En los comentarios, te invitamos a escribir: <strong>“Jesús, en Ti confío”</strong> o si te sientes valiente: <em>“Jesús me está sanando”</em>. También puedes dejar una breve intención de sanación (sin detalles íntimos). No estás solo en este camino. Muchos hermanos y hermanas están pasando por lo mismo y se unen a tu oración.</p>
+                    <ul>
+                        <li>✨ <em>“Jesús, no me rechaces. Confío en Tu misericordia.”</em></li>
+                        <li>✨ <em>“Sagrado Corazón de Jesús, en Ti confío.”</em></li>
+                        <li>✨ <em>“Jesús me está sanando, aunque yo no lo sienta.”</em></li>
+                        <li>✨ <em>“No importa lo que hice. Jesús me espera en el Sagrario.”</em></li>
+                    </ul>
 
-                <h3>🙏 Oración de sanación espiritual ante el Santísimo</h3>
+                    <p>Ten estas frases en un lugar visible o guardadas en tu móvil. Serán como un bálsamo para los momentos de desaliento.</p>
 
-                <blockquote>
-                    <p><em>Jesús Sacramentado, aquí estoy delante de Ti, no porque sea digno, sino porque necesito Tu misericordia. Tal vez me he alejado, he caído, he pecado. Tal vez la culpa me pesa tanto que he llegado a pensar que ya no merezco llamarme hijo(a) tuyo. Pero hoy, frente al Sagrario, quiero creer más en Tu amor que en mi pecado. Tú no viniste a condenar, sino a salvar. Tú no rechazas al que llora arrepentido. Sana mi corazón, devuélveme la paz y la esperanza. Dame la gracia de volver a empezar, una y otra vez, sabiendo que Tu misericordia es más grande que todas mis miserias. Sagrado Corazón de Jesús, en Ti confío. Amén.</em></p>
-                </blockquote>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>💬 Comparte tu proceso de sanación</h2>
+
+                    <p>En los comentarios, te invitamos a escribir: <strong>“Jesús, en Ti confío”</strong> o si te sientes valiente: <em>“Jesús me está sanando”</em>. También puedes dejar una breve intención de sanación (sin detalles íntimos). No estás solo en este camino. Muchos hermanos y hermanas están pasando por lo mismo y se unen a tu oración.</p>
+
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🙏 Oración de sanación espiritual ante el Santísimo</h2>
+
+                    <blockquote>
+                        <p><em>Jesús Sacramentado, aquí estoy delante de Ti, no porque sea digno, sino porque necesito Tu misericordia. Tal vez me he alejado, he caído, he pecado. Tal vez la culpa me pesa tanto que he llegado a pensar que ya no merezco llamarme hijo(a) tuyo. Pero hoy, frente al Sagrario, quiero creer más en Tu amor que en mi pecado. Tú no viniste a condenar, sino a salvar. Tú no rechazas al que llora arrepentido. Sana mi corazón, devuélveme la paz y la esperanza. Dame la gracia de volver a empezar, una y otra vez, sabiendo que Tu misericordia es más grande que todas mis miserias. Sagrado Corazón de Jesús, en Ti confío. Amén.</em></p>
+                    </blockquote>
+
+                </div>
+
+                <div class="oracion-footer">
+                    <span>†</span> Jesús me está sanando. Que el Santísimo Sacramento te bendiga y restaure tu corazón <span>†</span>
+                </div>
 
             </div>
 
-            <div class="oracion-footer">
-                <span>†</span> Jesús me está sanando. Que el Santísimo Sacramento te bendiga y restaure tu corazón <span>†</span>
+            <!-- ===== SECCIONES EXTRAS ===== -->
+            <hr>
+
+            <div class="seccion-extra">
+                <!-- 🔥 Cambiado de h3 a h2 -->
+                <h2>📲 Lleva este santuario en tu bolsillo</h2>
+                <p><strong>Agrega este sitio a la pantalla de inicio de tu teléfono</strong>: abre Chrome o Safari, toca los tres puntos (⋮) y elige <strong>"Agregar a pantalla de inicio"</strong>. Así tendrás siempre a un tap un lugar donde acudir cuando sientas que no mereces volver a Dios, sin distracciones y sin salir de este refugio espiritual.</p>
             </div>
 
-        </div>
+            <hr>
 
-        <!-- ===== SECCIONES EXTRAS ===== -->
-        <hr>
-
-        <div class="seccion-extra">
-            <h3>📲 Lleva este santuario en tu bolsillo</h3>
-            <p><strong>Agrega este sitio a la pantalla de inicio de tu teléfono</strong>: abre Chrome o Safari, toca los tres puntos (⋮) y elige <strong>"Agregar a pantalla de inicio"</strong>. Así tendrás siempre a un tap un lugar donde acudir cuando sientas que no mereces volver a Dios, sin distracciones y sin salir de este refugio espiritual.</p>
-        </div>
-
-        <hr>
-
-        <div class="seccion-extra">
-            <h3>🕊️ Explora más oraciones en este sitio</h3>
-            <p>Visita nuestra página principal para descubrir más Horas Santas, adoraciones eucarísticas y oraciones profundas para la sanación del alma. Cada día añadimos nuevo contenido para ayudarte a encontrar paz y esperanza en la presencia de Jesús Sacramentado.</p>
-        </div>
-
-        <hr>
-
-        <div class="seccion-extra" style="text-align: center;">
-            <h3>🙏 Comparte este mensaje de esperanza</h3>
-            <p>Si esta oración ha traído consuelo a tu corazón, comparte este sitio con alguien que también necesite recordar que Jesús nunca rechaza a nadie. No guardes este tesoro solo para ti. Copia el enlace y envíalo a quien esté pasando por un momento de culpa o desánimo.</p>
-            <p style="font-size: 1.1rem; color: #c9a05e; font-weight: bold; margin-top: 16px;">Jesús me está sanando. Que el Santísimo Sacramento te bendiga y restaure tu corazón. 🙏</p>
-        </div>
-
-        <hr>
-
-        <!-- ===== WIDGET "MÁS ORACIONES PARA TI" ===== -->
-        <div class="related-section">
-            <h3>✦ Más oraciones para ti ✦</h3>
-            <div class="related-grid" id="relatedGrid">
-                <!-- Generado por JavaScript -->
+            <div class="seccion-extra">
+                <h2>🕊️ Explora más oraciones en este sitio</h2>
+                <p>Visita nuestra página principal para descubrir más Horas Santas, adoraciones eucarísticas y oraciones profundas para la sanación del alma. Cada día añadimos nuevo contenido para ayudarte a encontrar paz y esperanza en la presencia de Jesús Sacramentado.</p>
             </div>
-        </div>
 
-        <!-- ===== PUBLICIDAD 2 (comentada) ===== -->
-        <!-- 
-        <div class="ad-footer">
-            <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
-            <div id="container-..."></div>
-        </div>
-        -->
+            <hr>
 
-    </div>
+            <div class="seccion-extra" style="text-align: center;">
+                <h2>🙏 Comparte este mensaje de esperanza</h2>
+                <p>Si esta oración ha traído consuelo a tu corazón, comparte este sitio con alguien que también necesite recordar que Jesús nunca rechaza a nadie. No guardes este tesoro solo para ti. Copia el enlace y envíalo a quien esté pasando por un momento de culpa o desánimo.</p>
+                <p style="font-size: 1.1rem; color: #c9a05e; font-weight: bold; margin-top: 16px;">Jesús me está sanando. Que el Santísimo Sacramento te bendiga y restaure tu corazón. 🙏</p>
+            </div>
+
+            <hr>
+
+            <!-- ===== WIDGET "MÁS ORACIONES PARA TI" ===== -->
+            <div class="related-section">
+                <h3>✦ Más oraciones para ti ✦</h3>
+                <div class="related-grid" id="relatedGrid">
+                    <!-- Generado por JavaScript -->
+                </div>
+            </div>
+
+            <!-- ===== PUBLICIDAD 2 (comentada) ===== -->
+            <!-- 
+            <div class="ad-footer">
+                <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+                <div id="container-..."></div>
+            </div>
+            -->
+
+        </div>
+    </main>
 
     <!-- ========================================================= -->
     <!-- CARGA EL ARCHIVO DE DATOS (EXTERNO)                        -->

@@ -42,9 +42,14 @@
             padding-top: 1rem;
             min-height: 100vh;
         }
-        .container {
+
+        /* ===== CONTENEDOR PRINCIPAL CON landmark ===== */
+        main {
             max-width: 820px;
             margin: 0 auto;
+        }
+
+        .container {
             background: #1e1e1e;
             border-radius: 24px;
             padding: 2rem 1.5rem 2.5rem;
@@ -152,7 +157,6 @@
             visibility: visible !important;
         }
 
-        /* Fullscreen */
         .video-container.fullscreen {
             position: fixed;
             top: 0;
@@ -220,7 +224,7 @@
         .ad-comment {
             text-align: center;
             font-size: 0.75rem;
-            color: #b0a8a0; /* 🔥 Cambio: más claro */
+            color: #b0a8a0;
             margin: 0.5rem 0 1.8rem;
             border: 1px dashed #333;
             padding: 0.6rem;
@@ -251,7 +255,7 @@
         .oracion-container .oracion-intro span {
             display: block;
             font-size: 0.9rem;
-            color: #d0c8be; /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             margin-top: 4px;
         }
         .oracion-container .oracion-texto {
@@ -273,7 +277,8 @@
             color: #f0ece6;
             font-weight: bold;
         }
-        .oracion-container .oracion-texto h3 {
+        /* 🔥 Cambio: h3 → h2 para jerarquía correcta */
+        .oracion-container .oracion-texto h2 {
             color: #c9a05e;
             font-size: 1.3rem;
             font-weight: normal;
@@ -326,7 +331,8 @@
             border: 1px solid rgba(201, 169, 110, 0.08);
             font-family: Georgia, serif;
         }
-        .seccion-extra h3 {
+        /* 🔥 Cambio: h3 → h2 */
+        .seccion-extra h2 {
             color: #c9a05e;
             font-size: 1.4rem;
             font-weight: normal;
@@ -414,7 +420,7 @@
         }
         .related-card .info p {
             font-size: 0.8rem;
-            color: #d0c8be; /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             margin: 0;
         }
         .related-card .info .mini-btn {
@@ -431,7 +437,7 @@
             margin-top: 2.5rem;
             text-align: center;
             font-size: 0.75rem;
-            color: #b0a8a0; /* 🔥 Cambio: más claro */
+            color: #b0a8a0;
             border-top: 1px solid #222;
             padding-top: 1.5rem;
         }
@@ -453,9 +459,11 @@
             .sticky-nav .nav-left a span, .sticky-nav .nav-right a span { display: none; }
             .oracion-container { padding: 14px 16px; margin: 12px 0; }
             .oracion-container .oracion-texto { font-size: 1.15rem; line-height: 2; }
-            .oracion-container .oracion-texto h3 { font-size: 1.1rem; }
+            .oracion-container .oracion-texto h2 { font-size: 1.1rem; }
+            .oracion-container .oracion-texto ul,
+            .oracion-container .oracion-texto ol { padding-left: 18px; }
             .seccion-extra { padding: 14px 16px; }
-            .seccion-extra h3 { font-size: 1.2rem; }
+            .seccion-extra h2 { font-size: 1.2rem; }
             .seccion-extra p { font-size: 1rem; }
             .seccion-extra blockquote p { font-size: 1rem; }
             .video-controls-extra button { font-size: 0.9rem; padding: 0.5rem 1.2rem; }
@@ -475,163 +483,175 @@
         </div>
     </nav>
 
-    <div class="container">
+    <!-- ===== CONTENIDO PRINCIPAL CON <main> ===== -->
+    <main>
+        <div class="container">
 
-        <!-- ===== VOLVER AL INICIO ===== -->
-        <a href="index.html" class="back-link">← Volver al inicio</a>
+            <!-- ===== VOLVER AL INICIO ===== -->
+            <a href="index.html" class="back-link">← Volver al inicio</a>
 
-        <!-- ===== TÍTULO ===== -->
-        <h1 class="oracion-title" id="oracionTitle">Déjate abrazar por Jesús ❤️ | Oración frente al Santísimo Sacramento</h1>
+            <!-- ===== TÍTULO ===== -->
+            <h1 class="oracion-title" id="oracionTitle">Déjate abrazar por Jesús ❤️ | Oración frente al Santísimo Sacramento</h1>
 
-        <!-- ===== VIDEO CON PLYR ===== -->
-        <div class="video-container" id="videoContainer">
-            <video id="player" playsinline controls>
-                <source src="https://cdn.videy.co/utJsLlRQ1.mp4" type="video/mp4" />
-                Tu navegador no soporta la reproducción de video.
-            </video>
-            <button class="btn-salir-fullscreen" id="btnSalirFullscreen">✕</button>
-        </div>
-
-        <!-- ===== BOTONES DE ADELANTAR/RETROCEDER (10s) ===== -->
-        <div class="video-controls-extra">
-            <button id="btnRewind">⏪ -10s</button>
-            <button id="btnForward">+10s ⏩</button>
-        </div>
-
-        <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
-        <!-- 
-        <div class="ad-comment">
-            <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
-            <div id="container-..."></div>
-        </div>
-        -->
-
-        <!-- ===== ORACIÓN COMPLETA ===== -->
-        <div class="oracion-container">
-
-            <div class="oracion-intro">
-                📖 Oración completa para leer y meditar
-                <span>Silencia tu corazón, respira y déjate mirar por Jesús en el Santísimo Sacramento</span>
+            <!-- ===== VIDEO CON PLYR ===== -->
+            <div class="video-container" id="videoContainer">
+                <video id="player" playsinline controls>
+                    <source src="https://cdn.videy.co/utJsLlRQ1.mp4" type="video/mp4" />
+                    <!-- 🔥 Subtítulos (track) para accesibilidad -->
+                    <track kind="captions" srclang="es" label="Español" default />
+                    Tu navegador no soporta la reproducción de video.
+                </video>
+                <button class="btn-salir-fullscreen" id="btnSalirFullscreen">✕</button>
             </div>
 
-            <!-- ===== CÓDIGO PUBLICITARIO (comentado) ===== -->
+            <!-- ===== BOTONES DE ADELANTAR/RETROCEDER (10s) ===== -->
+            <div class="video-controls-extra">
+                <button id="btnRewind">⏪ -10s</button>
+                <button id="btnForward">+10s ⏩</button>
+            </div>
+
+            <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
             <!-- 
-            <div style="margin: 20px 0;">
+            <div class="ad-comment">
                 <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
                 <div id="container-..."></div>
             </div>
             -->
 
-            <div class="oracion-texto">
+            <!-- ===== ORACIÓN COMPLETA ===== -->
+            <div class="oracion-container">
 
-                <p><strong>“Déjate abrazar por Jesús”</strong>. Cuatro palabras que parecen sencillas, pero que para un alma herida, cansada o rota, pueden ser la llave de la sanación más profunda. Si hoy estás agotado, si sientes que has perdido demasiado, si llevas una máscara de fortaleza que ya no puedes sostener, esta Hora Santa ante el Santísimo Sacramento es el refugio que necesitas.</p>
+                <div class="oracion-intro">
+                    📖 Oración completa para leer y meditar
+                    <span>Silencia tu corazón, respira y déjate mirar por Jesús en el Santísimo Sacramento</span>
+                </div>
 
-                <p>No necesitas fingir que estás bien. No necesitas palabras perfectas ni una oración elaborada. Jesús no te pide que resuelvas tu vida antes de venir a Él. Te pide solo una cosa: <strong>quédate</strong>. Respira. Déjate mirar por Él. Y permite que Su presencia, silenciosa y amorosa, vaya sanando poco a poco cada rincón dolorido de tu corazón.</p>
+                <!-- ===== CÓDIGO PUBLICITARIO (comentado) ===== -->
+                <!-- 
+                <div style="margin: 20px 0;">
+                    <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+                    <div id="container-..."></div>
+                </div>
+                -->
 
-                <h3>📖 La mirada de Jesús que transforma</h3>
+                <div class="oracion-texto">
 
-                <p>En los Evangelios, encontramos momentos en los que Jesús simplemente <strong>mira</strong> a una persona y su vida cambia. Miró a Pedro mientras negaba conocerlo (Lucas 22,61), y aquella mirada llena de misericordia le quebró el corazón, llevándolo a llorar amargamente y después al arrepentimiento. Miró al joven rico (Marcos 10,21) y lo amó, aunque él se fue triste. Miró a la mujer adúltera (Juan 8) y le dijo: “Ni yo te condeno, vete y no peques más”.</p>
+                    <p><strong>“Déjate abrazar por Jesús”</strong>. Cuatro palabras que parecen sencillas, pero que para un alma herida, cansada o rota, pueden ser la llave de la sanación más profunda. Si hoy estás agotado, si sientes que has perdido demasiado, si llevas una máscara de fortaleza que ya no puedes sostener, esta Hora Santa ante el Santísimo Sacramento es el refugio que necesitas.</p>
 
-                <p>El Santo Cura de Ars, San Juan Vianney, solía decir a sus feligreses: <em>“Yo le miro y Él me mira”</em>. Se refería a su vida delante del Sagrario. Horas y horas en silencio, sin decir casi nada, simplemente dejándose mirar por Jesús presente en la Hostia Santa. Y esa mirada mutua lo transformó de un sacerdote poco instruido en un santo que atraía a multitudes.</p>
+                    <p>No necesitas fingir que estás bien. No necesitas palabras perfectas ni una oración elaborada. Jesús no te pide que resuelvas tu vida antes de venir a Él. Te pide solo una cosa: <strong>quédate</strong>. Respira. Déjate mirar por Él. Y permite que Su presencia, silenciosa y amorosa, vaya sanando poco a poco cada rincón dolorido de tu corazón.</p>
 
-                <p>Hoy, en esta adoración, te invitamos a hacer lo mismo. No se trata de recitar muchas oraciones. Se trata de <strong>estar</strong> delante de Él, sabiendo que Él te está mirando con amor infinito, justo ahora, en este momento.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>📖 La mirada de Jesús que transforma</h2>
 
-                <h3>🌿 El abrazo del Padre a través de Jesús Eucaristía</h3>
+                    <p>En los Evangelios, encontramos momentos en los que Jesús simplemente <strong>mira</strong> a una persona y su vida cambia. Miró a Pedro mientras negaba conocerlo (Lucas 22,61), y aquella mirada llena de misericordia le quebró el corazón, llevándolo a llorar amargamente y después al arrepentimiento. Miró al joven rico (Marcos 10,21) y lo amó, aunque él se fue triste. Miró a la mujer adúltera (Juan 8) y le dijo: “Ni yo te condeno, vete y no peques más”.</p>
 
-                <p>Quizás no sientes nada especial. Quizás tu mente está dispersa, o el dolor te impide concentrarte. No importa. Jesús no necesita tus sentimientos. Necesita tu presencia, aunque sea cansada y distraída. Él te abraza aunque no lo percibas. Como el padre de la parábola del hijo pródigo, Él corre a abrazarte antes de que siquiera termines de pedir perdón.</p>
+                    <p>El Santo Cura de Ars, San Juan Vianney, solía decir a sus feligreses: <em>“Yo le miro y Él me mira”</em>. Se refería a su vida delante del Sagrario. Horas y horas en silencio, sin decir casi nada, simplemente dejándose mirar por Jesús presente en la Hostia Santa. Y esa mirada mutua lo transformó de un sacerdote poco instruido en un santo que atraía a multitudes.</p>
 
-                <p>Ese abrazo es real. Es espiritual, pero más verdadero que cualquier abrazo físico, porque toca el alma. En el Santísimo Sacramento, Jesús te dice: <em>“Ven a mí todos los que estáis cansados y agobiados, y yo os haré descansar”</em> (Mateo 11,28). No te dice “resuelve tus problemas primero”. Te dice: “Ven cansado, ven roto, ven sucio si quieres. Ven con tu carga. Yo te aliviaré”.</p>
+                    <p>Hoy, en esta adoración, te invitamos a hacer lo mismo. No se trata de recitar muchas oraciones. Se trata de <strong>estar</strong> delante de Él, sabiendo que Él te está mirando con amor infinito, justo ahora, en este momento.</p>
 
-                <p>No se trata de un abrazo mágico que borra los problemas de inmediato. Se trata de un abrazo que da fuerza para seguir caminando, que restaura la esperanza, que devuelve la dignidad al alma herida. <strong>Déjate abrazar</strong>. Aunque hoy no entiendas por qué sufres, aunque la fe parezca tenue, deja que Jesús te envuelva con su presencia silenciosa.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🌿 El abrazo del Padre a través de Jesús Eucaristía</h2>
 
-                <h3>🕯️ Cómo vivir esta Hora Santa de abrazo sanador</h3>
+                    <p>Quizás no sientes nada especial. Quizás tu mente está dispersa, o el dolor te impide concentrarte. No importa. Jesús no necesita tus sentimientos. Necesita tu presencia, aunque sea cansada y distraída. Él te abraza aunque no lo percibas. Como el padre de la parábola del hijo pródigo, Él corre a abrazarte antes de que siquiera termines de pedir perdón.</p>
 
-                <p>Si hoy necesitas dejarte abrazar por Jesús, sigue esta guía sencilla:</p>
+                    <p>Ese abrazo es real. Es espiritual, pero más verdadero que cualquier abrazo físico, porque toca el alma. En el Santísimo Sacramento, Jesús te dice: <em>“Ven a mí todos los que estáis cansados y agobiados, y yo os haré descansar”</em> (Mateo 11,28). No te dice “resuelve tus problemas primero”. Te dice: “Ven cansado, ven roto, ven sucio si quieres. Ven con tu carga. Yo te aliviaré”.</p>
 
-                <ol>
-                    <li><strong>Busca un lugar tranquilo</strong> – si puedes estar frente al Sagrario en una iglesia, mejor. Si no, hazlo desde casa con fe, sabiendo que Jesús respeta tu buena voluntad.</li>
-                    <li><strong>Siéntate (o arrodíllate) cómodamente</strong> – no es una postura de tensión. Es una postura de hijo que descansa en el Padre.</li>
-                    <li><strong>Cierra los ojos y respira hondo</strong> – tres respiraciones lentas, pidiendo al Espíritu Santo que calme tu interior.</li>
-                    <li><strong>Di interiormente:</strong> <em>“Jesús, aquí estoy. No necesito decir mucho. Solo quiero que me mires y que yo te mire.”</em></li>
-                    <li><strong>Permanece en silencio</strong> – sin forzar pensamientos. Cada vez que tu mente se disperse, vuelve suavemente a la imagen de Jesús en la Hostia Santa.</li>
-                    <li><strong>Si te viene una emoción o una lágrima, déjala salir</strong> – Jesús la recoge como un tesoro.</li>
-                    <li><strong>Termina con un acto de gratitud</strong> – aunque no hayas sentido nada, da las gracias por este tiempo de descanso.</li>
-                </ol>
+                    <p>No se trata de un abrazo mágico que borra los problemas de inmediato. Se trata de un abrazo que da fuerza para seguir caminando, que restaura la esperanza, que devuelve la dignidad al alma herida. <strong>Déjate abrazar</strong>. Aunque hoy no entiendas por qué sufres, aunque la fe parezca tenue, deja que Jesús te envuelva con su presencia silenciosa.</p>
 
-                <h3>🙌 Frases para repetir en el abrazo de Jesús</h3>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🕯️ Cómo vivir esta Hora Santa de abrazo sanador</h2>
 
-                <p>Durante esta adoración, o a lo largo del día, repite estas jaculatorias como un susurro del corazón:</p>
+                    <p>Si hoy necesitas dejarte abrazar por Jesús, sigue esta guía sencilla:</p>
 
-                <ul>
-                    <li>✨ <em>“Jesús, me dejo abrazar por Ti.”</em></li>
-                    <li>✨ <em>“Yo le miro y Él me mira.”</em></li>
-                    <li>✨ <em>“Aquí estoy, Señor, con mi silencio y mis heridas.”</em></li>
-                    <li>✨ <em>“Tú me conoces, Tú me amas. Solo eso me basta.”</em></li>
-                    <li>✨ <em>“Jesús, confío en Tu abrazo silencioso.”</em></li>
-                </ul>
+                    <ol>
+                        <li><strong>Busca un lugar tranquilo</strong> – si puedes estar frente al Sagrario en una iglesia, mejor. Si no, hazlo desde casa con fe, sabiendo que Jesús respeta tu buena voluntad.</li>
+                        <li><strong>Siéntate (o arrodíllate) cómodamente</strong> – no es una postura de tensión. Es una postura de hijo que descansa en el Padre.</li>
+                        <li><strong>Cierra los ojos y respira hondo</strong> – tres respiraciones lentas, pidiendo al Espíritu Santo que calme tu interior.</li>
+                        <li><strong>Di interiormente:</strong> <em>“Jesús, aquí estoy. No necesito decir mucho. Solo quiero que me mires y que yo te mire.”</em></li>
+                        <li><strong>Permanece en silencio</strong> – sin forzar pensamientos. Cada vez que tu mente se disperse, vuelve suavemente a la imagen de Jesús en la Hostia Santa.</li>
+                        <li><strong>Si te viene una emoción o una lágrima, déjala salir</strong> – Jesús la recoge como un tesoro.</li>
+                        <li><strong>Termina con un acto de gratitud</strong> – aunque no hayas sentido nada, da las gracias por este tiempo de descanso.</li>
+                    </ol>
 
-                <p>No las digas como una obligación. Déjalas brotar como un susurro. A veces, la oración más hermosa es la que solo escucha el Sagrario.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🙌 Frases para repetir en el abrazo de Jesús</h2>
 
-                <h3>💬 Comparte tu corazón (si quieres)</h3>
+                    <p>Durante esta adoración, o a lo largo del día, repite estas jaculatorias como un susurro del corazón:</p>
 
-                <p>En los comentarios, no es necesario que expliques tu dolor con detalles. Puedes escribir simplemente: <strong>“Jesús, me dejo abrazar”</strong>. O si lo prefieres, deja una intención callada, sabiendo que toda la comunidad de fe que visita este sitio se une a ti en este abrazo silencioso ante el Santísimo.</p>
+                    <ul>
+                        <li>✨ <em>“Jesús, me dejo abrazar por Ti.”</em></li>
+                        <li>✨ <em>“Yo le miro y Él me mira.”</em></li>
+                        <li>✨ <em>“Aquí estoy, Señor, con mi silencio y mis heridas.”</em></li>
+                        <li>✨ <em>“Tú me conoces, Tú me amas. Solo eso me basta.”</em></li>
+                        <li>✨ <em>“Jesús, confío en Tu abrazo silencioso.”</em></li>
+                    </ul>
 
-                <h3>🙏 Oración para dejarse abrazar por Jesús</h3>
+                    <p>No las digas como una obligación. Déjalas brotar como un susurro. A veces, la oración más hermosa es la que solo escucha el Sagrario.</p>
 
-                <blockquote>
-                    <p><em>Jesús Sacramentado, aquí estoy. No traigo grandes promesas ni certezas. Traigo mi cansancio, mis heridas, mi silencio. No sé cómo orar hoy. Solo quiero quedarme aquí, a Tu lado, sabiendo que me miras con amor. Si he pecado, perdóname. Si estoy perdido, encuéntrame. Si ya no siento nada, abrázame igual. Quiero creer que Tu presencia es suficiente. Quiero dejarme amar sin merecerlo. Jesús, confío en Ti. Me dejo abrazar. Amén.</em></p>
-                </blockquote>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>💬 Comparte tu corazón (si quieres)</h2>
+
+                    <p>En los comentarios, no es necesario que expliques tu dolor con detalles. Puedes escribir simplemente: <strong>“Jesús, me dejo abrazar”</strong>. O si lo prefieres, deja una intención callada, sabiendo que toda la comunidad de fe que visita este sitio se une a ti en este abrazo silencioso ante el Santísimo.</p>
+
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🙏 Oración para dejarse abrazar por Jesús</h2>
+
+                    <blockquote>
+                        <p><em>Jesús Sacramentado, aquí estoy. No traigo grandes promesas ni certezas. Traigo mi cansancio, mis heridas, mi silencio. No sé cómo orar hoy. Solo quiero quedarme aquí, a Tu lado, sabiendo que me miras con amor. Si he pecado, perdóname. Si estoy perdido, encuéntrame. Si ya no siento nada, abrázame igual. Quiero creer que Tu presencia es suficiente. Quiero dejarme amar sin merecerlo. Jesús, confío en Ti. Me dejo abrazar. Amén.</em></p>
+                    </blockquote>
+
+                </div>
+
+                <div class="oracion-footer">
+                    <span>†</span> Déjate abrazar por Jesús. Que el Santísimo Sacramento sea tu refugio y tu paz <span>†</span>
+                </div>
 
             </div>
 
-            <div class="oracion-footer">
-                <span>†</span> Déjate abrazar por Jesús. Que el Santísimo Sacramento sea tu refugio y tu paz <span>†</span>
+            <!-- ===== SECCIONES EXTRAS ===== -->
+            <hr>
+
+            <div class="seccion-extra">
+                <!-- 🔥 Cambiado de h3 a h2 -->
+                <h2>📲 Lleva este refugio en tu móvil</h2>
+                <p><strong>Agrega este sitio a la pantalla de inicio de tu teléfono</strong>: abre Chrome o Safari, toca los tres puntos (⋮) y elige <strong>"Agregar a pantalla de inicio"</strong>. Así tendrás siempre a un tap un lugar donde dejarte abrazar por Jesús, en cualquier momento del día, sin distracciones y sin salir de este refugio espiritual.</p>
             </div>
 
-        </div>
+            <hr>
 
-        <!-- ===== SECCIONES EXTRAS ===== -->
-        <hr>
-
-        <div class="seccion-extra">
-            <h3>📲 Lleva este refugio en tu móvil</h3>
-            <p><strong>Agrega este sitio a la pantalla de inicio de tu teléfono</strong>: abre Chrome o Safari, toca los tres puntos (⋮) y elige <strong>"Agregar a pantalla de inicio"</strong>. Así tendrás siempre a un tap un lugar donde dejarte abrazar por Jesús, en cualquier momento del día, sin distracciones y sin salir de este refugio espiritual.</p>
-        </div>
-
-        <hr>
-
-        <div class="seccion-extra">
-            <h3>🕊️ Explora más oraciones en este sitio</h3>
-            <p>Visita nuestra página principal para descubrir más Horas Santas, adoraciones eucarísticas y oraciones profundas. Cada día añadimos nuevo contenido para ayudarte a encontrar paz y sanación en la presencia de Jesús Sacramentado.</p>
-        </div>
-
-        <hr>
-
-        <div class="seccion-extra" style="text-align: center;">
-            <h3>🙏 Comparte este abrazo espiritual</h3>
-            <p>Si esta oración ha traído consuelo a tu corazón, comparte este sitio con alguien que también necesite sentirse abrazado por Jesús. No guardes este tesoro solo para ti. Copia el enlace y envíalo a quien esté pasando por un momento difícil.</p>
-            <p style="font-size: 1.1rem; color: #c9a05e; font-weight: bold; margin-top: 16px;">Déjate abrazar por Jesús. Que el Santísimo Sacramento sea tu refugio y tu paz. 🙏</p>
-        </div>
-
-        <hr>
-
-        <!-- ===== WIDGET "MÁS ORACIONES PARA TI" ===== -->
-        <div class="related-section">
-            <h3>✦ Más oraciones para ti ✦</h3>
-            <div class="related-grid" id="relatedGrid">
-                <!-- Generado por JavaScript -->
+            <div class="seccion-extra">
+                <h2>🕊️ Explora más oraciones en este sitio</h2>
+                <p>Visita nuestra página principal para descubrir más Horas Santas, adoraciones eucarísticas y oraciones profundas. Cada día añadimos nuevo contenido para ayudarte a encontrar paz y sanación en la presencia de Jesús Sacramentado.</p>
             </div>
-        </div>
 
-        <!-- ===== PUBLICIDAD 2 (comentada) ===== -->
-        <!-- 
-        <div class="ad-footer">
-            <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
-            <div id="container-..."></div>
-        </div>
-        -->
+            <hr>
 
-    </div>
+            <div class="seccion-extra" style="text-align: center;">
+                <h2>🙏 Comparte este abrazo espiritual</h2>
+                <p>Si esta oración ha traído consuelo a tu corazón, comparte este sitio con alguien que también necesite sentirse abrazado por Jesús. No guardes este tesoro solo para ti. Copia el enlace y envíalo a quien esté pasando por un momento difícil.</p>
+                <p style="font-size: 1.1rem; color: #c9a05e; font-weight: bold; margin-top: 16px;">Déjate abrazar por Jesús. Que el Santísimo Sacramento sea tu refugio y tu paz. 🙏</p>
+            </div>
+
+            <hr>
+
+            <!-- ===== WIDGET "MÁS ORACIONES PARA TI" ===== -->
+            <div class="related-section">
+                <h3>✦ Más oraciones para ti ✦</h3>
+                <div class="related-grid" id="relatedGrid">
+                    <!-- Generado por JavaScript -->
+                </div>
+            </div>
+
+            <!-- ===== PUBLICIDAD 2 (comentada) ===== -->
+            <!-- 
+            <div class="ad-footer">
+                <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+                <div id="container-..."></div>
+            </div>
+            -->
+
+        </div>
+    </main>
 
     <!-- ========================================================= -->
     <!-- CARGA EL ARCHIVO DE DATOS (EXTERNO)                        -->

@@ -42,9 +42,14 @@
             padding-top: 1rem;
             min-height: 100vh;
         }
-        .container {
+
+        /* ===== CONTENEDOR PRINCIPAL CON landmark ===== */
+        main {
             max-width: 820px;
             margin: 0 auto;
+        }
+
+        .container {
             background: #1e1e1e;
             border-radius: 24px;
             padding: 2rem 1.5rem 2.5rem;
@@ -152,7 +157,6 @@
             visibility: visible !important;
         }
 
-        /* Fullscreen */
         .video-container.fullscreen {
             position: fixed;
             top: 0;
@@ -220,7 +224,7 @@
         .ad-comment {
             text-align: center;
             font-size: 0.75rem;
-            color: #b0a8a0; /* 🔥 Cambio: más claro */
+            color: #b0a8a0;
             margin: 0.5rem 0 1.8rem;
             border: 1px dashed #333;
             padding: 0.6rem;
@@ -251,7 +255,7 @@
         .oracion-container .oracion-intro span {
             display: block;
             font-size: 0.9rem;
-            color: #d0c8be; /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             margin-top: 4px;
         }
         .oracion-container .oracion-texto {
@@ -273,7 +277,8 @@
             color: #f0ece6;
             font-weight: bold;
         }
-        .oracion-container .oracion-texto h3 {
+        /* 🔥 Cambio: h3 → h2 para jerarquía correcta */
+        .oracion-container .oracion-texto h2 {
             color: #c9a05e;
             font-size: 1.3rem;
             font-weight: normal;
@@ -306,7 +311,7 @@
         .oracion-container .silencio {
             text-align: center;
             font-style: italic;
-            color: #d0c8be; /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             font-size: 0.95rem;
             margin: 18px 0;
             padding: 8px 16px;
@@ -337,7 +342,8 @@
             border: 1px solid rgba(201, 169, 110, 0.08);
             font-family: Georgia, serif;
         }
-        .seccion-extra h3 {
+        /* 🔥 Cambio: h3 → h2 */
+        .seccion-extra h2 {
             color: #c9a05e;
             font-size: 1.4rem;
             font-weight: normal;
@@ -425,7 +431,7 @@
         }
         .related-card .info p {
             font-size: 0.8rem;
-            color: #d0c8be; /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             margin: 0;
         }
         .related-card .info .mini-btn {
@@ -442,7 +448,7 @@
             margin-top: 2.5rem;
             text-align: center;
             font-size: 0.75rem;
-            color: #b0a8a0; /* 🔥 Cambio: más claro */
+            color: #b0a8a0;
             border-top: 1px solid #222;
             padding-top: 1.5rem;
         }
@@ -464,11 +470,11 @@
             .sticky-nav .nav-left a span, .sticky-nav .nav-right a span { display: none; }
             .oracion-container { padding: 14px 16px; margin: 12px 0; }
             .oracion-container .oracion-texto { font-size: 1.15rem; line-height: 2; }
-            .oracion-container .oracion-texto h3 { font-size: 1.1rem; }
+            .oracion-container .oracion-texto h2 { font-size: 1.1rem; }
             .oracion-container .oracion-texto ul,
             .oracion-container .oracion-texto ol { padding-left: 18px; }
             .seccion-extra { padding: 14px 16px; }
-            .seccion-extra h3 { font-size: 1.2rem; }
+            .seccion-extra h2 { font-size: 1.2rem; }
             .seccion-extra p { font-size: 1rem; }
             .seccion-extra blockquote p { font-size: 1rem; }
             .video-controls-extra button { font-size: 0.9rem; padding: 0.5rem 1.2rem; }
@@ -488,176 +494,189 @@
         </div>
     </nav>
 
-    <div class="container">
+    <!-- ===== CONTENIDO PRINCIPAL CON <main> ===== -->
+    <main>
+        <div class="container">
 
-        <!-- ===== VOLVER AL INICIO ===== -->
-        <a href="index.html" class="back-link">← Volver al inicio</a>
+            <!-- ===== VOLVER AL INICIO ===== -->
+            <a href="index.html" class="back-link">← Volver al inicio</a>
 
-        <!-- ===== TÍTULO ===== -->
-        <h1 class="oracion-title" id="oracionTitle">Cuando Dios guarda silencio 🙏 | Oración ante el Santísimo Sacramento</h1>
+            <!-- ===== TÍTULO ===== -->
+            <h1 class="oracion-title" id="oracionTitle">Cuando Dios guarda silencio 🙏 | Oración ante el Santísimo Sacramento</h1>
 
-        <!-- ===== VIDEO CON PLYR ===== -->
-        <div class="video-container" id="videoContainer">
-            <video id="player" playsinline controls>
-                <source src="https://cdn.videy.co/5lKVtW4i1.mp4" type="video/mp4" />
-                Tu navegador no soporta la reproducción de video.
-            </video>
-            <button class="btn-salir-fullscreen" id="btnSalirFullscreen">✕</button>
-        </div>
-
-        <!-- ===== BOTONES DE ADELANTAR/RETROCEDER (10s) ===== -->
-        <div class="video-controls-extra">
-            <button id="btnRewind">⏪ -10s</button>
-            <button id="btnForward">+10s ⏩</button>
-        </div>
-
-        <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
-        <!-- 
-        <div class="ad-comment">
-            <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
-            <div id="container-..."></div>
-        </div>
-        -->
-
-        <!-- ===== ORACIÓN COMPLETA ===== -->
-        <div class="oracion-container">
-
-            <div class="oracion-intro">
-                📖 Oración completa para leer y meditar
-                <span>Cuando el cielo parece de bronce y la oración se vuelve difícil, Jesús te sostiene</span>
+            <!-- ===== VIDEO CON PLYR ===== -->
+            <div class="video-container" id="videoContainer">
+                <video id="player" playsinline controls>
+                    <source src="https://cdn.videy.co/5lKVtW4i1.mp4" type="video/mp4" />
+                    <!-- 🔥 Subtítulos (track) para accesibilidad -->
+                    <track kind="captions" srclang="es" label="Español" default />
+                    Tu navegador no soporta la reproducción de video.
+                </video>
+                <button class="btn-salir-fullscreen" id="btnSalirFullscreen">✕</button>
             </div>
 
-            <!-- ===== CÓDIGO PUBLICITARIO (comentado) ===== -->
+            <!-- ===== BOTONES DE ADELANTAR/RETROCEDER (10s) ===== -->
+            <div class="video-controls-extra">
+                <button id="btnRewind">⏪ -10s</button>
+                <button id="btnForward">+10s ⏩</button>
+            </div>
+
+            <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
             <!-- 
-            <div style="margin: 20px 0;">
+            <div class="ad-comment">
                 <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
                 <div id="container-..."></div>
             </div>
             -->
 
-            <div class="oracion-texto">
+            <!-- ===== ORACIÓN COMPLETA ===== -->
+            <div class="oracion-container">
 
-                <p><strong>“Jesús, aunque no te escuche, sé que estás aquí”</strong>. Esta es la oración del alma que atraviesa la noche oscura, cuando el cielo parece de bronce y las palabras no encuentran eco. Si hoy tu oración te parece vacía, si sientes que Dios guarda silencio y tu fe se tambalea, esta Hora Santa ante el Santísimo Sacramento es para ti.</p>
+                <div class="oracion-intro">
+                    📖 Oración completa para leer y meditar
+                    <span>Cuando el cielo parece de bronce y la oración se vuelve difícil, Jesús te sostiene</span>
+                </div>
 
-                <p>El silencio de Dios es una de las pruebas más duras que un creyente puede enfrentar. No es que Dios se haya ido. No es que no te escuche. Es que, a veces, su silencio es un lenguaje más profundo que las palabras. Es como un maestro que, antes de enseñar, calla para que el alumno preste atención. Es como un padre que, en lugar de dar todo lo que el hijo pide, espera a que madure para darle lo mejor.</p>
+                <!-- ===== CÓDIGO PUBLICITARIO (comentado) ===== -->
+                <!-- 
+                <div style="margin: 20px 0;">
+                    <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+                    <div id="container-..."></div>
+                </div>
+                -->
 
-                <p>Pero el silencio de Dios no es indiferencia. Es una invitación a crecer en la fe, a purificar nuestras intenciones y a aprender a amarlo por lo que Él es, no por lo que nos da. En esta Hora Santa, queremos aprender a habitar ese silencio con confianza, sabiendo que Jesús está en el Santísimo Sacramento, callado pero presente, como el amigo que se sienta a nuestro lado sin necesidad de hablar.</p>
+                <div class="oracion-texto">
 
-                <h3>📖 El silencio de Dios en la Biblia: Job, Elías y el corazón que espera</h3>
+                    <p><strong>“Jesús, aunque no te escuche, sé que estás aquí”</strong>. Esta es la oración del alma que atraviesa la noche oscura, cuando el cielo parece de bronce y las palabras no encuentran eco. Si hoy tu oración te parece vacía, si sientes que Dios guarda silencio y tu fe se tambalea, esta Hora Santa ante el Santísimo Sacramento es para ti.</p>
 
-                <p>La Sagrada Escritura está llena de momentos en que Dios guarda silencio. Pensemos en <strong>Job</strong>, el hombre justo que perdió todo: hijos, bienes, salud. Y durante largos capítulos, Dios no responde. Sus amigos lo juzgan, su esposa lo abandona, y Job clama al cielo sin obtener respuesta. Pero al final, Dios habla, y no para justificarse, sino para revelar su grandeza. Job confiesa: <em>“De oídas te conocía, pero ahora mis ojos te ven”</em> (Job 42,5). El silencio no era castigo, sino preparación para una revelación más profunda.</p>
+                    <p>El silencio de Dios es una de las pruebas más duras que un creyente puede enfrentar. No es que Dios se haya ido. No es que no te escuche. Es que, a veces, su silencio es un lenguaje más profundo que las palabras. Es como un maestro que, antes de enseñar, calla para que el alumno preste atención. Es como un padre que, en lugar de dar todo lo que el hijo pide, espera a que madure para darle lo mejor.</p>
 
-                <p>Pensemos en <strong>Elías</strong>, el profeta que huía de Jezabel, derrotado y con deseos de morir. Dios no se le apareció en el terremoto, ni en el fuego, ni en el viento huracanado, sino en <strong>“una brisa suave y silenciosa”</strong> (1 Reyes 19,12). En medio del silencio, Dios le habló. A veces, tenemos que apagar el ruido exterior y el ruido interior para escuchar la voz de Dios que solo se percibe en el silencio.</p>
+                    <p>Pero el silencio de Dios no es indiferencia. Es una invitación a crecer en la fe, a purificar nuestras intenciones y a aprender a amarlo por lo que Él es, no por lo que nos da. En esta Hora Santa, queremos aprender a habitar ese silencio con confianza, sabiendo que Jesús está en el Santísimo Sacramento, callado pero presente, como el amigo que se sienta a nuestro lado sin necesidad de hablar.</p>
 
-                <p>Y pensemos en <strong>Ana</strong>, la madre de Samuel, que oraba sin palabras, solo moviendo los labios (1 Samuel 1,13). Su oración era un susurro, casi un silencio. Dios la escuchó y le concedió un hijo. El silencio no impide que Dios oiga. Al contrario, a veces las oraciones más profundas son las que no se dicen con la boca, sino con el corazón.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>📖 El silencio de Dios en la Biblia: Job, Elías y el corazón que espera</h2>
 
-                <h3>☁️ Santa Teresa de Jesús: la oración en la sequedad espiritual</h3>
+                    <p>La Sagrada Escritura está llena de momentos en que Dios guarda silencio. Pensemos en <strong>Job</strong>, el hombre justo que perdió todo: hijos, bienes, salud. Y durante largos capítulos, Dios no responde. Sus amigos lo juzgan, su esposa lo abandona, y Job clama al cielo sin obtener respuesta. Pero al final, Dios habla, y no para justificarse, sino para revelar su grandeza. Job confiesa: <em>“De oídas te conocía, pero ahora mis ojos te ven”</em> (Job 42,5). El silencio no era castigo, sino preparación para una revelación más profunda.</p>
 
-                <p>Santa Teresa de Jesús, la gran mística y Doctora de la Iglesia, experimentó largos años de sequedad en la oración. Durante casi veinte años, tuvo dificultades para rezar, sintiendo que su oración no llegaba a Dios. Pero no abandonó. Perseveró. Y de esa perseverancia nació una vida de profunda unión con Dios.</p>
+                    <p>Pensemos en <strong>Elías</strong>, el profeta que huía de Jezabel, derrotado y con deseos de morir. Dios no se le apareció en el terremoto, ni en el fuego, ni en el viento huracanado, sino en <strong>“una brisa suave y silenciosa”</strong> (1 Reyes 19,12). En medio del silencio, Dios le habló. A veces, tenemos que apagar el ruido exterior y el ruido interior para escuchar la voz de Dios que solo se percibe en el silencio.</p>
 
-                <p>Teresa decía: <em>“No es necesario tener grandes pensamientos para empezar a orar. Basta con tener el corazón dispuesto a estar con quien sabemos que nos ama”</em>. También enseñaba que la oración no es sentir, sino <strong>querer sentir</strong>. Es decir, aunque no sientas nada, aunque tu mente esté en blanco o dispersa, el simple acto de quedarte ante Jesús Sacramentado, con la intención de amarlo, es ya una oración poderosa.</p>
+                    <p>Y pensemos en <strong>Ana</strong>, la madre de Samuel, que oraba sin palabras, solo moviendo los labios (1 Samuel 1,13). Su oración era un susurro, casi un silencio. Dios la escuchó y le concedió un hijo. El silencio no impide que Dios oiga. Al contrario, a veces las oraciones más profundas son las que no se dicen con la boca, sino con el corazón.</p>
 
-                <p>Ella escribió en su libro <em>Camino de Perfección</em>: <em>“No te desanimes si no sientes devoción. La verdadera devoción está en la voluntad, no en la dulzura”</em>. Por eso, si hoy estás en sequedad, no te angusties. Esa sequedad, ofrecida a Jesús, puede ser más valiosa que muchos consuelos.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>☁️ Santa Teresa de Jesús: la oración en la sequedad espiritual</h2>
 
-                <h3>✨ ¿Qué frutos trae el silencio de Dios?</h3>
+                    <p>Santa Teresa de Jesús, la gran mística y Doctora de la Iglesia, experimentó largos años de sequedad en la oración. Durante casi veinte años, tuvo dificultades para rezar, sintiendo que su oración no llegaba a Dios. Pero no abandonó. Perseveró. Y de esa perseverancia nació una vida de profunda unión con Dios.</p>
 
-                <p>Cuando Dios guarda silencio y nosotros permanecemos fieles, se producen en nosotros transformaciones profundas:</p>
+                    <p>Teresa decía: <em>“No es necesario tener grandes pensamientos para empezar a orar. Basta con tener el corazón dispuesto a estar con quien sabemos que nos ama”</em>. También enseñaba que la oración no es sentir, sino <strong>querer sentir</strong>. Es decir, aunque no sientas nada, aunque tu mente esté en blanco o dispersa, el simple acto de quedarte ante Jesús Sacramentado, con la intención de amarlo, es ya una oración poderosa.</p>
 
-                <ul>
-                    <li><strong>Fe purificada</strong> – ya no creemos por sentimientos, sino por la certeza de la palabra de Dios.</li>
-                    <li><strong>Humildad</strong> – reconocemos que no merecemos todo lo que pedimos, pero confiamos en la bondad de Dios.</li>
-                    <li><strong>Paciencia</strong> – aprendemos a esperar los tiempos de Dios, que siempre son perfectos.</li>
-                    <li><strong>Desapego</strong> – dejamos de aferrarnos a los dones y nos aferramos al Dador.</li>
-                    <li><strong>Silencio interior</strong> – aprendemos a callar nuestras ansiedades para escuchar mejor.</li>
-                </ul>
+                    <p>Ella escribió en su libro <em>Camino de Perfección</em>: <em>“No te desanimes si no sientes devoción. La verdadera devoción está en la voluntad, no en la dulzura”</em>. Por eso, si hoy estás en sequedad, no te angusties. Esa sequedad, ofrecida a Jesús, puede ser más valiosa que muchos consuelos.</p>
 
-                <p>No se trata de resignarse pasivamente, sino de aprender a confiar activamente, como el agricultor que siembra y espera la lluvia.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>✨ ¿Qué frutos trae el silencio de Dios?</h2>
 
-                <h3>🕯️ Cómo orar cuando Dios guarda silencio</h3>
+                    <p>Cuando Dios guarda silencio y nosotros permanecemos fieles, se producen en nosotros transformaciones profundas:</p>
 
-                <p>Si hoy tu oración está seca y sientes que Dios no responde, prueba esta guía práctica durante la Hora Santa:</p>
+                    <ul>
+                        <li><strong>Fe purificada</strong> – ya no creemos por sentimientos, sino por la certeza de la palabra de Dios.</li>
+                        <li><strong>Humildad</strong> – reconocemos que no merecemos todo lo que pedimos, pero confiamos en la bondad de Dios.</li>
+                        <li><strong>Paciencia</strong> – aprendemos a esperar los tiempos de Dios, que siempre son perfectos.</li>
+                        <li><strong>Desapego</strong> – dejamos de aferrarnos a los dones y nos aferramos al Dador.</li>
+                        <li><strong>Silencio interior</strong> – aprendemos a callar nuestras ansiedades para escuchar mejor.</li>
+                    </ul>
 
-                <ol>
-                    <li><strong>No huyas del silencio</strong>. Siéntate o arrodíllate ante el Santísimo y simplemente <strong>permanece</strong>.</li>
-                    <li><strong>No te esfuerces en pensar</strong>. La oración de quietud es más valiosa que mil palabras.</li>
-                    <li><strong>Repite una jaculatoria corta</strong> de vez en cuando, como: <em>“Jesús, confío en Ti”</em>.</li>
-                    <li><strong>Ofrece tu sequedad por alguien que sufra</strong>. Esa ofrenda puede tener un valor redentor.</li>
-                    <li><strong>Termina con un acto de fe</strong>: <em>“Aunque no te sienta, sé que estás aquí”</em>.</li>
-                </ol>
+                    <p>No se trata de resignarse pasivamente, sino de aprender a confiar activamente, como el agricultor que siembra y espera la lluvia.</p>
 
-                <h3>🙌 Jaculatorias para los días de silencio</h3>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🕯️ Cómo orar cuando Dios guarda silencio</h2>
 
-                <p>Cuando el silencio de Dios se alarga, repite estas frases a lo largo del día:</p>
+                    <p>Si hoy tu oración está seca y sientes que Dios no responde, prueba esta guía práctica durante la Hora Santa:</p>
 
-                <ul>
-                    <li>✨ <em>“Jesús, aunque no te escuche, sé que estás aquí”</em></li>
-                    <li>✨ <em>“Tu silencio me enseña a confiar”</em></li>
-                    <li>✨ <em>“No necesito sentirte para saber que me amas”</em></li>
-                    <li>✨ <em>“Señor, enséñame a esperar”</em></li>
-                </ul>
+                    <ol>
+                        <li><strong>No huyas del silencio</strong>. Siéntate o arrodíllate ante el Santísimo y simplemente <strong>permanece</strong>.</li>
+                        <li><strong>No te esfuerces en pensar</strong>. La oración de quietud es más valiosa que mil palabras.</li>
+                        <li><strong>Repite una jaculatoria corta</strong> de vez en cuando, como: <em>“Jesús, confío en Ti”</em>.</li>
+                        <li><strong>Ofrece tu sequedad por alguien que sufra</strong>. Esa ofrenda puede tener un valor redentor.</li>
+                        <li><strong>Termina con un acto de fe</strong>: <em>“Aunque no te sienta, sé que estás aquí”</em>.</li>
+                    </ol>
 
-                <p>Son como pequeñas anclas que te sostienen cuando la tormenta del silencio arrecia.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🙌 Jaculatorias para los días de silencio</h2>
 
-                <h3>💬 Comparte tu experiencia de silencio</h3>
+                    <p>Cuando el silencio de Dios se alarga, repite estas frases a lo largo del día:</p>
 
-                <p>En los comentarios, te invitamos a escribir: <strong>“Jesús, confío en Ti aunque no te escuche”</strong>. Si quieres, comparte cuánto tiempo llevas en esta prueba (sin detalles íntimos), para que todos podamos unirnos en oración por ti. <strong>El silencio compartido se hace soportable.</strong></p>
+                    <ul>
+                        <li>✨ <em>“Jesús, aunque no te escuche, sé que estás aquí”</em></li>
+                        <li>✨ <em>“Tu silencio me enseña a confiar”</em></li>
+                        <li>✨ <em>“No necesito sentirte para saber que me amas”</em></li>
+                        <li>✨ <em>“Señor, enséñame a esperar”</em></li>
+                    </ul>
 
-                <h3>🙏 Oración para cuando Dios guarda silencio</h3>
+                    <p>Son como pequeñas anclas que te sostienen cuando la tormenta del silencio arrecia.</p>
 
-                <blockquote>
-                    <p><em>Jesús Sacramentado, aquí estoy delante de Ti, aunque hoy no sienta tu presencia. Sé que estás aquí, velando por mí, aunque mis oídos no escuchen tu voz. A veces tus silencios me inquietan, pero quiero creer que son parte de tu plan de amor. Enséñame a esperar sin desesperar. Enséñame a confiar aunque no entienda. Purifica mi fe, mi esperanza y mi caridad en esta noche oscura. Cuando vuelva a sentir tu voz, que mi corazón esté más preparado para escucharla. Por la intercesión de Santa Teresa de Jesús, dame paciencia y fortaleza. Amén.</em></p>
-                </blockquote>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>💬 Comparte tu experiencia de silencio</h2>
+
+                    <p>En los comentarios, te invitamos a escribir: <strong>“Jesús, confío en Ti aunque no te escuche”</strong>. Si quieres, comparte cuánto tiempo llevas en esta prueba (sin detalles íntimos), para que todos podamos unirnos en oración por ti. <strong>El silencio compartido se hace soportable.</strong></p>
+
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🙏 Oración para cuando Dios guarda silencio</h2>
+
+                    <blockquote>
+                        <p><em>Jesús Sacramentado, aquí estoy delante de Ti, aunque hoy no sienta tu presencia. Sé que estás aquí, velando por mí, aunque mis oídos no escuchen tu voz. A veces tus silencios me inquietan, pero quiero creer que son parte de tu plan de amor. Enséñame a esperar sin desesperar. Enséñame a confiar aunque no entienda. Purifica mi fe, mi esperanza y mi caridad en esta noche oscura. Cuando vuelva a sentir tu voz, que mi corazón esté más preparado para escucharla. Por la intercesión de Santa Teresa de Jesús, dame paciencia y fortaleza. Amén.</em></p>
+                    </blockquote>
+
+                </div>
+
+                <div class="oracion-footer">
+                    <span>†</span> Cuando Dios guarda silencio, Jesús está obrando. Que el Santísimo Sacramento te sostenga en la espera <span>†</span>
+                </div>
 
             </div>
 
-            <div class="oracion-footer">
-                <span>†</span> Cuando Dios guarda silencio, Jesús está obrando. Que el Santísimo Sacramento te sostenga en la espera <span>†</span>
+            <!-- ===== SECCIONES EXTRAS ===== -->
+            <hr>
+
+            <div class="seccion-extra">
+                <!-- 🔥 Cambiado de h3 a h2 -->
+                <h2>📲 Lleva este refugio contigo</h2>
+                <p><strong>Agrega este sitio a la pantalla de inicio de tu teléfono</strong>: abre Chrome o Safari, toca los tres puntos (⋮) y elige <strong>"Agregar a pantalla de inicio"</strong>. Así tendrás siempre a un tap un lugar donde refugiarte en los días de silencio, sin distracciones y sin salir de este refugio espiritual.</p>
             </div>
 
-        </div>
+            <hr>
 
-        <!-- ===== SECCIONES EXTRAS ===== -->
-        <hr>
-
-        <div class="seccion-extra">
-            <h3>📲 Lleva este refugio contigo</h3>
-            <p><strong>Agrega este sitio a la pantalla de inicio de tu teléfono</strong>: abre Chrome o Safari, toca los tres puntos (⋮) y elige <strong>"Agregar a pantalla de inicio"</strong>. Así tendrás siempre a un tap un lugar donde refugiarte en los días de silencio, sin distracciones y sin salir de este refugio espiritual.</p>
-        </div>
-
-        <hr>
-
-        <div class="seccion-extra">
-            <h3>🕊️ Explora más oraciones en este sitio</h3>
-            <p>Visita nuestra página principal para descubrir más Horas Santas, adoraciones eucarísticas y oraciones profundas para los momentos de prueba y espera. Cada día añadimos nuevo contenido para ayudarte a perseverar en la fe.</p>
-        </div>
-
-        <hr>
-
-        <div class="seccion-extra" style="text-align: center;">
-            <h3>🙏 Comparte este mensaje de esperanza</h3>
-            <p>Si esta oración ha traído consuelo a tu corazón, comparte este sitio con alguien que también esté atravesando un tiempo de silencio de Dios. No guardes este tesoro solo para ti. Copia el enlace y envíalo a quien necesite recordar que <strong>el silencio de Dios no es ausencia de Dios</strong>.</p>
-            <p style="font-size: 1.1rem; color: #c9a05e; font-weight: bold; margin-top: 16px;">Cuando Dios guarda silencio, Jesús está obrando. Que el Santísimo Sacramento te sostenga en la espera. 🙏</p>
-        </div>
-
-        <hr>
-
-        <!-- ===== WIDGET "MÁS ORACIONES PARA TI" ===== -->
-        <div class="related-section">
-            <h3>✦ Más oraciones para ti ✦</h3>
-            <div class="related-grid" id="relatedGrid">
-                <!-- Generado por JavaScript -->
+            <div class="seccion-extra">
+                <h2>🕊️ Explora más oraciones en este sitio</h2>
+                <p>Visita nuestra página principal para descubrir más Horas Santas, adoraciones eucarísticas y oraciones profundas para los momentos de prueba y espera. Cada día añadimos nuevo contenido para ayudarte a perseverar en la fe.</p>
             </div>
-        </div>
 
-        <!-- ===== PUBLICIDAD 2 (comentada) ===== -->
-        <!-- 
-        <div class="ad-footer">
-            <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
-            <div id="container-..."></div>
-        </div>
-        -->
+            <hr>
 
-    </div>
+            <div class="seccion-extra" style="text-align: center;">
+                <h2>🙏 Comparte este mensaje de esperanza</h2>
+                <p>Si esta oración ha traído consuelo a tu corazón, comparte este sitio con alguien que también esté atravesando un tiempo de silencio de Dios. No guardes este tesoro solo para ti. Copia el enlace y envíalo a quien necesite recordar que <strong>el silencio de Dios no es ausencia de Dios</strong>.</p>
+                <p style="font-size: 1.1rem; color: #c9a05e; font-weight: bold; margin-top: 16px;">Cuando Dios guarda silencio, Jesús está obrando. Que el Santísimo Sacramento te sostenga en la espera. 🙏</p>
+            </div>
+
+            <hr>
+
+            <!-- ===== WIDGET "MÁS ORACIONES PARA TI" ===== -->
+            <div class="related-section">
+                <h3>✦ Más oraciones para ti ✦</h3>
+                <div class="related-grid" id="relatedGrid">
+                    <!-- Generado por JavaScript -->
+                </div>
+            </div>
+
+            <!-- ===== PUBLICIDAD 2 (comentada) ===== -->
+            <!-- 
+            <div class="ad-footer">
+                <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+                <div id="container-..."></div>
+            </div>
+            -->
+
+        </div>
+    </main>
 
     <!-- ========================================================= -->
     <!-- CARGA EL ARCHIVO DE DATOS (EXTERNO)                        -->

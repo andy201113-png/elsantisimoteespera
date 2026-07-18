@@ -42,9 +42,14 @@
             padding-top: 1rem;
             min-height: 100vh;
         }
-        .container {
+
+        /* ===== CONTENEDOR PRINCIPAL CON landmark ===== */
+        main {
             max-width: 820px;
             margin: 0 auto;
+        }
+
+        .container {
             background: #1e1e1e;
             border-radius: 24px;
             padding: 2rem 1.5rem 2.5rem;
@@ -152,7 +157,6 @@
             visibility: visible !important;
         }
 
-        /* Fullscreen */
         .video-container.fullscreen {
             position: fixed;
             top: 0;
@@ -220,7 +224,7 @@
         .ad-comment {
             text-align: center;
             font-size: 0.75rem;
-            color: #b0a8a0; /* 🔥 Cambio: más claro */
+            color: #b0a8a0;
             margin: 0.5rem 0 1.8rem;
             border: 1px dashed #333;
             padding: 0.6rem;
@@ -251,7 +255,7 @@
         .oracion-container .oracion-intro span {
             display: block;
             font-size: 0.9rem;
-            color: #d0c8be; /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             margin-top: 4px;
         }
         .oracion-container .oracion-texto {
@@ -273,7 +277,8 @@
             color: #f0ece6;
             font-weight: bold;
         }
-        .oracion-container .oracion-texto h3 {
+        /* 🔥 Cambio: h3 → h2 para jerarquía correcta */
+        .oracion-container .oracion-texto h2 {
             color: #c9a05e;
             font-size: 1.3rem;
             font-weight: normal;
@@ -326,7 +331,8 @@
             border: 1px solid rgba(201, 169, 110, 0.08);
             font-family: Georgia, serif;
         }
-        .seccion-extra h3 {
+        /* 🔥 Cambio: h3 → h2 */
+        .seccion-extra h2 {
             color: #c9a05e;
             font-size: 1.4rem;
             font-weight: normal;
@@ -414,7 +420,7 @@
         }
         .related-card .info p {
             font-size: 0.8rem;
-            color: #d0c8be; /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             margin: 0;
         }
         .related-card .info .mini-btn {
@@ -431,7 +437,7 @@
             margin-top: 2.5rem;
             text-align: center;
             font-size: 0.75rem;
-            color: #b0a8a0; /* 🔥 Cambio: más claro */
+            color: #b0a8a0;
             border-top: 1px solid #222;
             padding-top: 1.5rem;
         }
@@ -453,9 +459,11 @@
             .sticky-nav .nav-left a span, .sticky-nav .nav-right a span { display: none; }
             .oracion-container { padding: 14px 16px; margin: 12px 0; }
             .oracion-container .oracion-texto { font-size: 1.15rem; line-height: 2; }
-            .oracion-container .oracion-texto h3 { font-size: 1.1rem; }
+            .oracion-container .oracion-texto h2 { font-size: 1.1rem; }
+            .oracion-container .oracion-texto ul,
+            .oracion-container .oracion-texto ol { padding-left: 18px; }
             .seccion-extra { padding: 14px 16px; }
-            .seccion-extra h3 { font-size: 1.2rem; }
+            .seccion-extra h2 { font-size: 1.2rem; }
             .seccion-extra p { font-size: 1rem; }
             .seccion-extra blockquote p { font-size: 1rem; }
             .video-controls-extra button { font-size: 0.9rem; padding: 0.5rem 1.2rem; }
@@ -475,174 +483,187 @@
         </div>
     </nav>
 
-    <div class="container">
+    <!-- ===== CONTENIDO PRINCIPAL CON <main> ===== -->
+    <main>
+        <div class="container">
 
-        <!-- ===== VOLVER AL INICIO ===== -->
-        <a href="index.html" class="back-link">← Volver al inicio</a>
+            <!-- ===== VOLVER AL INICIO ===== -->
+            <a href="index.html" class="back-link">← Volver al inicio</a>
 
-        <!-- ===== TÍTULO ===== -->
-        <h1 class="oracion-title" id="oracionTitle">Jesús, Tú eres mi medicina 🙏 Oración de sanación frente al Santísimo Sacramento</h1>
+            <!-- ===== TÍTULO ===== -->
+            <h1 class="oracion-title" id="oracionTitle">Jesús, Tú eres mi medicina 🙏 Oración de sanación frente al Santísimo Sacramento</h1>
 
-        <!-- ===== VIDEO CON PLYR ===== -->
-        <div class="video-container" id="videoContainer">
-            <video id="player" playsinline controls>
-                <source src="https://cdn.videy.co/MkauBG781.mp4" type="video/mp4" />
-                Tu navegador no soporta la reproducción de video.
-            </video>
-            <button class="btn-salir-fullscreen" id="btnSalirFullscreen">✕</button>
-        </div>
-
-        <!-- ===== BOTONES DE ADELANTAR/RETROCEDER (10s) ===== -->
-        <div class="video-controls-extra">
-            <button id="btnRewind">⏪ -10s</button>
-            <button id="btnForward">+10s ⏩</button>
-        </div>
-
-        <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
-        <!-- 
-        <div class="ad-comment">
-            <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
-            <div id="container-..."></div>
-        </div>
-        -->
-
-        <!-- ===== ORACIÓN COMPLETA ===== -->
-        <div class="oracion-container">
-
-            <div class="oracion-intro">
-                📖 Oración completa para leer y meditar
-                <span>Pon tu sufrimiento y tu enfermedad en las manos de Jesús, el Médico divino</span>
+            <!-- ===== VIDEO CON PLYR ===== -->
+            <div class="video-container" id="videoContainer">
+                <video id="player" playsinline controls>
+                    <source src="https://cdn.videy.co/MkauBG781.mp4" type="video/mp4" />
+                    <!-- 🔥 Subtítulos (track) para accesibilidad -->
+                    <track kind="captions" srclang="es" label="Español" default />
+                    Tu navegador no soporta la reproducción de video.
+                </video>
+                <button class="btn-salir-fullscreen" id="btnSalirFullscreen">✕</button>
             </div>
 
-            <!-- ===== CÓDIGO PUBLICITARIO (comentado) ===== -->
+            <!-- ===== BOTONES DE ADELANTAR/RETROCEDER (10s) ===== -->
+            <div class="video-controls-extra">
+                <button id="btnRewind">⏪ -10s</button>
+                <button id="btnForward">+10s ⏩</button>
+            </div>
+
+            <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
             <!-- 
-            <div style="margin: 20px 0;">
+            <div class="ad-comment">
                 <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
                 <div id="container-..."></div>
             </div>
             -->
 
-            <div class="oracion-texto">
+            <!-- ===== ORACIÓN COMPLETA ===== -->
+            <div class="oracion-container">
 
-                <p><strong>“Jesús, me abandono en Ti”</strong>. Esta breve oración, llena de confianza, es el corazón de esta Hora Santa ante el Santísimo Sacramento. Si hoy estás cansado, enfermo, herido por dentro o cargando un dolor que parece no terminar, quédate unos minutos en adoración. Jesús no solo entiende tu sufrimiento: <strong>Él es tu medicina</strong>.</p>
+                <div class="oracion-intro">
+                    📖 Oración completa para leer y meditar
+                    <span>Pon tu sufrimiento y tu enfermedad en las manos de Jesús, el Médico divino</span>
+                </div>
 
-                <p>No venimos a un doctor cualquiera. Venimos al Médico divino, que no solo cura cuerpos, sino que restaura almas, devuelve la esperanza y da fuerzas para cargar la cruz. Él mismo vivió el dolor: lloró ante la tumba de Lázaro, sintió cansancio en el pozo de Jacob, sufrió azotes, espinas y la cruz. Por eso, cuando te acercas a Él en la Eucaristía, no encuentras a un Dios distante, sino a Alguien que sabe lo que es padecer.</p>
+                <!-- ===== CÓDIGO PUBLICITARIO (comentado) ===== -->
+                <!-- 
+                <div style="margin: 20px 0;">
+                    <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+                    <div id="container-..."></div>
+                </div>
+                -->
 
-                <p>Jesús está vivo en el Santísimo Sacramento. Te mira, te escucha, permanece contigo en tu noche más difícil. Hoy puedes ofrecerle tu cansancio, tu enfermedad, tu miedo, tu soledad… y dejar que Su presencia traiga paz a tu corazón.</p>
+                <div class="oracion-texto">
 
-                <h3>📖 Jesús, el Médico de cuerpo y alma en los Evangelios</h3>
+                    <p><strong>“Jesús, me abandono en Ti”</strong>. Esta breve oración, llena de confianza, es el corazón de esta Hora Santa ante el Santísimo Sacramento. Si hoy estás cansado, enfermo, herido por dentro o cargando un dolor que parece no terminar, quédate unos minutos en adoración. Jesús no solo entiende tu sufrimiento: <strong>Él es tu medicina</strong>.</p>
 
-                <p>La Sagrada Escritura presenta a Jesús como el gran sanador. No solo curaba enfermedades físicas (ciegos, cojos, leprosos, paralíticos), sino que también perdonaba pecados y liberaba almas oprimidas. En Marcos 2,17, Él mismo declara: <em>“No necesitan médico los sanos, sino los enfermos. No he venido a llamar a justos, sino a pecadores”</em>.</p>
+                    <p>No venimos a un doctor cualquiera. Venimos al Médico divino, que no solo cura cuerpos, sino que restaura almas, devuelve la esperanza y da fuerzas para cargar la cruz. Él mismo vivió el dolor: lloró ante la tumba de Lázaro, sintió cansancio en el pozo de Jacob, sufrió azotes, espinas y la cruz. Por eso, cuando te acercas a Él en la Eucaristía, no encuentras a un Dios distante, sino a Alguien que sabe lo que es padecer.</p>
 
-                <p>El Salmo 103,1-5 nos recuerda que Dios <em>“sana todas tus dolencias”</em>. Y el profeta Isaías (53,5) anunció la pasión de Cristo diciendo: <em>“Por sus llagas fuimos nosotros curados”</em>. Cada Hostia consagrada es el mismo Jesús que sufrió en la cruz, y su presencia eucarística es una fuente inagotable de gracias sanadoras.</p>
+                    <p>Jesús está vivo en el Santísimo Sacramento. Te mira, te escucha, permanece contigo en tu noche más difícil. Hoy puedes ofrecerle tu cansancio, tu enfermedad, tu miedo, tu soledad… y dejar que Su presencia traiga paz a tu corazón.</p>
 
-                <p>No se trata de una sanación mágica ni instantánea en todos los casos. A veces, la curación no llega a la tierra, y Dios llama a su enfermo a la casa del Padre. Pero siempre, siempre, <strong>Jesús ofrece la gracia para sobrellevar el sufrimiento con paz, sentido y esperanza</strong>.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>📖 Jesús, el Médico de cuerpo y alma en los Evangelios</h2>
 
-                <h3>🩺 San Camilo de Lelis: El santo que encontró su medicina en Jesús</h3>
+                    <p>La Sagrada Escritura presenta a Jesús como el gran sanador. No solo curaba enfermedades físicas (ciegos, cojos, leprosos, paralíticos), sino que también perdonaba pecados y liberaba almas oprimidas. En Marcos 2,17, Él mismo declara: <em>“No necesitan médico los sanos, sino los enfermos. No he venido a llamar a justos, sino a pecadores”</em>.</p>
 
-                <p>San Camilo de Lelis (1550-1614) es el patrono de los enfermos, de los hospitales y de los sanitarios. Su vida fue una auténtica experiencia de enfermedad y redención. De joven, fue un soldado violento y adicto al juego. Además, padecía una llaga en una pierna que nunca sanaba del todo. Pero un día, tuvo una conversión radical y se dedicó al cuidado de los enfermos más abandonados.</p>
+                    <p>El Salmo 103,1-5 nos recuerda que Dios <em>“sana todas tus dolencias”</em>. Y el profeta Isaías (53,5) anunció la pasión de Cristo diciendo: <em>“Por sus llagas fuimos nosotros curados”</em>. Cada Hostia consagrada es el mismo Jesús que sufrió en la cruz, y su presencia eucarística es una fuente inagotable de gracias sanadoras.</p>
 
-                <p>Fundó la Orden de los Camilos, cuyos miembros son conocidos por el hábito negro con una cruz roja (precursores de la Cruz Roja). San Camilo enseñaba a sus religiosos que <strong>el enfermo es “otro Cristo”</strong> y que atenderlo con amor es adorar al mismo Jesús. Él mismo, cuando estaba postrado por la enfermedad, pedía que lo llevaran ante el Santísimo Sacramento para recibir fuerzas. Decía: <em>“Jesús es mi medicina, mi consuelo y mi esperanza”</em>.</p>
+                    <p>No se trata de una sanación mágica ni instantánea en todos los casos. A veces, la curación no llega a la tierra, y Dios llama a su enfermo a la casa del Padre. Pero siempre, siempre, <strong>Jesús ofrece la gracia para sobrellevar el sufrimiento con paz, sentido y esperanza</strong>.</p>
 
-                <p>En sus últimos años, su pierna enferma empeoró, pero jamás perdió la paz. Falleció con la mirada fija en un crucifijo, abrazado a la voluntad de Dios. Su ejemplo nos enseña que <strong>la verdadera sanación no siempre es física, sino la capacidad de abrazar el sufrimiento unidos a Cristo</strong>, convirtiéndolo en fuente de redención.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🩺 San Camilo de Lelis: El santo que encontró su medicina en Jesús</h2>
 
-                <h3>✨ ¿Qué medicina trae Jesús en esta Hora Santa?</h3>
+                    <p>San Camilo de Lelis (1550-1614) es el patrono de los enfermos, de los hospitales y de los sanitarios. Su vida fue una auténtica experiencia de enfermedad y redención. De joven, fue un soldado violento y adicto al juego. Además, padecía una llaga en una pierna que nunca sanaba del todo. Pero un día, tuvo una conversión radical y se dedicó al cuidado de los enfermos más abandonados.</p>
 
-                <p>En esta adoración eucarística, pedimos a Jesús, nuestro Médico divino, que derrame sobre nosotros:</p>
+                    <p>Fundó la Orden de los Camilos, cuyos miembros son conocidos por el hábito negro con una cruz roja (precursores de la Cruz Roja). San Camilo enseñaba a sus religiosos que <strong>el enfermo es “otro Cristo”</strong> y que atenderlo con amor es adorar al mismo Jesús. Él mismo, cuando estaba postrado por la enfermedad, pedía que lo llevaran ante el Santísimo Sacramento para recibir fuerzas. Decía: <em>“Jesús es mi medicina, mi consuelo y mi esperanza”</em>.</p>
 
-                <ul>
-                    <li><strong>Sanación física</strong> – según su voluntad, para aliviar dolores, enfermedades crónicas o agudas.</li>
-                    <li><strong>Sanación emocional</strong> – para curar heridas del pasado, traumas, miedos y soledad.</li>
-                    <li><strong>Sanación espiritual</strong> – para perdonarnos, perdonar y reconciliarnos con Dios y con los demás.</li>
-                    <li><strong>Fortaleza en la debilidad</strong> – cuando la curación tarda, para no desesperar.</li>
-                    <li><strong>Paz en medio del sufrimiento</strong> – ese consuelo que el mundo no puede dar.</li>
-                </ul>
+                    <p>En sus últimos años, su pierna enferma empeoró, pero jamás perdió la paz. Falleció con la mirada fija en un crucifijo, abrazado a la voluntad de Dios. Su ejemplo nos enseña que <strong>la verdadera sanación no siempre es física, sino la capacidad de abrazar el sufrimiento unidos a Cristo</strong>, convirtiéndolo en fuente de redención.</p>
 
-                <p>No venimos a exigir, sino a confiar. Jesús sabe lo que más nos conviene. A veces, la “medicina” es una larga espera; otras, la gracia de ofrecer el dolor por la salvación de las almas.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>✨ ¿Qué medicina trae Jesús en esta Hora Santa?</h2>
 
-                <h3>🕯️ Cómo recibir a Jesús como tu medicina en la Eucaristía</h3>
+                    <p>En esta adoración eucarística, pedimos a Jesús, nuestro Médico divino, que derrame sobre nosotros:</p>
 
-                <ol>
-                    <li><strong>Acude al Santísimo Sacramento</strong> (en una iglesia o, si no puedes, hazlo espiritualmente desde casa).</li>
-                    <li><strong>Reconoce tu necesidad</strong>: “Jesús, estoy enfermo / cansado / roto. Te necesito.”</li>
-                    <li><strong>Pide la gracia de un acto de abandono</strong> – repite: “Jesús, me abandono en Ti.”</li>
-                    <li><strong>Puedes hacer una Comunión espiritual</strong> si no recibes la Eucaristía sacramental en ese momento.</li>
-                    <li><strong>Ofrece tu sufrimiento por alguna intención</strong> (por la Iglesia, por los enfermos del mundo, por un alma necesitada).</li>
-                    <li><strong>Termina agradeciendo</strong>, aunque no sientas cambio inmediato. La gratitud abre el corazón a la gracia.</li>
-                </ol>
+                    <ul>
+                        <li><strong>Sanación física</strong> – según su voluntad, para aliviar dolores, enfermedades crónicas o agudas.</li>
+                        <li><strong>Sanación emocional</strong> – para curar heridas del pasado, traumas, miedos y soledad.</li>
+                        <li><strong>Sanación espiritual</strong> – para perdonarnos, perdonar y reconciliarnos con Dios y con los demás.</li>
+                        <li><strong>Fortaleza en la debilidad</strong> – cuando la curación tarda, para no desesperar.</li>
+                        <li><strong>Paz en medio del sufrimiento</strong> – ese consuelo que el mundo no puede dar.</li>
+                    </ul>
 
-                <h3>🙌 Jaculatorias para cuando el dolor aprieta</h3>
+                    <p>No venimos a exigir, sino a confiar. Jesús sabe lo que más nos conviene. A veces, la “medicina” es una larga espera; otras, la gracia de ofrecer el dolor por la salvación de las almas.</p>
 
-                <p>Lleva estas frases en tu corazón y repítelas a lo largo del día, especialmente durante los momentos más difíciles:</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🕯️ Cómo recibir a Jesús como tu medicina en la Eucaristía</h2>
 
-                <ul>
-                    <li>✨ <em>“Jesús, Tú eres mi medicina.”</em></li>
-                    <li>✨ <em>“Jesús, me abandono en Ti.”</em></li>
-                    <li>✨ <em>“Señor, dame paz en medio de esta prueba.”</em></li>
-                    <li>✨ <em>“Jesús Sacramentado, confío en Tu voluntad sanadora.”</em></li>
-                    <li>✨ <em>“Santa María, Salud de los enfermos, ruega por nosotros.”</em></li>
-                </ul>
+                    <ol>
+                        <li><strong>Acude al Santísimo Sacramento</strong> (en una iglesia o, si no puedes, hazlo espiritualmente desde casa).</li>
+                        <li><strong>Reconoce tu necesidad</strong>: “Jesús, estoy enfermo / cansado / roto. Te necesito.”</li>
+                        <li><strong>Pide la gracia de un acto de abandono</strong> – repite: “Jesús, me abandono en Ti.”</li>
+                        <li><strong>Puedes hacer una Comunión espiritual</strong> si no recibes la Eucaristía sacramental en ese momento.</li>
+                        <li><strong>Ofrece tu sufrimiento por alguna intención</strong> (por la Iglesia, por los enfermos del mundo, por un alma necesitada).</li>
+                        <li><strong>Termina agradeciendo</strong>, aunque no sientas cambio inmediato. La gratitud abre el corazón a la gracia.</li>
+                    </ol>
 
-                <h3>💬 Comparte tu intención de sanación</h3>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🙌 Jaculatorias para cuando el dolor aprieta</h2>
 
-                <p>En los comentarios, te invitamos a escribir tu petición de salud (puede ser tu nombre, el de un familiar, o simplemente “por los enfermos anónimos”). También puedes usar la frase: <strong>“Jesús, me abandono en Ti”</strong>. Unidos en la oración ante el Santísimo, nos hacemos más fuertes para llevar nuestras cruces.</p>
+                    <p>Lleva estas frases en tu corazón y repítelas a lo largo del día, especialmente durante los momentos más difíciles:</p>
 
-                <h3>🙏 Oración de abandono al Médico divino</h3>
+                    <ul>
+                        <li>✨ <em>“Jesús, Tú eres mi medicina.”</em></li>
+                        <li>✨ <em>“Jesús, me abandono en Ti.”</em></li>
+                        <li>✨ <em>“Señor, dame paz en medio de esta prueba.”</em></li>
+                        <li>✨ <em>“Jesús Sacramentado, confío en Tu voluntad sanadora.”</em></li>
+                        <li>✨ <em>“Santa María, Salud de los enfermos, ruega por nosotros.”</em></li>
+                    </ul>
 
-                <blockquote>
-                    <p><em>Jesús Sacramentado, Tú eres mi medicina. Aquí estoy ante Ti, con mi cuerpo cansado, mi alma herida, mi corazón que a veces duda. No te pido que me quites la cruz, sino que me des fuerzas para cargarla contigo. Sana lo que debas sanar, pero dame siempre la gracia de aceptar tu voluntad. Jesús, me abandono en Ti. Cuida de mí mejor de lo que yo mismo puedo cuidarme. Tú eres el buen médico que nunca receta algo inútil. Que, por intercesión de San Camilo de Lelis y de la Virgen María, Salud de los enfermos, encuentre en la Eucaristía el bálsamo que mi alma necesita. Amén.</em></p>
-                </blockquote>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>💬 Comparte tu intención de sanación</h2>
+
+                    <p>En los comentarios, te invitamos a escribir tu petición de salud (puede ser tu nombre, el de un familiar, o simplemente “por los enfermos anónimos”). También puedes usar la frase: <strong>“Jesús, me abandono en Ti”</strong>. Unidos en la oración ante el Santísimo, nos hacemos más fuertes para llevar nuestras cruces.</p>
+
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🙏 Oración de abandono al Médico divino</h2>
+
+                    <blockquote>
+                        <p><em>Jesús Sacramentado, Tú eres mi medicina. Aquí estoy ante Ti, con mi cuerpo cansado, mi alma herida, mi corazón que a veces duda. No te pido que me quites la cruz, sino que me des fuerzas para cargarla contigo. Sana lo que debas sanar, pero dame siempre la gracia de aceptar tu voluntad. Jesús, me abandono en Ti. Cuida de mí mejor de lo que yo mismo puedo cuidarme. Tú eres el buen médico que nunca receta algo inútil. Que, por intercesión de San Camilo de Lelis y de la Virgen María, Salud de los enfermos, encuentre en la Eucaristía el bálsamo que mi alma necesita. Amén.</em></p>
+                    </blockquote>
+
+                </div>
+
+                <div class="oracion-footer">
+                    <span>†</span> Jesús, Tú eres mi medicina. Que el Santísimo Sacramento te sane y te dé Su paz <span>†</span>
+                </div>
 
             </div>
 
-            <div class="oracion-footer">
-                <span>†</span> Jesús, Tú eres mi medicina. Que el Santísimo Sacramento te sane y te dé Su paz <span>†</span>
+            <!-- ===== SECCIONES EXTRAS ===== -->
+            <hr>
+
+            <div class="seccion-extra">
+                <!-- 🔥 Cambiado de h3 a h2 -->
+                <h2>📲 Lleva este santuario sanador en tu móvil</h2>
+                <p><strong>Agrega este sitio a la pantalla de inicio de tu teléfono</strong>: abre Chrome o Safari, toca los tres puntos (⋮) y elige <strong>"Agregar a pantalla de inicio"</strong>. Así tendrás siempre a un tap una oración de sanación para los momentos de urgencia, sin distracciones y sin salir de este refugio espiritual.</p>
             </div>
 
-        </div>
+            <hr>
 
-        <!-- ===== SECCIONES EXTRAS ===== -->
-        <hr>
-
-        <div class="seccion-extra">
-            <h3>📲 Lleva este santuario sanador en tu móvil</h3>
-            <p><strong>Agrega este sitio a la pantalla de inicio de tu teléfono</strong>: abre Chrome o Safari, toca los tres puntos (⋮) y elige <strong>"Agregar a pantalla de inicio"</strong>. Así tendrás siempre a un tap una oración de sanación para los momentos de urgencia, sin distracciones y sin salir de este refugio espiritual.</p>
-        </div>
-
-        <hr>
-
-        <div class="seccion-extra">
-            <h3>🕊️ Explora más oraciones de sanación en este sitio</h3>
-            <p>Visita nuestra página principal para descubrir más Horas Santas, adoraciones eucarísticas y oraciones profundas para los momentos de enfermedad y dificultad. Cada día añadimos nuevo contenido para ayudarte a encontrar paz y fortaleza en la presencia de Jesús Sacramentado.</p>
-        </div>
-
-        <hr>
-
-        <div class="seccion-extra" style="text-align: center;">
-            <h3>🙏 Comparte este bálsamo espiritual</h3>
-            <p>Si esta oración ha traído consuelo a tu corazón, comparte este sitio con alguien que también necesite la medicina de Jesús Eucaristía. No guardes este tesoro solo para ti. Copia el enlace y envíalo a quien esté pasando por un momento de enfermedad o dolor.</p>
-            <p style="font-size: 1.1rem; color: #c9a05e; font-weight: bold; margin-top: 16px;">Jesús, Tú eres mi medicina. Que el Santísimo Sacramento te sane y te dé Su paz. 🙏</p>
-        </div>
-
-        <hr>
-
-        <!-- ===== WIDGET "MÁS ORACIONES PARA TI" ===== -->
-        <div class="related-section">
-            <h3>✦ Más oraciones para ti ✦</h3>
-            <div class="related-grid" id="relatedGrid">
-                <!-- Generado por JavaScript -->
+            <div class="seccion-extra">
+                <h2>🕊️ Explora más oraciones de sanación en este sitio</h2>
+                <p>Visita nuestra página principal para descubrir más Horas Santas, adoraciones eucarísticas y oraciones profundas para los momentos de enfermedad y dificultad. Cada día añadimos nuevo contenido para ayudarte a encontrar paz y fortaleza en la presencia de Jesús Sacramentado.</p>
             </div>
-        </div>
 
-        <!-- ===== PUBLICIDAD 2 (comentada) ===== -->
-        <!-- 
-        <div class="ad-footer">
-            <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
-            <div id="container-..."></div>
-        </div>
-        -->
+            <hr>
 
-    </div>
+            <div class="seccion-extra" style="text-align: center;">
+                <h2>🙏 Comparte este bálsamo espiritual</h2>
+                <p>Si esta oración ha traído consuelo a tu corazón, comparte este sitio con alguien que también necesite la medicina de Jesús Eucaristía. No guardes este tesoro solo para ti. Copia el enlace y envíalo a quien esté pasando por un momento de enfermedad o dolor.</p>
+                <p style="font-size: 1.1rem; color: #c9a05e; font-weight: bold; margin-top: 16px;">Jesús, Tú eres mi medicina. Que el Santísimo Sacramento te sane y te dé Su paz. 🙏</p>
+            </div>
+
+            <hr>
+
+            <!-- ===== WIDGET "MÁS ORACIONES PARA TI" ===== -->
+            <div class="related-section">
+                <h3>✦ Más oraciones para ti ✦</h3>
+                <div class="related-grid" id="relatedGrid">
+                    <!-- Generado por JavaScript -->
+                </div>
+            </div>
+
+            <!-- ===== PUBLICIDAD 2 (comentada) ===== -->
+            <!-- 
+            <div class="ad-footer">
+                <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+                <div id="container-..."></div>
+            </div>
+            -->
+
+        </div>
+    </main>
 
     <!-- ========================================================= -->
     <!-- CARGA EL ARCHIVO DE DATOS (EXTERNO)                        -->

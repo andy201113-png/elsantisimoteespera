@@ -42,9 +42,14 @@
             padding-top: 1rem;
             min-height: 100vh;
         }
-        .container {
+
+        /* ===== CONTENEDOR PRINCIPAL CON landmark ===== */
+        main {
             max-width: 820px;
             margin: 0 auto;
+        }
+
+        .container {
             background: #1e1e1e;
             border-radius: 24px;
             padding: 2rem 1.5rem 2.5rem;
@@ -152,7 +157,6 @@
             visibility: visible !important;
         }
 
-        /* Fullscreen */
         .video-container.fullscreen {
             position: fixed;
             top: 0;
@@ -220,7 +224,7 @@
         .ad-comment {
             text-align: center;
             font-size: 0.75rem;
-            color: #b0a8a0; /* 🔥 Cambio: más claro */
+            color: #b0a8a0;
             margin: 0.5rem 0 1.8rem;
             border: 1px dashed #333;
             padding: 0.6rem;
@@ -251,7 +255,7 @@
         .oracion-container .oracion-intro span {
             display: block;
             font-size: 0.9rem;
-            color: #d0c8be; /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             margin-top: 4px;
         }
         .oracion-container .oracion-texto {
@@ -273,7 +277,8 @@
             color: #f0ece6;
             font-weight: bold;
         }
-        .oracion-container .oracion-texto h3 {
+        /* 🔥 Cambio: h3 → h2 para jerarquía correcta */
+        .oracion-container .oracion-texto h2 {
             color: #c9a05e;
             font-size: 1.3rem;
             font-weight: normal;
@@ -298,7 +303,7 @@
         .oracion-container .silencio {
             text-align: center;
             font-style: italic;
-            color: #d0c8be; /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             font-size: 0.95rem;
             margin: 18px 0;
             padding: 8px 16px;
@@ -329,7 +334,8 @@
             border: 1px solid rgba(201, 169, 110, 0.08);
             font-family: Georgia, serif;
         }
-        .seccion-extra h3 {
+        /* 🔥 Cambio: h3 → h2 */
+        .seccion-extra h2 {
             color: #c9a05e;
             font-size: 1.4rem;
             font-weight: normal;
@@ -417,7 +423,7 @@
         }
         .related-card .info p {
             font-size: 0.8rem;
-            color: #d0c8be; /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             margin: 0;
         }
         .related-card .info .mini-btn {
@@ -434,7 +440,7 @@
             margin-top: 2.5rem;
             text-align: center;
             font-size: 0.75rem;
-            color: #b0a8a0; /* 🔥 Cambio: más claro */
+            color: #b0a8a0;
             border-top: 1px solid #222;
             padding-top: 1.5rem;
         }
@@ -457,10 +463,10 @@
             .oracion-container { padding: 14px 16px; margin: 12px 0; }
             .oracion-container .oracion-texto { font-size: 1.15rem; line-height: 2; }
             .oracion-container .silencio { font-size: 0.85rem; padding: 6px 12px; }
-            .oracion-container .oracion-texto h3 { font-size: 1.1rem; }
+            .oracion-container .oracion-texto h2 { font-size: 1.1rem; }
             .oracion-container .oracion-texto blockquote p { font-size: 1rem; }
             .seccion-extra { padding: 14px 16px; }
-            .seccion-extra h3 { font-size: 1.2rem; }
+            .seccion-extra h2 { font-size: 1.2rem; }
             .seccion-extra p { font-size: 1rem; }
             .seccion-extra blockquote p { font-size: 1rem; }
             .video-controls-extra button { font-size: 0.9rem; padding: 0.5rem 1.2rem; }
@@ -480,154 +486,160 @@
         </div>
     </nav>
 
-    <div class="container">
+    <!-- ===== CONTENIDO PRINCIPAL CON <main> ===== -->
+    <main>
+        <div class="container">
 
-        <!-- ===== VOLVER AL INICIO ===== -->
-        <a href="index.html" class="back-link">← Volver al inicio</a>
+            <!-- ===== VOLVER AL INICIO ===== -->
+            <a href="index.html" class="back-link">← Volver al inicio</a>
 
-        <!-- ===== TÍTULO ===== -->
-        <h1 class="oracion-title" id="oracionTitle">Jesús, Sana lo que Duele por Dentro 🙏 Sanación Interior ante el Santísimo Sacramento</h1>
+            <!-- ===== TÍTULO ===== -->
+            <h1 class="oracion-title" id="oracionTitle">Jesús, Sana lo que Duele por Dentro 🙏 Sanación Interior ante el Santísimo Sacramento</h1>
 
-        <!-- ===== VIDEO CON PLYR ===== -->
-        <div class="video-container" id="videoContainer">
-            <video id="player" playsinline controls>
-                <source src="https://cdn.videy.co/tOWFXjQC1.mp4" type="video/mp4" />
-                Tu navegador no soporta la reproducción de video.
-            </video>
-            <button class="btn-salir-fullscreen" id="btnSalirFullscreen">✕</button>
-        </div>
-
-        <!-- ===== BOTONES DE ADELANTAR/RETROCEDER (10s) ===== -->
-        <div class="video-controls-extra">
-            <button id="btnRewind">⏪ -10s</button>
-            <button id="btnForward">+10s ⏩</button>
-        </div>
-
-        <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
-        <!-- 
-        <div class="ad-comment">
-            <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
-            <div id="container-..."></div>
-        </div>
-        -->
-
-        <!-- ===== ORACIÓN COMPLETA ===== -->
-        <div class="oracion-container">
-
-            <div class="oracion-intro">
-                📖 Oración completa para leer y meditar
-                <span>Silencia tu corazón y colócate en la presencia del Santísimo Sacramento</span>
+            <!-- ===== VIDEO CON PLYR ===== -->
+            <div class="video-container" id="videoContainer">
+                <video id="player" playsinline controls>
+                    <source src="https://cdn.videy.co/tOWFXjQC1.mp4" type="video/mp4" />
+                    <!-- 🔥 Subtítulos (track) para accesibilidad -->
+                    <track kind="captions" srclang="es" label="Español" default />
+                    Tu navegador no soporta la reproducción de video.
+                </video>
+                <button class="btn-salir-fullscreen" id="btnSalirFullscreen">✕</button>
             </div>
 
-            <!-- ===== CÓDIGO PUBLICITARIO (comentado) ===== -->
+            <!-- ===== BOTONES DE ADELANTAR/RETROCEDER (10s) ===== -->
+            <div class="video-controls-extra">
+                <button id="btnRewind">⏪ -10s</button>
+                <button id="btnForward">+10s ⏩</button>
+            </div>
+
+            <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
             <!-- 
-            <div style="margin: 20px 0;">
+            <div class="ad-comment">
                 <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
                 <div id="container-..."></div>
             </div>
             -->
 
-            <div class="oracion-texto">
+            <!-- ===== ORACIÓN COMPLETA ===== -->
+            <div class="oracion-container">
 
-                <p><em>Señor Jesús, me acerco a Ti en este instante.</em></p>
+                <div class="oracion-intro">
+                    📖 Oración completa para leer y meditar
+                    <span>Silencia tu corazón y colócate en la presencia del Santísimo Sacramento</span>
+                </div>
 
-                <p>Te miro presente en este altar, bajo la apariencia humilde del pan consagrado, y mi alma reconoce que está frente al Rey del universo, pero también frente a mi mejor amigo.</p>
+                <!-- ===== CÓDIGO PUBLICITARIO (comentado) ===== -->
+                <!-- 
+                <div style="margin: 20px 0;">
+                    <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+                    <div id="container-..."></div>
+                </div>
+                -->
 
-                <p>Hoy no vengo a pedirte por mis necesidades materiales ni a pedirte cosas para el mundo de afuera. Hoy vengo a hablarte de algo que llevo muy escondido. Vengo a entregarte todo eso que duele por dentro, todo ese sufrimiento emocional que la gente no puede ver porque muchas veces lo tapo con una sonrisa.</p>
+                <div class="oracion-texto">
 
-                <p><strong>Tú eres el único que conoce las verdaderas cicatrices de mi corazón.</strong></p>
+                    <p><em>Señor Jesús, me acerco a Ti en este instante.</em></p>
 
-                <div class="silencio">🕯️ Silencio para entregar a Dios la tristeza oculta</div>
+                    <p>Te miro presente en este altar, bajo la apariencia humilde del pan consagrado, y mi alma reconoce que está frente al Rey del universo, pero también frente a mi mejor amigo.</p>
 
-                <p>Hay cosas del pasado que todavía me lastiman, Señor. Palabras crueles que me dijeron y que se quedaron clavadas en mi interior; rechazos que me hicieron sentir que no era suficiente; traiciones de personas en las que confiaba plenamente.</p>
+                    <p>Hoy no vengo a pedirte por mis necesidades materiales ni a pedirte cosas para el mundo de afuera. Hoy vengo a hablarte de algo que llevo muy escondido. Vengo a entregarte todo eso que duele por dentro, todo ese sufrimiento emocional que la gente no puede ver porque muchas veces lo tapo con una sonrisa.</p>
 
-                <p>A veces me obligo a ser fuerte, me digo a mí mismo que ya superé el pasado, pero de repente un recuerdo vuelve a mi mente y me roba la paz por completo.</p>
+                    <p><strong>Tú eres el único que conoce las verdaderas cicatrices de mi corazón.</strong></p>
 
-                <p><strong>Jesús, hoy te entrego cada uno de esos recuerdos.</strong> Te entrego la tristeza profunda que a veces no me deja respirar. Te pido que pases tus manos llagadas sobre mi historia. Sana esas partes de mi alma que están rotas y que yo, por mis propias fuerzas, no sé cómo reparar.</p>
+                    <div class="silencio">🕯️ Silencio para entregar a Dios la tristeza oculta</div>
 
-                <div class="silencio">🕯️ Silencio para dejar que Jesús toque esas memorias tristes</div>
+                    <p>Hay cosas del pasado que todavía me lastiman, Señor. Palabras crueles que me dijeron y que se quedaron clavadas en mi interior; rechazos que me hicieron sentir que no era suficiente; traiciones de personas en las que confiaba plenamente.</p>
 
-                <p>En este momento de silencio, recuerdo las maravillosas palabras que le revelaste a <strong>Santa Faustina Kowalska</strong>. Tú le dijiste: <em>“Que nadie tenga miedo de acercarse a Mí, por muy grandes que sean sus faltas”</em>, y también le pediste que escribiera: <em>“Cuanto más grande es la miseria de un alma, más derecho tiene a Mi misericordia”</em>.</p>
+                    <p>A veces me obligo a ser fuerte, me digo a mí mismo que ya superé el pasado, pero de repente un recuerdo vuelve a mi mente y me roba la paz por completo.</p>
 
-                <p>Señor, mi miseria hoy no es solo de faltas, es también de fragilidad emocional. Soy de barro y me quiebro fácilmente. Por eso, hoy me refugio en ese derecho infinito de tu <strong>Divina Misericordia</strong>.</p>
+                    <p><strong>Jesús, hoy te entrego cada uno de esos recuerdos.</strong> Te entrego la tristeza profunda que a veces no me deja respirar. Te pido que pases tus manos llagadas sobre mi historia. Sana esas partes de mi alma que están rotas y que yo, por mis propias fuerzas, no sé cómo reparar.</p>
 
-                <p>No me acerco a Ti para que me juzgues por no haber logrado superar mis aflicciones; me acerco para que me sumerjas en ese océano de compasión que brota de tu corazón.</p>
+                    <div class="silencio">🕯️ Silencio para dejar que Jesús toque esas memorias tristes</div>
 
-                <div class="silencio">🕯️ Silencio para sumergirse mentalmente en la Divina Misericordia</div>
+                    <p>En este momento de silencio, recuerdo las maravillosas palabras que le revelaste a <strong>Santa Faustina Kowalska</strong>. Tú le dijiste: <em>“Que nadie tenga miedo de acercarse a Mí, por muy grandes que sean sus faltas”</em>, y también le pediste que escribiera: <em>“Cuanto más grande es la miseria de un alma, más derecho tiene a Mi misericordia”</em>.</p>
 
-                <p><strong>Arranca de raíz cualquier sentimiento de culpa falsa</strong>, cualquier resentimiento oculto, cualquier complejo de inferioridad que el mundo me haya querido imponer.</p>
+                    <p>Señor, mi miseria hoy no es solo de faltas, es también de fragilidad emocional. Soy de barro y me quiebro fácilmente. Por eso, hoy me refugio en ese derecho infinito de tu <strong>Divina Misericordia</strong>.</p>
 
-                <p>Tú me creaste por amor y para el amor. Cada vez que el enemigo intente susurrarme al oído que no valgo nada, recuérdame que <strong>Tú pagaste el precio más alto por mí en la cruz</strong>.</p>
+                    <p>No me acerco a Ti para que me juzgues por no haber logrado superar mis aflicciones; me acerco para que me sumerjas en ese océano de compasión que brota de tu corazón.</p>
 
-                <p>Jesús, que tu luz penetre por las grietas de mi corazón. Donde hay rencor, pon tu dulzura. Donde hay miedo al rechazo, pon tu abrazo paternal. Donde hay recuerdos amargos, pon la certeza de tu compañía incondicional.</p>
+                    <div class="silencio">🕯️ Silencio para sumergirse mentalmente en la Divina Misericordia</div>
 
-                <div class="silencio">🕯️ Silencio para sentir el calor sanador del amor de Dios</div>
+                    <p><strong>Arranca de raíz cualquier sentimiento de culpa falsa</strong>, cualquier resentimiento oculto, cualquier complejo de inferioridad que el mundo me haya querido imponer.</p>
 
-                <p><strong>Hoy decido rendirme ante Ti.</strong> Decido perdonar a los que me hicieron daño, y también decido perdonarme a mí mismo por las veces que fui muy duro conmigo. Te entrego todo el control de mis emociones.</p>
+                    <p>Tú me creaste por amor y para el amor. Cada vez que el enemigo intente susurrarme al oído que no valgo nada, recuérdame que <strong>Tú pagaste el precio más alto por mí en la cruz</strong>.</p>
 
-                <p>Tú eres el Médico de las almas. Actúa en mí, a tu ritmo, a tu manera. Sé que no voy a sanar por arte de magia de un día para otro, pero sé que desde hoy, <strong>ya no llevo este peso yo solo</strong>. Desde hoy, mi historia está en tus manos santas, y Tú haces nuevas todas las cosas.</p>
+                    <p>Jesús, que tu luz penetre por las grietas de mi corazón. Donde hay rencor, pon tu dulzura. Donde hay miedo al rechazo, pon tu abrazo paternal. Donde hay recuerdos amargos, pon la certeza de tu compañía incondicional.</p>
 
-                <p><strong>Gracias, Jesús</strong>, porque ya siento cómo tu amor comienza a vendar las partes rotas de mi alma. Me quedo a tu lado, adorándote, envuelto en esa paz que el mundo jamás me podrá ofrecer.</p>
+                    <div class="silencio">🕯️ Silencio para sentir el calor sanador del amor de Dios</div>
 
-                <p style="text-align: center; font-size: 1.4rem; margin-top: 24px; color: #c9a05e;"><strong>Amén.</strong></p>
+                    <p><strong>Hoy decido rendirme ante Ti.</strong> Decido perdonar a los que me hicieron daño, y también decido perdonarme a mí mismo por las veces que fui muy duro conmigo. Te entrego todo el control de mis emociones.</p>
+
+                    <p>Tú eres el Médico de las almas. Actúa en mí, a tu ritmo, a tu manera. Sé que no voy a sanar por arte de magia de un día para otro, pero sé que desde hoy, <strong>ya no llevo este peso yo solo</strong>. Desde hoy, mi historia está en tus manos santas, y Tú haces nuevas todas las cosas.</p>
+
+                    <p><strong>Gracias, Jesús</strong>, porque ya siento cómo tu amor comienza a vendar las partes rotas de mi alma. Me quedo a tu lado, adorándote, envuelto en esa paz que el mundo jamás me podrá ofrecer.</p>
+
+                    <p style="text-align: center; font-size: 1.4rem; margin-top: 24px; color: #c9a05e;"><strong>Amén.</strong></p>
+
+                </div>
+
+                <div class="oracion-footer">
+                    <span>†</span> Que el Santísimo Sacramento te bendiga y te sane <span>†</span>
+                </div>
 
             </div>
 
-            <div class="oracion-footer">
-                <span>†</span> Que el Santísimo Sacramento te bendiga y te sane <span>†</span>
+            <!-- ===== SECCIONES EXTRAS ===== -->
+            <hr>
+
+            <div class="seccion-extra">
+                <!-- 🔥 Cambiado de h3 a h2 -->
+                <h2>🕊️ Reflexión sobre la sanación interior</h2>
+                <p>Cuando entregamos a Jesús nuestras heridas emocionales, estamos haciendo un acto de profunda confianza. No siempre entendemos por qué sufrimos, ni por qué ciertos recuerdos siguen doliendo. Pero hay una verdad que permanece firme: <strong>Jesús nos conoce por dentro</strong> y nos ama tal como somos.</p>
+                <p><strong>Santa Faustina</strong> nos recuerda que la misericordia de Dios es infinita. No importa cuánto hayamos caído, cuántas veces hayamos fallado o cuánto tiempo hayamos cargado con el dolor. <strong>Él siempre está dispuesto a sanar</strong> y a restaurar lo que está roto.</p>
+                <p>Si hoy has rezado esta oración, confía en que Jesús ya ha comenzado su obra en ti. No necesitas sentir un cambio inmediato. La sanación profunda ocurre en silencio, como el agua que cae gota a gota sobre la roca, hasta que finalmente la atraviesa.</p>
+                <blockquote>
+                    <p>“Jesús, confío en Ti. Aunque no vea el resultado, aunque no sienta el cambio, creo que Tú estás obrando en lo más profundo de mi alma. Sana lo que duele por dentro.”</p>
+                </blockquote>
             </div>
 
-        </div>
+            <hr>
 
-        <!-- ===== SECCIONES EXTRAS ===== -->
-        <hr>
-
-        <div class="seccion-extra">
-            <h3>🕊️ Reflexión sobre la sanación interior</h3>
-            <p>Cuando entregamos a Jesús nuestras heridas emocionales, estamos haciendo un acto de profunda confianza. No siempre entendemos por qué sufrimos, ni por qué ciertos recuerdos siguen doliendo. Pero hay una verdad que permanece firme: <strong>Jesús nos conoce por dentro</strong> y nos ama tal como somos.</p>
-            <p><strong>Santa Faustina</strong> nos recuerda que la misericordia de Dios es infinita. No importa cuánto hayamos caído, cuántas veces hayamos fallado o cuánto tiempo hayamos cargado con el dolor. <strong>Él siempre está dispuesto a sanar</strong> y a restaurar lo que está roto.</p>
-            <p>Si hoy has rezado esta oración, confía en que Jesús ya ha comenzado su obra en ti. No necesitas sentir un cambio inmediato. La sanación profunda ocurre en silencio, como el agua que cae gota a gota sobre la roca, hasta que finalmente la atraviesa.</p>
-            <blockquote>
-                <p>“Jesús, confío en Ti. Aunque no vea el resultado, aunque no sienta el cambio, creo que Tú estás obrando en lo más profundo de mi alma. Sana lo que duele por dentro.”</p>
-            </blockquote>
-        </div>
-
-        <hr>
-
-        <div class="seccion-extra">
-            <h3>📖 La sanación en la Sagrada Escritura</h3>
-            <p>El <strong>Salmo 34,19</strong> nos dice: <em>“El Señor está cerca de los que tienen el corazón quebrantado; salva a los de espíritu abatido”</em>. Esta promesa es para ti hoy. No importa cuán roto esté tu corazón, <strong>Dios está más cerca de lo que imaginas</strong>.</p>
-            <p><strong>San Juan Pablo II</strong> decía: <em>“No tengáis miedo de acercaros a Cristo crucificado. Él sana las heridas más profundas del alma”</em>. Que estas palabras sean un bálsamo para tu espíritu y te animen a seguir confiando en el Médico divino.</p>
-            <p>La <strong>Divina Misericordia</strong> es la certeza de que no hay pecado, ni herida, ni fracaso que pueda cerrar la puerta al amor de Dios. Cada vez que nos arrepentimos y confiamos, Él nos restaura con una fidelidad que nunca falla.</p>
-        </div>
-
-        <hr>
-
-        <div class="seccion-extra" style="text-align: center;">
-            <h3>🙏 Comparte esta oración</h3>
-            <p>Si esta oración ha tocado tu corazón, compártela con alguien que también necesite escuchar que <strong>Jesús ve lo que nadie ve, y ama igual</strong>.</p>
-            <p style="font-size: 1.1rem; color: #c9a05e; font-weight: bold; margin-top: 16px;">Que el Santísimo Sacramento te bendiga y te llene de Su paz. 🙏</p>
-        </div>
-
-        <hr>
-
-        <!-- ===== WIDGET "MÁS ORACIONES PARA TI" ===== -->
-        <div class="related-section">
-            <h3>✦ Más oraciones para ti ✦</h3>
-            <div class="related-grid" id="relatedGrid">
-                <!-- Generado por JavaScript -->
+            <div class="seccion-extra">
+                <h2>📖 La sanación en la Sagrada Escritura</h2>
+                <p>El <strong>Salmo 34,19</strong> nos dice: <em>“El Señor está cerca de los que tienen el corazón quebrantado; salva a los de espíritu abatido”</em>. Esta promesa es para ti hoy. No importa cuán roto esté tu corazón, <strong>Dios está más cerca de lo que imaginas</strong>.</p>
+                <p><strong>San Juan Pablo II</strong> decía: <em>“No tengáis miedo de acercaros a Cristo crucificado. Él sana las heridas más profundas del alma”</em>. Que estas palabras sean un bálsamo para tu espíritu y te animen a seguir confiando en el Médico divino.</p>
+                <p>La <strong>Divina Misericordia</strong> es la certeza de que no hay pecado, ni herida, ni fracaso que pueda cerrar la puerta al amor de Dios. Cada vez que nos arrepentimos y confiamos, Él nos restaura con una fidelidad que nunca falla.</p>
             </div>
-        </div>
 
-        <!-- ===== PUBLICIDAD 2 (comentada) ===== -->
-        <!-- 
-        <div class="ad-footer">
-            <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
-            <div id="container-..."></div>
-        </div>
-        -->
+            <hr>
 
-    </div>
+            <div class="seccion-extra" style="text-align: center;">
+                <h2>🙏 Comparte esta oración</h2>
+                <p>Si esta oración ha tocado tu corazón, compártela con alguien que también necesite escuchar que <strong>Jesús ve lo que nadie ve, y ama igual</strong>.</p>
+                <p style="font-size: 1.1rem; color: #c9a05e; font-weight: bold; margin-top: 16px;">Que el Santísimo Sacramento te bendiga y te llene de Su paz. 🙏</p>
+            </div>
+
+            <hr>
+
+            <!-- ===== WIDGET "MÁS ORACIONES PARA TI" ===== -->
+            <div class="related-section">
+                <h3>✦ Más oraciones para ti ✦</h3>
+                <div class="related-grid" id="relatedGrid">
+                    <!-- Generado por JavaScript -->
+                </div>
+            </div>
+
+            <!-- ===== PUBLICIDAD 2 (comentada) ===== -->
+            <!-- 
+            <div class="ad-footer">
+                <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+                <div id="container-..."></div>
+            </div>
+            -->
+
+        </div>
+    </main>
 
     <!-- ========================================================= -->
     <!-- CARGA EL ARCHIVO DE DATOS (EXTERNO)                        -->

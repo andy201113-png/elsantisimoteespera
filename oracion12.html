@@ -42,9 +42,14 @@
             padding-top: 1rem;
             min-height: 100vh;
         }
-        .container {
+
+        /* ===== CONTENEDOR PRINCIPAL CON landmark ===== */
+        main {
             max-width: 820px;
             margin: 0 auto;
+        }
+
+        .container {
             background: #1e1e1e;
             border-radius: 24px;
             padding: 2rem 1.5rem 2.5rem;
@@ -152,7 +157,6 @@
             visibility: visible !important;
         }
 
-        /* Fullscreen */
         .video-container.fullscreen {
             position: fixed;
             top: 0;
@@ -220,7 +224,7 @@
         .ad-comment {
             text-align: center;
             font-size: 0.75rem;
-            color: #b0a8a0; /* 🔥 Cambio: más claro */
+            color: #b0a8a0;
             margin: 0.5rem 0 1.8rem;
             border: 1px dashed #333;
             padding: 0.6rem;
@@ -251,7 +255,7 @@
         .oracion-container .oracion-intro span {
             display: block;
             font-size: 0.9rem;
-            color: #d0c8be; /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             margin-top: 4px;
         }
         .oracion-container .oracion-texto {
@@ -273,7 +277,8 @@
             color: #f0ece6;
             font-weight: bold;
         }
-        .oracion-container .oracion-texto h3 {
+        /* 🔥 Cambio: h3 → h2 para jerarquía correcta */
+        .oracion-container .oracion-texto h2 {
             color: #c9a05e;
             font-size: 1.3rem;
             font-weight: normal;
@@ -326,7 +331,8 @@
             border: 1px solid rgba(201, 169, 110, 0.08);
             font-family: Georgia, serif;
         }
-        .seccion-extra h3 {
+        /* 🔥 Cambio: h3 → h2 */
+        .seccion-extra h2 {
             color: #c9a05e;
             font-size: 1.4rem;
             font-weight: normal;
@@ -414,7 +420,7 @@
         }
         .related-card .info p {
             font-size: 0.8rem;
-            color: #d0c8be; /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             margin: 0;
         }
         .related-card .info .mini-btn {
@@ -431,7 +437,7 @@
             margin-top: 2.5rem;
             text-align: center;
             font-size: 0.75rem;
-            color: #b0a8a0; /* 🔥 Cambio: más claro */
+            color: #b0a8a0;
             border-top: 1px solid #222;
             padding-top: 1.5rem;
         }
@@ -453,11 +459,11 @@
             .sticky-nav .nav-left a span, .sticky-nav .nav-right a span { display: none; }
             .oracion-container { padding: 14px 16px; margin: 12px 0; }
             .oracion-container .oracion-texto { font-size: 1.15rem; line-height: 2; }
-            .oracion-container .oracion-texto h3 { font-size: 1.1rem; }
+            .oracion-container .oracion-texto h2 { font-size: 1.1rem; }
             .oracion-container .oracion-texto ul,
             .oracion-container .oracion-texto ol { padding-left: 18px; }
             .seccion-extra { padding: 14px 16px; }
-            .seccion-extra h3 { font-size: 1.2rem; }
+            .seccion-extra h2 { font-size: 1.2rem; }
             .seccion-extra p { font-size: 1rem; }
             .seccion-extra blockquote p { font-size: 1rem; }
             .video-controls-extra button { font-size: 0.9rem; padding: 0.5rem 1.2rem; }
@@ -477,176 +483,189 @@
         </div>
     </nav>
 
-    <div class="container">
+    <!-- ===== CONTENIDO PRINCIPAL CON <main> ===== -->
+    <main>
+        <div class="container">
 
-        <!-- ===== VOLVER AL INICIO ===== -->
-        <a href="index.html" class="back-link">← Volver al inicio</a>
+            <!-- ===== VOLVER AL INICIO ===== -->
+            <a href="index.html" class="back-link">← Volver al inicio</a>
 
-        <!-- ===== TÍTULO ===== -->
-        <h1 class="oracion-title" id="oracionTitle">Jesús, hoy te devuelvo el control de mi vida 🙏 | Oración frente al Santísimo Sacramento</h1>
+            <!-- ===== TÍTULO ===== -->
+            <h1 class="oracion-title" id="oracionTitle">Jesús, hoy te devuelvo el control de mi vida 🙏 | Oración frente al Santísimo Sacramento</h1>
 
-        <!-- ===== VIDEO CON PLYR ===== -->
-        <div class="video-container" id="videoContainer">
-            <video id="player" playsinline controls>
-                <source src="https://cdn.videy.co/rDiT3q5v1.mp4" type="video/mp4" />
-                Tu navegador no soporta la reproducción de video.
-            </video>
-            <button class="btn-salir-fullscreen" id="btnSalirFullscreen">✕</button>
-        </div>
-
-        <!-- ===== BOTONES DE ADELANTAR/RETROCEDER (10s) ===== -->
-        <div class="video-controls-extra">
-            <button id="btnRewind">⏪ -10s</button>
-            <button id="btnForward">+10s ⏩</button>
-        </div>
-
-        <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
-        <!-- 
-        <div class="ad-comment">
-            <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
-            <div id="container-..."></div>
-        </div>
-        -->
-
-        <!-- ===== ORACIÓN COMPLETA ===== -->
-        <div class="oracion-container">
-
-            <div class="oracion-intro">
-                📖 Oración completa para leer y meditar
-                <span>Si el cansancio de querer controlarlo todo te agobia, Jesús te espera en el Santísimo Sacramento</span>
+            <!-- ===== VIDEO CON PLYR ===== -->
+            <div class="video-container" id="videoContainer">
+                <video id="player" playsinline controls>
+                    <source src="https://cdn.videy.co/rDiT3q5v1.mp4" type="video/mp4" />
+                    <!-- 🔥 Subtítulos (track) para accesibilidad -->
+                    <track kind="captions" srclang="es" label="Español" default />
+                    Tu navegador no soporta la reproducción de video.
+                </video>
+                <button class="btn-salir-fullscreen" id="btnSalirFullscreen">✕</button>
             </div>
 
-            <!-- ===== CÓDIGO PUBLICITARIO (comentado) ===== -->
+            <!-- ===== BOTONES DE ADELANTAR/RETROCEDER (10s) ===== -->
+            <div class="video-controls-extra">
+                <button id="btnRewind">⏪ -10s</button>
+                <button id="btnForward">+10s ⏩</button>
+            </div>
+
+            <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
             <!-- 
-            <div style="margin: 20px 0;">
+            <div class="ad-comment">
                 <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
                 <div id="container-..."></div>
             </div>
             -->
 
-            <div class="oracion-texto">
+            <!-- ===== ORACIÓN COMPLETA ===== -->
+            <div class="oracion-container">
 
-                <p><strong>“Jesús, en Ti confío”</strong>. Estas pocas palabras resumen el acto más liberador que un ser humano puede hacer: entregar el control de su vida a Dios. Si hoy te sientes agotado de querer controlarlo todo, de cargar solo con el peso de tus decisiones, de tus miedos y de tus planes frustrados, esta Hora Santa ante el Santísimo Sacramento es para ti.</p>
+                <div class="oracion-intro">
+                    📖 Oración completa para leer y meditar
+                    <span>Si el cansancio de querer controlarlo todo te agobia, Jesús te espera en el Santísimo Sacramento</span>
+                </div>
 
-                <p>No fuimos creados para vivir angustiados. Fuimos creados para confiar. Pero el mundo, nuestras heridas y nuestro orgullo nos han enseñado lo contrario: que debemos resolverlo todo por nosotros mismos, que mostrar vulnerabilidad es debilidad, que si no nos preocupamos, nadie lo hará. Sin embargo, Jesús nos dice en el Evangelio: <em>“Venid a mí todos los que estáis cansados y agobiados, y yo os aliviaré”</em> (Mateo 11,28).</p>
+                <!-- ===== CÓDIGO PUBLICITARIO (comentado) ===== -->
+                <!-- 
+                <div style="margin: 20px 0;">
+                    <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+                    <div id="container-..."></div>
+                </div>
+                -->
 
-                <p>Hoy, frente al Santísimo Sacramento, queremos hacer un acto sencillo pero profundo: <strong>devolverle a Jesús el timón de nuestra vida</strong>. No porque seamos irresponsables, sino porque hemos comprendido que Él es mejor piloto que nosotros.</p>
+                <div class="oracion-texto">
 
-                <h3>📖 La locura de querer controlarlo todo</h3>
+                    <p><strong>“Jesús, en Ti confío”</strong>. Estas pocas palabras resumen el acto más liberador que un ser humano puede hacer: entregar el control de su vida a Dios. Si hoy te sientes agotado de querer controlarlo todo, de cargar solo con el peso de tus decisiones, de tus miedos y de tus planes frustrados, esta Hora Santa ante el Santísimo Sacramento es para ti.</p>
 
-                <p>El deseo de control es una de las fuentes más grandes de ansiedad en nuestra época. Queremos controlar nuestra salud, nuestro trabajo, nuestras relaciones, el futuro de nuestros hijos, la opinión que los demás tienen de nosotros. Y cuando algo se escapa de nuestro control (que es casi siempre), nos angustiamos, nos frustramos y hasta nos enojamos con Dios.</p>
+                    <p>No fuimos creados para vivir angustiados. Fuimos creados para confiar. Pero el mundo, nuestras heridas y nuestro orgullo nos han enseñado lo contrario: que debemos resolverlo todo por nosotros mismos, que mostrar vulnerabilidad es debilidad, que si no nos preocupamos, nadie lo hará. Sin embargo, Jesús nos dice en el Evangelio: <em>“Venid a mí todos los que estáis cansados y agobiados, y yo os aliviaré”</em> (Mateo 11,28).</p>
 
-                <p>Pero la Biblia nos muestra una y otra vez que <strong>Dios obra con mayor libertad cuando dejamos de interponer nuestros planes</strong>. Pensemos en Abraham, que tuvo que soltar su tierra y su familia para caminar hacia lo desconocido. Pensemos en María, que no controló los detalles de su maternidad divina, sino que dijo: <em>“Hágase en mí según tu palabra”</em>. Pensemos en Jesús mismo en el huerto de Getsemaní: <em>“Padre, si quieres, aparta de mí este cáliz; pero no se haga mi voluntad, sino la tuya”</em>.</p>
+                    <p>Hoy, frente al Santísimo Sacramento, queremos hacer un acto sencillo pero profundo: <strong>devolverle a Jesús el timón de nuestra vida</strong>. No porque seamos irresponsables, sino porque hemos comprendido que Él es mejor piloto que nosotros.</p>
 
-                <p>La paz no viene de tener todo bajo control. La paz viene de <strong>saber quién tiene el control</strong> y confiar en que Él es bueno.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>📖 La locura de querer controlarlo todo</h2>
 
-                <h3>🌹 Santa Teresita del Niño Jesús y la “Pequeña Vía” de la confianza</h3>
+                    <p>El deseo de control es una de las fuentes más grandes de ansiedad en nuestra época. Queremos controlar nuestra salud, nuestro trabajo, nuestras relaciones, el futuro de nuestros hijos, la opinión que los demás tienen de nosotros. Y cuando algo se escapa de nuestro control (que es casi siempre), nos angustiamos, nos frustramos y hasta nos enojamos con Dios.</p>
 
-                <p>Santa Teresita de Lisieux, una de las más grandes santas de los tiempos modernos (y Doctora de la Iglesia), entendió esto mejor que nadie. Ella desarrolló lo que llamó la <strong>“Pequeña Vía”</strong> o el “camino de la infancia espiritual”. ¿En qué consiste? En reconocerse pequeño, débil, incapaz de subir por sí mismo la escalera de la perfección. Y entonces, en lugar de angustiarse, <strong>lanzarse a los brazos de Dios</strong>, como un niño que se deja llevar por su padre.</p>
+                    <p>Pero la Biblia nos muestra una y otra vez que <strong>Dios obra con mayor libertad cuando dejamos de interponer nuestros planes</strong>. Pensemos en Abraham, que tuvo que soltar su tierra y su familia para caminar hacia lo desconocido. Pensemos en María, que no controló los detalles de su maternidad divina, sino que dijo: <em>“Hágase en mí según tu palabra”</em>. Pensemos en Jesús mismo en el huerto de Getsemaní: <em>“Padre, si quieres, aparta de mí este cáliz; pero no se haga mi voluntad, sino la tuya”</em>.</p>
 
-                <p>Teresita escribió: <em>“Jesús, es tan dulce servirte por el camino de la confianza y del amor. Quiero llenarme de tu mirada, ser tu juguete, el juguete pequeño que tú tomas en tus manos y al que le das lo que quiere”</em>. Ella no buscaba grandes obras ni certezas absolutas. Buscaba abandonarse en Dios minuto a minuto, incluso en medio de la sequedad y la duda.</p>
+                    <p>La paz no viene de tener todo bajo control. La paz viene de <strong>saber quién tiene el control</strong> y confiar en que Él es bueno.</p>
 
-                <p>Al final de su vida, enferma de tuberculosis, no podía controlar nada: ni su salud, ni sus fuerzas, ni su futuro. Y en ese abandono total encontró una paz que el mundo no puede dar. <strong>Esa misma paz es la que Jesús te ofrece hoy ante el Santísimo Sacramento.</strong></p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🌹 Santa Teresita del Niño Jesús y la “Pequeña Vía” de la confianza</h2>
 
-                <h3>✨ ¿Qué significa entregarle el control a Jesús?</h3>
+                    <p>Santa Teresita de Lisieux, una de las más grandes santas de los tiempos modernos (y Doctora de la Iglesia), entendió esto mejor que nadie. Ella desarrolló lo que llamó la <strong>“Pequeña Vía”</strong> o el “camino de la infancia espiritual”. ¿En qué consiste? En reconocerse pequeño, débil, incapaz de subir por sí mismo la escalera de la perfección. Y entonces, en lugar de angustiarse, <strong>lanzarse a los brazos de Dios</strong>, como un niño que se deja llevar por su padre.</p>
 
-                <p>En esta Hora Santa, te invitamos a hacer un acto concreto de abandono. No es algo pasivo ni fatalista. Es activo y lleno de fe:</p>
+                    <p>Teresita escribió: <em>“Jesús, es tan dulce servirte por el camino de la confianza y del amor. Quiero llenarme de tu mirada, ser tu juguete, el juguete pequeño que tú tomas en tus manos y al que le das lo que quiere”</em>. Ella no buscaba grandes obras ni certezas absolutas. Buscaba abandonarse en Dios minuto a minuto, incluso en medio de la sequedad y la duda.</p>
 
-                <ul>
-                    <li><strong>Reconocer que no eres Dios</strong> – no puedes ver el futuro, ni controlar las decisiones de los demás, ni garantizar tu salud.</li>
-                    <li><strong>Soltar el timón</strong> – dejar de planificar obsesivamente, de maquinar soluciones, de darle vueltas a lo mismo.</li>
-                    <li><strong>Confiar en que Dios te ama</strong> – y que lo que permite en tu vida (aunque duela) está al servicio de tu bien eterno.</li>
-                    <li><strong>Vivir el presente</strong> – dejar de vivir angustiado por el mañana y ocuparte solo de lo que tienes hoy delante.</li>
-                    <li><strong>Pedir ayuda</strong> – no intentar cargar solo con lo que te supera. Jesús está ahí, en la Eucaristía, esperando que le pidas.</li>
-                </ul>
+                    <p>Al final de su vida, enferma de tuberculosis, no podía controlar nada: ni su salud, ni sus fuerzas, ni su futuro. Y en ese abandono total encontró una paz que el mundo no puede dar. <strong>Esa misma paz es la que Jesús te ofrece hoy ante el Santísimo Sacramento.</strong></p>
 
-                <p>No se trata de no hacer nada, como si fuéramos marionetas. Se trata de hacer todo lo que esté en nuestra mano, pero <strong>sin ansiedad, con el corazón puesto en Dios</strong>, sabiendo que el resultado final no depende de nosotros.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>✨ ¿Qué significa entregarle el control a Jesús?</h2>
 
-                <h3>🕯️ Cómo vivir esta Hora Santa de abandono</h3>
+                    <p>En esta Hora Santa, te invitamos a hacer un acto concreto de abandono. No es algo pasivo ni fatalista. Es activo y lleno de fe:</p>
 
-                <p>Si hoy quieres devolverle el control a Jesús, aquí tienes una guía práctica para tu adoración:</p>
+                    <ul>
+                        <li><strong>Reconocer que no eres Dios</strong> – no puedes ver el futuro, ni controlar las decisiones de los demás, ni garantizar tu salud.</li>
+                        <li><strong>Soltar el timón</strong> – dejar de planificar obsesivamente, de maquinar soluciones, de darle vueltas a lo mismo.</li>
+                        <li><strong>Confiar en que Dios te ama</strong> – y que lo que permite en tu vida (aunque duela) está al servicio de tu bien eterno.</li>
+                        <li><strong>Vivir el presente</strong> – dejar de vivir angustiado por el mañana y ocuparte solo de lo que tienes hoy delante.</li>
+                        <li><strong>Pedir ayuda</strong> – no intentar cargar solo con lo que te supera. Jesús está ahí, en la Eucaristía, esperando que le pidas.</li>
+                    </ul>
 
-                <ol>
-                    <li><strong>Haz una lista de lo que intentas controlar</strong> (en silencio, en tu corazón). Puede ser tu trabajo, tu salud, una relación, un hijo.</li>
-                    <li><strong>Toma esa lista simbólicamente</strong> (o realmente escríbela en un papel) y ofrécela a Jesús en la Hostia Santa.</li>
-                    <li><strong>Dile con sencillez:</strong> <em>“Jesús, no puedo más. Toma Tú el control. Confío.”</em></li>
-                    <li><strong>Permanece unos minutos en silencio</strong>, sin pedir nada más. Solo está presente, como un niño que se sienta en el regazo de su padre.</li>
-                    <li><strong>Termina con un acto de abandono</strong> (puede ser la oración de Santa Teresita que ponemos abajo).</li>
-                </ol>
+                    <p>No se trata de no hacer nada, como si fuéramos marionetas. Se trata de hacer todo lo que esté en nuestra mano, pero <strong>sin ansiedad, con el corazón puesto en Dios</strong>, sabiendo que el resultado final no depende de nosotros.</p>
 
-                <h3>🙌 Jaculatorias para repetir cuando quieras controlarlo todo</h3>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🕯️ Cómo vivir esta Hora Santa de abandono</h2>
 
-                <p>Lleva estas frases en tu corazón y repítelas durante el día, especialmente cuando sientas que la ansiedad quiere apoderarse de ti:</p>
+                    <p>Si hoy quieres devolverle el control a Jesús, aquí tienes una guía práctica para tu adoración:</p>
 
-                <ul>
-                    <li>✨ <em>“Jesús, en Ti confío”</em></li>
-                    <li>✨ <em>“Jesús, hoy te devuelvo el timón de mi vida”</em></li>
-                    <li>✨ <em>“No tengo nada, Tú me bastas”</em></li>
-                    <li>✨ <em>“Pequeña vía de confianza: todo está en Tus manos”</em></li>
-                </ul>
+                    <ol>
+                        <li><strong>Haz una lista de lo que intentas controlar</strong> (en silencio, en tu corazón). Puede ser tu trabajo, tu salud, una relación, un hijo.</li>
+                        <li><strong>Toma esa lista simbólicamente</strong> (o realmente escríbela en un papel) y ofrécela a Jesús en la Hostia Santa.</li>
+                        <li><strong>Dile con sencillez:</strong> <em>“Jesús, no puedo más. Toma Tú el control. Confío.”</em></li>
+                        <li><strong>Permanece unos minutos en silencio</strong>, sin pedir nada más. Solo está presente, como un niño que se sienta en el regazo de su padre.</li>
+                        <li><strong>Termina con un acto de abandono</strong> (puede ser la oración de Santa Teresita que ponemos abajo).</li>
+                    </ol>
 
-                <p>Son como anclas que calman la tormenta interior cuando intentamos resolverlo todo por nosotros mismos.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🙌 Jaculatorias para repetir cuando quieras controlarlo todo</h2>
 
-                <h3>💬 Comparte tu acto de confianza</h3>
+                    <p>Lleva estas frases en tu corazón y repítelas durante el día, especialmente cuando sientas que la ansiedad quiere apoderarse de ti:</p>
 
-                <p>En los comentarios, te animamos a escribir la frase que más resuene contigo: <strong>“Jesús, en Ti confío”</strong>. O si te atreves a ir más allá: <em>“Jesús, hoy te devuelvo el control de mi vida”</em>. No importa lo pequeño o grande de tu entrega. Cada acto de confianza alegra el corazón de Jesús, especialmente cuando es difícil.</p>
+                    <ul>
+                        <li>✨ <em>“Jesús, en Ti confío”</em></li>
+                        <li>✨ <em>“Jesús, hoy te devuelvo el timón de mi vida”</em></li>
+                        <li>✨ <em>“No tengo nada, Tú me bastas”</em></li>
+                        <li>✨ <em>“Pequeña vía de confianza: todo está en Tus manos”</em></li>
+                    </ul>
 
-                <h3>🙏 Oración de abandono inspirada en Santa Teresita</h3>
+                    <p>Son como anclas que calman la tormenta interior cuando intentamos resolverlo todo por nosotros mismos.</p>
 
-                <blockquote>
-                    <p><em>Jesús Sacramentado, me postro ante Ti con las manos vacías. Hoy te devuelvo el control de mi vida: mis planes, mis miedos, mis deseos, mis fracasos y también mis alegrías. Ya no quiero cargar solo con lo que pesa. No quiero angustiarme por lo que no puedo cambiar. Toma Tú el timón. Yo confío en Tu amor, aunque no entienda Tus tiempos ni Tus caminos. Como un niño en brazos de su madre, así descanso en Ti. Gracias porque me esperas aquí, en el Santísimo Sacramento, vivo y verdadero. Enseña mi corazón a vivir en la pequeña vía de la confianza. Amén.</em></p>
-                </blockquote>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>💬 Comparte tu acto de confianza</h2>
+
+                    <p>En los comentarios, te animamos a escribir la frase que más resuene contigo: <strong>“Jesús, en Ti confío”</strong>. O si te atreves a ir más allá: <em>“Jesús, hoy te devuelvo el control de mi vida”</em>. No importa lo pequeño o grande de tu entrega. Cada acto de confianza alegra el corazón de Jesús, especialmente cuando es difícil.</p>
+
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🙏 Oración de abandono inspirada en Santa Teresita</h2>
+
+                    <blockquote>
+                        <p><em>Jesús Sacramentado, me postro ante Ti con las manos vacías. Hoy te devuelvo el control de mi vida: mis planes, mis miedos, mis deseos, mis fracasos y también mis alegrías. Ya no quiero cargar solo con lo que pesa. No quiero angustiarme por lo que no puedo cambiar. Toma Tú el timón. Yo confío en Tu amor, aunque no entienda Tus tiempos ni Tus caminos. Como un niño en brazos de su madre, así descanso en Ti. Gracias porque me esperas aquí, en el Santísimo Sacramento, vivo y verdadero. Enseña mi corazón a vivir en la pequeña vía de la confianza. Amén.</em></p>
+                    </blockquote>
+
+                </div>
+
+                <div class="oracion-footer">
+                    <span>†</span> Jesús, en Ti confío. Que el Santísimo Sacramento te bendiga y te dé Su paz <span>†</span>
+                </div>
 
             </div>
 
-            <div class="oracion-footer">
-                <span>†</span> Jesús, en Ti confío. Que el Santísimo Sacramento te bendiga y te dé Su paz <span>†</span>
+            <!-- ===== SECCIONES EXTRAS ===== -->
+            <hr>
+
+            <div class="seccion-extra">
+                <!-- 🔥 Cambiado de h3 a h2 -->
+                <h2>📲 Haz de este sitio tu lugar de abandono diario</h2>
+                <p><strong>Agrega este sitio a la pantalla de inicio de tu teléfono</strong>: abre Chrome o Safari, toca los tres puntos (⋮) y elige <strong>"Agregar a pantalla de inicio"</strong>. Así tendrás siempre a un tap un lugar donde devolverle el control a Jesús, cada vez que sientas que te lo quieres quedar otra vez, sin distracciones y sin salir de este refugio espiritual.</p>
             </div>
 
-        </div>
+            <hr>
 
-        <!-- ===== SECCIONES EXTRAS ===== -->
-        <hr>
-
-        <div class="seccion-extra">
-            <h3>📲 Haz de este sitio tu lugar de abandono diario</h3>
-            <p><strong>Agrega este sitio a la pantalla de inicio de tu teléfono</strong>: abre Chrome o Safari, toca los tres puntos (⋮) y elige <strong>"Agregar a pantalla de inicio"</strong>. Así tendrás siempre a un tap un lugar donde devolverle el control a Jesús, cada vez que sientas que te lo quieres quedar otra vez, sin distracciones y sin salir de este refugio espiritual.</p>
-        </div>
-
-        <hr>
-
-        <div class="seccion-extra">
-            <h3>🕊️ Explora más oraciones en este sitio</h3>
-            <p>Visita nuestra página principal para descubrir más Horas Santas, adoraciones eucarísticas y oraciones profundas para aprender a confiar. Cada día añadimos nuevo contenido para ayudarte a encontrar paz y abandono en la presencia de Jesús Sacramentado.</p>
-        </div>
-
-        <hr>
-
-        <div class="seccion-extra" style="text-align: center;">
-            <h3>🙏 Comparte este mensaje de confianza</h3>
-            <p>Si esta oración ha traído paz a tu corazón, comparte este sitio con alguien que también necesite recordar que no tiene que cargar con todo solo. No guardes este tesoro solo para ti. Copia el enlace y envíalo a quien esté luchando contra la ansiedad o el control excesivo.</p>
-            <p style="font-size: 1.1rem; color: #c9a05e; font-weight: bold; margin-top: 16px;">Jesús, en Ti confío. Que el Santísimo Sacramento te bendiga y te dé Su paz. 🙏</p>
-        </div>
-
-        <hr>
-
-        <!-- ===== WIDGET "MÁS ORACIONES PARA TI" ===== -->
-        <div class="related-section">
-            <h3>✦ Más oraciones para ti ✦</h3>
-            <div class="related-grid" id="relatedGrid">
-                <!-- Generado por JavaScript -->
+            <div class="seccion-extra">
+                <h2>🕊️ Explora más oraciones en este sitio</h2>
+                <p>Visita nuestra página principal para descubrir más Horas Santas, adoraciones eucarísticas y oraciones profundas para aprender a confiar. Cada día añadimos nuevo contenido para ayudarte a encontrar paz y abandono en la presencia de Jesús Sacramentado.</p>
             </div>
-        </div>
 
-        <!-- ===== PUBLICIDAD 2 (comentada) ===== -->
-        <!-- 
-        <div class="ad-footer">
-            <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
-            <div id="container-..."></div>
-        </div>
-        -->
+            <hr>
 
-    </div>
+            <div class="seccion-extra" style="text-align: center;">
+                <h2>🙏 Comparte este mensaje de confianza</h2>
+                <p>Si esta oración ha traído paz a tu corazón, comparte este sitio con alguien que también necesite recordar que no tiene que cargar con todo solo. No guardes este tesoro solo para ti. Copia el enlace y envíalo a quien esté luchando contra la ansiedad o el control excesivo.</p>
+                <p style="font-size: 1.1rem; color: #c9a05e; font-weight: bold; margin-top: 16px;">Jesús, en Ti confío. Que el Santísimo Sacramento te bendiga y te dé Su paz. 🙏</p>
+            </div>
+
+            <hr>
+
+            <!-- ===== WIDGET "MÁS ORACIONES PARA TI" ===== -->
+            <div class="related-section">
+                <h3>✦ Más oraciones para ti ✦</h3>
+                <div class="related-grid" id="relatedGrid">
+                    <!-- Generado por JavaScript -->
+                </div>
+            </div>
+
+            <!-- ===== PUBLICIDAD 2 (comentada) ===== -->
+            <!-- 
+            <div class="ad-footer">
+                <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+                <div id="container-..."></div>
+            </div>
+            -->
+
+        </div>
+    </main>
 
     <!-- ========================================================= -->
     <!-- CARGA EL ARCHIVO DE DATOS (EXTERNO)                        -->

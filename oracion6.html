@@ -42,9 +42,14 @@
             padding-top: 1rem;
             min-height: 100vh;
         }
-        .container {
+
+        /* ===== CONTENEDOR PRINCIPAL CON landmark ===== */
+        main {
             max-width: 820px;
             margin: 0 auto;
+        }
+
+        .container {
             background: #1e1e1e;
             border-radius: 24px;
             padding: 2rem 1.5rem 2.5rem;
@@ -152,7 +157,6 @@
             visibility: visible !important;
         }
 
-        /* Fullscreen */
         .video-container.fullscreen {
             position: fixed;
             top: 0;
@@ -220,7 +224,7 @@
         .ad-comment {
             text-align: center;
             font-size: 0.75rem;
-            color: #b0a8a0; /* 🔥 Cambio: más claro */
+            color: #b0a8a0;
             margin: 0.5rem 0 1.8rem;
             border: 1px dashed #333;
             padding: 0.6rem;
@@ -251,7 +255,7 @@
         .oracion-container .oracion-intro span {
             display: block;
             font-size: 0.9rem;
-            color: #d0c8be; /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             margin-top: 4px;
         }
         .oracion-container .oracion-texto {
@@ -273,7 +277,8 @@
             color: #f0ece6;
             font-weight: bold;
         }
-        .oracion-container .oracion-texto h3 {
+        /* 🔥 Cambio: h3 → h2 para jerarquía correcta */
+        .oracion-container .oracion-texto h2 {
             color: #c9a05e;
             font-size: 1.3rem;
             font-weight: normal;
@@ -326,7 +331,8 @@
             border: 1px solid rgba(201, 169, 110, 0.08);
             font-family: Georgia, serif;
         }
-        .seccion-extra h3 {
+        /* 🔥 Cambio: h3 → h2 */
+        .seccion-extra h2 {
             color: #c9a05e;
             font-size: 1.4rem;
             font-weight: normal;
@@ -414,7 +420,7 @@
         }
         .related-card .info p {
             font-size: 0.8rem;
-            color: #d0c8be; /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             margin: 0;
         }
         .related-card .info .mini-btn {
@@ -431,7 +437,7 @@
             margin-top: 2.5rem;
             text-align: center;
             font-size: 0.75rem;
-            color: #b0a8a0; /* 🔥 Cambio: más claro */
+            color: #b0a8a0;
             border-top: 1px solid #222;
             padding-top: 1.5rem;
         }
@@ -453,11 +459,11 @@
             .sticky-nav .nav-left a span, .sticky-nav .nav-right a span { display: none; }
             .oracion-container { padding: 14px 16px; margin: 12px 0; }
             .oracion-container .oracion-texto { font-size: 1.15rem; line-height: 2; }
-            .oracion-container .oracion-texto h3 { font-size: 1.1rem; }
+            .oracion-container .oracion-texto h2 { font-size: 1.1rem; }
             .oracion-container .oracion-texto ul,
             .oracion-container .oracion-texto ol { padding-left: 18px; }
             .seccion-extra { padding: 14px 16px; }
-            .seccion-extra h3 { font-size: 1.2rem; }
+            .seccion-extra h2 { font-size: 1.2rem; }
             .seccion-extra p { font-size: 1rem; }
             .seccion-extra blockquote p { font-size: 1rem; }
             .video-controls-extra button { font-size: 0.9rem; padding: 0.5rem 1.2rem; }
@@ -477,182 +483,196 @@
         </div>
     </nav>
 
-    <div class="container">
+    <!-- ===== CONTENIDO PRINCIPAL CON <main> ===== -->
+    <main>
+        <div class="container">
 
-        <!-- ===== VOLVER AL INICIO ===== -->
-        <a href="index.html" class="back-link">← Volver al inicio</a>
+            <!-- ===== VOLVER AL INICIO ===== -->
+            <a href="index.html" class="back-link">← Volver al inicio</a>
 
-        <!-- ===== TÍTULO ===== -->
-        <h1 class="oracion-title" id="oracionTitle">Santo, Santo, Santo eres Señor 🙏 | Adoración Eucarística frente al Santísimo Sacramento</h1>
+            <!-- ===== TÍTULO ===== -->
+            <h1 class="oracion-title" id="oracionTitle">Santo, Santo, Santo eres Señor 🙏 | Adoración Eucarística frente al Santísimo Sacramento</h1>
 
-        <!-- ===== VIDEO CON PLYR ===== -->
-        <div class="video-container" id="videoContainer">
-            <video id="player" playsinline controls>
-                <source src="https://cdn.videy.co/Xox5rwp41.mp4" type="video/mp4" />
-                Tu navegador no soporta la reproducción de video.
-            </video>
-            <button class="btn-salir-fullscreen" id="btnSalirFullscreen">✕</button>
-        </div>
-
-        <!-- ===== BOTONES DE ADELANTAR/RETROCEDER (10s) ===== -->
-        <div class="video-controls-extra">
-            <button id="btnRewind">⏪ -10s</button>
-            <button id="btnForward">+10s ⏩</button>
-        </div>
-
-        <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
-        <!-- 
-        <div class="ad-comment">
-            <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
-            <div id="container-..."></div>
-        </div>
-        -->
-
-        <!-- ===== ORACIÓN COMPLETA ===== -->
-        <div class="oracion-container">
-
-            <div class="oracion-intro">
-                📖 Oración completa para leer y meditar
-                <span>Contempla, adora y descansa en la presencia del Santísimo Sacramento</span>
+            <!-- ===== VIDEO CON PLYR ===== -->
+            <div class="video-container" id="videoContainer">
+                <video id="player" playsinline controls>
+                    <source src="https://cdn.videy.co/Xox5rwp41.mp4" type="video/mp4" />
+                    <!-- 🔥 Subtítulos (track) para accesibilidad -->
+                    <track kind="captions" srclang="es" label="Español" default />
+                    Tu navegador no soporta la reproducción de video.
+                </video>
+                <button class="btn-salir-fullscreen" id="btnSalirFullscreen">✕</button>
             </div>
 
-            <!-- ===== CÓDIGO PUBLICITARIO (comentado) ===== -->
+            <!-- ===== BOTONES DE ADELANTAR/RETROCEDER (10s) ===== -->
+            <div class="video-controls-extra">
+                <button id="btnRewind">⏪ -10s</button>
+                <button id="btnForward">+10s ⏩</button>
+            </div>
+
+            <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
             <!-- 
-            <div style="margin: 20px 0;">
+            <div class="ad-comment">
                 <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
                 <div id="container-..."></div>
             </div>
             -->
 
-            <div class="oracion-texto">
+            <!-- ===== ORACIÓN COMPLETA ===== -->
+            <div class="oracion-container">
 
-                <p><strong>“Santo, Santo, Santo eres, Señor”</strong>. Estas palabras, que la Iglesia repite en cada Eucaristía y que los ángeles cantan sin cesar en el cielo (Isaías 6,3), son también el eco de nuestra alma cuando nos postramos ante Jesús Sacramentado. En esta Hora Santa, no venimos a pedir, sino a <strong>contemplar, adorar y descansar</strong> en la presencia viva de Cristo, que se quedó en el pan y en el vino por amor.</p>
+                <div class="oracion-intro">
+                    📖 Oración completa para leer y meditar
+                    <span>Contempla, adora y descansa en la presencia del Santísimo Sacramento</span>
+                </div>
 
-                <p>Jesús está aquí. Vivo. Verdadero. En esta Hostia Santa que contemplamos en la custodia o en el sagrario. No es un símbolo, no es un recuerdo. Es Él mismo, con su Cuerpo, Sangre, Alma y Divinidad. Y está aquí <strong>esperando nuestro corazón</strong>, deseando que dejemos atrás las preocupaciones, que apaguemos el ruido del mundo y que simplemente permanezcamos con Él.</p>
+                <!-- ===== CÓDIGO PUBLICITARIO (comentado) ===== -->
+                <!-- 
+                <div style="margin: 20px 0;">
+                    <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+                    <div id="container-..."></div>
+                </div>
+                -->
 
-                <p>Hoy, como el apóstol Tomás, queremos caer de rodillas y decir: <em>“¡Señor mío y Dios mío!”</em> (Juan 20,28). No porque hayamos visto con nuestros ojos, sino porque la fe nos asegura su presencia real. Y esa fe es suficiente para llenar nuestro corazón de paz.</p>
+                <div class="oracion-texto">
 
-                <h3>📖 “Yo estaré con ustedes todos los días, hasta el fin del mundo”</h3>
+                    <p><strong>“Santo, Santo, Santo eres, Señor”</strong>. Estas palabras, que la Iglesia repite en cada Eucaristía y que los ángeles cantan sin cesar en el cielo (Isaías 6,3), son también el eco de nuestra alma cuando nos postramos ante Jesús Sacramentado. En esta Hora Santa, no venimos a pedir, sino a <strong>contemplar, adorar y descansar</strong> en la presencia viva de Cristo, que se quedó en el pan y en el vino por amor.</p>
 
-                <p>Antes de subir al cielo, Jesús dejó a sus discípulos una promesa que atraviesa los siglos: <em>“Yo estaré con ustedes todos los días, hasta el fin del mundo”</em> (Mateo 28,20). Los primeros cristianos entendieron que esa presencia se hacía real de manera especial en la fracción del pan, en la Eucaristía. San Ignacio de Antioquía, discípulo de Juan, llamaba a la Eucaristía <em>“medicina de la inmortalidad”</em>.</p>
+                    <p>Jesús está aquí. Vivo. Verdadero. En esta Hostia Santa que contemplamos en la custodia o en el sagrario. No es un símbolo, no es un recuerdo. Es Él mismo, con su Cuerpo, Sangre, Alma y Divinidad. Y está aquí <strong>esperando nuestro corazón</strong>, deseando que dejemos atrás las preocupaciones, que apaguemos el ruido del mundo y que simplemente permanezcamos con Él.</p>
 
-                <p>Hoy, veinte siglos después, esa promesa sigue vigente. En cada sagrario del mundo, Jesús está presente, vivo, con la misma carne que tomó de María, con el mismo Corazón que latió en el Calvario. No está lejos, no ha ascendido a un cielo inalcanzable. Está a pocos pasos de nosotros, en una parroquia cercana, o espiritualmente accesible a través de la fe.</p>
+                    <p>Hoy, como el apóstol Tomás, queremos caer de rodillas y decir: <em>“¡Señor mío y Dios mío!”</em> (Juan 20,28). No porque hayamos visto con nuestros ojos, sino porque la fe nos asegura su presencia real. Y esa fe es suficiente para llenar nuestro corazón de paz.</p>
 
-                <p>Por eso, esta Hora Santa es un tiempo de <strong>encontrarnos cara a cara con el Rey del universo</strong>, disfrazado de pan. Y ese encuentro, aunque silencioso, es más real que muchas de nuestras actividades cotidianas.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>📖 “Yo estaré con ustedes todos los días, hasta el fin del mundo”</h2>
 
-                <h3>🎶 Santo Tomás de Aquino: el doctor eucarístico que nos enseñó a adorar</h3>
+                    <p>Antes de subir al cielo, Jesús dejó a sus discípulos una promesa que atraviesa los siglos: <em>“Yo estaré con ustedes todos los días, hasta el fin del mundo”</em> (Mateo 28,20). Los primeros cristianos entendieron que esa presencia se hacía real de manera especial en la fracción del pan, en la Eucaristía. San Ignacio de Antioquía, discípulo de Juan, llamaba a la Eucaristía <em>“medicina de la inmortalidad”</em>.</p>
 
-                <p>Santo Tomás de Aquino, uno de los más grandes teólogos de la Iglesia, compuso himnos eucarísticos que aún hoy cantamos: el <em>Pange Lingua</em>, el <em>Tantum Ergo</em> y el <em>Adoro te devote</em>. En este último, Tomás expresa con una belleza inmensa su fe en la presencia real:</p>
+                    <p>Hoy, veinte siglos después, esa promesa sigue vigente. En cada sagrario del mundo, Jesús está presente, vivo, con la misma carne que tomó de María, con el mismo Corazón que latió en el Calvario. No está lejos, no ha ascendido a un cielo inalcanzable. Está a pocos pasos de nosotros, en una parroquia cercana, o espiritualmente accesible a través de la fe.</p>
 
-                <blockquote>
-                    <p><em>“Me postro ante Ti con fe profunda, / me postro escondida Deidad. / Bajo estos velos nada se me oculta, / mi corazón se rinde y se da.”</em></p>
-                </blockquote>
+                    <p>Por eso, esta Hora Santa es un tiempo de <strong>encontrarnos cara a cara con el Rey del universo</strong>, disfrazado de pan. Y ese encuentro, aunque silencioso, es más real que muchas de nuestras actividades cotidianas.</p>
 
-                <p>Tomás de Aquino, que pasaba largas horas en adoración frente al Santísimo, recibió una vez una revelación crucificada. Jesús le dijo: <em>“Bien has escrito de Mí, Tomás. ¿Qué recompensa quieres?”</em> Y él respondió: <em>“Nada más que a Ti, Señor”</em>. Ese es el espíritu de la adoración: no buscar favores, sino a Jesús mismo.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🎶 Santo Tomás de Aquino: el doctor eucarístico que nos enseñó a adorar</h2>
 
-                <p>El mismo santo nos dejó una enseñanza práctica: <strong>“La adoración eucarística es el mayor acto de religión que podemos hacer en la tierra, porque reconocemos la grandeza de Dios y nuestra pequeñez”</strong>. Por eso hoy, sin prisas, nos unimos a los ángeles que cantan: Santo, Santo, Santo.</p>
+                    <p>Santo Tomás de Aquino, uno de los más grandes teólogos de la Iglesia, compuso himnos eucarísticos que aún hoy cantamos: el <em>Pange Lingua</em>, el <em>Tantum Ergo</em> y el <em>Adoro te devote</em>. En este último, Tomás expresa con una belleza inmensa su fe en la presencia real:</p>
 
-                <h3>🕯️ San Pío X: el Papa que abrió las puertas de la Eucaristía a todos</h3>
+                    <blockquote>
+                        <p><em>“Me postro ante Ti con fe profunda, / me postro escondida Deidad. / Bajo estos velos nada se me oculta, / mi corazón se rinde y se da.”</em></p>
+                    </blockquote>
 
-                <p>San Pío X, el Papa de la comunión frecuente, recordó a la Iglesia que la Eucaristía no es un premio para los perfectos, sino <strong>“el pan de los hijos”</strong>. Él bajó la edad para la primera comunión y animó a todos los fieles a comulgar diariamente, si estaban en gracia de Dios. Pero también fomentó la adoración eucarística fuera de la Misa.</p>
+                    <p>Tomás de Aquino, que pasaba largas horas en adoración frente al Santísimo, recibió una vez una revelación crucificada. Jesús le dijo: <em>“Bien has escrito de Mí, Tomás. ¿Qué recompensa quieres?”</em> Y él respondió: <em>“Nada más que a Ti, Señor”</em>. Ese es el espíritu de la adoración: no buscar favores, sino a Jesús mismo.</p>
 
-                <p>San Pío X decía: <em>“La adoración eucarística es la fuente de todas las gracias; quien pasa tiempo ante Jesús Sacramentado recibe fortaleza para vivir la vida cristiana con alegría”</em>. Él mismo pasaba largas horas de oración ante el sagrario, y de allí sacaba la energía para gobernar la Iglesia y luchar contra los errores de su tiempo.</p>
+                    <p>El mismo santo nos dejó una enseñanza práctica: <strong>“La adoración eucarística es el mayor acto de religión que podemos hacer en la tierra, porque reconocemos la grandeza de Dios y nuestra pequeñez”</strong>. Por eso hoy, sin prisas, nos unimos a los ángeles que cantan: Santo, Santo, Santo.</p>
 
-                <p>Siguiendo su ejemplo, hoy queremos quedarnos en silencio ante el Santísimo, sin afán de pedir (aunque también podemos), sino con el deseo de <strong>dejarnos mirar por Dios y adorar su santidad</strong>.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🕯️ San Pío X: el Papa que abrió las puertas de la Eucaristía a todos</h2>
 
-                <h3>✨ Frutos de una Hora Santa de pura adoración</h3>
+                    <p>San Pío X, el Papa de la comunión frecuente, recordó a la Iglesia que la Eucaristía no es un premio para los perfectos, sino <strong>“el pan de los hijos”</strong>. Él bajó la edad para la primera comunión y animó a todos los fieles a comulgar diariamente, si estaban en gracia de Dios. Pero también fomentó la adoración eucarística fuera de la Misa.</p>
 
-                <p>Cuando nos postramos ante la Eucaristía y repetimos “Santo, Santo, Santo”, se abren canales de gracia en nosotros:</p>
+                    <p>San Pío X decía: <em>“La adoración eucarística es la fuente de todas las gracias; quien pasa tiempo ante Jesús Sacramentado recibe fortaleza para vivir la vida cristiana con alegría”</em>. Él mismo pasaba largas horas de oración ante el sagrario, y de allí sacaba la energía para gobernar la Iglesia y luchar contra los errores de su tiempo.</p>
 
-                <ul>
-                    <li><strong>Aumento de la fe</strong> – la fe en la presencia real se fortalece con la práctica de la adoración.</li>
-                    <li><strong>Paz interior</strong> – el ruido del mundo se silencia y el alma descansa en la certeza de que no está sola.</li>
-                    <li><strong>Humildad</strong> – al reconocer que Dios está allí, en un poco de pan, aprendemos a doblar la rodilla ante el misterio.</li>
-                    <li><strong>Gratitud</strong> – brota espontáneamente el agradecimiento por un amor tan grande.</li>
-                    <li><strong>Transformación silenciosa</strong> – como el hierro al fuego, nuestra alma se va volviendo más parecida a Cristo.</li>
-                </ul>
+                    <p>Siguiendo su ejemplo, hoy queremos quedarnos en silencio ante el Santísimo, sin afán de pedir (aunque también podemos), sino con el deseo de <strong>dejarnos mirar por Dios y adorar su santidad</strong>.</p>
 
-                <h3>🕯️ Cómo vivir una Hora Santa de alabanza y adoración</h3>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>✨ Frutos de una Hora Santa de pura adoración</h2>
 
-                <ol>
-                    <li><strong>Prepárate</strong>: apaga el móvil, busca un lugar tranquilo (idealmente una iglesia ante el sagrario).</li>
-                    <li><strong>Arrodíllate o siéntate</strong>, y haz una genuflexión profunda al llegar, reconociendo al Rey de reyes.</li>
-                    <li><strong>Canta o repite mentalmente</strong> el <em>Santo, Santo, Santo</em> o un himno eucarístico (como el <em>Adoro te devote</em>).</li>
-                    <li><strong>Contempla la Hostia Santa</strong> (si está expuesta) o cierra los ojos y visualiza a Jesús presente.</li>
-                    <li><strong>No te preocupes por las distracciones</strong> – vuelve suavemente a la conciencia de que estás ante Dios.</li>
-                    <li><strong>Termina con una acción de gracias</strong> y el propósito de volver pronto a visitar a Jesús.</li>
-                </ol>
+                    <p>Cuando nos postramos ante la Eucaristía y repetimos “Santo, Santo, Santo”, se abren canales de gracia en nosotros:</p>
 
-                <h3>🙌 Jaculatorias para repetir durante la adoración</h3>
+                    <ul>
+                        <li><strong>Aumento de la fe</strong> – la fe en la presencia real se fortalece con la práctica de la adoración.</li>
+                        <li><strong>Paz interior</strong> – el ruido del mundo se silencia y el alma descansa en la certeza de que no está sola.</li>
+                        <li><strong>Humildad</strong> – al reconocer que Dios está allí, en un poco de pan, aprendemos a doblar la rodilla ante el misterio.</li>
+                        <li><strong>Gratitud</strong> – brota espontáneamente el agradecimiento por un amor tan grande.</li>
+                        <li><strong>Transformación silenciosa</strong> – como el hierro al fuego, nuestra alma se va volviendo más parecida a Cristo.</li>
+                    </ul>
 
-                <ul>
-                    <li>✨ <em>“Santo, Santo, Santo eres, Señor.”</em></li>
-                    <li>✨ <em>“Te adoro, Jesús, presente en la Eucaristía.”</em></li>
-                    <li>✨ <em>“No merezco que entres en mi casa, pero una palabra tuya bastará.”</em></li>
-                    <li>✨ <em>“Jesús, creo que estás aquí. Aumenta mi fe.”</em></li>
-                    <li>✨ <em>“Bendito y alabado sea el Santísimo Sacramento del altar.”</em></li>
-                </ul>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🕯️ Cómo vivir una Hora Santa de alabanza y adoración</h2>
 
-                <h3>💬 Comparte tu intención en el silencio</h3>
+                    <ol>
+                        <li><strong>Prepárate</strong>: apaga el móvil, busca un lugar tranquilo (idealmente una iglesia ante el sagrario).</li>
+                        <li><strong>Arrodíllate o siéntate</strong>, y haz una genuflexión profunda al llegar, reconociendo al Rey de reyes.</li>
+                        <li><strong>Canta o repite mentalmente</strong> el <em>Santo, Santo, Santo</em> o un himno eucarístico (como el <em>Adoro te devote</em>).</li>
+                        <li><strong>Contempla la Hostia Santa</strong> (si está expuesta) o cierra los ojos y visualiza a Jesús presente.</li>
+                        <li><strong>No te preocupes por las distracciones</strong> – vuelve suavemente a la conciencia de que estás ante Dios.</li>
+                        <li><strong>Termina con una acción de gracias</strong> y el propósito de volver pronto a visitar a Jesús.</li>
+                    </ol>
 
-                <p>En los comentarios, puedes escribir una breve petición (p.ej., “Por la paz del mundo” o “Por mi familia”) o simplemente la frase: <strong>“Santo, Santo, Santo eres, Señor”</strong>. También puedes poner un “Amén”. Lo importante es que, aunque escribas, tu corazón se una a la alabanza celestial.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🙌 Jaculatorias para repetir durante la adoración</h2>
 
-                <h3>🙏 Oración de adoración al Santísimo Sacramento</h3>
+                    <ul>
+                        <li>✨ <em>“Santo, Santo, Santo eres, Señor.”</em></li>
+                        <li>✨ <em>“Te adoro, Jesús, presente en la Eucaristía.”</em></li>
+                        <li>✨ <em>“No merezco que entres en mi casa, pero una palabra tuya bastará.”</em></li>
+                        <li>✨ <em>“Jesús, creo que estás aquí. Aumenta mi fe.”</em></li>
+                        <li>✨ <em>“Bendito y alabado sea el Santísimo Sacramento del altar.”</em></li>
+                    </ul>
 
-                <blockquote>
-                    <p><em>Señor Jesús, postrado ante Tu presencia real en la Eucaristía, te adoro y te bendigo. Creo firmemente que estás aquí, vivo y verdadero, aunque mis sentidos no lo perciban. Te adoro con los ángeles que cantan sin cesar: Santo, Santo, Santo. Te adoro por la fe de la Iglesia, que ha custodiado este tesoro durante dos mil años. Te adoro en nombre de todos los que te olvidan y no te visitan. Recibe mi pequeña adoración, únela a la de los santos del cielo, y haz que nunca me separe de Ti. Que cada latido de mi corazón sea un “Santo, Santo, Santo”. Que cada respiración sea un acto de amor. Amén.</em></p>
-                </blockquote>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>💬 Comparte tu intención en el silencio</h2>
+
+                    <p>En los comentarios, puedes escribir una breve petición (p.ej., “Por la paz del mundo” o “Por mi familia”) o simplemente la frase: <strong>“Santo, Santo, Santo eres, Señor”</strong>. También puedes poner un “Amén”. Lo importante es que, aunque escribas, tu corazón se una a la alabanza celestial.</p>
+
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🙏 Oración de adoración al Santísimo Sacramento</h2>
+
+                    <blockquote>
+                        <p><em>Señor Jesús, postrado ante Tu presencia real en la Eucaristía, te adoro y te bendigo. Creo firmemente que estás aquí, vivo y verdadero, aunque mis sentidos no lo perciban. Te adoro con los ángeles que cantan sin cesar: Santo, Santo, Santo. Te adoro por la fe de la Iglesia, que ha custodiado este tesoro durante dos mil años. Te adoro en nombre de todos los que te olvidan y no te visitan. Recibe mi pequeña adoración, únela a la de los santos del cielo, y haz que nunca me separe de Ti. Que cada latido de mi corazón sea un “Santo, Santo, Santo”. Que cada respiración sea un acto de amor. Amén.</em></p>
+                    </blockquote>
+
+                </div>
+
+                <div class="oracion-footer">
+                    <span>†</span> Santo, Santo, Santo eres, Señor. Que el Santísimo Sacramento sea siempre el centro de tu vida y el refugio de tu alma <span>†</span>
+                </div>
 
             </div>
 
-            <div class="oracion-footer">
-                <span>†</span> Santo, Santo, Santo eres, Señor. Que el Santísimo Sacramento sea siempre el centro de tu vida y el refugio de tu alma <span>†</span>
+            <!-- ===== SECCIONES EXTRAS ===== -->
+            <hr>
+
+            <div class="seccion-extra">
+                <!-- 🔥 Cambiado de h3 a h2 -->
+                <h2>📲 Lleva este sagrario virtual en tu móvil</h2>
+                <p><strong>Agrega este sitio a la pantalla de inicio de tu teléfono</strong>: abre Chrome o Safari, toca los tres puntos (⋮) y elige <strong>"Agregar a pantalla de inicio"</strong>. Así tendrás siempre a un tap un lugar de adoración, donde repetir “Santo, Santo, Santo” sin distracciones y sin salir de este refugio espiritual.</p>
             </div>
 
-        </div>
+            <hr>
 
-        <!-- ===== SECCIONES EXTRAS ===== -->
-        <hr>
-
-        <div class="seccion-extra">
-            <h3>📲 Lleva este sagrario virtual en tu móvil</h3>
-            <p><strong>Agrega este sitio a la pantalla de inicio de tu teléfono</strong>: abre Chrome o Safari, toca los tres puntos (⋮) y elige <strong>"Agregar a pantalla de inicio"</strong>. Así tendrás siempre a un tap un lugar de adoración, donde repetir “Santo, Santo, Santo” sin distracciones y sin salir de este refugio espiritual.</p>
-        </div>
-
-        <hr>
-
-        <div class="seccion-extra">
-            <h3>🕊️ Explora más adoraciones en este sitio</h3>
-            <p>Visita nuestra página principal para descubrir más Horas Santas, adoraciones eucarísticas y oraciones profundas. Cada día añadimos nuevo contenido para ayudarte a crecer en la fe y en el amor a Jesús Sacramentado.</p>
-        </div>
-
-        <hr>
-
-        <div class="seccion-extra" style="text-align: center;">
-            <h3>🙏 Comparte este tesoro eucarístico</h3>
-            <p>Si esta adoración ha tocado tu corazón, comparte este sitio con alguien que también necesite un encuentro con Jesús Eucaristía. No guardes este tesoro solo para ti. Copia el enlace y envíalo a quien esté buscando paz en medio del ruido del mundo.</p>
-            <p style="font-size: 1.1rem; color: #c9a05e; font-weight: bold; margin-top: 16px;">Santo, Santo, Santo eres, Señor. Que el Santísimo Sacramento sea siempre el centro de tu vida y el refugio de tu alma. 🙏</p>
-        </div>
-
-        <hr>
-
-        <!-- ===== WIDGET "MÁS ORACIONES PARA TI" ===== -->
-        <div class="related-section">
-            <h3>✦ Más oraciones para ti ✦</h3>
-            <div class="related-grid" id="relatedGrid">
-                <!-- Generado por JavaScript -->
+            <div class="seccion-extra">
+                <h2>🕊️ Explora más adoraciones en este sitio</h2>
+                <p>Visita nuestra página principal para descubrir más Horas Santas, adoraciones eucarísticas y oraciones profundas. Cada día añadimos nuevo contenido para ayudarte a crecer en la fe y en el amor a Jesús Sacramentado.</p>
             </div>
-        </div>
 
-        <!-- ===== PUBLICIDAD 2 (comentada) ===== -->
-        <!-- 
-        <div class="ad-footer">
-            <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
-            <div id="container-..."></div>
-        </div>
-        -->
+            <hr>
 
-    </div>
+            <div class="seccion-extra" style="text-align: center;">
+                <h2>🙏 Comparte este tesoro eucarístico</h2>
+                <p>Si esta adoración ha tocado tu corazón, comparte este sitio con alguien que también necesite un encuentro con Jesús Eucaristía. No guardes este tesoro solo para ti. Copia el enlace y envíalo a quien esté buscando paz en medio del ruido del mundo.</p>
+                <p style="font-size: 1.1rem; color: #c9a05e; font-weight: bold; margin-top: 16px;">Santo, Santo, Santo eres, Señor. Que el Santísimo Sacramento sea siempre el centro de tu vida y el refugio de tu alma. 🙏</p>
+            </div>
+
+            <hr>
+
+            <!-- ===== WIDGET "MÁS ORACIONES PARA TI" ===== -->
+            <div class="related-section">
+                <h3>✦ Más oraciones para ti ✦</h3>
+                <div class="related-grid" id="relatedGrid">
+                    <!-- Generado por JavaScript -->
+                </div>
+            </div>
+
+            <!-- ===== PUBLICIDAD 2 (comentada) ===== -->
+            <!-- 
+            <div class="ad-footer">
+                <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+                <div id="container-..."></div>
+            </div>
+            -->
+
+        </div>
+    </main>
 
     <!-- ========================================================= -->
     <!-- CARGA EL ARCHIVO DE DATOS (EXTERNO)                        -->

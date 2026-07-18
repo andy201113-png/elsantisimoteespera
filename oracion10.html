@@ -42,9 +42,14 @@
             padding-top: 1rem;
             min-height: 100vh;
         }
-        .container {
+
+        /* ===== CONTENEDOR PRINCIPAL CON landmark ===== */
+        main {
             max-width: 820px;
             margin: 0 auto;
+        }
+
+        .container {
             background: #1e1e1e;
             border-radius: 24px;
             padding: 2rem 1.5rem 2.5rem;
@@ -152,7 +157,6 @@
             visibility: visible !important;
         }
 
-        /* Fullscreen */
         .video-container.fullscreen {
             position: fixed;
             top: 0;
@@ -220,7 +224,7 @@
         .ad-comment {
             text-align: center;
             font-size: 0.75rem;
-            color: #b0a8a0; /* 🔥 Cambio: más claro */
+            color: #b0a8a0;
             margin: 0.5rem 0 1.8rem;
             border: 1px dashed #333;
             padding: 0.6rem;
@@ -251,7 +255,7 @@
         .oracion-container .oracion-intro span {
             display: block;
             font-size: 0.9rem;
-            color: #d0c8be; /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             margin-top: 4px;
         }
         .oracion-container .oracion-texto {
@@ -273,7 +277,8 @@
             color: #f0ece6;
             font-weight: bold;
         }
-        .oracion-container .oracion-texto h3 {
+        /* 🔥 Cambio: h3 → h2 para jerarquía correcta */
+        .oracion-container .oracion-texto h2 {
             color: #c9a05e;
             font-size: 1.3rem;
             font-weight: normal;
@@ -326,7 +331,8 @@
             border: 1px solid rgba(201, 169, 110, 0.08);
             font-family: Georgia, serif;
         }
-        .seccion-extra h3 {
+        /* 🔥 Cambio: h3 → h2 */
+        .seccion-extra h2 {
             color: #c9a05e;
             font-size: 1.4rem;
             font-weight: normal;
@@ -414,7 +420,7 @@
         }
         .related-card .info p {
             font-size: 0.8rem;
-            color: #d0c8be; /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             margin: 0;
         }
         .related-card .info .mini-btn {
@@ -431,7 +437,7 @@
             margin-top: 2.5rem;
             text-align: center;
             font-size: 0.75rem;
-            color: #b0a8a0; /* 🔥 Cambio: más claro */
+            color: #b0a8a0;
             border-top: 1px solid #222;
             padding-top: 1.5rem;
         }
@@ -453,11 +459,11 @@
             .sticky-nav .nav-left a span, .sticky-nav .nav-right a span { display: none; }
             .oracion-container { padding: 14px 16px; margin: 12px 0; }
             .oracion-container .oracion-texto { font-size: 1.15rem; line-height: 2; }
-            .oracion-container .oracion-texto h3 { font-size: 1.1rem; }
+            .oracion-container .oracion-texto h2 { font-size: 1.1rem; }
             .oracion-container .oracion-texto ul,
             .oracion-container .oracion-texto ol { padding-left: 18px; }
             .seccion-extra { padding: 14px 16px; }
-            .seccion-extra h3 { font-size: 1.2rem; }
+            .seccion-extra h2 { font-size: 1.2rem; }
             .seccion-extra p { font-size: 1rem; }
             .seccion-extra blockquote p { font-size: 1rem; }
             .video-controls-extra button { font-size: 0.9rem; padding: 0.5rem 1.2rem; }
@@ -477,185 +483,198 @@
         </div>
     </nav>
 
-    <div class="container">
+    <!-- ===== CONTENIDO PRINCIPAL CON <main> ===== -->
+    <main>
+        <div class="container">
 
-        <!-- ===== VOLVER AL INICIO ===== -->
-        <a href="index.html" class="back-link">← Volver al inicio</a>
+            <!-- ===== VOLVER AL INICIO ===== -->
+            <a href="index.html" class="back-link">← Volver al inicio</a>
 
-        <!-- ===== TÍTULO ===== -->
-        <h1 class="oracion-title" id="oracionTitle">😭 Jesús Sacramentado, no me dejes caer | Oración urgente de adoración</h1>
+            <!-- ===== TÍTULO ===== -->
+            <h1 class="oracion-title" id="oracionTitle">😭 Jesús Sacramentado, no me dejes caer | Oración urgente de adoración</h1>
 
-        <!-- ===== VIDEO CON PLYR ===== -->
-        <div class="video-container" id="videoContainer">
-            <video id="player" playsinline controls>
-                <source src="https://cdn.videy.co/v6332f2a1.mp4" type="video/mp4" />
-                Tu navegador no soporta la reproducción de video.
-            </video>
-            <button class="btn-salir-fullscreen" id="btnSalirFullscreen">✕</button>
-        </div>
-
-        <!-- ===== BOTONES DE ADELANTAR/RETROCEDER (10s) ===== -->
-        <div class="video-controls-extra">
-            <button id="btnRewind">⏪ -10s</button>
-            <button id="btnForward">+10s ⏩</button>
-        </div>
-
-        <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
-        <!-- 
-        <div class="ad-comment">
-            <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
-            <div id="container-..."></div>
-        </div>
-        -->
-
-        <!-- ===== ORACIÓN COMPLETA ===== -->
-        <div class="oracion-container">
-
-            <div class="oracion-intro">
-                📖 Oración completa para leer y meditar
-                <span>Cuando te sientas frágil, tentado o al borde del abismo, corre a Jesús Sacramentado</span>
+            <!-- ===== VIDEO CON PLYR ===== -->
+            <div class="video-container" id="videoContainer">
+                <video id="player" playsinline controls>
+                    <source src="https://cdn.videy.co/v6332f2a1.mp4" type="video/mp4" />
+                    <!-- 🔥 Subtítulos (track) para accesibilidad -->
+                    <track kind="captions" srclang="es" label="Español" default />
+                    Tu navegador no soporta la reproducción de video.
+                </video>
+                <button class="btn-salir-fullscreen" id="btnSalirFullscreen">✕</button>
             </div>
 
-            <!-- ===== CÓDIGO PUBLICITARIO (comentado) ===== -->
+            <!-- ===== BOTONES DE ADELANTAR/RETROCEDER (10s) ===== -->
+            <div class="video-controls-extra">
+                <button id="btnRewind">⏪ -10s</button>
+                <button id="btnForward">+10s ⏩</button>
+            </div>
+
+            <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
             <!-- 
-            <div style="margin: 20px 0;">
+            <div class="ad-comment">
                 <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
                 <div id="container-..."></div>
             </div>
             -->
 
-            <div class="oracion-texto">
+            <!-- ===== ORACIÓN COMPLETA ===== -->
+            <div class="oracion-container">
 
-                <p><strong>“Jesús Sacramentado, no me dejes caer”</strong>. Esta es una oración que nace desde lo más hondo del alma, cuando nos sentimos frágiles, tentados, al borde del abismo. Si hoy estás luchando contra el pecado, contra pensamientos oscuros, contra adicciones o contra esa sensación de que vas a fracasar una vez más, esta Hora Santa ante el Santísimo Sacramento es para ti.</p>
+                <div class="oracion-intro">
+                    📖 Oración completa para leer y meditar
+                    <span>Cuando te sientas frágil, tentado o al borde del abismo, corre a Jesús Sacramentado</span>
+                </div>
 
-                <p>No venimos a Jesús con falsas seguridades ni con orgullo espiritual. Venimos como quien se sabe débil, como quien ha caído muchas veces y teme volver a caer. Y precisamente por eso, Jesús nos recibe con más misericordia. Porque <strong>donde abundó el pecado, sobreabundó la gracia</strong> (Romanos 5,20).</p>
+                <!-- ===== CÓDIGO PUBLICITARIO (comentado) ===== -->
+                <!-- 
+                <div style="margin: 20px 0;">
+                    <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+                    <div id="container-..."></div>
+                </div>
+                -->
 
-                <p>Jesús está vivo en el Santísimo Sacramento. No es un símbolo, no es un recuerdo. Es Él mismo, con su Cuerpo, Sangre, Alma y Divinidad. Y está allí, en ese sagrario, esperándote en silencio, para levantarte, sanarte y fortalecerte. Hoy, en esta oración urgente, clamamos: <strong>“Señor, no me dejes caer. Y si caigo, tenme de la mano para levantarme.”</strong></p>
+                <div class="oracion-texto">
 
-                <h3>📖 San Agustín: El peso del pecado y la fuerza de la gracia</h3>
+                    <p><strong>“Jesús Sacramentado, no me dejes caer”</strong>. Esta es una oración que nace desde lo más hondo del alma, cuando nos sentimos frágiles, tentados, al borde del abismo. Si hoy estás luchando contra el pecado, contra pensamientos oscuros, contra adicciones o contra esa sensación de que vas a fracasar una vez más, esta Hora Santa ante el Santísimo Sacramento es para ti.</p>
 
-                <p>San Agustín de Hipona, uno de los más grandes Padres de la Iglesia, conoce bien la lucha de la que hablamos. En su juventud, estuvo atrapado en malas costumbres, en deseos desordenados y en una búsqueda errónea de la felicidad. Su madre, Santa Mónica, rezó por él durante años. Y cuando finalmente se encontró con Cristo, escribió en sus famosas <em>Confesiones</em>:</p>
+                    <p>No venimos a Jesús con falsas seguridades ni con orgullo espiritual. Venimos como quien se sabe débil, como quien ha caído muchas veces y teme volver a caer. Y precisamente por eso, Jesús nos recibe con más misericordia. Porque <strong>donde abundó el pecado, sobreabundó la gracia</strong> (Romanos 5,20).</p>
 
-                <blockquote>
-                    <p><em>“Tarde te amé, hermosura tan antigua y tan nueva, tarde te amé. Tú estabas dentro de mí y yo fuera, y por fuera te buscaba. Me llamaste, clamaste, rompiste mi sordera. Brillaste, resplandeciste, curaste mi ceguera. Exhalaste tu perfume, lo aspiré y suspiro por ti.”</em></p>
-                </blockquote>
+                    <p>Jesús está vivo en el Santísimo Sacramento. No es un símbolo, no es un recuerdo. Es Él mismo, con su Cuerpo, Sangre, Alma y Divinidad. Y está allí, en ese sagrario, esperándote en silencio, para levantarte, sanarte y fortalecerte. Hoy, en esta oración urgente, clamamos: <strong>“Señor, no me dejes caer. Y si caigo, tenme de la mano para levantarme.”</strong></p>
 
-                <p>Pero Agustín también sabía que la conversión no era el final de la lucha. Hasta el final de su vida, combatió contra la tentación y enseñó que <strong>el alma necesita a Dios constantemente</strong>, como el aire que respira. Por eso acuñó una frase que se ha vuelto una jaculatoria clásica: <em>“Señor, dame lo que me pides y pídeme lo que quieras”</em>. Es decir: concédeme la gracia de amarte, y entonces podrás exigirme cualquier cosa.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>📖 San Agustín: El peso del pecado y la fuerza de la gracia</h2>
 
-                <p>San Agustín nos enseña que <strong>no podemos vencer solos</strong>. Nuestra voluntad es frágil, pero la gracia de Dios es omnipotente. Y esa gracia se derrama de manera especial ante el Santísimo Sacramento, donde Jesús está realmente presente para fortalecernos.</p>
+                    <p>San Agustín de Hipona, uno de los más grandes Padres de la Iglesia, conoce bien la lucha de la que hablamos. En su juventud, estuvo atrapado en malas costumbres, en deseos desordenados y en una búsqueda errónea de la felicidad. Su madre, Santa Mónica, rezó por él durante años. Y cuando finalmente se encontró con Cristo, escribió en sus famosas <em>Confesiones</em>:</p>
 
-                <h3>💧 Santa Faustina y la Divina Misericordia: Refugio para los que caen</h3>
+                    <blockquote>
+                        <p><em>“Tarde te amé, hermosura tan antigua y tan nueva, tarde te amé. Tú estabas dentro de mí y yo fuera, y por fuera te buscaba. Me llamaste, clamaste, rompiste mi sordera. Brillaste, resplandeciste, curaste mi ceguera. Exhalaste tu perfume, lo aspiré y suspiro por ti.”</em></p>
+                    </blockquote>
 
-                <p>Santa Faustina Kowalska, la secretaria de la Divina Misericordia, recibió de Jesús una revelación impresionante para nuestra época: que el mayor atributo de Dios es su misericordia, y que el momento más propicio para acercarse a Él es precisamente cuando uno se siente más miserable. Jesús le dijo:</p>
+                    <p>Pero Agustín también sabía que la conversión no era el final de la lucha. Hasta el final de su vida, combatió contra la tentación y enseñó que <strong>el alma necesita a Dios constantemente</strong>, como el aire que respira. Por eso acuñó una frase que se ha vuelto una jaculatoria clásica: <em>“Señor, dame lo que me pides y pídeme lo que quieras”</em>. Es decir: concédeme la gracia de amarte, y entonces podrás exigirme cualquier cosa.</p>
 
-                <blockquote>
-                    <p><em>“Cuanto más grande es la miseria de un alma, tanto mayor es su derecho a Mi misericordia”</em> (Diario, 1182).</p>
-                </blockquote>
+                    <p>San Agustín nos enseña que <strong>no podemos vencer solos</strong>. Nuestra voluntad es frágil, pero la gracia de Dios es omnipotente. Y esa gracia se derrama de manera especial ante el Santísimo Sacramento, donde Jesús está realmente presente para fortalecernos.</p>
 
-                <p>Faustina también recibió la promesa de que <strong>las almas que veneren la imagen de la Divina Misericordia y confíen en Jesús no perecerán</strong>. Y nos dejó una oración poderosa para los momentos de debilidad: las <em>Coronillas a la Divina Misericordia</em>, que se pueden rezar incluso mientras se está ante el Santísimo.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>💧 Santa Faustina y la Divina Misericordia: Refugio para los que caen</h2>
 
-                <p>Por eso, si hoy sientes que vas a caer, que la tentación es demasiado fuerte, o que ya has caído y te da vergüenza volver, recuerda las palabras de Jesús a Faustina: <strong>“Entre el alma miserable y Yo hay un abismo: el abismo de Mi misericordia”</strong>. No hay pecado que pueda más que la misericordia de Dios, siempre que el alma se arrepienta y confíe.</p>
+                    <p>Santa Faustina Kowalska, la secretaria de la Divina Misericordia, recibió de Jesús una revelación impresionante para nuestra época: que el mayor atributo de Dios es su misericordia, y que el momento más propicio para acercarse a Él es precisamente cuando uno se siente más miserable. Jesús le dijo:</p>
 
-                <h3>⚔️ ¿De qué nos libra Jesús en esta Hora Santa?</h3>
+                    <blockquote>
+                        <p><em>“Cuanto más grande es la miseria de un alma, tanto mayor es su derecho a Mi misericordia”</em> (Diario, 1182).</p>
+                    </blockquote>
 
-                <p>En esta adoración urgente, pedimos a Jesús Sacramentado que nos libre especialmente de:</p>
+                    <p>Faustina también recibió la promesa de que <strong>las almas que veneren la imagen de la Divina Misericordia y confíen en Jesús no perecerán</strong>. Y nos dejó una oración poderosa para los momentos de debilidad: las <em>Coronillas a la Divina Misericordia</em>, que se pueden rezar incluso mientras se está ante el Santísimo.</p>
 
-                <ul>
-                    <li><strong>Caídas en pecado grave</strong> – sobre todo aquellos pecados que nos avergüenzan y nos alejan de la comunión.</li>
-                    <li><strong>Tentaciones recurrentes</strong> – malos hábitos, adicciones, pensamientos obsesivos.</li>
-                    <li><strong>Desánimo espiritual</strong> – la sensación de “no puedo más, da igual lo que haga”.</li>
-                    <li><strong>Falsas vergüenzas</strong> – el miedo a acercarse a la confesión por temor al qué dirán o al propio orgullo.</li>
-                    <li><strong>Apatía y tibieza</strong> – ese estado donde ya ni siquiera nos importa pecar o rezar.</li>
-                </ul>
+                    <p>Por eso, si hoy sientes que vas a caer, que la tentación es demasiado fuerte, o que ya has caído y te da vergüenza volver, recuerda las palabras de Jesús a Faustina: <strong>“Entre el alma miserable y Yo hay un abismo: el abismo de Mi misericordia”</strong>. No hay pecado que pueda más que la misericordia de Dios, siempre que el alma se arrepienta y confíe.</p>
 
-                <p>No se trata de una oración mágica que nos quita automáticamente la tentación. Se trata de <strong>ponernos ante la Fuente de la gracia</strong>, para recibir fortaleza, luz y perseverancia. Jesús no quita todas las pruebas, pero nos da la fuerza para superarlas.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>⚔️ ¿De qué nos libra Jesús en esta Hora Santa?</h2>
 
-                <h3>🕯️ Cómo orar cuando sientes que vas a caer</h3>
+                    <p>En esta adoración urgente, pedimos a Jesús Sacramentado que nos libre especialmente de:</p>
 
-                <p>Si hoy estás en medio de una lucha espiritual intensa, sigue esta guía práctica durante la Hora Santa:</p>
+                    <ul>
+                        <li><strong>Caídas en pecado grave</strong> – sobre todo aquellos pecados que nos avergüenzan y nos alejan de la comunión.</li>
+                        <li><strong>Tentaciones recurrentes</strong> – malos hábitos, adicciones, pensamientos obsesivos.</li>
+                        <li><strong>Desánimo espiritual</strong> – la sensación de “no puedo más, da igual lo que haga”.</li>
+                        <li><strong>Falsas vergüenzas</strong> – el miedo a acercarse a la confesión por temor al qué dirán o al propio orgullo.</li>
+                        <li><strong>Apatía y tibieza</strong> – ese estado donde ya ni siquiera nos importa pecar o rezar.</li>
+                    </ul>
 
-                <ol>
-                    <li><strong>Reconoce tu debilidad</strong> sin excusas ni dramatismos. Di: <em>“Jesús, sin Ti no puedo. Solo no puedo.”</em></li>
-                    <li><strong>Pide la gracia de un acto de contrición perfecto</strong> – aunque no puedas ir a confesarte en ese momento, un acto de amor a Dios borra el pecado si hay propósito de confesión.</li>
-                    <li><strong>Visualiza a Jesús en la Hostia Santa</strong> y dile: <em>“Tú eres más fuerte que mi pecado. Confío en Ti.”</em></li>
-                    <li><strong>Repite una jaculatoria corta</strong> (de las que te damos abajo) mientras la tentación ataca. Funciona como un escudo.</li>
-                    <li><strong>Promete volver a la confesión</strong> cuanto antes. La confesión frecuente es el mejor antídoto contra las caídas.</li>
-                </ol>
+                    <p>No se trata de una oración mágica que nos quita automáticamente la tentación. Se trata de <strong>ponernos ante la Fuente de la gracia</strong>, para recibir fortaleza, luz y perseverancia. Jesús no quita todas las pruebas, pero nos da la fuerza para superarlas.</p>
 
-                <h3>🙌 Jaculatorias para momentos de tentación</h3>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🕯️ Cómo orar cuando sientes que vas a caer</h2>
 
-                <p>Cuando sientas que el mal quiere arrastrarte, repite estas frases sin cesar:</p>
+                    <p>Si hoy estás en medio de una lucha espiritual intensa, sigue esta guía práctica durante la Hora Santa:</p>
 
-                <ul>
-                    <li>✨ <em>“Jesús Sacramentado, no me dejes caer.”</em></li>
-                    <li>✨ <em>“Sagrado Corazón de Jesús, en Ti confío.”</em></li>
-                    <li>✨ <em>“Jesús, misericordia; Jesús, confío en Ti.”</em></li>
-                    <li>✨ <em>“María, madre mía, alcánzame la gracia de no ofender a tu Hijo.”</em></li>
-                    <li>✨ <em>“Ángel de mi guarda, defiéndeme en esta lucha.”</em></li>
-                </ul>
+                    <ol>
+                        <li><strong>Reconoce tu debilidad</strong> sin excusas ni dramatismos. Di: <em>“Jesús, sin Ti no puedo. Solo no puedo.”</em></li>
+                        <li><strong>Pide la gracia de un acto de contrición perfecto</strong> – aunque no puedas ir a confesarte en ese momento, un acto de amor a Dios borra el pecado si hay propósito de confesión.</li>
+                        <li><strong>Visualiza a Jesús en la Hostia Santa</strong> y dile: <em>“Tú eres más fuerte que mi pecado. Confío en Ti.”</em></li>
+                        <li><strong>Repite una jaculatoria corta</strong> (de las que te damos abajo) mientras la tentación ataca. Funciona como un escudo.</li>
+                        <li><strong>Promete volver a la confesión</strong> cuanto antes. La confesión frecuente es el mejor antídoto contra las caídas.</li>
+                    </ol>
 
-                <p>Puedes repetirlas como un mantra, en voz baja o en silencio. No subestimes el poder de invocar el nombre de Jesús en medio de la tentación.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🙌 Jaculatorias para momentos de tentación</h2>
 
-                <h3>💬 Comparte tu lucha y tu confianza</h3>
+                    <p>Cuando sientas que el mal quiere arrastrarte, repite estas frases sin cesar:</p>
 
-                <p>En los comentarios, te invitamos a escribir la frase que más resuene contigo: <strong>“Jesús Sacramentado, no me dejes caer”</strong>. Si te sientes con más valor, comparte una breve intención de liberación (sin detalles íntimos). No estás solo en esta batalla. Somos muchos los que luchamos cada día por mantenernos fieles a Dios. Unidos ante el Santísimo, nos hacemos más fuertes.</p>
+                    <ul>
+                        <li>✨ <em>“Jesús Sacramentado, no me dejes caer.”</em></li>
+                        <li>✨ <em>“Sagrado Corazón de Jesús, en Ti confío.”</em></li>
+                        <li>✨ <em>“Jesús, misericordia; Jesús, confío en Ti.”</em></li>
+                        <li>✨ <em>“María, madre mía, alcánzame la gracia de no ofender a tu Hijo.”</em></li>
+                        <li>✨ <em>“Ángel de mi guarda, defiéndeme en esta lucha.”</em></li>
+                    </ul>
 
-                <h3>🙏 Oración urgente para no caer (inspirada en San Agustín y Santa Faustina)</h3>
+                    <p>Puedes repetirlas como un mantra, en voz baja o en silencio. No subestimes el poder de invocar el nombre de Jesús en medio de la tentación.</p>
 
-                <blockquote>
-                    <p><em>Jesús Sacramentado, aquí estoy delante de Ti, no porque sea fuerte, sino porque soy débil. No porque sea santo, sino porque soy pecador. Reconozco que sin Ti no puedo nada, y que mis fuerzas fallan. Hoy te pido con urgencia: no me dejes caer. Si la tentación llama a mi puerta, pon Tú un guardián en mi corazón. Si el miedo a confesarme me paraliza, dame valentía. Si caigo, levántame enseguida, no permitas que me quede en el lodo. María, madre de misericordia, alcánzame la gracia de perseverar. Santa Faustina, tú que conociste la lucha, ruega por mí. San Agustín, tú que caíste y te levantaste, intercede. Sagrado Corazón de Jesús, en Ti confío. Amén.</em></p>
-                </blockquote>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>💬 Comparte tu lucha y tu confianza</h2>
+
+                    <p>En los comentarios, te invitamos a escribir la frase que más resuene contigo: <strong>“Jesús Sacramentado, no me dejes caer”</strong>. Si te sientes con más valor, comparte una breve intención de liberación (sin detalles íntimos). No estás solo en esta batalla. Somos muchos los que luchamos cada día por mantenernos fieles a Dios. Unidos ante el Santísimo, nos hacemos más fuertes.</p>
+
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🙏 Oración urgente para no caer (inspirada en San Agustín y Santa Faustina)</h2>
+
+                    <blockquote>
+                        <p><em>Jesús Sacramentado, aquí estoy delante de Ti, no porque sea fuerte, sino porque soy débil. No porque sea santo, sino porque soy pecador. Reconozco que sin Ti no puedo nada, y que mis fuerzas fallan. Hoy te pido con urgencia: no me dejes caer. Si la tentación llama a mi puerta, pon Tú un guardián en mi corazón. Si el miedo a confesarme me paraliza, dame valentía. Si caigo, levántame enseguida, no permitas que me quede en el lodo. María, madre de misericordia, alcánzame la gracia de perseverar. Santa Faustina, tú que conociste la lucha, ruega por mí. San Agustín, tú que caíste y te levantaste, intercede. Sagrado Corazón de Jesús, en Ti confío. Amén.</em></p>
+                    </blockquote>
+
+                </div>
+
+                <div class="oracion-footer">
+                    <span>†</span> Jesús Sacramentado, no me dejes caer. Que la Eucaristía sea tu fuerza y tu liberación <span>†</span>
+                </div>
 
             </div>
 
-            <div class="oracion-footer">
-                <span>†</span> Jesús Sacramentado, no me dejes caer. Que la Eucaristía sea tu fuerza y tu liberación <span>†</span>
+            <!-- ===== SECCIONES EXTRAS ===== -->
+            <hr>
+
+            <div class="seccion-extra">
+                <!-- 🔥 Cambiado de h3 a h2 -->
+                <h2>📲 Lleva este refugio contigo a todas partes</h2>
+                <p><strong>Agrega este sitio a la pantalla de inicio de tu teléfono</strong>: abre Chrome o Safari, toca los tres puntos (⋮) y elige <strong>"Agregar a pantalla de inicio"</strong>. Así tendrás siempre a un tap un lugar donde acudir en los momentos de mayor fragilidad, sin distracciones y sin salir de este refugio espiritual.</p>
             </div>
 
-        </div>
+            <hr>
 
-        <!-- ===== SECCIONES EXTRAS ===== -->
-        <hr>
-
-        <div class="seccion-extra">
-            <h3>📲 Lleva este refugio contigo a todas partes</h3>
-            <p><strong>Agrega este sitio a la pantalla de inicio de tu teléfono</strong>: abre Chrome o Safari, toca los tres puntos (⋮) y elige <strong>"Agregar a pantalla de inicio"</strong>. Así tendrás siempre a un tap un lugar donde acudir en los momentos de mayor fragilidad, sin distracciones y sin salir de este refugio espiritual.</p>
-        </div>
-
-        <hr>
-
-        <div class="seccion-extra">
-            <h3>🕊️ Explora más oraciones en este sitio</h3>
-            <p>Visita nuestra página principal para descubrir más Horas Santas, adoraciones eucarísticas y oraciones profundas para la lucha espiritual. Cada día añadimos nuevo contenido para ayudarte a mantenerte firme en la fe.</p>
-        </div>
-
-        <hr>
-
-        <div class="seccion-extra" style="text-align: center;">
-            <h3>🙏 Comparte este escudo espiritual</h3>
-            <p>Si esta oración te ha dado fuerzas, comparte este sitio con alguien que también esté luchando contra la tentación o el desánimo. No guardes este tesoro solo para ti. Copia el enlace y envíalo a quien necesite recordar que no está solo en su batalla.</p>
-            <p style="font-size: 1.1rem; color: #c9a05e; font-weight: bold; margin-top: 16px;">Jesús Sacramentado, no me dejes caer. Que la Eucaristía sea tu fuerza y tu liberación. 🙏</p>
-        </div>
-
-        <hr>
-
-        <!-- ===== WIDGET "MÁS ORACIONES PARA TI" ===== -->
-        <div class="related-section">
-            <h3>✦ Más oraciones para ti ✦</h3>
-            <div class="related-grid" id="relatedGrid">
-                <!-- Generado por JavaScript -->
+            <div class="seccion-extra">
+                <h2>🕊️ Explora más oraciones en este sitio</h2>
+                <p>Visita nuestra página principal para descubrir más Horas Santas, adoraciones eucarísticas y oraciones profundas para la lucha espiritual. Cada día añadimos nuevo contenido para ayudarte a mantenerte firme en la fe.</p>
             </div>
-        </div>
 
-        <!-- ===== PUBLICIDAD 2 (comentada) ===== -->
-        <!-- 
-        <div class="ad-footer">
-            <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
-            <div id="container-..."></div>
-        </div>
-        -->
+            <hr>
 
-    </div>
+            <div class="seccion-extra" style="text-align: center;">
+                <h2>🙏 Comparte este escudo espiritual</h2>
+                <p>Si esta oración te ha dado fuerzas, comparte este sitio con alguien que también esté luchando contra la tentación o el desánimo. No guardes este tesoro solo para ti. Copia el enlace y envíalo a quien necesite recordar que no está solo en su batalla.</p>
+                <p style="font-size: 1.1rem; color: #c9a05e; font-weight: bold; margin-top: 16px;">Jesús Sacramentado, no me dejes caer. Que la Eucaristía sea tu fuerza y tu liberación. 🙏</p>
+            </div>
+
+            <hr>
+
+            <!-- ===== WIDGET "MÁS ORACIONES PARA TI" ===== -->
+            <div class="related-section">
+                <h3>✦ Más oraciones para ti ✦</h3>
+                <div class="related-grid" id="relatedGrid">
+                    <!-- Generado por JavaScript -->
+                </div>
+            </div>
+
+            <!-- ===== PUBLICIDAD 2 (comentada) ===== -->
+            <!-- 
+            <div class="ad-footer">
+                <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+                <div id="container-..."></div>
+            </div>
+            -->
+
+        </div>
+    </main>
 
     <!-- ========================================================= -->
     <!-- CARGA EL ARCHIVO DE DATOS (EXTERNO)                        -->

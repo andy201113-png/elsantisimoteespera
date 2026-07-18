@@ -42,9 +42,14 @@
             padding-top: 1rem;
             min-height: 100vh;
         }
-        .container {
+
+        /* ===== CONTENEDOR PRINCIPAL CON landmark ===== */
+        main {
             max-width: 820px;
             margin: 0 auto;
+        }
+
+        .container {
             background: #1e1e1e;
             border-radius: 24px;
             padding: 2rem 1.5rem 2.5rem;
@@ -152,7 +157,6 @@
             visibility: visible !important;
         }
 
-        /* Fullscreen */
         .video-container.fullscreen {
             position: fixed;
             top: 0;
@@ -220,7 +224,7 @@
         .ad-comment {
             text-align: center;
             font-size: 0.75rem;
-            color: #b0a8a0; /* 🔥 Cambio: más claro */
+            color: #b0a8a0;
             margin: 0.5rem 0 1.8rem;
             border: 1px dashed #333;
             padding: 0.6rem;
@@ -251,7 +255,7 @@
         .oracion-container .oracion-intro span {
             display: block;
             font-size: 0.9rem;
-            color: #d0c8be; /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             margin-top: 4px;
         }
         .oracion-container .oracion-texto {
@@ -273,7 +277,8 @@
             color: #f0ece6;
             font-weight: bold;
         }
-        .oracion-container .oracion-texto h3 {
+        /* 🔥 Cambio: h3 → h2 para jerarquía correcta */
+        .oracion-container .oracion-texto h2 {
             color: #c9a05e;
             font-size: 1.3rem;
             font-weight: normal;
@@ -326,7 +331,8 @@
             border: 1px solid rgba(201, 169, 110, 0.08);
             font-family: Georgia, serif;
         }
-        .seccion-extra h3 {
+        /* 🔥 Cambio: h3 → h2 */
+        .seccion-extra h2 {
             color: #c9a05e;
             font-size: 1.4rem;
             font-weight: normal;
@@ -414,7 +420,7 @@
         }
         .related-card .info p {
             font-size: 0.8rem;
-            color: #d0c8be; /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             margin: 0;
         }
         .related-card .info .mini-btn {
@@ -431,7 +437,7 @@
             margin-top: 2.5rem;
             text-align: center;
             font-size: 0.75rem;
-            color: #b0a8a0; /* 🔥 Cambio: más claro */
+            color: #b0a8a0;
             border-top: 1px solid #222;
             padding-top: 1.5rem;
         }
@@ -453,9 +459,11 @@
             .sticky-nav .nav-left a span, .sticky-nav .nav-right a span { display: none; }
             .oracion-container { padding: 14px 16px; margin: 12px 0; }
             .oracion-container .oracion-texto { font-size: 1.15rem; line-height: 2; }
-            .oracion-container .oracion-texto h3 { font-size: 1.1rem; }
+            .oracion-container .oracion-texto h2 { font-size: 1.1rem; }
+            .oracion-container .oracion-texto ul,
+            .oracion-container .oracion-texto ol { padding-left: 18px; }
             .seccion-extra { padding: 14px 16px; }
-            .seccion-extra h3 { font-size: 1.2rem; }
+            .seccion-extra h2 { font-size: 1.2rem; }
             .seccion-extra p { font-size: 1rem; }
             .seccion-extra blockquote p { font-size: 1rem; }
             .video-controls-extra button { font-size: 0.9rem; padding: 0.5rem 1.2rem; }
@@ -475,178 +483,191 @@
         </div>
     </nav>
 
-    <div class="container">
+    <!-- ===== CONTENIDO PRINCIPAL CON <main> ===== -->
+    <main>
+        <div class="container">
 
-        <!-- ===== VOLVER AL INICIO ===== -->
-        <a href="index.html" class="back-link">← Volver al inicio</a>
+            <!-- ===== VOLVER AL INICIO ===== -->
+            <a href="index.html" class="back-link">← Volver al inicio</a>
 
-        <!-- ===== TÍTULO ===== -->
-        <h1 class="oracion-title" id="oracionTitle">Quédate con Jesús… todo va a estar bien ❤️ | Oración frente al Santísimo Sacramento</h1>
+            <!-- ===== TÍTULO ===== -->
+            <h1 class="oracion-title" id="oracionTitle">Quédate con Jesús… todo va a estar bien ❤️ | Oración frente al Santísimo Sacramento</h1>
 
-        <!-- ===== VIDEO CON PLYR ===== -->
-        <div class="video-container" id="videoContainer">
-            <video id="player" playsinline controls>
-                <source src="https://cdn.videy.co/SOx6akm91.mp4" type="video/mp4" />
-                Tu navegador no soporta la reproducción de video.
-            </video>
-            <button class="btn-salir-fullscreen" id="btnSalirFullscreen">✕</button>
-        </div>
-
-        <!-- ===== BOTONES DE ADELANTAR/RETROCEDER (10s) ===== -->
-        <div class="video-controls-extra">
-            <button id="btnRewind">⏪ -10s</button>
-            <button id="btnForward">+10s ⏩</button>
-        </div>
-
-        <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
-        <!-- 
-        <div class="ad-comment">
-            <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
-            <div id="container-..."></div>
-        </div>
-        -->
-
-        <!-- ===== ORACIÓN COMPLETA ===== -->
-        <div class="oracion-container">
-
-            <div class="oracion-intro">
-                📖 Oración completa para leer y meditar
-                <span>Silencia tu corazón, respira y déjate mirar por Jesús en el Santísimo Sacramento</span>
+            <!-- ===== VIDEO CON PLYR ===== -->
+            <div class="video-container" id="videoContainer">
+                <video id="player" playsinline controls>
+                    <source src="https://cdn.videy.co/SOx6akm91.mp4" type="video/mp4" />
+                    <!-- 🔥 Subtítulos (track) para accesibilidad -->
+                    <track kind="captions" srclang="es" label="Español" default />
+                    Tu navegador no soporta la reproducción de video.
+                </video>
+                <button class="btn-salir-fullscreen" id="btnSalirFullscreen">✕</button>
             </div>
 
-            <!-- ===== CÓDIGO PUBLICITARIO (comentado) ===== -->
+            <!-- ===== BOTONES DE ADELANTAR/RETROCEDER (10s) ===== -->
+            <div class="video-controls-extra">
+                <button id="btnRewind">⏪ -10s</button>
+                <button id="btnForward">+10s ⏩</button>
+            </div>
+
+            <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
             <!-- 
-            <div style="margin: 20px 0;">
+            <div class="ad-comment">
                 <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
                 <div id="container-..."></div>
             </div>
             -->
 
-            <div class="oracion-texto">
+            <!-- ===== ORACIÓN COMPLETA ===== -->
+            <div class="oracion-container">
 
-                <p><strong>“Yo le miro… y Él me mira”</strong>. Esta breve frase, atribuida al Santo Cura de Ars, resume el corazón de esta Hora Santa. No necesitas palabras perfectas, ni grandes gestos de santidad. Solo necesitas quedarte. Respirar. Dejarte mirar por Jesús, que está vivo en el Santísimo Sacramento.</p>
+                <div class="oracion-intro">
+                    📖 Oración completa para leer y meditar
+                    <span>Silencia tu corazón, respira y déjate mirar por Jesús en el Santísimo Sacramento</span>
+                </div>
 
-                <p>Si hoy sientes tu corazón cansado, tu vida desordenada, o una tristeza que no sabes cómo explicar, este momento de oración frente a Jesús Eucaristía es para ti. No estás aquí por casualidad. Jesús te ha traído hasta este lugar (físico o espiritual) para decirte: <strong>“Ven a mí todos los que estáis cansados y agobiados, y yo os aliviaré”</strong> (Mateo 11,28).</p>
+                <!-- ===== CÓDIGO PUBLICITARIO (comentado) ===== -->
+                <!-- 
+                <div style="margin: 20px 0;">
+                    <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+                    <div id="container-..."></div>
+                </div>
+                -->
 
-                <p>No necesitas fingir que estás bien. Él ya conoce tu lucha. No necesitas palabras elocuentes. Él escucha el gemido de tu corazón. Solo quédate. Respira. Descansa. Permite que Su paz entre poco a poco en tu alma, como un bálsamo que va sanando las heridas que nadie más puede tocar.</p>
+                <div class="oracion-texto">
 
-                <h3>📖 La mirada de Jesús: el encuentro que todo lo cambia</h3>
+                    <p><strong>“Yo le miro… y Él me mira”</strong>. Esta breve frase, atribuida al Santo Cura de Ars, resume el corazón de esta Hora Santa. No necesitas palabras perfectas, ni grandes gestos de santidad. Solo necesitas quedarte. Respirar. Dejarte mirar por Jesús, que está vivo en el Santísimo Sacramento.</p>
 
-                <p>A lo largo de los Evangelios, vemos cómo la mirada de Jesús transforma a las personas. Cuando <strong>Pedro</strong> negó a Cristo tres veces, después de la resurrección, Jesús no lo humilló. Simplemente lo miró con misericordia, y Pedro rompió a llorar, pero no de desesperación, sino de arrepentimiento y amor. Esa mirada lo restauró.</p>
+                    <p>Si hoy sientes tu corazón cansado, tu vida desordenada, o una tristeza que no sabes cómo explicar, este momento de oración frente a Jesús Eucaristía es para ti. No estás aquí por casualidad. Jesús te ha traído hasta este lugar (físico o espiritual) para decirte: <strong>“Ven a mí todos los que estáis cansados y agobiados, y yo os aliviaré”</strong> (Mateo 11,28).</p>
 
-                <p>Cuando el <strong>joven rico</strong> se fue triste porque no quiso vender sus bienes, Jesús lo miró con amor (Marcos 10,21). No lo obligó, no lo juzgó, pero lo amó hasta el final. Cuando la <strong>pecadora pública</strong> ungió los pies de Jesús con perfume, Él la miró y dijo: <em>“Tus pecados te son perdonados”</em> (Lucas 7,48).</p>
+                    <p>No necesitas fingir que estás bien. Él ya conoce tu lucha. No necesitas palabras elocuentes. Él escucha el gemido de tu corazón. Solo quédate. Respira. Descansa. Permite que Su paz entre poco a poco en tu alma, como un bálsamo que va sanando las heridas que nadie más puede tocar.</p>
 
-                <p>Hoy, esa misma mirada de Jesús está sobre ti. No una mirada de reproche, sino de ternura. Jesús no te señala con el dedo. Te abraza con sus ojos. Y aunque no lo sientas físicamente, su presencia real en la Eucaristía es un abrazo invisible pero real.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>📖 La mirada de Jesús: el encuentro que todo lo cambia</h2>
 
-                <h3>🕯️ El Cura de Ars y el campesino que miraba al Sagrario</h3>
+                    <p>A lo largo de los Evangelios, vemos cómo la mirada de Jesús transforma a las personas. Cuando <strong>Pedro</strong> negó a Cristo tres veces, después de la resurrección, Jesús no lo humilló. Simplemente lo miró con misericordia, y Pedro rompió a llorar, pero no de desesperación, sino de arrepentimiento y amor. Esa mirada lo restauró.</p>
 
-                <p>San Juan Vianney, el Santo Cura de Ars, contaba la historia de un campesino sencillo que pasaba largas horas frente al Sagrario. El cura le preguntó qué le decía a Jesús. El campesino respondió: <em>“Yo le miro y Él me mira”</em>. No hacía grandes discursos, no rezaba decenas de Avemarías. Solo se quedaba en silencio, dejándose mirar por Dios.</p>
+                    <p>Cuando el <strong>joven rico</strong> se fue triste porque no quiso vender sus bienes, Jesús lo miró con amor (Marcos 10,21). No lo obligó, no lo juzgó, pero lo amó hasta el final. Cuando la <strong>pecadora pública</strong> ungió los pies de Jesús con perfume, Él la miró y dijo: <em>“Tus pecados te son perdonados”</em> (Lucas 7,48).</p>
 
-                <p>El Cura de Ars entendió que esa es la esencia de la adoración eucarística: <strong>permanecer en presencia de Jesús como un amigo con su Amigo, como un hijo con su Padre, como un enfermo con su Médico</strong>. No importa si no sientes nada. La fe basta. Y esa fe, repetida día tras día, va transformando el corazón.</p>
+                    <p>Hoy, esa misma mirada de Jesús está sobre ti. No una mirada de reproche, sino de ternura. Jesús no te señala con el dedo. Te abraza con sus ojos. Y aunque no lo sientas físicamente, su presencia real en la Eucaristía es un abrazo invisible pero real.</p>
 
-                <p>Por eso, si hoy no tienes ganas de rezar, si tu alma está seca o incluso enojada con Dios, haz lo mismo que ese campesino: siéntate o arrodíllate ante Jesús Sacramentado (aunque sea en imagen o en espíritu) y dile: <em>“Aquí estoy. No sé qué decir. Solo quiero quedarme contigo.”</em> Esa simple disposición ya es una oración poderosa.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🕯️ El Cura de Ars y el campesino que miraba al Sagrario</h2>
 
-                <h3>✨ ¿Qué recibes cuando te quedas con Jesús?</h3>
+                    <p>San Juan Vianney, el Santo Cura de Ars, contaba la historia de un campesino sencillo que pasaba largas horas frente al Sagrario. El cura le preguntó qué le decía a Jesús. El campesino respondió: <em>“Yo le miro y Él me mira”</em>. No hacía grandes discursos, no rezaba decenas de Avemarías. Solo se quedaba en silencio, dejándose mirar por Dios.</p>
 
-                <p>En esta adoración, no venimos a pedir cosas concretas (aunque también se puede). Venimos, ante todo, a <strong>estar con Él</strong>. Y de ese simple estar, brotan frutos inesperados:</p>
+                    <p>El Cura de Ars entendió que esa es la esencia de la adoración eucarística: <strong>permanecer en presencia de Jesús como un amigo con su Amigo, como un hijo con su Padre, como un enfermo con su Médico</strong>. No importa si no sientes nada. La fe basta. Y esa fe, repetida día tras día, va transformando el corazón.</p>
 
-                <ul>
-                    <li><strong>Paz interior</strong> – la que el mundo no puede dar, porque no depende de las circunstancias.</li>
-                    <li><strong>Descanso del alma</strong> – dejar de cargar con lo que no te corresponde.</li>
-                    <li><strong>Sanación silenciosa</strong> – Jesús va cosiendo las heridas sin que apenas te des cuenta.</li>
-                    <li><strong>Luz para las decisiones</strong> – cuando te quedas a solas con Él, las cosas se ven más claras.</li>
-                    <li><strong>Fuerza para seguir</strong> – aunque la vida siga siendo difícil, ya no la enfrentas solo.</li>
-                </ul>
+                    <p>Por eso, si hoy no tienes ganas de rezar, si tu alma está seca o incluso enojada con Dios, haz lo mismo que ese campesino: siéntate o arrodíllate ante Jesús Sacramentado (aunque sea en imagen o en espíritu) y dile: <em>“Aquí estoy. No sé qué decir. Solo quiero quedarme contigo.”</em> Esa simple disposición ya es una oración poderosa.</p>
 
-                <p>No se trata de una fórmula mágica. Se trata de <strong>relación personal</strong>. Cuanto más tiempo pasas con alguien, más lo conoces y más confías. Así es con Jesús en la Eucaristía.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>✨ ¿Qué recibes cuando te quedas con Jesús?</h2>
 
-                <h3>🕯️ Cómo hacer una Hora Santa de solo “estar” (sin presiones)</h3>
+                    <p>En esta adoración, no venimos a pedir cosas concretas (aunque también se puede). Venimos, ante todo, a <strong>estar con Él</strong>. Y de ese simple estar, brotan frutos inesperados:</p>
 
-                <p>Si hoy tu corazón está cansado y no sabes cómo orar, prueba esta guía sencilla:</p>
+                    <ul>
+                        <li><strong>Paz interior</strong> – la que el mundo no puede dar, porque no depende de las circunstancias.</li>
+                        <li><strong>Descanso del alma</strong> – dejar de cargar con lo que no te corresponde.</li>
+                        <li><strong>Sanación silenciosa</strong> – Jesús va cosiendo las heridas sin que apenas te des cuenta.</li>
+                        <li><strong>Luz para las decisiones</strong> – cuando te quedas a solas con Él, las cosas se ven más claras.</li>
+                        <li><strong>Fuerza para seguir</strong> – aunque la vida siga siendo difícil, ya no la enfrentas solo.</li>
+                    </ul>
 
-                <ol>
-                    <li><strong>Siéntate o arrodíllate frente al lugar donde está Jesús</strong> (un sagrario real o una imagen).</li>
-                    <li><strong>Cierra los ojos y respira profundamente tres veces.</strong> Di interiormente: <em>“Jesús, aquí estoy.”</em></li>
-                    <li><strong>No te obligues a pensar en nada religioso.</strong> Simplemente descansa en su presencia, como un niño que se sienta en el regazo de su padre sin necesidad de hablar.</li>
-                    <li><strong>Si te vienen distracciones, no te angusties.</strong> Son normales. Solo vuelve suavemente a la conciencia de que Jesús está ahí, mirándote con amor.</li>
-                    <li><strong>Repite de vez en cuando la jaculatoria:</strong> <em>“Yo le miro… y Él me mira.”</em></li>
-                    <li><strong>Al terminar, da gracias.</strong> No porque hayas sentido algo, sino porque has cumplido el mandato más importante: dejar que Dios te ame.</li>
-                </ol>
+                    <p>No se trata de una fórmula mágica. Se trata de <strong>relación personal</strong>. Cuanto más tiempo pasas con alguien, más lo conoces y más confías. Así es con Jesús en la Eucaristía.</p>
 
-                <h3>🙌 Jaculatorias para llevar contigo todo el día</h3>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🕯️ Cómo hacer una Hora Santa de solo “estar” (sin presiones)</h2>
 
-                <p>Cuando la rutina, el estrés o la tristeza quieran robarte la paz, repite estas frases:</p>
+                    <p>Si hoy tu corazón está cansado y no sabes cómo orar, prueba esta guía sencilla:</p>
 
-                <ul>
-                    <li>✨ <em>“Yo le miro… y Él me mira.”</em></li>
-                    <li>✨ <em>“Quédate conmigo, Señor.”</em></li>
-                    <li>✨ <em>“Todo va a estar bien porque Tú estás conmigo.”</em></li>
-                    <li>✨ <em>“Jesús, en Ti confío y descanso.”</em></li>
-                    <li>✨ <em>“No necesito entender, solo quedarme.”</em></li>
-                </ul>
+                    <ol>
+                        <li><strong>Siéntate o arrodíllate frente al lugar donde está Jesús</strong> (un sagrario real o una imagen).</li>
+                        <li><strong>Cierra los ojos y respira profundamente tres veces.</strong> Di interiormente: <em>“Jesús, aquí estoy.”</em></li>
+                        <li><strong>No te obligues a pensar en nada religioso.</strong> Simplemente descansa en su presencia, como un niño que se sienta en el regazo de su padre sin necesidad de hablar.</li>
+                        <li><strong>Si te vienen distracciones, no te angusties.</strong> Son normales. Solo vuelve suavemente a la conciencia de que Jesús está ahí, mirándote con amor.</li>
+                        <li><strong>Repite de vez en cuando la jaculatoria:</strong> <em>“Yo le miro… y Él me mira.”</em></li>
+                        <li><strong>Al terminar, da gracias.</strong> No porque hayas sentido algo, sino porque has cumplido el mandato más importante: dejar que Dios te ame.</li>
+                    </ol>
 
-                <p>Son como pequeñas anclas de paz en medio de la tormenta. Puedes repetirlas mientras caminas, manejas o antes de dormir.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🙌 Jaculatorias para llevar contigo todo el día</h2>
 
-                <h3>💬 Comparte tu intención o tu cansancio</h3>
+                    <p>Cuando la rutina, el estrés o la tristeza quieran robarte la paz, repite estas frases:</p>
 
-                <p>En los comentarios, te invitamos a escribir la frase que más resuene contigo. Puede ser: <strong>“Yo le miro… y Él me mira”</strong>, o simplemente <em>“Jesús, quédate conmigo”</em>. También puedes dejar una breve intención (un nombre, una situación). Pero si hoy no tienes fuerzas ni para escribir, no te preocupes. Jesús ya sabe lo que necesitas. Solo quédate.</p>
+                    <ul>
+                        <li>✨ <em>“Yo le miro… y Él me mira.”</em></li>
+                        <li>✨ <em>“Quédate conmigo, Señor.”</em></li>
+                        <li>✨ <em>“Todo va a estar bien porque Tú estás conmigo.”</em></li>
+                        <li>✨ <em>“Jesús, en Ti confío y descanso.”</em></li>
+                        <li>✨ <em>“No necesito entender, solo quedarme.”</em></li>
+                    </ul>
 
-                <h3>🙏 Oración para quedarte con Jesús cuando no tienes fuerzas</h3>
+                    <p>Son como pequeñas anclas de paz en medio de la tormenta. Puedes repetirlas mientras caminas, manejas o antes de dormir.</p>
 
-                <blockquote>
-                    <p><em>Jesús Sacramentado, aquí me tienes. No vengo a pedirte nada extraordinario. Solo vengo a quedarme. No tengo palabras bonitas, ni siquiera sé si creo del todo. Pero quiero estar aquí, porque me dijiste que el que viene a Ti no lo echarás fuera. Mírame con misericordia. Si hoy mi corazón está roto, Tú lo sabes. Si estoy cansado de luchar, Tú lo ves. Yo le miro… y sé que Tú me miras. Eso me basta. Quédate conmigo, Jesús, y ayúdame a creer que todo va a estar bien, no porque los problemas desaparezcan, sino porque Tú caminas a mi lado. Amén.</em></p>
-                </blockquote>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>💬 Comparte tu intención o tu cansancio</h2>
+
+                    <p>En los comentarios, te invitamos a escribir la frase que más resuene contigo. Puede ser: <strong>“Yo le miro… y Él me mira”</strong>, o simplemente <em>“Jesús, quédate conmigo”</em>. También puedes dejar una breve intención (un nombre, una situación). Pero si hoy no tienes fuerzas ni para escribir, no te preocupes. Jesús ya sabe lo que necesitas. Solo quédate.</p>
+
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🙏 Oración para quedarte con Jesús cuando no tienes fuerzas</h2>
+
+                    <blockquote>
+                        <p><em>Jesús Sacramentado, aquí me tienes. No vengo a pedirte nada extraordinario. Solo vengo a quedarme. No tengo palabras bonitas, ni siquiera sé si creo del todo. Pero quiero estar aquí, porque me dijiste que el que viene a Ti no lo echarás fuera. Mírame con misericordia. Si hoy mi corazón está roto, Tú lo sabes. Si estoy cansado de luchar, Tú lo ves. Yo le miro… y sé que Tú me miras. Eso me basta. Quédate conmigo, Jesús, y ayúdame a creer que todo va a estar bien, no porque los problemas desaparezcan, sino porque Tú caminas a mi lado. Amén.</em></p>
+                    </blockquote>
+
+                </div>
+
+                <div class="oracion-footer">
+                    <span>†</span> Quédate con Jesús… todo va a estar bien. Que el Santísimo Sacramento sea tu descanso y tu paz <span>†</span>
+                </div>
 
             </div>
 
-            <div class="oracion-footer">
-                <span>†</span> Quédate con Jesús… todo va a estar bien. Que el Santísimo Sacramento sea tu descanso y tu paz <span>†</span>
+            <!-- ===== SECCIONES EXTRAS ===== -->
+            <hr>
+
+            <div class="seccion-extra">
+                <!-- 🔥 Cambiado de h3 a h2 -->
+                <h2>📲 Lleva este rincón de paz en tu móvil</h2>
+                <p><strong>Agrega este sitio a la pantalla de inicio de tu teléfono</strong>: abre Chrome o Safari, toca los tres puntos (⋮) y elige <strong>"Agregar a pantalla de inicio"</strong>. Así tendrás siempre a un tap un lugar donde quedarte con Jesús, incluso en los días más oscuros, sin distracciones y sin salir de este refugio espiritual.</p>
             </div>
 
-        </div>
+            <hr>
 
-        <!-- ===== SECCIONES EXTRAS ===== -->
-        <hr>
-
-        <div class="seccion-extra">
-            <h3>📲 Lleva este rincón de paz en tu móvil</h3>
-            <p><strong>Agrega este sitio a la pantalla de inicio de tu teléfono</strong>: abre Chrome o Safari, toca los tres puntos (⋮) y elige <strong>"Agregar a pantalla de inicio"</strong>. Así tendrás siempre a un tap un lugar donde quedarte con Jesús, incluso en los días más oscuros, sin distracciones y sin salir de este refugio espiritual.</p>
-        </div>
-
-        <hr>
-
-        <div class="seccion-extra">
-            <h3>🕊️ Explora más oraciones en este sitio</h3>
-            <p>Visita nuestra página principal para descubrir más Horas Santas, adoraciones eucarísticas y oraciones profundas. Cada día añadimos nuevo contenido para ayudarte a encontrar paz y descanso en la presencia de Jesús Sacramentado.</p>
-        </div>
-
-        <hr>
-
-        <div class="seccion-extra" style="text-align: center;">
-            <h3>🙏 Comparte este refugio de paz</h3>
-            <p>Si esta oración ha traído consuelo a tu corazón, comparte este sitio con alguien que también necesite un momento de descanso en Jesús. No guardes este tesoro solo para ti. Copia el enlace y envíalo a quien esté pasando por un momento difícil.</p>
-            <p style="font-size: 1.1rem; color: #c9a05e; font-weight: bold; margin-top: 16px;">Quédate con Jesús… todo va a estar bien. Que el Santísimo Sacramento sea tu descanso y tu paz. 🙏</p>
-        </div>
-
-        <hr>
-
-        <!-- ===== WIDGET "MÁS ORACIONES PARA TI" ===== -->
-        <div class="related-section">
-            <h3>✦ Más oraciones para ti ✦</h3>
-            <div class="related-grid" id="relatedGrid">
-                <!-- Generado por JavaScript -->
+            <div class="seccion-extra">
+                <h2>🕊️ Explora más oraciones en este sitio</h2>
+                <p>Visita nuestra página principal para descubrir más Horas Santas, adoraciones eucarísticas y oraciones profundas. Cada día añadimos nuevo contenido para ayudarte a encontrar paz y descanso en la presencia de Jesús Sacramentado.</p>
             </div>
-        </div>
 
-        <!-- ===== PUBLICIDAD 2 (comentada) ===== -->
-        <!-- 
-        <div class="ad-footer">
-            <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
-            <div id="container-..."></div>
-        </div>
-        -->
+            <hr>
 
-    </div>
+            <div class="seccion-extra" style="text-align: center;">
+                <h2>🙏 Comparte este refugio de paz</h2>
+                <p>Si esta oración ha traído consuelo a tu corazón, comparte este sitio con alguien que también necesite un momento de descanso en Jesús. No guardes este tesoro solo para ti. Copia el enlace y envíalo a quien esté pasando por un momento difícil.</p>
+                <p style="font-size: 1.1rem; color: #c9a05e; font-weight: bold; margin-top: 16px;">Quédate con Jesús… todo va a estar bien. Que el Santísimo Sacramento sea tu descanso y tu paz. 🙏</p>
+            </div>
+
+            <hr>
+
+            <!-- ===== WIDGET "MÁS ORACIONES PARA TI" ===== -->
+            <div class="related-section">
+                <h3>✦ Más oraciones para ti ✦</h3>
+                <div class="related-grid" id="relatedGrid">
+                    <!-- Generado por JavaScript -->
+                </div>
+            </div>
+
+            <!-- ===== PUBLICIDAD 2 (comentada) ===== -->
+            <!-- 
+            <div class="ad-footer">
+                <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+                <div id="container-..."></div>
+            </div>
+            -->
+
+        </div>
+    </main>
 
     <!-- ========================================================= -->
     <!-- CARGA EL ARCHIVO DE DATOS (EXTERNO)                        -->

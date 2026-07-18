@@ -42,9 +42,14 @@
             padding-top: 1rem;
             min-height: 100vh;
         }
-        .container {
+
+        /* ===== CONTENEDOR PRINCIPAL CON landmark ===== */
+        main {
             max-width: 820px;
             margin: 0 auto;
+        }
+
+        .container {
             background: #1e1e1e;
             border-radius: 24px;
             padding: 2rem 1.5rem 2.5rem;
@@ -152,7 +157,6 @@
             visibility: visible !important;
         }
 
-        /* Fullscreen */
         .video-container.fullscreen {
             position: fixed;
             top: 0;
@@ -220,7 +224,7 @@
         .ad-comment {
             text-align: center;
             font-size: 0.75rem;
-            color: #b0a8a0; /* 🔥 Cambio: más claro */
+            color: #b0a8a0;
             margin: 0.5rem 0 1.8rem;
             border: 1px dashed #333;
             padding: 0.6rem;
@@ -251,7 +255,7 @@
         .oracion-container .oracion-intro span {
             display: block;
             font-size: 0.9rem;
-            color: #d0c8be; /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             margin-top: 4px;
         }
         .oracion-container .oracion-texto {
@@ -273,7 +277,8 @@
             color: #f0ece6;
             font-weight: bold;
         }
-        .oracion-container .oracion-texto h3 {
+        /* 🔥 Cambio: h3 → h2 para jerarquía correcta */
+        .oracion-container .oracion-texto h2 {
             color: #c9a05e;
             font-size: 1.3rem;
             font-weight: normal;
@@ -306,7 +311,7 @@
         .oracion-container .silencio {
             text-align: center;
             font-style: italic;
-            color: #d0c8be; /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             font-size: 0.95rem;
             margin: 18px 0;
             padding: 8px 16px;
@@ -337,7 +342,8 @@
             border: 1px solid rgba(201, 169, 110, 0.08);
             font-family: Georgia, serif;
         }
-        .seccion-extra h3 {
+        /* 🔥 Cambio: h3 → h2 */
+        .seccion-extra h2 {
             color: #c9a05e;
             font-size: 1.4rem;
             font-weight: normal;
@@ -435,7 +441,7 @@
         }
         .related-card .info p {
             font-size: 0.8rem;
-            color: #d0c8be; /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             margin: 0;
         }
         .related-card .info .mini-btn {
@@ -452,7 +458,7 @@
             margin-top: 2.5rem;
             text-align: center;
             font-size: 0.75rem;
-            color: #b0a8a0; /* 🔥 Cambio: más claro */
+            color: #b0a8a0;
             border-top: 1px solid #222;
             padding-top: 1.5rem;
         }
@@ -474,11 +480,11 @@
             .sticky-nav .nav-left a span, .sticky-nav .nav-right a span { display: none; }
             .oracion-container { padding: 14px 16px; margin: 12px 0; }
             .oracion-container .oracion-texto { font-size: 1.15rem; line-height: 2; }
-            .oracion-container .oracion-texto h3 { font-size: 1.1rem; }
+            .oracion-container .oracion-texto h2 { font-size: 1.1rem; }
             .oracion-container .oracion-texto ul,
             .oracion-container .oracion-texto ol { padding-left: 18px; }
             .seccion-extra { padding: 14px 16px; }
-            .seccion-extra h3 { font-size: 1.2rem; }
+            .seccion-extra h2 { font-size: 1.2rem; }
             .seccion-extra p { font-size: 1rem; }
             .seccion-extra blockquote p { font-size: 1rem; }
             .seccion-extra ul { font-size: 1rem; }
@@ -499,176 +505,182 @@
         </div>
     </nav>
 
-    <div class="container">
+    <!-- ===== CONTENIDO PRINCIPAL CON <main> ===== -->
+    <main>
+        <div class="container">
 
-        <!-- ===== VOLVER AL INICIO ===== -->
-        <a href="index.html" class="back-link">← Volver al inicio</a>
+            <!-- ===== VOLVER AL INICIO ===== -->
+            <a href="index.html" class="back-link">← Volver al inicio</a>
 
-        <!-- ===== TÍTULO ===== -->
-        <h1 class="oracion-title" id="oracionTitle">Jesús, te pido por mis hijos 🙏 | Oración ante el Santísimo Sacramento</h1>
+            <!-- ===== TÍTULO ===== -->
+            <h1 class="oracion-title" id="oracionTitle">Jesús, te pido por mis hijos 🙏 | Oración ante el Santísimo Sacramento</h1>
 
-        <!-- ===== VIDEO CON PLYR ===== -->
-        <div class="video-container" id="videoContainer">
-            <video id="player" playsinline controls>
-                <source src="https://cdn.videy.co/ywRCsR0h1.mp4" type="video/mp4" />
-                Tu navegador no soporta la reproducción de video.
-            </video>
-            <button class="btn-salir-fullscreen" id="btnSalirFullscreen">✕</button>
-        </div>
-
-        <!-- ===== BOTONES DE ADELANTAR/RETROCEDER (10s) ===== -->
-        <div class="video-controls-extra">
-            <button id="btnRewind">⏪ -10s</button>
-            <button id="btnForward">+10s ⏩</button>
-        </div>
-
-        <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
-        <!-- 
-        <div class="ad-comment">
-            <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
-            <div id="container-..."></div>
-        </div>
-        -->
-
-        <!-- ===== ORACIÓN COMPLETA ===== -->
-        <div class="oracion-container">
-
-            <div class="oracion-intro">
-                📖 Oración completa para leer y meditar
-                <span>Pon a tus hijos en las manos de Jesús, presente en el Santísimo Sacramento</span>
+            <!-- ===== VIDEO CON PLYR ===== -->
+            <div class="video-container" id="videoContainer">
+                <video id="player" playsinline controls>
+                    <source src="https://cdn.videy.co/ywRCsR0h1.mp4" type="video/mp4" />
+                    <!-- 🔥 Subtítulos (track) para accesibilidad -->
+                    <track kind="captions" srclang="es" label="Español" default />
+                    Tu navegador no soporta la reproducción de video.
+                </video>
+                <button class="btn-salir-fullscreen" id="btnSalirFullscreen">✕</button>
             </div>
 
-            <!-- ===== CÓDIGO PUBLICITARIO (comentado) ===== -->
+            <!-- ===== BOTONES DE ADELANTAR/RETROCEDER (10s) ===== -->
+            <div class="video-controls-extra">
+                <button id="btnRewind">⏪ -10s</button>
+                <button id="btnForward">+10s ⏩</button>
+            </div>
+
+            <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
             <!-- 
-            <div style="margin: 20px 0;">
+            <div class="ad-comment">
                 <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
                 <div id="container-..."></div>
             </div>
             -->
 
-            <div class="oracion-texto">
+            <!-- ===== ORACIÓN COMPLETA ===== -->
+            <div class="oracion-container">
 
-                <p><em>Señor Jesús, aquí estoy frente a Ti. En el silencio de este momento, miro tu presencia real en el Sagrario.</em></p>
+                <div class="oracion-intro">
+                    📖 Oración completa para leer y meditar
+                    <span>Pon a tus hijos en las manos de Jesús, presente en el Santísimo Sacramento</span>
+                </div>
 
-                <p>Vengo a buscar tu paz, pero hoy no vengo solo a hablarte de mí. Hoy traigo en mi corazón los nombres de las personas que más amo en este mundo, el regalo más grande que me has dado: <strong>mis hijos</strong>.</p>
+                <!-- ===== CÓDIGO PUBLICITARIO (comentado) ===== -->
+                <!-- 
+                <div style="margin: 20px 0;">
+                    <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+                    <div id="container-..."></div>
+                </div>
+                -->
 
-                <p>Te adoro, Jesús, pan de vida, fuerza de los débiles. Te alabo porque sé que <strong>tu amor por mis hijos es todavía más grande y perfecto que el mío.</strong></p>
+                <div class="oracion-texto">
 
-                <p>Hoy quiero depositar sus vidas, sus nombres y sus futuros a los pies de tu altar. Vengo a entregarte mis desvelos, mis preocupaciones y esos temores silenciosos que a veces me quitan el sueño por las noches. Los pongo bajo tu mirada amorosa, sabiendo que en tu presencia están seguros.</p>
+                    <p><em>Señor Jesús, aquí estoy frente a Ti. En el silencio de este momento, miro tu presencia real en el Sagrario.</em></p>
 
-                <div class="silencio">🕯️ Silencio para colocar mentalmente los nombres de los hijos ante el Santísimo</div>
+                    <p>Vengo a buscar tu paz, pero hoy no vengo solo a hablarte de mí. Hoy traigo en mi corazón los nombres de las personas que más amo en este mundo, el regalo más grande que me has dado: <strong>mis hijos</strong>.</p>
 
-                <p>Señor, Tú conoces el mundo en el que les ha tocado vivir. Es un camino lleno de distracciones, de peligros y de propuestas que intentan alejarlos de lo que es bueno y verdadero. <strong>Te pido que seas su escudo y su guía.</strong> Cuídalos cuando salgan a la calle, vigila sus pasos y envuelve sus vidas con tu protección.</p>
+                    <p>Te adoro, Jesús, pan de vida, fuerza de los débiles. Te alabo porque sé que <strong>tu amor por mis hijos es todavía más grande y perfecto que el mío.</strong></p>
 
-                <p>Te pido por sus necesidades de cada día. Tú sabes si están preocupados por sus estudios, si buscan un trabajo, o si se sienten confundidos sobre el rumbo que deben tomar.</p>
+                    <p>Hoy quiero depositar sus vidas, sus nombres y sus futuros a los pies de tu altar. Vengo a entregarte mis desvelos, mis preocupaciones y esos temores silenciosos que a veces me quitan el sueño por las noches. Los pongo bajo tu mirada amorosa, sabiendo que en tu presencia están seguros.</p>
 
-                <p><strong>Sé su luz en la toma de decisiones.</strong> No permitas que caigan en vicios o en amistades que dañen su corazón. Y si alguno de ellos se siente solo o incomprendido, sal a su encuentro, Jesús, y hazle sentir que Tú eres el amigo que nunca falla.</p>
+                    <div class="silencio">🕯️ Silencio para colocar mentalmente los nombres de los hijos ante el Santísimo</div>
 
-                <div class="silencio">🕯️ Silencio para rogar por la protección diaria de los hijos</div>
+                    <p>Señor, Tú conoces el mundo en el que les ha tocado vivir. Es un camino lleno de distracciones, de peligros y de propuestas que intentan alejarlos de lo que es bueno y verdadero. <strong>Te pido que seas su escudo y su guía.</strong> Cuídalos cuando salgan a la calle, vigila sus pasos y envuelve sus vidas con tu protección.</p>
 
-                <p>Jesús, hay algo que a veces oprime mi pecho... y es ver que algunos de mis hijos se han alejado de Ti. Tal vez ya no rezan, tal vez dudan, o simplemente la prisa de la vida los ha hecho olvidarse de tu amor. Señor, <strong>no permitas que se pierdan en el desierto de la indiferencia.</strong></p>
+                    <p>Te pido por sus necesidades de cada día. Tú sabes si están preocupados por sus estudios, si buscan un trabajo, o si se sienten confundidos sobre el rumbo que deben tomar.</p>
 
-                <p>Hoy recuerdo a <strong>Santa Mónica</strong>, aquella madre ejemplar que durante casi treinta años no dejó de llorar y suplicar por la conversión de su hijo Agustín. En sus momentos de mayor desánimo, un obispo le dijo unas palabras para consolarla, que hoy grabo en mi alma:</p>
+                    <p><strong>Sé su luz en la toma de decisiones.</strong> No permitas que caigan en vicios o en amistades que dañen su corazón. Y si alguno de ellos se siente solo o incomprendido, sal a su encuentro, Jesús, y hazle sentir que Tú eres el amigo que nunca falla.</p>
 
+                    <div class="silencio">🕯️ Silencio para rogar por la protección diaria de los hijos</div>
+
+                    <p>Jesús, hay algo que a veces oprime mi pecho... y es ver que algunos de mis hijos se han alejado de Ti. Tal vez ya no rezan, tal vez dudan, o simplemente la prisa de la vida los ha hecho olvidarse de tu amor. Señor, <strong>no permitas que se pierdan en el desierto de la indiferencia.</strong></p>
+
+                    <p>Hoy recuerdo a <strong>Santa Mónica</strong>, aquella madre ejemplar que durante casi treinta años no dejó de llorar y suplicar por la conversión de su hijo Agustín. En sus momentos de mayor desánimo, un obispo le dijo unas palabras para consolarla, que hoy grabo en mi alma:</p>
+
+                    <blockquote>
+                        <p>“Es imposible que se pierda el hijo de tantas lágrimas”.</p>
+                    </blockquote>
+
+                    <p>Señor, acepta mis lágrimas y mis oraciones de hoy como una ofrenda por ellos. Aunque hoy parezca que están lejos de la Iglesia o de tu camino, <strong>yo confío en tu promesa.</strong> Sé que estás tejiendo un plan de amor para sus vidas y que, tarde o temprano, su corazón volverá a casa.</p>
+
+                    <div class="silencio">🕯️ Silencio para pedir por la conversión de los hijos</div>
+
+                    <p><strong>Médico Divino,</strong> te pido también por su salud. Tú conoces cada una de sus dolencias físicas, sus dolores de espalda, sus tensiones o cualquier enfermedad que intente restarles alegría. Te ruego que pases tu mano sanadora sobre sus cuerpos y les devuelvas el bienestar.</p>
+
+                    <p>Pero sobre todo, Jesús, <strong>sana sus mentes y sus almas.</strong> En este tiempo donde tantos jóvenes sufren de ansiedad, de vacío y de tristeza profunda, te pido que seas su paz. Cura las heridas invisibles de su infancia, los rechazos que hayan sufrido y los miedos que arrastren.</p>
+
+                    <p>Llena sus vidas de sentido. Que descubran que su valor no está en lo que el mundo les exige, sino en que <strong>son tus hijos amados.</strong></p>
+
+                    <div class="silencio">🕯️ Silencio para pedir por la salud física y mental de los hijos</div>
+
+                    <p>Jesús, dame a mí también la paciencia y la sabiduría que necesito para ser un buen padre, una buena madre o un buen abuelo. Enséñame a guiarles con el ejemplo, a hablarles con amor y a saber cuándo callar para dejar que seas Tú quien hable a sus conciencias.</p>
+
+                    <p><strong>Quítame la angustia de querer controlarlo todo.</strong> Hoy te los entrego. Ya no son míos, son tuyos. Confío en que los cuidas mejor de lo que yo jamás podría hacerlo.</p>
+
+                    <p>Que al mirar este pan consagrado en el altar, mi corazón descanse. Sé que estás obrando en ellos, aunque mis ojos todavía no vean los resultados.</p>
+
+                    <p><strong>Señor Jesús, bendice a mis hijos hoy, mañana y siempre.</strong> Que tu gracia los acompañe en cada rincón donde se encuentren y que tu amor los abrace cuando yo no pueda hacerlo.</p>
+
+                    <p><strong>En Ti confío.</strong></p>
+
+                    <p style="text-align: center; font-size: 1.4rem; margin-top: 24px; color: #c9a05e;"><strong>Amén.</strong></p>
+
+                </div>
+
+                <div class="oracion-footer">
+                    <span>†</span> Que el Santísimo Sacramento proteja y bendiga a tus hijos <span>†</span>
+                </div>
+
+            </div>
+
+            <!-- ===== SECCIONES EXTRAS ===== -->
+            <hr>
+
+            <div class="seccion-extra">
+                <!-- 🔥 Cambiado de h3 a h2 -->
+                <h2>🕊️ El ejemplo de Santa Mónica: esperanza para los padres que esperan</h2>
+                <p><strong>Santa Mónica</strong> es un faro de esperanza para todos los padres que rezan por sus hijos. Durante casi treinta años, lloró y suplicó a Dios por la conversión de su hijo Agustín, que vivía alejado de la fe y sumido en malas costumbres. Pero nunca perdió la confianza. Un día, un obispo le dijo: <em>“Hija, no es posible que un hijo de tantas lágrimas se pierda”</em>. Y así fue: Agustín se convirtió, fue bautizado por San Ambrosio y hoy es Doctor de la Iglesia.</p>
+                <p>Santa Mónica nos enseña que <strong>la oración perseverante nunca es en vano</strong>. Aunque los resultados tarden, Dios escucha cada súplica y cada lágrima ofrecida con fe. No desesperes por tus hijos. Sigue orando y confiando en que <strong>el amor de Dios es más grande que cualquier alejamiento</strong>.</p>
                 <blockquote>
-                    <p>“Es imposible que se pierda el hijo de tantas lágrimas”.</p>
+                    <p>“Señor, así como Santa Mónica no dejó de orar por su hijo Agustín, yo no dejaré de orar por los míos. Confío en que Tú los alcanzarás donde yo no puedo llegar.”</p>
                 </blockquote>
-
-                <p>Señor, acepta mis lágrimas y mis oraciones de hoy como una ofrenda por ellos. Aunque hoy parezca que están lejos de la Iglesia o de tu camino, <strong>yo confío en tu promesa.</strong> Sé que estás tejiendo un plan de amor para sus vidas y que, tarde o temprano, su corazón volverá a casa.</p>
-
-                <div class="silencio">🕯️ Silencio para pedir por la conversión de los hijos</div>
-
-                <p><strong>Médico Divino,</strong> te pido también por su salud. Tú conoces cada una de sus dolencias físicas, sus dolores de espalda, sus tensiones o cualquier enfermedad que intente restarles alegría. Te ruego que pases tu mano sanadora sobre sus cuerpos y les devuelvas el bienestar.</p>
-
-                <p>Pero sobre todo, Jesús, <strong>sana sus mentes y sus almas.</strong> En este tiempo donde tantos jóvenes sufren de ansiedad, de vacío y de tristeza profunda, te pido que seas su paz. Cura las heridas invisibles de su infancia, los rechazos que hayan sufrido y los miedos que arrastren.</p>
-
-                <p>Llena sus vidas de sentido. Que descubran que su valor no está en lo que el mundo les exige, sino en que <strong>son tus hijos amados.</strong></p>
-
-                <div class="silencio">🕯️ Silencio para pedir por la salud física y mental de los hijos</div>
-
-                <p>Jesús, dame a mí también la paciencia y la sabiduría que necesito para ser un buen padre, una buena madre o un buen abuelo. Enséñame a guiarles con el ejemplo, a hablarles con amor y a saber cuándo callar para dejar que seas Tú quien hable a sus conciencias.</p>
-
-                <p><strong>Quítame la angustia de querer controlarlo todo.</strong> Hoy te los entrego. Ya no son míos, son tuyos. Confío en que los cuidas mejor de lo que yo jamás podría hacerlo.</p>
-
-                <p>Que al mirar este pan consagrado en el altar, mi corazón descanse. Sé que estás obrando en ellos, aunque mis ojos todavía no vean los resultados.</p>
-
-                <p><strong>Señor Jesús, bendice a mis hijos hoy, mañana y siempre.</strong> Que tu gracia los acompañe en cada rincón donde se encuentren y que tu amor los abrace cuando yo no pueda hacerlo.</p>
-
-                <p><strong>En Ti confío.</strong></p>
-
-                <p style="text-align: center; font-size: 1.4rem; margin-top: 24px; color: #c9a05e;"><strong>Amén.</strong></p>
-
             </div>
 
-            <div class="oracion-footer">
-                <span>†</span> Que el Santísimo Sacramento proteja y bendiga a tus hijos <span>†</span>
+            <hr>
+
+            <div class="seccion-extra">
+                <h2>📖 La promesa de Dios para los hijos</h2>
+                <p>La Sagrada Escritura está llena de promesas para los hijos de aquellos que confían en Dios. En <strong>Proverbios 22,6</strong> leemos: <em>“Instruye al niño en su camino, y aun cuando sea viejo no se apartará de él”</em>. Esta no es una garantía mágica, sino una invitación a sembrar con fe y esperanza, confiando en que la semilla dará fruto en su tiempo.</p>
+                <p>El <strong>Salmo 127,3</strong> nos recuerda: <em>“Los hijos son un regalo del Señor, un premio es el fruto del vientre”</em>. Cada hijo es un don precioso que Dios nos ha confiado. Y así como Él nos los ha dado, también los cuida y los guía con su amor infinito.</p>
+                <p>Cuando la preocupación por tus hijos te abrume, recuerda las palabras de <strong>Isaías 49,15-16</strong>: <em>“¿Puede una madre olvidar a su niño de pecho? Aunque ella se olvide, yo no te olvidaré. Te tengo grabado en la palma de mis manos”</em>. Tus hijos están grabados en las manos de Dios. <strong>Él nunca los olvida.</strong></p>
             </div>
 
-        </div>
+            <hr>
 
-        <!-- ===== SECCIONES EXTRAS ===== -->
-        <hr>
-
-        <div class="seccion-extra">
-            <h3>🕊️ El ejemplo de Santa Mónica: esperanza para los padres que esperan</h3>
-            <p><strong>Santa Mónica</strong> es un faro de esperanza para todos los padres que rezan por sus hijos. Durante casi treinta años, lloró y suplicó a Dios por la conversión de su hijo Agustín, que vivía alejado de la fe y sumido en malas costumbres. Pero nunca perdió la confianza. Un día, un obispo le dijo: <em>“Hija, no es posible que un hijo de tantas lágrimas se pierda”</em>. Y así fue: Agustín se convirtió, fue bautizado por San Ambrosio y hoy es Doctor de la Iglesia.</p>
-            <p>Santa Mónica nos enseña que <strong>la oración perseverante nunca es en vano</strong>. Aunque los resultados tarden, Dios escucha cada súplica y cada lágrima ofrecida con fe. No desesperes por tus hijos. Sigue orando y confiando en que <strong>el amor de Dios es más grande que cualquier alejamiento</strong>.</p>
-            <blockquote>
-                <p>“Señor, así como Santa Mónica no dejó de orar por su hijo Agustín, yo no dejaré de orar por los míos. Confío en que Tú los alcanzarás donde yo no puedo llegar.”</p>
-            </blockquote>
-        </div>
-
-        <hr>
-
-        <div class="seccion-extra">
-            <h3>📖 La promesa de Dios para los hijos</h3>
-            <p>La Sagrada Escritura está llena de promesas para los hijos de aquellos que confían en Dios. En <strong>Proverbios 22,6</strong> leemos: <em>“Instruye al niño en su camino, y aun cuando sea viejo no se apartará de él”</em>. Esta no es una garantía mágica, sino una invitación a sembrar con fe y esperanza, confiando en que la semilla dará fruto en su tiempo.</p>
-            <p>El <strong>Salmo 127,3</strong> nos recuerda: <em>“Los hijos son un regalo del Señor, un premio es el fruto del vientre”</em>. Cada hijo es un don precioso que Dios nos ha confiado. Y así como Él nos los ha dado, también los cuida y los guía con su amor infinito.</p>
-            <p>Cuando la preocupación por tus hijos te abrume, recuerda las palabras de <strong>Isaías 49,15-16</strong>: <em>“¿Puede una madre olvidar a su niño de pecho? Aunque ella se olvide, yo no te olvidaré. Te tengo grabado en la palma de mis manos”</em>. Tus hijos están grabados en las manos de Dios. <strong>Él nunca los olvida.</strong></p>
-        </div>
-
-        <hr>
-
-        <div class="seccion-extra">
-            <h3>🙏 Frases para repetir por tus hijos</h3>
-            <p>Además de la Hora Santa, te invitamos a llevar estas jaculatorias en tu corazón y repetirlas a lo largo del día:</p>
-            <ul>
-                <li>✨ <em>“Jesús, cuida a mis hijos.”</em></li>
-                <li>✨ <em>“Jesús, protégelos de todo mal.”</em></li>
-                <li>✨ <em>“Jesús, llámalos de vuelta a Ti.”</em></li>
-                <li>✨ <em>“Santa Mónica, intercede por mis hijos.”</em></li>
-                <li>✨ <em>“Madre María, pon a mis hijos bajo tu manto.”</em></li>
-            </ul>
-            <p>Son breves, fáciles de memorizar y muy poderosas. Puedes rezarlas mientras cocinas, manejas o antes de dormir. <strong>Cada oración es una semilla que Dios hará germinar.</strong></p>
-        </div>
-
-        <hr>
-
-        <div class="seccion-extra" style="text-align: center;">
-            <h3>🙏 Comparte esta oración con otros padres</h3>
-            <p>Si esta oración ha tocado tu corazón, compártela con otros padres, madres, abuelos o tutores que también necesiten poner a sus hijos en las manos de Jesús. <strong>Ningún padre o madre debe cargar solo con la preocupación por sus hijos.</strong></p>
-            <p style="font-size: 1.1rem; color: #c9a05e; font-weight: bold; margin-top: 16px;">Que el Santísimo Sacramento bendiga a tus hijos y los guarde siempre en Su amor. 🙏</p>
-        </div>
-
-        <hr>
-
-        <!-- ===== WIDGET "MÁS ORACIONES PARA TI" ===== -->
-        <div class="related-section">
-            <h3>✦ Más oraciones para ti ✦</h3>
-            <div class="related-grid" id="relatedGrid">
-                <!-- Generado por JavaScript -->
+            <div class="seccion-extra">
+                <h2>🙏 Frases para repetir por tus hijos</h2>
+                <p>Además de la Hora Santa, te invitamos a llevar estas jaculatorias en tu corazón y repetirlas a lo largo del día:</p>
+                <ul>
+                    <li>✨ <em>“Jesús, cuida a mis hijos.”</em></li>
+                    <li>✨ <em>“Jesús, protégelos de todo mal.”</em></li>
+                    <li>✨ <em>“Jesús, llámalos de vuelta a Ti.”</em></li>
+                    <li>✨ <em>“Santa Mónica, intercede por mis hijos.”</em></li>
+                    <li>✨ <em>“Madre María, pon a mis hijos bajo tu manto.”</em></li>
+                </ul>
+                <p>Son breves, fáciles de memorizar y muy poderosas. Puedes rezarlas mientras cocinas, manejas o antes de dormir. <strong>Cada oración es una semilla que Dios hará germinar.</strong></p>
             </div>
-        </div>
 
-        <!-- ===== PUBLICIDAD 2 (comentada) ===== -->
-        <!-- 
-        <div class="ad-footer">
-            <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
-            <div id="container-..."></div>
-        </div>
-        -->
+            <hr>
 
-    </div>
+            <div class="seccion-extra" style="text-align: center;">
+                <h2>🙏 Comparte esta oración con otros padres</h2>
+                <p>Si esta oración ha tocado tu corazón, compártela con otros padres, madres, abuelos o tutores que también necesiten poner a sus hijos en las manos de Jesús. <strong>Ningún padre o madre debe cargar solo con la preocupación por sus hijos.</strong></p>
+                <p style="font-size: 1.1rem; color: #c9a05e; font-weight: bold; margin-top: 16px;">Que el Santísimo Sacramento bendiga a tus hijos y los guarde siempre en Su amor. 🙏</p>
+            </div>
+
+            <hr>
+
+            <!-- ===== WIDGET "MÁS ORACIONES PARA TI" ===== -->
+            <div class="related-section">
+                <h3>✦ Más oraciones para ti ✦</h3>
+                <div class="related-grid" id="relatedGrid">
+                    <!-- Generado por JavaScript -->
+                </div>
+            </div>
+
+            <!-- ===== PUBLICIDAD 2 (comentada) ===== -->
+            <!-- 
+            <div class="ad-footer">
+                <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+                <div id="container-..."></div>
+            </div>
+            -->
+
+        </div>
+    </main>
 
     <!-- ========================================================= -->
     <!-- CARGA EL ARCHIVO DE DATOS (EXTERNO)                        -->

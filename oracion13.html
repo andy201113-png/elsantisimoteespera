@@ -42,9 +42,14 @@
             padding-top: 1rem;
             min-height: 100vh;
         }
-        .container {
+
+        /* ===== CONTENEDOR PRINCIPAL CON landmark ===== */
+        main {
             max-width: 820px;
             margin: 0 auto;
+        }
+
+        .container {
             background: #1e1e1e;
             border-radius: 24px;
             padding: 2rem 1.5rem 2.5rem;
@@ -152,7 +157,6 @@
             visibility: visible !important;
         }
 
-        /* Fullscreen */
         .video-container.fullscreen {
             position: fixed;
             top: 0;
@@ -220,7 +224,7 @@
         .ad-comment {
             text-align: center;
             font-size: 0.75rem;
-            color: #b0a8a0; /* 🔥 Cambio: más claro */
+            color: #b0a8a0;
             margin: 0.5rem 0 1.8rem;
             border: 1px dashed #333;
             padding: 0.6rem;
@@ -251,7 +255,7 @@
         .oracion-container .oracion-intro span {
             display: block;
             font-size: 0.9rem;
-            color: #d0c8be; /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             margin-top: 4px;
         }
         .oracion-container .oracion-texto {
@@ -273,7 +277,8 @@
             color: #f0ece6;
             font-weight: bold;
         }
-        .oracion-container .oracion-texto h3 {
+        /* 🔥 Cambio: h3 → h2 para jerarquía correcta */
+        .oracion-container .oracion-texto h2 {
             color: #c9a05e;
             font-size: 1.3rem;
             font-weight: normal;
@@ -326,7 +331,8 @@
             border: 1px solid rgba(201, 169, 110, 0.08);
             font-family: Georgia, serif;
         }
-        .seccion-extra h3 {
+        /* 🔥 Cambio: h3 → h2 */
+        .seccion-extra h2 {
             color: #c9a05e;
             font-size: 1.4rem;
             font-weight: normal;
@@ -414,7 +420,7 @@
         }
         .related-card .info p {
             font-size: 0.8rem;
-            color: #d0c8be; /* 🔥 Cambio: más claro */
+            color: #d0c8be;
             margin: 0;
         }
         .related-card .info .mini-btn {
@@ -431,7 +437,7 @@
             margin-top: 2.5rem;
             text-align: center;
             font-size: 0.75rem;
-            color: #b0a8a0; /* 🔥 Cambio: más claro */
+            color: #b0a8a0;
             border-top: 1px solid #222;
             padding-top: 1.5rem;
         }
@@ -453,11 +459,11 @@
             .sticky-nav .nav-left a span, .sticky-nav .nav-right a span { display: none; }
             .oracion-container { padding: 14px 16px; margin: 12px 0; }
             .oracion-container .oracion-texto { font-size: 1.15rem; line-height: 2; }
-            .oracion-container .oracion-texto h3 { font-size: 1.1rem; }
+            .oracion-container .oracion-texto h2 { font-size: 1.1rem; }
             .oracion-container .oracion-texto ul,
             .oracion-container .oracion-texto ol { padding-left: 18px; }
             .seccion-extra { padding: 14px 16px; }
-            .seccion-extra h3 { font-size: 1.2rem; }
+            .seccion-extra h2 { font-size: 1.2rem; }
             .seccion-extra p { font-size: 1rem; }
             .seccion-extra blockquote p { font-size: 1rem; }
             .video-controls-extra button { font-size: 0.9rem; padding: 0.5rem 1.2rem; }
@@ -477,182 +483,195 @@
         </div>
     </nav>
 
-    <div class="container">
+    <!-- ===== CONTENIDO PRINCIPAL CON <main> ===== -->
+    <main>
+        <div class="container">
 
-        <!-- ===== VOLVER AL INICIO ===== -->
-        <a href="index.html" class="back-link">← Volver al inicio</a>
+            <!-- ===== VOLVER AL INICIO ===== -->
+            <a href="index.html" class="back-link">← Volver al inicio</a>
 
-        <!-- ===== TÍTULO ===== -->
-        <h1 class="oracion-title" id="oracionTitle">¿Sientes que Dios no te responde? ❤️ Jesús quiere decirte esto</h1>
+            <!-- ===== TÍTULO ===== -->
+            <h1 class="oracion-title" id="oracionTitle">¿Sientes que Dios no te responde? ❤️ Jesús quiere decirte esto</h1>
 
-        <!-- ===== VIDEO CON PLYR ===== -->
-        <div class="video-container" id="videoContainer">
-            <video id="player" playsinline controls>
-                <source src="https://cdn.videy.co/E0dVto7m1.mp4" type="video/mp4" />
-                Tu navegador no soporta la reproducción de video.
-            </video>
-            <button class="btn-salir-fullscreen" id="btnSalirFullscreen">✕</button>
-        </div>
-
-        <!-- ===== BOTONES DE ADELANTAR/RETROCEDER (10s) ===== -->
-        <div class="video-controls-extra">
-            <button id="btnRewind">⏪ -10s</button>
-            <button id="btnForward">+10s ⏩</button>
-        </div>
-
-        <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
-        <!-- 
-        <div class="ad-comment">
-            <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
-            <div id="container-..."></div>
-        </div>
-        -->
-
-        <!-- ===== ORACIÓN COMPLETA ===== -->
-        <div class="oracion-container">
-
-            <div class="oracion-intro">
-                📖 Oración completa para leer y meditar
-                <span>Cuando el silencio de Dios parece durar demasiado, Jesús está obrando en lo profundo</span>
+            <!-- ===== VIDEO CON PLYR ===== -->
+            <div class="video-container" id="videoContainer">
+                <video id="player" playsinline controls>
+                    <source src="https://cdn.videy.co/E0dVto7m1.mp4" type="video/mp4" />
+                    <!-- 🔥 Subtítulos (track) para accesibilidad -->
+                    <track kind="captions" srclang="es" label="Español" default />
+                    Tu navegador no soporta la reproducción de video.
+                </video>
+                <button class="btn-salir-fullscreen" id="btnSalirFullscreen">✕</button>
             </div>
 
-            <!-- ===== CÓDIGO PUBLICITARIO (comentado) ===== -->
+            <!-- ===== BOTONES DE ADELANTAR/RETROCEDER (10s) ===== -->
+            <div class="video-controls-extra">
+                <button id="btnRewind">⏪ -10s</button>
+                <button id="btnForward">+10s ⏩</button>
+            </div>
+
+            <!-- ===== PUBLICIDAD 1 (comentada) ===== -->
             <!-- 
-            <div style="margin: 20px 0;">
+            <div class="ad-comment">
                 <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
                 <div id="container-..."></div>
             </div>
             -->
 
-            <div class="oracion-texto">
+            <!-- ===== ORACIÓN COMPLETA ===== -->
+            <div class="oracion-container">
 
-                <p><strong>“Jesús, yo creo en Ti aunque no vea”</strong>. Esta frase, sencilla pero poderosa, resume el corazón de esta Hora Santa ante el Santísimo Sacramento. Si estás leyendo esto, probablemente has rezado durante días, meses o incluso años por una intención especial… y todavía no ves una respuesta. Tu fe está cansada de esperar. Tu corazón se pregunta: <em>“¿Dios realmente escucha? ¿Le importa?”</em></p>
+                <div class="oracion-intro">
+                    📖 Oración completa para leer y meditar
+                    <span>Cuando el silencio de Dios parece durar demasiado, Jesús está obrando en lo profundo</span>
+                </div>
 
-                <p>Hoy, delante de Jesús Sacramentado, queremos decirte algo que puede transformar tu vida: <strong>el silencio de Dios no es ausencia de Dios</strong>. No es que no te escuche. No es que no le importes. Es que Él trabaja en un tiempo diferente al nuestro, y su silencio tiene un propósito más profundo: <strong>purificar tu fe, madurar tu esperanza y enseñarte a confiar no en los resultados, sino en Él mismo</strong>.</p>
+                <!-- ===== CÓDIGO PUBLICITARIO (comentado) ===== -->
+                <!-- 
+                <div style="margin: 20px 0;">
+                    <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+                    <div id="container-..."></div>
+                </div>
+                -->
 
-                <h3>📖 La espera en la Biblia: Abraham, José, Ana y Jesús</h3>
+                <div class="oracion-texto">
 
-                <p>La Sagrada Escritura está llena de personas que esperaron muchísimo tiempo antes de ver la respuesta de Dios. Pensemos en <strong>Abraham</strong>: Dios le prometió un hijo y una descendencia numerosa cuando ya era viejo. Pasaron 25 años hasta que nació Isaac. Durante todo ese tiempo, Abraham creyó contra toda esperanza (Romanos 4,18).</p>
+                    <p><strong>“Jesús, yo creo en Ti aunque no vea”</strong>. Esta frase, sencilla pero poderosa, resume el corazón de esta Hora Santa ante el Santísimo Sacramento. Si estás leyendo esto, probablemente has rezado durante días, meses o incluso años por una intención especial… y todavía no ves una respuesta. Tu fe está cansada de esperar. Tu corazón se pregunta: <em>“¿Dios realmente escucha? ¿Le importa?”</em></p>
 
-                <p>Pensemos en <strong>José</strong>, el hijo de Jacob. Tuvo sueños proféticos, pero luego fue vendido como esclavo, encarcelado injustamente y olvidado. Pasaron más de 13 años desde sus sueños hasta que Dios lo elevó a gobernador de Egipto. Esos años de silencio no fueron castigo; fueron <strong>preparación</strong>.</p>
+                    <p>Hoy, delante de Jesús Sacramentado, queremos decirte algo que puede transformar tu vida: <strong>el silencio de Dios no es ausencia de Dios</strong>. No es que no te escuche. No es que no le importes. Es que Él trabaja en un tiempo diferente al nuestro, y su silencio tiene un propósito más profundo: <strong>purificar tu fe, madurar tu esperanza y enseñarte a confiar no en los resultados, sino en Él mismo</strong>.</p>
 
-                <p>Pensemos en <strong>Ana</strong>, madre de Samuel. Ella oraba amargamente por un hijo, y el sacerdote Elí pensó que estaba borracha. Pero Ana no dejó de clamar. Dios le respondió, y Samuel se convirtió en uno de los más grandes profetas de Israel.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>📖 La espera en la Biblia: Abraham, José, Ana y Jesús</h2>
 
-                <p>Y pensemos en la misma <strong>Virgen María</strong> y <strong>San José</strong>. Vivieron años de espera, búsqueda y silencio, confiando en los designios de Dios sin comprenderlos del todo.</p>
+                    <p>La Sagrada Escritura está llena de personas que esperaron muchísimo tiempo antes de ver la respuesta de Dios. Pensemos en <strong>Abraham</strong>: Dios le prometió un hijo y una descendencia numerosa cuando ya era viejo. Pasaron 25 años hasta que nació Isaac. Durante todo ese tiempo, Abraham creyó contra toda esperanza (Romanos 4,18).</p>
 
-                <p>¿Qué nos enseñan estas historias? Que <strong>la espera no es vacío, es taller de santidad</strong>. Dios no pierde el tiempo. Mientras tú esperas, Él está obrando en ti, aunque no lo sientas ni lo veas.</p>
+                    <p>Pensemos en <strong>José</strong>, el hijo de Jacob. Tuvo sueños proféticos, pero luego fue vendido como esclavo, encarcelado injustamente y olvidado. Pasaron más de 13 años desde sus sueños hasta que Dios lo elevó a gobernador de Egipto. Esos años de silencio no fueron castigo; fueron <strong>preparación</strong>.</p>
 
-                <h3>✝️ La sabiduría del Padre Pío: Reza, espera y no te preocupes</h3>
+                    <p>Pensemos en <strong>Ana</strong>, madre de Samuel. Ella oraba amargamente por un hijo, y el sacerdote Elí pensó que estaba borracha. Pero Ana no dejó de clamar. Dios le respondió, y Samuel se convirtió en uno de los más grandes profetas de Israel.</p>
 
-                <p>El <strong>Padre Pío de Pietrelcina</strong>, uno de los santos más amados del siglo XX, experimentó el silencio de Dios de manera brutal. Durante muchos años, fue atormentado espiritualmente, sintiéndose abandonado por Dios. Sin embargo, no renunció a la oración. Y de esa experiencia dejó una frase que se ha convertido en un tesoro para millones de almas:</p>
+                    <p>Y pensemos en la misma <strong>Virgen María</strong> y <strong>San José</strong>. Vivieron años de espera, búsqueda y silencio, confiando en los designios de Dios sin comprenderlos del todo.</p>
 
-                <blockquote>
-                    <p><em>“Reza, espera y no te preocupes. La preocupación es inútil. Dios es misericordioso y escuchará tu oración.”</em></p>
-                </blockquote>
+                    <p>¿Qué nos enseñan estas historias? Que <strong>la espera no es vacío, es taller de santidad</strong>. Dios no pierde el tiempo. Mientras tú esperas, Él está obrando en ti, aunque no lo sientas ni lo veas.</p>
 
-                <p>El Padre Pío sabía que la preocupación no acelera la respuesta de Dios; al contrario, nos roba la paz y nos aleja de la confianza. Por eso nos enseña a <strong>orar sin desfallecer, esperar con paciencia y confiar sin angustiarnos</strong>. Esa es la actitud del alma que descansa en el Sagrario.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>✝️ La sabiduría del Padre Pío: Reza, espera y no te preocupes</h2>
 
-                <p>Jesús no te ha olvidado. Sus tiempos no son los tuyos, pero siempre llegan en el momento justo. A veces, la demora es una misericordia: Dios está preparando algo más grande, o está sanando algo en ti que solo la espera puede revelar.</p>
+                    <p>El <strong>Padre Pío de Pietrelcina</strong>, uno de los santos más amados del siglo XX, experimentó el silencio de Dios de manera brutal. Durante muchos años, fue atormentado espiritualmente, sintiéndose abandonado por Dios. Sin embargo, no renunció a la oración. Y de esa experiencia dejó una frase que se ha convertido en un tesoro para millones de almas:</p>
 
-                <h3>✨ ¿Qué pedimos en esta Hora Santa?</h3>
+                    <blockquote>
+                        <p><em>“Reza, espera y no te preocupes. La preocupación es inútil. Dios es misericordioso y escuchará tu oración.”</em></p>
+                    </blockquote>
 
-                <p>En este tiempo de adoración ante el Santísimo, elevamos a Jesús estas intenciones para quienes sienten que Dios no responde:</p>
+                    <p>El Padre Pío sabía que la preocupación no acelera la respuesta de Dios; al contrario, nos roba la paz y nos aleja de la confianza. Por eso nos enseña a <strong>orar sin desfallecer, esperar con paciencia y confiar sin angustiarnos</strong>. Esa es la actitud del alma que descansa en el Sagrario.</p>
 
-                <ul>
-                    <li><strong>Paciencia sobrenatural</strong> – para no desesperar ni abandonar la oración.</li>
-                    <li><strong>Fe que no depende de resultados</strong> – creer aunque no vea, confiar aunque no entienda.</li>
-                    <li><strong>Paz en medio de la incertidumbre</strong> – para no dejar que la angustia nuble la esperanza.</li>
-                    <li><strong>Sabiduría para discernir la voluntad de Dios</strong> – a veces la respuesta es “no” o “todavía no”, pero siempre es amor.</li>
-                    <li><strong>Perseverancia</strong> – para seguir adelante cuando las fuerzas flaquean.</li>
-                </ul>
+                    <p>Jesús no te ha olvidado. Sus tiempos no son los tuyos, pero siempre llegan en el momento justo. A veces, la demora es una misericordia: Dios está preparando algo más grande, o está sanando algo en ti que solo la espera puede revelar.</p>
 
-                <p>No se trata de forzar a Dios a responder en nuestros términos. Se trata de <strong>descansar en Él</strong>, como un niño que confía plenamente en su padre, aunque no entienda por qué no le da lo que pide.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>✨ ¿Qué pedimos en esta Hora Santa?</h2>
 
-                <h3>🕯️ ¿Cómo rezar cuando sientes que Dios no responde?</h3>
+                    <p>En este tiempo de adoración ante el Santísimo, elevamos a Jesús estas intenciones para quienes sienten que Dios no responde:</p>
 
-                <p>Si hoy estás en esa lucha, aquí tienes una guía práctica para esta Hora Santa:</p>
+                    <ul>
+                        <li><strong>Paciencia sobrenatural</strong> – para no desesperar ni abandonar la oración.</li>
+                        <li><strong>Fe que no depende de resultados</strong> – creer aunque no vea, confiar aunque no entienda.</li>
+                        <li><strong>Paz en medio de la incertidumbre</strong> – para no dejar que la angustia nuble la esperanza.</li>
+                        <li><strong>Sabiduría para discernir la voluntad de Dios</strong> – a veces la respuesta es “no” o “todavía no”, pero siempre es amor.</li>
+                        <li><strong>Perseverancia</strong> – para seguir adelante cuando las fuerzas flaquean.</li>
+                    </ul>
 
-                <ol>
-                    <li><strong>No te culpes</strong>. El silencio de Dios no es un castigo. Muchos santos lo vivieron.</li>
-                    <li><strong>Habla con honestidad</strong>. Dile a Jesús: <em>“Señor, estoy cansado de esperar. Ayúdame”</em>. Él prefiere tu sinceridad a un rezo fingido.</li>
-                    <li><strong>No busques sentir, busca la verdad</strong>. La verdad es que Jesús está presente en el Santísimo, te mire o no te mire con los ojos del sentimiento.</li>
-                    <li><strong>Ofrece tu espera por alguien más</strong>. A veces, la oración más fecunda es la que se sufre.</li>
-                    <li><strong>Termina con un acto de abandono</strong>. Repite con Jesús en el huerto de los olivos: <em>“No se haga mi voluntad, sino la tuya”</em>.</li>
-                </ol>
+                    <p>No se trata de forzar a Dios a responder en nuestros términos. Se trata de <strong>descansar en Él</strong>, como un niño que confía plenamente en su padre, aunque no entienda por qué no le da lo que pide.</p>
 
-                <h3>🙌 Jaculatorias para los momentos de duda</h3>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🕯️ ¿Cómo rezar cuando sientes que Dios no responde?</h2>
 
-                <p>Cuando sientas que tu fe se debilita, repite estas frases breves a lo largo del día:</p>
+                    <p>Si hoy estás en esa lucha, aquí tienes una guía práctica para esta Hora Santa:</p>
 
-                <ul>
-                    <li>✨ <em>“Jesús, yo creo en Ti aunque no vea”</em></li>
-                    <li>✨ <em>“Padre Pío, enséñame a rezar, esperar y no preocuparme”</em></li>
-                    <li>✨ <em>“Señor, no entiendo, pero confío”</em></li>
-                    <li>✨ <em>“Tu tiempo es perfecto, aunque yo no lo vea”</em></li>
-                </ul>
+                    <ol>
+                        <li><strong>No te culpes</strong>. El silencio de Dios no es un castigo. Muchos santos lo vivieron.</li>
+                        <li><strong>Habla con honestidad</strong>. Dile a Jesús: <em>“Señor, estoy cansado de esperar. Ayúdame”</em>. Él prefiere tu sinceridad a un rezo fingido.</li>
+                        <li><strong>No busques sentir, busca la verdad</strong>. La verdad es que Jesús está presente en el Santísimo, te mire o no te mire con los ojos del sentimiento.</li>
+                        <li><strong>Ofrece tu espera por alguien más</strong>. A veces, la oración más fecunda es la que se sufre.</li>
+                        <li><strong>Termina con un acto de abandono</strong>. Repite con Jesús en el huerto de los olivos: <em>“No se haga mi voluntad, sino la tuya”</em>.</li>
+                    </ol>
 
-                <p>Tenlas escritas en un papel o en tu móvil. Repítelas cuando el desaliento quiera ganarte.</p>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🙌 Jaculatorias para los momentos de duda</h2>
 
-                <h3>💬 Comparte tu espera o tu confianza</h3>
+                    <p>Cuando sientas que tu fe se debilita, repite estas frases breves a lo largo del día:</p>
 
-                <p>En los comentarios, te invitamos a escribir: <strong>“Jesús, yo creo en Ti aunque no vea”</strong>. Si prefieres, cuenta brevemente cuánto tiempo llevas esperando esa intención (sin dar detalles íntimos, solo el tiempo). Así todos nos unimos en una cadena de perseverancia ante el Santísimo. <strong>Ninguna oración ofrecida con fe cae en el vacío</strong>.</p>
+                    <ul>
+                        <li>✨ <em>“Jesús, yo creo en Ti aunque no vea”</em></li>
+                        <li>✨ <em>“Padre Pío, enséñame a rezar, esperar y no preocuparme”</em></li>
+                        <li>✨ <em>“Señor, no entiendo, pero confío”</em></li>
+                        <li>✨ <em>“Tu tiempo es perfecto, aunque yo no lo vea”</em></li>
+                    </ul>
 
-                <h3>🙏 Oración para cuando la respuesta se demora</h3>
+                    <p>Tenlas escritas en un papel o en tu móvil. Repítelas cuando el desaliento quiera ganarte.</p>
 
-                <blockquote>
-                    <p><em>Jesús Sacramentado, aquí estoy delante de Ti, no porque sienta algo especial, sino porque necesito decirte que confío. Han pasado días, meses, quizás años, y todavía no veo lo que te pedí. Pero no quiero que mi fe dependa de ver resultados. Dame la gracia de creerte aun en la oscuridad. Dame la paz de saber que Tú me escuchas, aunque no me respondas como yo quiero. Y si mi petición no es lo mejor para mí, dame la humildad para aceptar tu voluntad. Por la intercesión del Padre Pío, enséñame a rezar, esperar y no preocuparme. Amén.</em></p>
-                </blockquote>
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>💬 Comparte tu espera o tu confianza</h2>
+
+                    <p>En los comentarios, te invitamos a escribir: <strong>“Jesús, yo creo en Ti aunque no vea”</strong>. Si prefieres, cuenta brevemente cuánto tiempo llevas esperando esa intención (sin dar detalles íntimos, solo el tiempo). Así todos nos unimos en una cadena de perseverancia ante el Santísimo. <strong>Ninguna oración ofrecida con fe cae en el vacío</strong>.</p>
+
+                    <!-- 🔥 Cambio: h3 → h2 -->
+                    <h2>🙏 Oración para cuando la respuesta se demora</h2>
+
+                    <blockquote>
+                        <p><em>Jesús Sacramentado, aquí estoy delante de Ti, no porque sienta algo especial, sino porque necesito decirte que confío. Han pasado días, meses, quizás años, y todavía no veo lo que te pedí. Pero no quiero que mi fe dependa de ver resultados. Dame la gracia de creerte aun en la oscuridad. Dame la paz de saber que Tú me escuchas, aunque no me respondas como yo quiero. Y si mi petición no es lo mejor para mí, dame la humildad para aceptar tu voluntad. Por la intercesión del Padre Pío, enséñame a rezar, esperar y no preocuparme. Amén.</em></p>
+                    </blockquote>
+
+                </div>
+
+                <div class="oracion-footer">
+                    <span>†</span> Jesús, yo creo en Ti aunque no vea. Que el Santísimo Sacramento te bendiga y renueve tu esperanza <span>†</span>
+                </div>
 
             </div>
 
-            <div class="oracion-footer">
-                <span>†</span> Jesús, yo creo en Ti aunque no vea. Que el Santísimo Sacramento te bendiga y renueve tu esperanza <span>†</span>
+            <!-- ===== SECCIONES EXTRAS ===== -->
+            <hr>
+
+            <div class="seccion-extra">
+                <!-- 🔥 Cambiado de h3 a h2 -->
+                <h2>📲 Lleva este oratorio contigo</h2>
+                <p><strong>Agrega este sitio a la pantalla de inicio de tu teléfono</strong>: abre Chrome o Safari, toca los tres puntos (⋮) y elige <strong>"Agregar a pantalla de inicio"</strong>. Así tendrás siempre a un tap un lugar donde refugiarte cuando sientas que Dios no responde, sin distracciones y sin salir de este refugio espiritual.</p>
             </div>
 
-        </div>
+            <hr>
 
-        <!-- ===== SECCIONES EXTRAS ===== -->
-        <hr>
-
-        <div class="seccion-extra">
-            <h3>📲 Lleva este oratorio contigo</h3>
-            <p><strong>Agrega este sitio a la pantalla de inicio de tu teléfono</strong>: abre Chrome o Safari, toca los tres puntos (⋮) y elige <strong>"Agregar a pantalla de inicio"</strong>. Así tendrás siempre a un tap un lugar donde refugiarte cuando sientas que Dios no responde, sin distracciones y sin salir de este refugio espiritual.</p>
-        </div>
-
-        <hr>
-
-        <div class="seccion-extra">
-            <h3>🕊️ Explora más oraciones en este sitio</h3>
-            <p>Visita nuestra página principal para descubrir más Horas Santas, adoraciones eucarísticas y oraciones profundas para momentos de espera y prueba. Cada día añadimos nuevo contenido para ayudarte a perseverar en la fe.</p>
-        </div>
-
-        <hr>
-
-        <div class="seccion-extra" style="text-align: center;">
-            <h3>🙏 Comparte este mensaje de esperanza</h3>
-            <p>Si esta oración ha traído consuelo a tu corazón, comparte este sitio con alguien que también esté esperando una respuesta de Dios. No guardes este tesoro solo para ti. Copia el enlace y envíalo a quien necesite recordar que el silencio de Dios no es ausencia de Dios.</p>
-            <p style="font-size: 1.1rem; color: #c9a05e; font-weight: bold; margin-top: 16px;">Jesús, yo creo en Ti aunque no vea. Que el Santísimo Sacramento te bendiga y renueve tu esperanza. 🙏</p>
-        </div>
-
-        <hr>
-
-        <!-- ===== WIDGET "MÁS ORACIONES PARA TI" ===== -->
-        <div class="related-section">
-            <h3>✦ Más oraciones para ti ✦</h3>
-            <div class="related-grid" id="relatedGrid">
-                <!-- Generado por JavaScript -->
+            <div class="seccion-extra">
+                <h2>🕊️ Explora más oraciones en este sitio</h2>
+                <p>Visita nuestra página principal para descubrir más Horas Santas, adoraciones eucarísticas y oraciones profundas para momentos de espera y prueba. Cada día añadimos nuevo contenido para ayudarte a perseverar en la fe.</p>
             </div>
-        </div>
 
-        <!-- ===== PUBLICIDAD 2 (comentada) ===== -->
-        <!-- 
-        <div class="ad-footer">
-            <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
-            <div id="container-..."></div>
-        </div>
-        -->
+            <hr>
 
-    </div>
+            <div class="seccion-extra" style="text-align: center;">
+                <h2>🙏 Comparte este mensaje de esperanza</h2>
+                <p>Si esta oración ha traído consuelo a tu corazón, comparte este sitio con alguien que también esté esperando una respuesta de Dios. No guardes este tesoro solo para ti. Copia el enlace y envíalo a quien necesite recordar que el silencio de Dios no es ausencia de Dios.</p>
+                <p style="font-size: 1.1rem; color: #c9a05e; font-weight: bold; margin-top: 16px;">Jesús, yo creo en Ti aunque no vea. Que el Santísimo Sacramento te bendiga y renueve tu esperanza. 🙏</p>
+            </div>
+
+            <hr>
+
+            <!-- ===== WIDGET "MÁS ORACIONES PARA TI" ===== -->
+            <div class="related-section">
+                <h3>✦ Más oraciones para ti ✦</h3>
+                <div class="related-grid" id="relatedGrid">
+                    <!-- Generado por JavaScript -->
+                </div>
+            </div>
+
+            <!-- ===== PUBLICIDAD 2 (comentada) ===== -->
+            <!-- 
+            <div class="ad-footer">
+                <script async="async" data-cfasync="false" src="https://prodtrousers.com/..."></script>
+                <div id="container-..."></div>
+            </div>
+            -->
+
+        </div>
+    </main>
 
     <!-- ========================================================= -->
     <!-- CARGA EL ARCHIVO DE DATOS (EXTERNO)                        -->
