@@ -3,15 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>El Santísimo Te Espera – Oraciones Diarias en Telegram</title>
-  <meta name="description" content="Ábrela en 1 clic desde Telegram. Tu espacio diario de oración, lecturas y paz. Sin descargar, gratis." />
-
-  <!-- Open Graph para que se vea bien al compartir el enlace -->
-  <meta property="og:title" content="El Santísimo Te Espera - Oraciones Diarias" />
-  <meta property="og:description" content="Ábrela en 1 clic desde Telegram. Sin descargar, gratis. Oraciones, lecturas y paz cada día." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://i.postimg.cc/Jn37d9NT/eded.webp" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <title>El Santísimo Te Espera – Oraciones Diarias</title>
+  <meta name="description" content="Tu espacio diario de oración y paz. Descarga gratis la app católica de oraciones." />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -19,7 +12,7 @@
       theme: { extend: {
         colors: {
           crema: '#FDFBF6',
-          azul: { 50:'#EFF5FC', 100:'#DCE8F7', 500:'#2AABEE', 600:'#229ED9', 700:'#1B3A6B', 900:'#0F2A4A', 950:'#081A30' },
+          azul: { 50:'#EFF5FC', 100:'#DCE8F7', 700:'#1B3A6B', 900:'#0F2A4A', 950:'#081A30' },
           dorado: { 300:'#F0DDA0', 400:'#E3C25B', 500:'#C9A227', 600:'#A9861B' }
         },
         fontFamily: {
@@ -41,7 +34,7 @@
     .bg-sacred {
       background:
         radial-gradient(ellipse 70% 40% at 20% 10%, rgba(227,194,91,.22), transparent 60%),
-        radial-gradient(ellipse 60% 50% at 90% 80%, rgba(42,171,238,.18), transparent 65%),
+        radial-gradient(ellipse 60% 50% at 90% 80%, rgba(27,58,107,.18), transparent 65%),
         radial-gradient(ellipse 90% 50% at 50% 100%, rgba(201,162,39,.12), transparent 70%),
         linear-gradient(180deg,#FDFBF6 0%,#FAF6EC 55%,#F4EEDC 100%);
     }
@@ -72,12 +65,12 @@
     @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
     .float { animation:float 6s ease-in-out infinite; }
 
-    /* Pulso azul Telegram del botón de abrir */
-    @keyframes telegramPulse {
-      0%,100% { transform: scale(1);    box-shadow: 0 0 0 0 rgba(42,171,238,.7), 0 12px 30px rgba(15,42,74,.35); }
-      50%     { transform: scale(1.06); box-shadow: 0 0 0 16px rgba(42,171,238,0), 0 12px 30px rgba(15,42,74,.35); }
+    /* Pulso dorado del botón de play */
+    @keyframes playPulse {
+      0%,100% { transform: scale(1);    box-shadow: 0 0 0 0 rgba(227,194,91,.7), 0 12px 30px rgba(15,42,74,.35); }
+      50%     { transform: scale(1.06); box-shadow: 0 0 0 16px rgba(227,194,91,0), 0 12px 30px rgba(15,42,74,.35); }
     }
-    .telegram-pulse { animation: telegramPulse 2s ease-in-out infinite; }
+    .play-pulse { animation: playPulse 2s ease-in-out infinite; }
 
     .card-item {
       scroll-snap-align: center;
@@ -88,8 +81,15 @@
     .card-item.inactive { transform: scale(.9); opacity:.7; }
     .card-item.active   { transform: scale(1);  opacity:1; }
 
-    .play-btn { transition: opacity .28s ease, transform .28s ease; }
-    .play-btn[data-state="hidden"] { opacity: 0; pointer-events: none; transform: scale(.9); }
+    /* Botón de play: se desvanece al reproducir */
+    .play-btn {
+      transition: opacity .28s ease, transform .28s ease;
+    }
+    .play-btn[data-state="hidden"] {
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(.9);
+    }
 
     @media (max-height:700px){ .hide-tiny{display:none!important;} }
     @media (max-height:600px){ .hide-tiny-2{display:none!important;} }
@@ -115,7 +115,7 @@
         <h1 class="font-serif text-[15px] leading-tight text-azul-900">
           El Santísimo <span class="text-azul-700">Te Espera</span>
         </h1>
-        <p class="text-[10px] leading-tight text-azul-900/55">Oraciones diarias en Telegram · Sin descargar</p>
+        <p class="text-[10px] leading-tight text-azul-900/55">Tu espacio diario de oración y paz.</p>
       </div>
       <div class="flex shrink-0 items-center gap-1 rounded-full border border-dorado-400/50 bg-white/80 px-2 py-1 text-[10px] font-bold text-azul-800 shadow-sm backdrop-blur">
         <span class="text-dorado-500">★</span> 4.9
@@ -174,6 +174,7 @@
             Reel · Oraciones de paz
           </div>
 
+          <!-- preload="metadata" inicial → rápido. Se precarga completo cuando la tarjeta se activa. -->
           <video class="h-full w-full object-cover"
                  src="https://cdn.videy.co/04FUomUN1.mp4"
                  poster="https://i.postimg.cc/QxQgJtKQ/efekfpep.webp"
@@ -190,10 +191,10 @@
 
           <div class="absolute bottom-3 right-3 z-10 text-[10px] font-semibold text-white/90">Reel · 0:15</div>
 
+          <!-- 🎬 BOTÓN ÚNICO: toca → reproduce CON sonido -->
           <button type="button" aria-label="Reproducir video con sonido"
                   class="play-btn absolute inset-0 z-30 flex items-center justify-center bg-black/30">
-            <span class="play-pulse flex h-20 w-20 items-center justify-center rounded-full bg-white/95 ring-2 ring-dorado-400/70 backdrop-blur"
-                  style="animation: telegramPulse 2s ease-in-out infinite;">
+            <span class="play-pulse flex h-20 w-20 items-center justify-center rounded-full bg-white/95 ring-2 ring-dorado-400/70 backdrop-blur">
               <svg class="ml-1 h-9 w-9 text-azul-900" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M8 5v14l11-7z"/>
               </svg>
@@ -258,22 +259,24 @@
     <!-- ================= CTA ================= -->
     <div class="anim d-5 relative z-10 mt-2 flex shrink-0 flex-col items-center gap-1.5">
 
-      <a href="https://t.me/ElSantisimoOraciones_bot/oraciones"
+      <a href="https://play.google.com/store/apps/details?id=com.elsantisimoteespera.oracionesdiarias"
          target="_blank" rel="noopener"
-         class="shimmer group relative flex w-full max-w-sm items-center justify-center gap-2.5 overflow-hidden rounded-full bg-gradient-to-b from-azul-500 to-azul-600 px-5 py-3 text-[14px] font-bold text-white shadow-lg shadow-azul-600/40 ring-1 ring-azul-600/40 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-azul-600/50 active:translate-y-0 active:from-azul-600 active:to-azul-700">
-        <!-- Ícono oficial de Telegram (avión de papel) -->
-        <svg class="h-5 w-5 shrink-0 transition-transform duration-200 group-hover:scale-110" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+         class="shimmer group relative flex w-full max-w-sm items-center justify-center gap-2.5 overflow-hidden rounded-full bg-gradient-to-b from-dorado-400 to-dorado-500 px-5 py-3 text-[14px] font-bold text-azul-950 shadow-lg shadow-dorado-500/40 ring-1 ring-dorado-600/40 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-dorado-500/50 active:translate-y-0 active:from-dorado-500 active:to-dorado-600">
+        <svg class="h-5 w-5 shrink-0 transition-transform duration-200 group-hover:scale-110" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M3.6 2.4c-.3.3-.5.8-.5 1.4v16.4c0 .6.2 1.1.5 1.4l.1.1 9.2-9.2v-.2L3.7 2.3l-.1.1z"/>
+          <path d="M16 15.7l-3.1-3.1v-.2L16 9.3l.1.1 3.7 2.1c1.1.6 1.1 1.6 0 2.2l-3.8 2z"/>
+          <path d="M16.1 15.6L13 12.5 3.6 21.9c.4.4 1 .4 1.7 0l10.8-6.3"/>
+          <path d="M16.1 9.4L5.3 3.1c-.7-.4-1.3-.4-1.7 0L13 12.5l3.1-3.1z"/>
         </svg>
-        <span class="relative z-10">Abrir en Telegram · Gratis</span>
+        <span class="relative z-10">Descargar Gratis para Android</span>
       </a>
 
-      <!-- Microcopy debajo del botón -->
       <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-0.5 text-[10.5px] font-medium text-azul-900/70">
         <span class="inline-flex items-center gap-1.5">
           <span class="live-dot h-1.5 w-1.5 rounded-full bg-green-500"></span>
-          <span class="font-bold text-azul-900">1 toque</span>
-          <span>· Sin descargar</span>
+          <span class="font-bold text-azul-900">4.9</span>
+          <span class="text-dorado-500">★★★★★</span>
+          <span>Play Store</span>
         </span>
         <span class="hide-tiny-2 text-azul-900/25">·</span>
         <span class="hide-tiny-2 inline-flex items-center gap-1">
@@ -283,7 +286,7 @@
         <span class="hide-tiny-2 text-azul-900/25">·</span>
         <span class="hide-tiny-2 inline-flex items-center gap-1">
           <svg class="h-3 w-3 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          Android, iPhone y PC
+          Sin anuncios
         </span>
       </div>
     </div>
@@ -318,19 +321,25 @@
         const playBtn = card.querySelector('.play-btn');
         if (!video || !playBtn) return;
 
-        let started = false;
+        let started = false; // ¿El usuario ya activó el audio alguna vez?
 
+        /* --- Precarga completa al primer toque: acelera la reproducción --- */
         const ensureBuffered = () => {
           if (video.preload !== 'auto') {
             video.preload = 'auto';
+            // Sin llamar load() para no reiniciar el video.
+            // El navegador prioriza la descarga al cambiar preload.
           }
         };
 
+        /* --- Un único tap: reproduce con sonido o pausa --- */
         const toggle = (e) => {
           if (e) { e.preventDefault(); e.stopPropagation(); }
 
           if (video.paused) {
             ensureBuffered();
+
+            // Desbloquear el audio en el mismo gesto del usuario → sin toques extra
             video.muted = false;
             video.volume = 1;
 
@@ -340,6 +349,7 @@
                 started = true;
                 playBtn.dataset.state = 'hidden';
               }).catch(() => {
+                // Fallback: si el navegador bloquea, reintentamos silenciado
                 video.muted = true;
                 video.play().then(() => {
                   playBtn.dataset.state = 'hidden';
@@ -355,9 +365,13 @@
           }
         };
 
+        // Un solo listener en el botón (que cubre toda el área del video)
         playBtn.addEventListener('click', toggle);
+
+        // Tocar el video mientras se reproduce = pausa
         video.addEventListener('click', toggle);
 
+        // Si el video termina (por si quitan el loop en el futuro)
         video.addEventListener('ended', () => {
           playBtn.dataset.state = 'visible';
         });
@@ -376,6 +390,7 @@
           it.classList.toggle('inactive', dist >= it.offsetWidth / 2);
         });
 
+        /* --- Comportamiento por tarjeta de video --- */
         videoCards.forEach(card => {
           const video   = card.querySelector('video');
           const playBtn = card.querySelector('.play-btn');
@@ -384,14 +399,17 @@
           const isActive = card.classList.contains('active');
 
           if (isActive) {
+            // Precargar el que se está viendo
             if (video.preload !== 'auto') video.preload = 'auto';
           } else {
+            // Pausar y resetear el que sale de vista
             if (!video.paused) video.pause();
             playBtn.dataset.state = 'visible';
             video.currentTime = 0;
           }
         });
 
+        /* --- Dots --- */
         [...dots.children].forEach((d, i) => {
           d.className = 'h-1.5 rounded-full transition-all duration-300 ' +
             (i === activeIdx ? 'w-4 bg-dorado-500' : 'w-1.5 bg-azul-900/25');
