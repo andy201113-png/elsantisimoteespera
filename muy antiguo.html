@@ -1,0 +1,2352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#1e2a1e" />
+  <title>El Santísimo - Oraciones y Liturgia Diaria</title>
+  <meta name="description" content="Oraciones católicas, liturgia diaria y tesoros de fe." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+    html {
+      margin: 0; padding: 0;
+      font-size: 18px;
+      background: #f5f2eb;
+      overscroll-behavior: none;
+    }
+    body {
+      margin: 0; padding: 0;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      font-size: 1rem;
+      line-height: 1.5;
+      background: #f5f2eb; color: #1e2a1e;
+      overflow-x: hidden; -webkit-font-smoothing: antialiased;
+    }
+    body.dark { background: #1e2a1e; color: #f0ece6; }
+    h1, h2, h3, h4 { margin: 0; line-height: 1.25; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    .font-cinzel { font-family: 'Cinzel', serif; }
+
+    :root {
+      --bg-primary: #f5f2eb; --bg-card: #ffffff; --bg-card-alt: #f0ede6;
+      --text-primary: #1e2a1e; --text-secondary: #2d3d2d; --text-muted: #4a5b4a;
+      --accent-gold: #96672a; --accent-gold-light: #c9a05e; --accent-gold-dark: #7a5322;
+      --border-gold: rgba(150, 103, 42, 0.4); --border-subtle: rgba(0,0,0,0.12);
+      --success: #155728; --success-bg: #d4efd9;
+      --purple: #6b3fa0; --purple-light: #8b5fbf;
+    }
+    body.dark {
+      --bg-primary: #1e2a1e; --bg-card: #253525; --bg-card-alt: #2d402d;
+      --text-primary: #ffffff; --text-secondary: #e8f0e5; --text-muted: #d0dccb;
+      --accent-gold: #e5c086; --accent-gold-light: #f0d498; --accent-gold-dark: #c9a05e;
+      --border-gold: rgba(229, 192, 134, 0.5); --border-subtle: rgba(255,255,255,0.15);
+      --success: #a8efc1; --success-bg: #1d432b;
+      --purple: #a17cd4; --purple-light: #b898e0;
+    }
+
+    html.font-small { font-size: 16px; }
+    html.font-normal { font-size: 18px; }
+    html.font-large { font-size: 21px; }
+    html.font-xlarge { font-size: 24px; }
+
+    .font-level-indicator {
+      position: fixed; top: 70px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent-gold); color: #fff;
+      padding: 10px 18px; border-radius: 20px;
+      font-size: 15px; font-weight: 800;
+      z-index: 300; opacity: 0; transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .font-level-indicator.show { opacity: 1; }
+
+    .app-container {
+      max-width: 480px; margin: 0 auto;
+      height: 100vh; height: 100dvh;
+      display: flex; flex-direction: column;
+      overflow: hidden; position: relative;
+    }
+
+    .app-header {
+      background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-primary) 100%);
+      border-bottom: 1px solid var(--border-gold);
+      padding: 8px 12px; flex-shrink: 0; z-index: 30;
+    }
+    .app-header h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 17px; font-weight: 800;
+      color: var(--text-primary); line-height: 1.1;
+    }
+    .app-header p {
+      font-size: 10px; color: var(--accent-gold);
+      text-transform: uppercase; letter-spacing: 0.8px;
+      margin-top: 1px; font-weight: 800;
+    }
+    .btn-font {
+      width: 34px; height: 34px; border-radius: 9px;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-weight: 900; background: var(--bg-card-alt);
+      border: 1.5px solid var(--border-gold);
+      color: var(--text-primary); transition: all 0.15s;
+    }
+    .btn-font:active { transform: scale(0.92); background: var(--accent-gold); color: #fff; }
+    .btn-font.smaller { font-size: 11px; }
+    .btn-font.bigger { font-size: 14px; }
+
+    .bottom-nav {
+      flex-shrink: 0; background: var(--bg-card);
+      border-top: 2px solid var(--border-gold);
+      display: flex; justify-content: space-around; align-items: center;
+      padding: 5px 0 max(6px, env(safe-area-inset-bottom, 6px));
+      z-index: 40; box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+    }
+    .nav-btn {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; gap: 1px; padding: 3px;
+      color: var(--text-muted); transition: all 0.2s; border-radius: 10px;
+    }
+    .nav-btn.active { color: var(--accent-gold); }
+    .nav-btn svg { width: 22px; height: 22px; stroke-width: 2.2; }
+    .nav-btn.active svg { transform: scale(1.08); stroke-width: 2.6; }
+    .nav-btn span { font-size: 11px; font-weight: 800; }
+
+    .view {
+      flex: 1; display: none; min-height: 0;
+      overflow-y: auto; -webkit-overflow-scrolling: touch;
+    }
+    .view.active {
+      display: flex; flex-direction: column;
+      animation: fadeIn 0.25s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #view-inicio.active {
+      overflow: hidden;
+      padding: 8px 10px; gap: 6px;
+    }
+    #view-oraciones.active { padding: 10px 10px 16px; }
+    #view-perfil.active { padding: 8px 10px; gap: 6px; }
+
+    .card {
+      background: var(--bg-card); border: 1px solid var(--border-gold);
+      border-radius: 14px; padding: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 10px;
+    }
+
+    .featured-card-h {
+      display: flex;
+      gap: 10px;
+      padding: 10px;
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-gold);
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.15s;
+      flex-shrink: 0;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .featured-card-h:active { transform: scale(0.98); }
+    .featured-thumb {
+      width: 76px; height: 76px; border-radius: 12px;
+      overflow: hidden; flex-shrink: 0; position: relative;
+      border: 1.5px solid var(--border-gold);
+    }
+    .featured-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .featured-info { flex: 1; min-width: 0; }
+    .featured-info .badge-featured {
+      display: inline-block; font-size: 10px; font-weight: 800;
+      background: rgba(150, 103, 42, 0.18); color: var(--accent-gold);
+      padding: 2px 6px; border-radius: 5px; margin-bottom: 3px;
+      border: 1px solid var(--border-gold);
+    }
+    .featured-info h3 {
+      font-family: 'Cinzel', serif; font-size: 14px; font-weight: 800;
+      color: var(--text-primary); line-height: 1.2; margin-bottom: 3px;
+      display: -webkit-box; -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .featured-info .featured-cta {
+      font-size: 12px; font-weight: 800; color: var(--accent-gold);
+      display: flex; align-items: center; gap: 3px;
+    }
+    .featured-info .featured-cta svg { width: 12px; height: 12px; }
+
+    .inicio-nav-buttons {
+      flex: 1; display: flex; flex-direction: column;
+      gap: 6px; min-height: 0;
+    }
+    .inicio-nav-btn {
+      flex: 1; display: flex; align-items: center;
+      gap: 10px; padding: 8px 12px;
+      border-radius: 14px; border: 2px solid;
+      font-family: inherit; text-align: left;
+      cursor: pointer; transition: all 0.15s;
+      min-height: 50px; position: relative; overflow: hidden;
+    }
+    .inicio-nav-btn:active { transform: scale(0.97); }
+    .inicio-nav-btn.readings {
+      background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-light) 100%);
+      border-color: var(--accent-gold); color: #ffffff;
+      box-shadow: 0 4px 14px rgba(150, 103, 42, 0.4);
+    }
+    .inicio-nav-btn.readings::after {
+      content: ""; position: absolute; top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      animation: ctaShimmer 3s infinite;
+    }
+    @keyframes ctaShimmer {
+      0% { left: -100%; }
+      60% { left: 100%; }
+      100% { left: 100%; }
+    }
+    .inicio-nav-btn.oraciones {
+      background: var(--bg-card); border-color: var(--border-gold);
+      color: var(--text-primary); box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+    .inicio-nav-btn.community {
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      border-color: #128C7E; color: #ffffff;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+    }
+    .inicio-nav-btn.treasure {
+      background: linear-gradient(135deg, var(--purple) 0%, var(--purple-light) 100%);
+      border-color: var(--purple); color: #ffffff;
+      box-shadow: 0 4px 14px rgba(107, 63, 160, 0.4);
+    }
+    .inicio-nav-btn-icon {
+      width: 34px; height: 34px; border-radius: 10px;
+      background: rgba(255,255,255,0.25);
+      border: 2px solid rgba(255,255,255,0.35);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 17px; flex-shrink: 0;
+    }
+    .inicio-nav-btn.oraciones .inicio-nav-btn-icon {
+      background: rgba(150, 103, 42, 0.15);
+      border-color: var(--border-gold); color: var(--accent-gold);
+    }
+    .inicio-nav-btn-icon svg { width: 18px; height: 18px; }
+    .inicio-nav-btn-text { flex: 1; min-width: 0; }
+    .inicio-nav-btn-title {
+      font-family: 'Cinzel', serif; font-size: 14px;
+      font-weight: 800; line-height: 1.1; margin-bottom: 1px;
+    }
+    .inicio-nav-btn-sub { font-size: 11px; font-weight: 700; opacity: 0.9; line-height: 1.15; }
+    .inicio-nav-btn-arrow { width: 16px; height: 16px; flex-shrink: 0; opacity: 0.9; }
+
+    .btn {
+      min-height: 44px; padding: 10px 16px;
+      font-size: 15px; font-weight: 800; border-radius: 12px;
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 6px; transition: all 0.15s; text-align: center; line-height: 1.2;
+    }
+    .btn:active { transform: scale(0.97); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-light) 100%);
+      color: #ffffff; box-shadow: 0 4px 14px rgba(150, 103, 42, 0.35); width: 100%;
+    }
+    .btn-small {
+      min-height: 40px; padding: 8px 14px;
+      font-size: 14px; border-radius: 10px; width: auto;
+    }
+    .btn-icon {
+      width: 42px; height: 42px; min-height: unset;
+      padding: 0; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .btn-icon svg { width: 20px; height: 20px; }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 3px;
+      font-size: 11px; font-weight: 800; padding: 3px 7px;
+      border-radius: 6px; line-height: 1.1;
+    }
+    .badge-gold {
+      background: rgba(150, 103, 42, 0.2); color: var(--accent-gold);
+      border: 1px solid var(--border-gold);
+    }
+    .badge-success {
+      background: var(--success-bg); color: var(--success);
+      border: 1px solid rgba(21, 87, 40, 0.4);
+    }
+    .badge-fav {
+      background: rgba(200, 60, 60, 0.15); color: #a83030;
+      border: 1px solid rgba(200, 60, 60, 0.4);
+    }
+    body.dark .badge-fav { background: rgba(255,150,150,0.15); color: #ffb0b0; }
+
+    .search-input {
+      width: 100%; min-height: 44px;
+      padding: 10px 14px 10px 40px;
+      font-size: 15px; font-family: inherit;
+      background: var(--bg-card); border: 2px solid var(--border-gold);
+      border-radius: 12px; color: var(--text-primary);
+      outline: none; transition: all 0.2s;
+    }
+    .search-input:focus {
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 0 3px rgba(150, 103, 42, 0.15);
+    }
+    .search-input::placeholder { color: var(--text-muted); }
+
+    .filter-chips {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 6px; padding: 4px 0 10px; width: 100%;
+    }
+    .chip {
+      padding: 8px 6px; border-radius: 10px;
+      background: var(--bg-card); border: 2px solid var(--border-subtle);
+      color: var(--text-secondary); font-size: 13px; font-weight: 800;
+      white-space: nowrap; transition: all 0.15s;
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 4px; min-height: 40px; text-align: center; font-family: inherit;
+    }
+    .chip.active {
+      background: var(--accent-gold); border-color: var(--accent-gold);
+      color: #ffffff; box-shadow: 0 3px 10px rgba(150, 103, 42, 0.35);
+    }
+    .chip:active { transform: scale(0.96); }
+
+    .pagination-controls {
+      display: grid; grid-template-columns: 1fr auto 1fr;
+      gap: 8px; align-items: center; margin: 4px 0 10px;
+    }
+    .pagination-btn {
+      display: flex; align-items: center; justify-content: center;
+      gap: 5px; min-height: 46px; padding: 10px 8px;
+      border-radius: 12px; background: var(--bg-card);
+      border: 2px solid var(--border-gold);
+      color: var(--text-primary); font-size: 14px;
+      font-weight: 800; font-family: inherit;
+      cursor: pointer; transition: all 0.15s;
+    }
+    .pagination-btn:active { transform: scale(0.96); background: var(--bg-card-alt); }
+    .pagination-btn:disabled { opacity: 0.32; pointer-events: none; }
+    .pagination-btn.next {
+      background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-light) 100%);
+      border-color: var(--accent-gold); color: #ffffff;
+      box-shadow: 0 4px 14px rgba(150, 103, 42, 0.35);
+    }
+    .pagination-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .pagination-info { text-align: center; padding: 0 4px; min-width: 55px; }
+    .pagination-current {
+      font-family: 'Cinzel', serif; font-size: 16px;
+      font-weight: 900; color: var(--accent-gold);
+      line-height: 1; margin-bottom: 2px;
+    }
+    .pagination-label {
+      font-size: 9px; font-weight: 800;
+      color: var(--text-muted); text-transform: uppercase;
+    }
+    .prayers-page { display: flex; flex-direction: column; gap: 4px; }
+
+    .card-wrapper { margin-bottom: 8px; }
+    .prayer-card {
+      display: flex; gap: 10px; padding: 10px;
+      background: var(--bg-card); border: 1.5px solid var(--border-gold);
+      border-radius: 14px 14px 0 0;
+      align-items: flex-start; transition: all 0.2s;
+      cursor: pointer; position: relative;
+    }
+    .prayer-card:active { transform: scale(0.99); }
+    .prayer-thumb {
+      width: 72px; height: 72px; border-radius: 10px;
+      overflow: hidden; flex-shrink: 0; position: relative;
+      background: var(--bg-card-alt);
+    }
+    .prayer-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .prayer-info { flex: 1; min-width: 0; }
+    .prayer-title {
+      font-family: 'Cinzel', serif; font-size: 15px; font-weight: 800;
+      color: var(--text-primary); line-height: 1.25; margin-bottom: 3px;
+      display: -webkit-box; -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .prayer-excerpt {
+      font-size: 13px; color: var(--text-secondary); line-height: 1.35;
+      display: -webkit-box; -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 5px;
+    }
+    .prayer-cta { font-size: 13px; font-weight: 800; color: var(--accent-gold); }
+    .lock-overlay {
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,0.72);
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 10px;
+    }
+    .lock-overlay svg { width: 28px; height: 28px; }
+
+    .card-share-btn {
+      display: flex; align-items: center; justify-content: center;
+      gap: 5px; width: 100%; padding: 8px 12px;
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-gold);
+      border-top: none; border-radius: 0 0 14px 14px;
+      color: var(--accent-gold); font-size: 13px; font-weight: 800;
+      cursor: pointer; font-family: inherit;
+    }
+    .card-share-btn:active { background: var(--bg-card-alt); }
+    .card-share-btn svg { width: 14px; height: 14px; }
+
+    .empty-state {
+      text-align: center; padding: 36px 18px;
+      background: var(--bg-card); border-radius: 14px;
+      border: 1.5px dashed var(--border-gold);
+    }
+    .empty-state-icon { font-size: 46px; margin-bottom: 10px; opacity: 0.7; }
+    .empty-state h3 {
+      font-family: 'Cinzel', serif; font-size: 17px; font-weight: 800;
+      color: var(--text-primary); margin-bottom: 5px;
+    }
+    .empty-state p {
+      font-size: 14px; color: var(--text-secondary);
+      line-height: 1.45; margin-bottom: 14px;
+    }
+    .empty-state-btn {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 10px 18px;
+      background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-light) 100%);
+      color: #ffffff; font-size: 14px; font-weight: 800;
+      border-radius: 10px; font-family: inherit;
+    }
+
+    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; flex-shrink: 0; }
+    .stat-card {
+      background: var(--bg-card); border: 1.5px solid var(--border-gold);
+      border-radius: 10px; padding: 6px 10px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .stat-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: rgba(150, 103, 42, 0.15);
+      border: 1.5px solid var(--border-gold);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent-gold); flex-shrink: 0;
+    }
+    .stat-icon svg { width: 18px; height: 18px; }
+    .stat-value { font-size: 17px; font-weight: 900; color: var(--text-primary); line-height: 1; }
+    .stat-label { font-size: 10px; color: var(--text-muted); margin-top: 2px; font-weight: 700; }
+
+    .welcome-popup-backdrop {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.82); backdrop-filter: blur(6px);
+      z-index: 500; display: none;
+      align-items: center; justify-content: center;
+      padding: 16px; animation: fadeIn 0.3s;
+    }
+    .welcome-popup-backdrop.show { display: flex; }
+    .welcome-popup {
+      background: var(--bg-card);
+      border: 2px solid var(--accent-gold);
+      border-radius: 22px;
+      max-width: 420px; width: 100%;
+      padding: 22px 20px 18px;
+      text-align: center;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.6);
+      animation: slideUp 0.35s cubic-bezier(.22,1,.36,1);
+      max-height: 92vh; overflow-y: auto; position: relative;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .welcome-popup-close {
+      position: absolute; top: 10px; right: 10px;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--bg-card-alt);
+      border: 1.5px solid var(--border-gold);
+      color: var(--text-primary);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+    }
+    .welcome-popup-icon { font-size: 48px; line-height: 1; margin-bottom: 6px; display: block; }
+    .welcome-popup h2 {
+      font-family: 'Cinzel', serif; font-size: 19px; font-weight: 800;
+      color: var(--text-primary); line-height: 1.25; margin-bottom: 6px;
+    }
+    .welcome-popup-sub {
+      font-size: 14px; color: var(--text-secondary);
+      line-height: 1.4; margin-bottom: 12px;
+    }
+    .welcome-benefits {
+      background: rgba(150, 103, 42, 0.08);
+      border-radius: 12px; padding: 12px 14px;
+      margin-bottom: 12px; text-align: left;
+    }
+    body.dark .welcome-benefits { background: rgba(223, 186, 119, 0.08); }
+    .welcome-benefit-row {
+      display: flex; align-items: center; gap: 8px;
+      padding: 4px 0; font-size: 13px;
+      color: var(--text-primary); font-weight: 700; line-height: 1.3;
+    }
+    .welcome-benefit-check {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: #fff; display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 900; flex-shrink: 0;
+    }
+    .welcome-social-proof {
+      font-size: 12px; color: var(--text-muted); font-weight: 800;
+      margin-bottom: 12px;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .welcome-social-proof .pulse-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: #25D366;
+      animation: pulseGreen 1.5s infinite;
+    }
+    @keyframes pulseGreen {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      50% { box-shadow: 0 0 0 8px rgba(37, 211, 102, 0); }
+    }
+    .welcome-popup-buttons { display: flex; flex-direction: column; gap: 8px; margin-bottom: 8px; }
+    .welcome-popup-btn {
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px; min-height: 46px; padding: 12px 16px;
+      border-radius: 12px; font-size: 15px; font-weight: 800;
+      transition: all 0.15s; cursor: pointer; color: #fff; text-decoration: none;
+      font-family: inherit;
+    }
+    .welcome-popup-btn:active { transform: scale(0.97); }
+    .welcome-popup-btn.whatsapp {
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      box-shadow: 0 5px 18px rgba(37, 211, 102, 0.4);
+    }
+    .welcome-popup-btn.facebook {
+      background: linear-gradient(135deg, #1877F2 0%, #0a5ec2 100%);
+      box-shadow: 0 5px 18px rgba(24, 119, 242, 0.4);
+    }
+    .welcome-popup-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .welcome-popup-skip {
+      color: var(--text-muted); font-size: 13px; font-weight: 700;
+      padding: 6px 12px; cursor: pointer;
+      text-decoration: underline; text-underline-offset: 3px;
+      font-family: inherit;
+    }
+
+    .floating-join-btn {
+      position: fixed; bottom: 68px; right: 10px;
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: #fff; border-radius: 22px;
+      padding: 8px 14px 8px 10px;
+      display: flex; align-items: center; gap: 5px;
+      font-size: 13px; font-weight: 800;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+      cursor: pointer; z-index: 45;
+      transition: all 0.25s; animation: floatPulse 2.4s infinite;
+      max-width: calc(100vw - 20px); border: none;
+      font-family: inherit;
+    }
+    .floating-join-btn.hidden { transform: translateY(140%); opacity: 0; pointer-events: none; }
+    .floating-join-btn:active { transform: scale(0.94); }
+    .floating-join-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+    @keyframes floatPulse {
+      0%, 100% { box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45), 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      50% { box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45), 0 0 0 12px rgba(37, 211, 102, 0); }
+    }
+    .floating-close {
+      position: absolute; top: -6px; right: -6px;
+      width: 22px; height: 22px; border-radius: 50%;
+      background: rgba(0,0,0,0.75); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 900;
+      border: 2px solid #fff; cursor: pointer;
+    }
+
+    .video-wrapper {
+      border-radius: 12px; overflow: hidden;
+      border: 1.5px solid var(--border-gold);
+      margin-bottom: 16px; background: #000;
+      position: relative;
+    }
+    .video-wrapper video { width: 100%; max-height: 300px; display: block; }
+    .btn-fullscreen {
+      position: absolute; bottom: 8px; right: 8px;
+      background: rgba(0, 0, 0, 0.75); color: #fff;
+      width: 42px; height: 42px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      border: 2px solid #dfba77; cursor: pointer; z-index: 10;
+    }
+    .btn-fullscreen svg { width: 20px; height: 20px; }
+
+    .video-fullscreen-overlay {
+      position: fixed; inset: 0; background: #000;
+      z-index: 9999; display: none;
+      align-items: center; justify-content: center;
+    }
+    .video-fullscreen-overlay.show { display: flex; animation: fadeIn 0.2s; }
+    .video-fullscreen-overlay video {
+      width: 100%; height: 100%; object-fit: contain; background: #000;
+    }
+    .btn-close-fullscreen {
+      position: absolute;
+      top: max(16px, env(safe-area-inset-top, 16px)); right: 16px;
+      background: rgba(0, 0, 0, 0.75); color: #fff;
+      width: 48px; height: 48px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      border: 2px solid #dfba77; cursor: pointer; z-index: 10000;
+    }
+
+    .video-nav-container {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 6px; margin: 12px 0 6px;
+    }
+    .video-nav-btn {
+      display: flex; align-items: center; justify-content: center;
+      gap: 5px; padding: 12px 8px; min-height: 48px;
+      background: var(--bg-card); border: 2px solid var(--border-gold);
+      border-radius: 12px; color: var(--text-primary);
+      font-size: 14px; font-weight: 800;
+      cursor: pointer; font-family: inherit;
+    }
+    .video-nav-btn:active { transform: scale(0.97); background: var(--bg-card-alt); }
+    .video-nav-btn.next {
+      background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-light) 100%);
+      color: #ffffff; border-color: var(--accent-gold);
+      box-shadow: 0 4px 14px rgba(150, 103, 42, 0.3);
+    }
+    .video-nav-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    .detail-view {
+      position: fixed; inset: 0; background: var(--bg-primary);
+      z-index: 60; overflow-y: auto; display: none; padding-bottom: 30px;
+    }
+    .detail-view.show { display: block; animation: fadeIn 0.25s; }
+    .detail-header {
+      position: sticky; top: 0; background: var(--bg-card);
+      border-bottom: 1.5px solid var(--border-gold);
+      padding: 8px 12px;
+      display: flex; align-items: center; justify-content: space-between;
+      z-index: 10; max-width: 480px; margin: 0 auto;
+    }
+    .detail-body { max-width: 480px; margin: 0 auto; padding: 14px 12px; }
+    .detail-cover {
+      width: 100%; height: 200px; border-radius: 14px;
+      overflow: hidden; margin-bottom: 16px;
+      position: relative; border: 1.5px solid var(--border-gold);
+    }
+    .detail-cover img { width: 100%; height: 100%; object-fit: cover; }
+    .detail-title {
+      font-family: 'Cinzel', serif; font-size: 22px; font-weight: 800;
+      color: var(--text-primary); line-height: 1.25; margin-bottom: 10px;
+    }
+    .detail-excerpt {
+      font-size: 16px; font-style: normal; font-weight: 600;
+      color: var(--text-secondary);
+      border-left: 4px solid var(--accent-gold);
+      padding-left: 12px; margin-bottom: 16px; line-height: 1.5;
+    }
+    .prayer-content {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-size: 21px; font-weight: 500;
+      line-height: 1.75; color: var(--text-primary);
+      font-style: normal;
+    }
+    .prayer-content h1, .prayer-content h2, .prayer-content h3 {
+      font-family: 'Cinzel', serif;
+      margin-top: 22px; margin-bottom: 10px;
+      line-height: 1.3; font-style: normal;
+    }
+    .prayer-content h2 { font-size: 22px; color: var(--accent-gold); }
+    .prayer-content p { margin-bottom: 16px; }
+    .prayer-content blockquote {
+      border-left: 4px solid var(--accent-gold);
+      padding-left: 14px; margin: 18px 0;
+      color: var(--accent-gold); font-style: normal; font-weight: 600;
+    }
+    .prayer-content em, .prayer-content i { font-style: normal; font-weight: 600; }
+    .prayer-content div[style*="background-color"] {
+      border-radius: 12px; padding: 12px !important;
+    }
+
+    .prayer-content p,
+    .prayer-content div,
+    .prayer-content span,
+    .prayer-content li {
+      color: inherit !important;
+    }
+    .prayer-content strong,
+    .prayer-content b {
+      color: var(--accent-gold) !important;
+      font-weight: 800;
+    }
+    .prayer-content em,
+    .prayer-content i {
+      color: var(--accent-gold) !important;
+      font-style: normal;
+      font-weight: 600;
+    }
+    .prayer-content h1,
+    .prayer-content h2,
+    .prayer-content h3 {
+      color: var(--accent-gold) !important;
+    }
+    .prayer-content [style*="color: #2"],
+    .prayer-content [style*="color:#2"],
+    .prayer-content [style*="color: #1"],
+    .prayer-content [style*="color:#1"],
+    .prayer-content [style*="color: #3"],
+    .prayer-content [style*="color:#3"],
+    .prayer-content [style*="color: #0"],
+    .prayer-content [style*="color:#0"],
+    .prayer-content [style*="color: black"],
+    .prayer-content [style*="color:black"] {
+      color: var(--text-primary) !important;
+    }
+
+    .prayer-content div[style*="background-color"],
+    .prayer-content div[style*="background"] {
+      padding: 12px 14px !important;
+      margin: 12px 0 !important;
+      border-radius: 12px !important;
+      min-height: auto !important;
+      height: auto !important;
+    }
+    .prayer-content div[style*="background-color"] p:first-child {
+      margin-top: 0 !important;
+    }
+    .prayer-content div[style*="background-color"] p:last-child {
+      margin-bottom: 0 !important;
+    }
+    .prayer-content p:empty {
+      display: none !important;
+    }
+    .prayer-content br + br {
+      display: none !important;
+    }
+    .prayer-content p {
+      margin-bottom: 12px !important;
+      margin-top: 0 !important;
+    }
+    .prayer-content div {
+      margin-bottom: 12px !important;
+    }
+
+    .treasure-modal-backdrop {
+      position: fixed; inset: 0;
+      background: linear-gradient(135deg, #1e2a1e 0%, #162016 100%);
+      z-index: 200; display: none;
+      flex-direction: column; padding: 12px; overflow: hidden;
+    }
+    .treasure-modal-backdrop.show { display: flex; animation: fadeIn 0.25s; }
+    .treasure-header {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 10px; margin-bottom: 10px; flex-shrink: 0;
+    }
+    .treasure-header-title {
+      display: flex; align-items: center; gap: 8px;
+      color: #f0ece6; font-family: 'Cinzel', serif;
+      font-size: 16px; font-weight: 800;
+    }
+    .treasure-header-title svg { color: #dfba77; width: 22px; height: 22px; flex-shrink: 0; }
+    .btn-close-treasure {
+      background: rgba(255,255,255,0.1);
+      border: 1.5px solid rgba(223, 186, 119, 0.4);
+      color: #f0ece6; width: 38px; height: 38px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; flex-shrink: 0;
+    }
+    .verse-box-compact {
+      background: rgba(223, 186, 119, 0.1);
+      border-left: 3px solid #dfba77; border-radius: 8px;
+      padding: 8px 12px; margin-bottom: 10px;
+      flex-shrink: 0; transition: opacity 0.2s;
+    }
+    .verse-text-compact {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px; font-style: normal; font-weight: 600;
+      color: #f5e8c8; line-height: 1.4; margin-bottom: 3px;
+      display: -webkit-box; -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .verse-ref-compact {
+      font-size: 11px; color: #dfba77; font-weight: 800;
+      font-family: 'Cinzel', serif;
+    }
+    .ad-center-zone {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      min-height: 0; overflow: hidden;
+    }
+    .ad-fixed-wrapper {
+      width: 100%; max-width: 380px; background: #ffffff;
+      border-radius: 14px; padding: 6px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba(223, 186, 119, 0.5);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; min-height: 220px; max-height: 100%;
+    }
+    .ad-notice {
+      text-align: center; font-size: 10px; color: #a3b19f;
+      margin-top: 6px; letter-spacing: 0.5px;
+      text-transform: uppercase; font-weight: 800;
+    }
+    .treasure-footer {
+      flex-shrink: 0; padding-top: 10px; margin-top: 10px;
+      border-top: 1px solid rgba(223, 186, 119, 0.2);
+    }
+    .countdown-row {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+    }
+    .countdown-circle-big {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: linear-gradient(135deg, #dfba77 0%, #c9a05e 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; font-weight: 900; color: #1e2a1e;
+      box-shadow: 0 4px 14px rgba(223, 186, 119, 0.5);
+      transition: transform 0.2s; flex-shrink: 0;
+    }
+    .countdown-circle-big.tick { transform: scale(1.12); }
+    .countdown-info { flex: 1; }
+    .countdown-info-title { font-size: 14px; color: #f0ece6; font-weight: 800; }
+    .countdown-info-sub { font-size: 11px; color: #a3b19f; font-weight: 600; line-height: 1.3; }
+    .progress-bar-bg {
+      width: 100%; height: 6px; background: rgba(255,255,255,0.12);
+      border-radius: 4px; overflow: hidden; margin-bottom: 8px;
+    }
+    .progress-bar-fill {
+      height: 100%; width: 0%;
+      background: linear-gradient(90deg, #dfba77, #f0d498);
+      transition: width 1s linear; border-radius: 4px;
+    }
+    .btn-continue-big {
+      background: linear-gradient(135deg, #dfba77 0%, #f0d498 100%);
+      color: #1e2a1e; font-weight: 900;
+      width: 100%; min-height: 50px; font-size: 15px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      gap: 6px; transition: all 0.2s;
+      opacity: 0.35; pointer-events: none;
+      font-family: inherit; cursor: pointer; border: none;
+    }
+    .btn-continue-big.enabled { opacity: 1; pointer-events: auto; animation: pulseGold 2s infinite; }
+    @keyframes pulseGold {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(223, 186, 119, 0.6); }
+      50% { box-shadow: 0 0 0 12px rgba(223, 186, 119, 0); }
+    }
+
+    /* ⭐ NUEVO: estilos del contenedor del anuncio Adsterra */
+    #container-cd71cd25311e5803f3acf0b564892746 {
+      width: 100% !important;
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    #container-cd71cd25311e5803f3acf0b564892746 iframe {
+      max-width: 100% !important;
+      border: none !important;
+    }
+    /* ⭐ FIN NUEVO */
+
+    #modalReadings { background: var(--bg-primary); }
+    .accordion {
+      border: 1.5px solid var(--border-gold); border-radius: 12px;
+      margin-bottom: 8px; overflow: hidden; background: var(--bg-card);
+    }
+    .accordion-header {
+      width: 100%; padding: 12px 14px;
+      display: flex; align-items: center; justify-content: space-between;
+      text-align: left; background: var(--bg-card); font-family: inherit;
+    }
+    .accordion-title {
+      font-size: 15px; font-weight: 800; color: var(--text-primary);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .accordion-ref { font-size: 12px; color: var(--accent-gold); margin-top: 2px; font-weight: 800; }
+    .accordion-body {
+      display: none; padding: 4px 16px 16px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 17px; font-weight: 500;
+      line-height: 1.75; color: var(--text-primary);
+      border-top: 1px solid var(--border-subtle); padding-top: 12px;
+    }
+    .accordion.open .accordion-body { display: block; }
+    .accordion-chevron { transition: transform 0.2s; color: var(--text-muted); width: 22px; height: 22px; }
+    .accordion.open .accordion-chevron { transform: rotate(180deg); color: var(--accent-gold); }
+
+    .toast {
+      position: fixed; top: 16px; left: 50%;
+      transform: translateX(-50%) translateY(-150%);
+      background: var(--bg-card); border: 2px solid var(--border-gold);
+      border-radius: 12px; padding: 12px 18px;
+      font-size: 14px; font-weight: 800; color: var(--text-primary);
+      z-index: 200; box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      display: flex; align-items: center; gap: 8px;
+      max-width: 90vw; transition: transform 0.3s ease;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    .skeleton {
+      background: linear-gradient(90deg, var(--bg-card-alt) 25%, rgba(150,103,42,0.15) 50%, var(--bg-card-alt) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite; border-radius: 12px;
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .text-center { text-align: center; }
+  </style>
+</head>
+
+<body>
+
+  <div class="app-container">
+
+    <header class="app-header">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap: 6px;">
+        <div style="min-width: 0; flex: 1;">
+          <h1 id="headerTitle">El Santísimo</h1>
+          <p id="headerSubtitle">Oraciones y Liturgia</p>
+        </div>
+        <div style="display:flex; gap:4px; align-items:center; flex-shrink: 0;">
+          <button id="btnFontSmaller" class="btn-font smaller" title="Letra más pequeña">A-</button>
+          <button id="btnFontBigger" class="btn-font bigger" title="Letra más grande">A+</button>
+          <button id="btnRefresh" class="btn-icon" style="width: 34px; height: 34px; background: var(--bg-card-alt); border: 1.5px solid var(--border-gold);" title="Actualizar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-gold);">
+              <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+              <path d="M3 3v5h5"/>
+              <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
+              <path d="M16 16h5v5"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <section class="view active" id="view-inicio">
+      <div id="featuredPrayerContainer"></div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="stat-value" id="streakValue">0</div>
+            <div class="stat-label">Días racha</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--success-bg); border-color: rgba(21,87,40,0.4); color: var(--success);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="7.5" cy="15.5" r="5.5"/>
+              <path d="m21 2-9.6 9.6"/>
+              <path d="m15.5 7.5 3 3L22 7l-3-3"/>
+            </svg>
+          </div>
+          <div>
+            <div class="stat-value" id="treasuresValue">0<span style="font-size:10px; color: var(--text-muted);">/5</span></div>
+            <div class="stat-label">Tesoros hoy</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="inicio-nav-buttons">
+        <button class="inicio-nav-btn readings" onclick="openReadingsModal()">
+          <div class="inicio-nav-btn-icon">📖</div>
+          <div class="inicio-nav-btn-text">
+            <div class="inicio-nav-btn-title">Lecturas del Día</div>
+            <div class="inicio-nav-btn-sub">Evangelio, Salmo y Reflexión</div>
+          </div>
+          <svg class="inicio-nav-btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+          </svg>
+        </button>
+
+        <button class="inicio-nav-btn oraciones" onclick="switchTab('oraciones')">
+          <div class="inicio-nav-btn-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+          </div>
+          <div class="inicio-nav-btn-text">
+            <div class="inicio-nav-btn-title">Ver Oraciones</div>
+            <div class="inicio-nav-btn-sub">Devocionario completo</div>
+          </div>
+          <svg class="inicio-nav-btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-gold);">
+            <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+          </svg>
+        </button>
+
+        <button class="inicio-nav-btn community" onclick="openWelcomePopup()">
+          <div class="inicio-nav-btn-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+            </svg>
+          </div>
+          <div class="inicio-nav-btn-text">
+            <div class="inicio-nav-btn-title">Únete a la Comunidad</div>
+            <div class="inicio-nav-btn-sub">WhatsApp y Facebook</div>
+          </div>
+          <svg class="inicio-nav-btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+          </svg>
+        </button>
+
+        <button class="inicio-nav-btn treasure" onclick="openExtraTreasure()">
+          <div class="inicio-nav-btn-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+          </div>
+          <div class="inicio-nav-btn-text">
+            <div class="inicio-nav-btn-title">Ganar Tesoro Extra</div>
+            <div class="inicio-nav-btn-sub">Ver video · +1 Tesoro</div>
+          </div>
+          <svg class="inicio-nav-btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <section class="view" id="view-oraciones">
+      <div style="position: relative; margin-bottom: 8px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--text-muted); position: absolute; left: 14px; top: 50%; transform: translateY(-50%); pointer-events: none;">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+        </svg>
+        <input type="text" class="search-input" id="searchInput" placeholder="Buscar oración..." />
+      </div>
+
+      <div class="filter-chips" id="filterChips">
+        <button class="chip active" data-filter="todas">📖 Todas</button>
+        <button class="chip" data-filter="destacadas">⭐ Destacadas</button>
+        <button class="chip" data-filter="tesoros">🔑 Tesoros</button>
+        <button class="chip" data-filter="favoritos" id="chipFavoritos">❤️ Favoritas</button>
+      </div>
+
+      <div id="prayersListContainer"></div>
+    </section>
+
+    <section class="view" id="view-perfil">
+      <div class="card text-center" style="padding: 10px; margin-bottom: 8px;">
+        <div style="width: 52px; height: 52px; border-radius: 50%; margin: 0 auto 6px; background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-dark) 100%); display: flex; align-items: center; justify-content: center; font-size: 24px; color: #fff; border: 3px solid var(--accent-gold-light);">
+          <span>✝️</span>
+        </div>
+        <h2 style="font-family:'Cinzel',serif; font-size:16px; font-weight:800; color: var(--text-primary); margin-bottom: 2px;">Peregrino</h2>
+        <p style="font-size:12px; color: var(--accent-gold); font-weight: 800;">El Santísimo</p>
+      </div>
+
+      <div class="stats-grid" style="margin-bottom: 8px;">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+          </div>
+          <div>
+            <div class="stat-value" id="profileStreak">0</div>
+            <div class="stat-label">Racha</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+          </div>
+          <div>
+            <div class="stat-value" id="profilePrayersRead">0</div>
+            <div class="stat-label">Leídas</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--success-bg); border-color: rgba(21,87,40,0.4); color: var(--success);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>
+          </div>
+          <div>
+            <div class="stat-value" id="profileTreasures">0</div>
+            <div class="stat-label">Tesoros</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background: rgba(200,60,60,0.15); border-color: rgba(200,60,60,0.4); color: #a83030;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <div>
+            <div class="stat-value" id="profileFavorites">0</div>
+            <div class="stat-label">Favoritas</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <a href="https://chat.whatsapp.com/DqxKdHMynG5KxYLjUnpvYJ" target="_blank" rel="noopener" class="inicio-nav-btn community" style="min-height: 46px;" onclick="trackJoin('whatsapp')">
+          <div class="inicio-nav-btn-icon" style="width: 32px; height: 32px;">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width: 18px; height: 18px;">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+          </div>
+          <div class="inicio-nav-btn-text">
+            <div class="inicio-nav-btn-title" style="font-size: 13px;">Grupo de WhatsApp</div>
+            <div class="inicio-nav-btn-sub" style="font-size: 11px;">Oraciones diarias</div>
+          </div>
+          <svg class="inicio-nav-btn-arrow" style="width: 16px; height: 16px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+          </svg>
+        </a>
+
+        <button class="inicio-nav-btn oraciones" style="min-height: 44px;" onclick="document.getElementById('btnToggleTheme').click()">
+          <div class="inicio-nav-btn-icon" style="width: 30px; height: 30px;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width: 18px; height: 18px;">
+              <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+            </svg>
+          </div>
+          <div class="inicio-nav-btn-text">
+            <div class="inicio-nav-btn-title" style="font-size: 13px;">Modo oscuro / claro</div>
+            <div class="inicio-nav-btn-sub" style="font-size: 11px;">Cambiar tema</div>
+          </div>
+        </button>
+
+        <button class="inicio-nav-btn oraciones" style="min-height: 44px;" onclick="document.getElementById('btnShare').click()">
+          <div class="inicio-nav-btn-icon" style="width: 30px; height: 30px;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width: 18px; height: 18px;">
+              <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/>
+            </svg>
+          </div>
+          <div class="inicio-nav-btn-text">
+            <div class="inicio-nav-btn-title" style="font-size: 13px;">Compartir con amigos</div>
+            <div class="inicio-nav-btn-sub" style="font-size: 11px;">Invita a más personas</div>
+          </div>
+        </button>
+
+        <button class="inicio-nav-btn oraciones" style="min-height: 44px;" onclick="document.getElementById('btnPrivacy').click()">
+          <div class="inicio-nav-btn-icon" style="width: 30px; height: 30px;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width: 18px; height: 18px;">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <div class="inicio-nav-btn-text">
+            <div class="inicio-nav-btn-title" style="font-size: 13px;">Política de privacidad</div>
+            <div class="inicio-nav-btn-sub" style="font-size: 11px;">Información legal</div>
+          </div>
+        </button>
+      </div>
+    </section>
+
+    <nav class="bottom-nav">
+      <button class="nav-btn active" data-tab="inicio">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span>Inicio</span>
+      </button>
+      <button class="nav-btn" data-tab="oraciones">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        <span>Oraciones</span>
+      </button>
+      <button class="nav-btn" data-tab="perfil">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>Perfil</span>
+      </button>
+    </nav>
+  </div>
+
+  <div class="floating-join-btn" id="floatingJoinBtn" onclick="openWelcomePopup()">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span>Unirme</span>
+    <span class="floating-close" onclick="event.stopPropagation(); dismissFloatingBtn();">✕</span>
+  </div>
+
+  <div class="welcome-popup-backdrop" id="welcomePopupBackdrop">
+    <div class="welcome-popup">
+      <button class="welcome-popup-close" onclick="closeWelcomePopup()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+
+      <span class="welcome-popup-icon" id="welcomeIcon">🙏</span>
+      <h2 id="welcomeTitle">No pierdas este espacio de oración</h2>
+      <p class="welcome-popup-sub" id="welcomeSub">Únete a nuestra comunidad de fe y recibe oraciones cada día</p>
+
+      <div class="welcome-benefits">
+        <div class="welcome-benefit-row">
+          <div class="welcome-benefit-check">✓</div>
+          <span><strong>Oración diaria</strong> en tu WhatsApp</span>
+        </div>
+        <div class="welcome-benefit-row">
+          <div class="welcome-benefit-check">✓</div>
+          <span><strong>Pide oración</strong> por ti o por alguien que amas</span>
+        </div>
+        <div class="welcome-benefit-row">
+          <div class="welcome-benefit-check">✓</div>
+          <span><strong>Comparte</strong> peticiones y testimonios</span>
+        </div>
+        <div class="welcome-benefit-row" style="color: var(--accent-gold);">
+          <div class="welcome-benefit-check" style="background: linear-gradient(135deg, #dfba77 0%, #c9a05e 100%);">🎁</div>
+          <span><strong>+3 Tesoros de Fe</strong> al unirte hoy</span>
+        </div>
+      </div>
+
+      <div class="welcome-social-proof">
+        <span class="pulse-dot"></span>
+        <span id="socialProofText">+500 hermanos ya están dentro</span>
+      </div>
+
+      <div class="welcome-popup-buttons">
+        <a href="https://chat.whatsapp.com/DqxKdHMynG5KxYLjUnpvYJ" target="_blank" rel="noopener" class="welcome-popup-btn whatsapp" onclick="trackJoin('whatsapp')">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Unirme por WhatsApp
+        </a>
+
+        <a href="https://www.facebook.com/share/g/1DM7ioHEbt/" target="_blank" rel="noopener" class="welcome-popup-btn facebook" onclick="trackJoin('facebook')">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+          Unirme por Facebook
+        </a>
+      </div>
+
+      <button class="welcome-popup-skip" onclick="closeWelcomePopup()">Ahora no, gracias</button>
+    </div>
+  </div>
+
+  <div class="detail-view" id="detailView">
+    <div class="detail-header">
+      <button class="btn btn-small" id="btnBackDetail" style="background: var(--bg-card-alt); border: 1.5px solid var(--border-gold); color: var(--text-primary);">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        Volver
+      </button>
+      <div style="display: flex; gap: 6px;">
+        <button class="btn btn-icon" id="btnFavorite" style="background: var(--bg-card-alt); border: 1.5px solid var(--border-gold); color: var(--text-primary); width: 40px; height: 40px;" title="Favorito">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+        <button class="btn btn-icon" id="btnShareDetail" style="background: var(--bg-card-alt); border: 1.5px solid var(--border-gold); color: var(--text-primary); width: 40px; height: 40px;" title="Compartir">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="detail-body" id="detailBody"></div>
+  </div>
+
+  <div class="treasure-modal-backdrop" id="modalReadings" style="background: var(--bg-primary);">
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; flex-shrink: 0;">
+      <div style="display: flex; align-items: center; gap: 8px; color: var(--text-primary); font-family: 'Cinzel', serif; font-size: 16px; font-weight: 800;">
+        <span style="font-size: 22px;">📖</span>
+        <span>Lecturas del Día</span>
+      </div>
+      <button class="btn-close-treasure" onclick="closeReadingsModal()" style="background: var(--bg-card-alt); border: 1.5px solid var(--border-gold); color: var(--text-primary);">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div style="flex: 1; overflow-y: auto; padding-bottom: 20px;" id="readingsModalContent"></div>
+  </div>
+
+  <div class="treasure-modal-backdrop" id="modalTreasure">
+    <div class="treasure-header">
+      <div class="treasure-header-title">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+        <span>Tesoro de Fe</span>
+      </div>
+      <button class="btn-close-treasure" id="btnCancelUnlock">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="verse-box-compact" id="verseBox">
+      <div class="verse-text-compact" id="verseText">"El Señor es mi pastor, nada me falta."</div>
+      <div class="verse-ref-compact" id="verseRef">— Salmo 23, 1</div>
+    </div>
+
+    <!-- ⭐ NUEVO: contenedor del anuncio Adsterra (carga diferida) -->
+    <div class="ad-center-zone">
+      <div class="ad-fixed-wrapper" id="nativeBannerContainer">
+        <div id="container-cd71cd25311e5803f3acf0b564892746"
+             style="width:100%; min-height:200px; display:flex; align-items:center; justify-content:center;"></div>
+      </div>
+    </div>
+    <div class="ad-notice">Contenido patrocinado</div>
+
+    <div class="treasure-footer">
+      <div class="countdown-row">
+        <div class="countdown-circle-big" id="countdownCircle">30</div>
+        <div class="countdown-info">
+          <div class="countdown-info-title">Espera <span id="countdownText">30</span> segundos</div>
+          <div class="countdown-info-sub">Recibirás tu Tesoro al terminar</div>
+        </div>
+      </div>
+      <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressBarFill"></div></div>
+      <button class="btn-continue-big" id="btnContinueTreasure" disabled>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+        Espera a que termine...
+      </button>
+    </div>
+  </div>
+
+  <div class="video-fullscreen-overlay" id="videoFullscreenOverlay">
+    <button class="btn-close-fullscreen" id="btnCloseFullscreen">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+    <video id="fullscreenVideo" controls playsinline preload="auto"></video>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <div class="font-level-indicator" id="fontIndicator">Letra: Normal</div>
+
+  <script>
+    'use strict';
+
+    const CONFIG = {
+      API_ORACIONES: 'https://oraciones-api.vercel.app/oraciones.json',
+      API_LECTURAS: 'https://oraciones-api.vercel.app/lecturas.json',
+      MAX_DAILY_TREASURES: 5,
+      CACHE_TTL_MS: 24 * 60 * 60 * 1000,
+      TREASURE_COUNTDOWN_SECONDS: 30,
+    };
+
+    const SHARE_APP_URL = 'https://elsantisimoteespera.vercel.app/';
+
+    const BIBLE_VERSES = [
+      { text: '"El Señor es mi pastor, nada me falta; en verdes praderas me hace reposar."', ref: '— Salmo 23, 1-2' },
+      { text: '"Todo lo puedo en Cristo que me fortalece."', ref: '— Filipenses 4, 13' },
+      { text: '"El Señor es mi luz y mi salvación, ¿a quién temeré?"', ref: '— Salmo 27, 1' },
+      { text: '"Vengan a mí todos los que están cansados y agobiados, y yo los aliviaré."', ref: '— Mateo 11, 28' },
+      { text: '"Encomienda al Señor tus obras y tus planes se realizarán."', ref: '— Proverbios 16, 3' },
+      { text: '"La paz les dejo, mi paz les doy; no como el mundo la da."', ref: '— Juan 14, 27' },
+      { text: '"El Señor está cerca de los que tienen el corazón destrozado."', ref: '— Salmo 34, 19' },
+      { text: '"Donde dos o tres se reúnen en mi nombre, allí estoy yo en medio de ellos."', ref: '— Mateo 18, 20' },
+      { text: '"Dios es amor; quien permanece en el amor permanece en Dios."', ref: '— 1 Juan 4, 16' },
+      { text: '"Aunque camine por cañadas oscuras, nada temo, porque tú vas conmigo."', ref: '— Salmo 23, 4' },
+      { text: '"La misericordia del Señor no se agota, su compasión no se acaba."', ref: '— Lamentaciones 3, 22' },
+      { text: '"Confía en el Señor de todo corazón y no te apoyes en tu propia inteligencia."', ref: '— Proverbios 3, 5' },
+      { text: '"No temas, porque yo estoy contigo; no desmayes, porque yo soy tu Dios."', ref: '— Isaías 41, 10' },
+      { text: '"Pidan y se les dará; busquen y encontrarán; llamen y se les abrirá."', ref: '— Mateo 7, 7' },
+      { text: '"El amor es paciente, es servicial; no tiene envidia, no presume, no se engríe."', ref: '— 1 Corintios 13, 4' },
+      { text: '"Vengan a mí, y comerán de mi pan, y beberán del vino que he preparado."', ref: '— Proverbios 9, 5' },
+      { text: '"Dichosos los que lloran, porque serán consolados."', ref: '— Mateo 5, 4' },
+      { text: '"El que comenzó en ustedes la buena obra, la llevará a término."', ref: '— Filipenses 1, 6' },
+      { text: '"Mira que estoy a la puerta y llamo: si alguien me abre, entraré."', ref: '— Apocalipsis 3, 20' },
+      { text: '"Todo lo que pidan en la oración, con fe, lo recibirán."', ref: '— Mateo 21, 22' }
+    ];
+
+    const state = {
+      oraciones: [], lecturas: [],
+      currentTab: 'inicio', currentFilter: 'todas', searchQuery: '',
+      selectedPrayer: null, pendingTreasurePrayer: null,
+      favorites: [], readPrayers: [], unlockedTreasurePrayers: [],
+      treasureTimer: null, verseInterval: null,
+      extraTreasureMode: false, welcomeShownThisSession: false,
+      floatingDismissed: false, videoActive: false, videoStartTime: 0,
+      currentPage: 0, itemsPerPage: 4,
+    };
+
+    const $ = (sel) => document.querySelector(sel);
+    const $$ = (sel) => document.querySelectorAll(sel);
+
+    function getLocalDateString(d = new Date()) {
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${y}-${m}-${day}`;
+    }
+    function daysDiff(a, b) {
+      const d1 = new Date(a + 'T00:00:00');
+      const d2 = new Date(b + 'T00:00:00');
+      return Math.round(Math.abs(d2 - d1) / (1000 * 60 * 60 * 24));
+    }
+    function haptic() { if (navigator.vibrate) try { navigator.vibrate(15); } catch {} }
+    function showToast(message, type = 'success') {
+      const toast = $('#toast');
+      const icon = type === 'success' ? '✅' : type === 'info' ? 'ℹ️' : '⚠️';
+      toast.innerHTML = `<span style="font-size: 18px;">${icon}</span> ${message}`;
+      toast.classList.add('show');
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => toast.classList.remove('show'), 3200);
+      haptic();
+    }
+
+    const STORAGE_KEYS = {
+      STREAK: 'elsantisimo_streak', LAST_ACCESS: 'elsantisimo_last_access',
+      TREASURES_TODAY: 'elsantisimo_treasures_today', TREASURES_TOTAL: 'elsantisimo_treasures_total',
+      TREASURES_DATE: 'elsantisimo_treasures_date', FAVORITES: 'elsantisimo_favorites',
+      READ_PRAYERS: 'elsantisimo_read_prayers', UNLOCKED_TREASURES: 'elsantisimo_unlocked_treasures',
+      THEME: 'elsantisimo_theme', FONT_SIZE: 'elsantisimo_font_size',
+      CACHE_ORACIONES: 'elsantisimo_cache_oraciones', CACHE_LECTURAS: 'elsantisimo_cache_lecturas',
+      WELCOME_POPUP_LAST: 'elsantisimo_welcome_popup_last', JOINED_GROUP: 'elsantisimo_joined_group',
+      FLOATING_DISMISSED: 'elsantisimo_floating_dismissed',
+      WELCOME_SHOWN_EVER: 'elsantisimo_welcome_shown_ever',
+    };
+
+    const Storage = {
+      get(key, fallback = null) {
+        try { const raw = localStorage.getItem(key); return raw ? JSON.parse(raw) : fallback; }
+        catch { return fallback; }
+      },
+      set(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch {} },
+      remove(key) { try { localStorage.removeItem(key); } catch {} },
+    };
+
+    function trackJoin(platform) {
+      const yaSeUnio = Storage.get(STORAGE_KEYS.JOINED_GROUP);
+      Storage.set(STORAGE_KEYS.JOINED_GROUP, { platform, date: Date.now() });
+      if (!yaSeUnio) {
+        for (let i = 0; i < 3; i++) addTreasure(true);
+        renderStats();
+        showToast('🎁 ¡+3 Tesoros de Fe añadidos!', 'success');
+        const floatBtn = $('#floatingJoinBtn');
+        if (floatBtn) floatBtn.classList.add('hidden');
+        setTimeout(() => closeWelcomePopup(), 800);
+      } else {
+        showToast(`¡Bienvenido al grupo de ${platform === 'whatsapp' ? 'WhatsApp' : 'Facebook'}!`, 'success');
+      }
+    }
+
+    function shouldShowWelcomePopup() {
+      if (Storage.get(STORAGE_KEYS.JOINED_GROUP)) return false;
+      if (Storage.get(STORAGE_KEYS.WELCOME_SHOWN_EVER)) return false;
+      return true;
+    }
+    function canShowPopup() {
+      if (state.selectedPrayer) return false;
+      if (state.pendingTreasurePrayer) return false;
+      if ($('#welcomePopupBackdrop').classList.contains('show')) return false;
+      if (state.videoActive) return false;
+      return true;
+    }
+
+    function openWelcomePopup() {
+      const socialEl = $('#socialProofText');
+      if (socialEl) {
+        const hora = new Date().getHours();
+        const extra = hora >= 6 && hora <= 22 ? 200 : 50;
+        const count = 500 + extra + Math.floor(Math.random() * 80);
+        socialEl.textContent = `+${count} hermanos ya están dentro`;
+      }
+      $('#welcomePopupBackdrop').classList.add('show');
+      document.body.style.overflow = 'hidden';
+      state.welcomeShownThisSession = true;
+      Storage.set(STORAGE_KEYS.WELCOME_SHOWN_EVER, true);
+      Storage.set(STORAGE_KEYS.WELCOME_POPUP_LAST, Date.now());
+      haptic();
+    }
+
+    function closeWelcomePopup() {
+      $('#welcomePopupBackdrop').classList.remove('show');
+      document.body.style.overflow = '';
+      haptic();
+    }
+
+    function initSmartPopupTriggers() {
+      if (!shouldShowWelcomePopup()) return;
+      setTimeout(() => {
+        if (shouldShowWelcomePopup() && canShowPopup()) openWelcomePopup();
+      }, 180000);
+    }
+
+    function trackVideoPlayback(videoElement, oracion) {
+      if (!videoElement) return;
+      const videoDuration = videoElement.duration || 0;
+      state.videoActive = true;
+      state.videoStartTime = Date.now();
+      let maxProgress = 0;
+      videoElement.addEventListener('timeupdate', () => {
+        if (videoElement.duration > 0) {
+          const progress = videoElement.currentTime / videoElement.duration;
+          if (progress > maxProgress) maxProgress = progress;
+        }
+      });
+      videoElement.addEventListener('pause', () => {
+        if (videoElement.ended) return;
+        state.videoActive = false;
+      });
+      videoElement.addEventListener('play', () => { state.videoActive = true; });
+      videoElement.addEventListener('ended', () => {
+        state.videoActive = false;
+        const tiempoVisto = (Date.now() - state.videoStartTime) / 1000;
+        const duracionMinima = videoDuration * 0.6;
+        if (maxProgress >= 0.6 || tiempoVisto >= duracionMinima) {
+          Storage.set('elsantisimo_video_watcher', { date: Date.now(), videoId: oracion.id, progress: maxProgress });
+          setTimeout(() => {
+            if (shouldShowWelcomePopup() && canShowPopup()) openWelcomePopup();
+          }, 3000);
+        }
+      });
+    }
+
+    function stopVideoTracking() { state.videoActive = false; }
+
+    function initFloatingButton() {
+      const btn = $('#floatingJoinBtn');
+      if (!btn) return;
+      if (Storage.get(STORAGE_KEYS.JOINED_GROUP)) { btn.classList.add('hidden'); return; }
+      const dismissed = Storage.get(STORAGE_KEYS.FLOATING_DISMISSED, 0);
+      const hoursSince = (Date.now() - dismissed) / (1000 * 60 * 60);
+      if (hoursSince < 24) { btn.classList.add('hidden'); return; }
+    }
+
+    function dismissFloatingBtn() {
+      const btn = $('#floatingJoinBtn');
+      if (btn) btn.classList.add('hidden');
+      Storage.set(STORAGE_KEYS.FLOATING_DISMISSED, Date.now());
+      state.floatingDismissed = true;
+      haptic();
+    }
+
+    const FONT_LEVELS = ['small', 'normal', 'large', 'xlarge'];
+    const FONT_LABELS = { small: 'Pequeña', normal: 'Normal', large: 'Grande', xlarge: 'Extra grande' };
+    function applyFontSize(level) {
+      document.documentElement.classList.remove('font-small', 'font-normal', 'font-large', 'font-xlarge');
+      document.documentElement.classList.add('font-' + level);
+      Storage.set(STORAGE_KEYS.FONT_SIZE, level);
+    }
+    function getCurrentFontSize() { return Storage.get(STORAGE_KEYS.FONT_SIZE, 'normal'); }
+    function changeFontSize(direction) {
+      const current = getCurrentFontSize();
+      const idx = FONT_LEVELS.indexOf(current);
+      let newIdx = idx;
+      if (direction === 'bigger' && idx < FONT_LEVELS.length - 1) newIdx = idx + 1;
+      if (direction === 'smaller' && idx > 0) newIdx = idx - 1;
+      if (newIdx === idx) {
+        haptic();
+        showToast(direction === 'bigger' ? 'Ya es el tamaño máximo' : 'Ya es el tamaño mínimo', 'info');
+        return;
+      }
+      const newLevel = FONT_LEVELS[newIdx];
+      applyFontSize(newLevel);
+      haptic();
+      const indicator = $('#fontIndicator');
+      if (indicator) {
+        indicator.textContent = `Letra: ${FONT_LABELS[newLevel]}`;
+        indicator.classList.add('show');
+        clearTimeout(window.__fontTimer);
+        window.__fontTimer = setTimeout(() => indicator.classList.remove('show'), 1500);
+      }
+    }
+
+    function updateStreak() {
+      const today = getLocalDateString();
+      const last = Storage.get(STORAGE_KEYS.LAST_ACCESS);
+      let streak = Storage.get(STORAGE_KEYS.STREAK, 0);
+      if (!last) { streak = 1; }
+      else if (last === today) { streak = Math.max(1, streak); }
+      else if (daysDiff(last, today) === 1) { streak = streak + 1; }
+      else { streak = 1; }
+      Storage.set(STORAGE_KEYS.STREAK, streak);
+      Storage.set(STORAGE_KEYS.LAST_ACCESS, today);
+      return streak;
+    }
+
+    function getTreasuresToday() {
+      const today = getLocalDateString();
+      const savedDate = Storage.get(STORAGE_KEYS.TREASURES_DATE);
+      if (savedDate !== today) {
+        Storage.set(STORAGE_KEYS.TREASURES_DATE, today);
+        Storage.set(STORAGE_KEYS.TREASURES_TODAY, 0);
+        return 0;
+      }
+      return Storage.get(STORAGE_KEYS.TREASURES_TODAY, 0);
+    }
+    function getTotalTreasures() { return Storage.get(STORAGE_KEYS.TREASURES_TOTAL, 0); }
+    function addTreasure(allowExceed = false) {
+      const today = getLocalDateString();
+      let current = getTreasuresToday();
+      if (current >= CONFIG.MAX_DAILY_TREASURES && !allowExceed) return { success: false, current };
+      current += 1;
+      Storage.set(STORAGE_KEYS.TREASURES_DATE, today);
+      Storage.set(STORAGE_KEYS.TREASURES_TODAY, current);
+      Storage.set(STORAGE_KEYS.TREASURES_TOTAL, getTotalTreasures() + 1);
+      return { success: true, current };
+    }
+
+    function getFavorites() { return Storage.get(STORAGE_KEYS.FAVORITES, []); }
+    function isFavorite(id) { return getFavorites().includes(id); }
+    function toggleFavorite(id) {
+      const favs = getFavorites();
+      const updated = favs.includes(id) ? favs.filter(f => f !== id) : [...favs, id];
+      Storage.set(STORAGE_KEYS.FAVORITES, updated);
+      state.favorites = updated;
+      return updated.includes(id);
+    }
+    function getReadPrayers() { return Storage.get(STORAGE_KEYS.READ_PRAYERS, []); }
+    function markPrayerAsRead(id) {
+      const list = getReadPrayers();
+      if (!list.includes(id)) { list.push(id); Storage.set(STORAGE_KEYS.READ_PRAYERS, list); state.readPrayers = list; }
+    }
+    function getUnlockedTreasures() { return Storage.get(STORAGE_KEYS.UNLOCKED_TREASURES, []); }
+    function isTreasureUnlocked(id) { return getUnlockedTreasures().includes(id); }
+    function unlockTreasure(id) {
+      const list = getUnlockedTreasures();
+      if (!list.includes(id)) { list.push(id); Storage.set(STORAGE_KEYS.UNLOCKED_TREASURES, list); state.unlockedTreasurePrayers = list; }
+    }
+
+    function getCache(key) {
+      const cached = Storage.get(key);
+      if (!cached) return null;
+      if (Date.now() - cached.timestamp > CONFIG.CACHE_TTL_MS) return null;
+      return cached.data;
+    }
+    function setCache(key, data) { Storage.set(key, { timestamp: Date.now(), data }); }
+
+    function shareContent(text) {
+      const shareUrl = `https://wa.me/?text=${encodeURIComponent(text + '\n\n' + SHARE_APP_URL)}`;
+      if (navigator.share) {
+        navigator.share({ title: 'El Santísimo', text, url: SHARE_APP_URL }).catch(() => window.open(shareUrl, '_blank'));
+      } else {
+        window.open(shareUrl, '_blank');
+      }
+    }
+    function shareFromCard(id) {
+      haptic();
+      const oracion = state.oraciones.find(o => o.id === id);
+      if (!oracion) return;
+      shareContent(`🕊️ Te comparto esta oración: "${oracion.titulo}"\n\n"${oracion.extracto}"\n\n🕯️ Encuéntrala en El Santísimo:\n👉`);
+    }
+
+    async function fetchWithTimeout(url, ms = 7000) {
+      const ctrl = new AbortController();
+      const t = setTimeout(() => ctrl.abort(), ms);
+      try { const r = await fetch(url, { signal: ctrl.signal }); clearTimeout(t); return r; }
+      catch (e) { clearTimeout(t); throw e; }
+    }
+
+    async function loadOraciones() {
+      const cached = getCache(STORAGE_KEYS.CACHE_ORACIONES);
+      if (cached) return cached;
+      try {
+        const r = await fetchWithTimeout(CONFIG.API_ORACIONES);
+        const data = await r.json();
+        const list = data.oraciones || [];
+        setCache(STORAGE_KEYS.CACHE_ORACIONES, list);
+        return list;
+      } catch (e) { return getCache(STORAGE_KEYS.CACHE_ORACIONES) || []; }
+    }
+    async function loadLecturas() {
+      const cached = getCache(STORAGE_KEYS.CACHE_LECTURAS);
+      if (cached) return cached;
+      try {
+        const r = await fetchWithTimeout(CONFIG.API_LECTURAS);
+        const data = await r.json();
+        const list = data.lecturas || [];
+        setCache(STORAGE_KEYS.CACHE_LECTURAS, list);
+        return list;
+      } catch (e) { return getCache(STORAGE_KEYS.CACHE_LECTURAS) || []; }
+    }
+
+    function getCurrentFilteredList() {
+      let list = state.oraciones;
+      if (state.currentFilter === 'destacadas') list = list.filter(o => o.destacado);
+      if (state.currentFilter === 'tesoros') list = list.filter(o => o.esTesoro);
+      if (state.currentFilter === 'favoritos') list = list.filter(o => isFavorite(o.id));
+      const q = state.searchQuery.toLowerCase().trim();
+      if (q) list = list.filter(o => o.titulo.toLowerCase().includes(q) || o.extracto.toLowerCase().includes(q));
+      return list;
+    }
+
+    function getPrevNextPrayers() {
+      if (!state.selectedPrayer) return { prev: null, next: null };
+      const list = getCurrentFilteredList();
+      if (!list.length) return { prev: null, next: null };
+      const currentId = state.selectedPrayer.id;
+      let idx = list.findIndex(o => o.id === currentId);
+      if (idx === -1) {
+        const allList = state.oraciones;
+        idx = allList.findIndex(o => o.id === currentId);
+        if (idx === -1) return { prev: null, next: null };
+        return { prev: idx > 0 ? allList[idx - 1] : allList[allList.length - 1], next: idx < allList.length - 1 ? allList[idx + 1] : allList[0] };
+      }
+      return { prev: idx > 0 ? list[idx - 1] : list[list.length - 1], next: idx < list.length - 1 ? list[idx + 1] : list[0] };
+    }
+
+    function navigateToPrayer(direction) {
+      if (!state.selectedPrayer) return;
+      const list = getCurrentFilteredList();
+      if (list.length <= 1) { showToast('No hay más oraciones', 'info'); return; }
+      const currentId = state.selectedPrayer.id;
+      let idx = list.findIndex(o => o.id === currentId);
+      if (idx === -1) idx = 0;
+      let newIdx = direction === 'next' ? (idx + 1) % list.length : (idx - 1 + list.length) % list.length;
+      const nextPrayer = list[newIdx];
+      haptic();
+      const oldVideo = document.getElementById('prayerVideo');
+      if (oldVideo) try { oldVideo.pause(); oldVideo.currentTime = 0; oldVideo.removeAttribute('src'); oldVideo.load(); } catch (e) {}
+      stopVideoTracking();
+      if (nextPrayer.esTesoro && !isTreasureUnlocked(nextPrayer.id)) {
+        state.selectedPrayer = nextPrayer;
+        state.pendingTreasurePrayer = nextPrayer;
+        state.extraTreasureMode = false;
+        closeDetail();
+        setTimeout(() => startTreasureUnlock(), 300);
+        return;
+      }
+      state.selectedPrayer = nextPrayer;
+      renderDetail(nextPrayer);
+      markPrayerAsRead(nextPrayer.id);
+      renderStats();
+      const dv = document.getElementById('detailView');
+      if (dv) dv.scrollTop = 0;
+    }
+
+    function nextPage() {
+      const list = getCurrentFilteredList();
+      const totalPages = Math.ceil(list.length / state.itemsPerPage);
+      if (state.currentPage < totalPages - 1) { state.currentPage++; haptic(); renderPrayersList(); }
+    }
+    function prevPage() {
+      if (state.currentPage > 0) { state.currentPage--; haptic(); renderPrayersList(); }
+    }
+
+    function openReadingsModal() {
+      haptic();
+      const modal = document.getElementById('modalReadings');
+      const content = document.getElementById('readingsModalContent');
+      if (!modal || !content) return;
+      if (!state.lecturas.length) {
+        content.innerHTML = `<div style="text-align:center; padding:40px 20px; color: var(--text-muted); font-size:16px;">Cargando lecturas...</div>`;
+      } else {
+        const l = state.lecturas[0];
+        const sections = [
+          { titulo: 'Primera Lectura', ref: l.primera_lectura.referencia, texto: l.primera_lectura.texto, icon: '📖' },
+          { titulo: 'Salmo Responsorial', ref: l.salmo.referencia, texto: l.salmo.texto, icon: '🎵' },
+          { titulo: 'Santo Evangelio', ref: l.evangelio.referencia, texto: l.evangelio.texto, icon: '✝️', destacado: true },
+          { titulo: 'Reflexión del Día', ref: l.reflexion.titulo, texto: l.reflexion.texto, icon: '🕊️' },
+        ];
+        content.innerHTML = `
+          <div class="card" style="margin-bottom: 10px;">
+            <div style="font-size: 12px; color: var(--accent-gold); text-transform: uppercase; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 3px;">📅 ${l.fecha}</div>
+            <div class="font-cinzel" style="font-size: 16px; font-weight: 800; color: var(--text-primary);">${l.liturgia}</div>
+          </div>
+          ${sections.map((s) => `
+            <div class="accordion ${s.destacado ? 'open' : ''}">
+              <button class="accordion-header">
+                <div>
+                  <div class="accordion-title">${s.icon} ${s.titulo}</div>
+                  <div class="accordion-ref">${s.ref}</div>
+                </div>
+                <svg class="accordion-chevron" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="accordion-body">${s.texto}</div>
+            </div>
+          `).join('')}
+        `;
+        content.querySelectorAll('.accordion-header').forEach(btn => {
+          btn.addEventListener('click', () => {
+            haptic();
+            btn.parentElement.classList.toggle('open');
+          });
+        });
+      }
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeReadingsModal() {
+      haptic();
+      const modal = document.getElementById('modalReadings');
+      if (modal) modal.classList.remove('show');
+      document.body.style.overflow = '';
+    }
+
+    function renderFeatured() {
+      const container = $('#featuredPrayerContainer');
+      if (!state.oraciones.length) {
+        container.innerHTML = `<div class="skeleton" style="height: 90px; border-radius: 14px;"></div>`;
+        return;
+      }
+      const featured = state.oraciones.find(o => o.destacado && o.esTesoro)
+                    || state.oraciones.find(o => o.destacado)
+                    || state.oraciones[0];
+      container.innerHTML = `
+        <div class="featured-card-h" onclick="openPrayer(${featured.id})">
+          <div class="featured-thumb">
+            <img src="${featured.urlImagen}" alt="${featured.titulo}" loading="lazy"
+              onerror="this.src='https://images.unsplash.com/photo-1548625361-195fe57876a3?w=200'">
+          </div>
+          <div class="featured-info">
+            <span class="badge-featured">⭐ Especial de Hoy</span>
+            <h3>${featured.titulo}</h3>
+            <div class="featured-cta">
+              ${featured.urlVideo ? '▶️ Ver Video Oración' : '📖 Leer Oración'}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderStats() {
+      $('#streakValue').textContent = Storage.get(STORAGE_KEYS.STREAK, 0);
+      const t = getTreasuresToday();
+      $('#treasuresValue').innerHTML = `${t}<span style="font-size:10px; color: var(--text-muted);">/${CONFIG.MAX_DAILY_TREASURES}</span>`;
+      $('#profileStreak').textContent = Storage.get(STORAGE_KEYS.STREAK, 0);
+      $('#profilePrayersRead').textContent = getReadPrayers().length;
+      $('#profileTreasures').textContent = getTotalTreasures();
+      $('#profileFavorites').textContent = getFavorites().length;
+      const chipFav = $('#chipFavoritos');
+      if (chipFav) {
+        const favCount = getFavorites().length;
+        chipFav.textContent = favCount > 0 ? `❤️ Favoritas (${favCount})` : '❤️ Favoritas';
+      }
+    }
+
+    function renderPrayersList() {
+      const container = $('#prayersListContainer');
+      let list = state.oraciones;
+      if (state.currentFilter === 'destacadas') list = list.filter(o => o.destacado);
+      if (state.currentFilter === 'tesoros') list = list.filter(o => o.esTesoro);
+      if (state.currentFilter === 'favoritos') list = list.filter(o => isFavorite(o.id));
+      const q = state.searchQuery.toLowerCase().trim();
+      if (q) list = list.filter(o => o.titulo.toLowerCase().includes(q) || o.extracto.toLowerCase().includes(q));
+
+      if (!list.length && state.currentFilter === 'favoritos' && !q) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-state-icon">💛</div>
+            <h3>Aún no tienes favoritas</h3>
+            <p>Toca una oración y pulsa el <strong>corazón ❤️</strong> para guardarla.</p>
+            <button class="empty-state-btn" onclick="setFilter('todas')">Ver Videos y Oraciones</button>
+          </div>
+        `;
+        return;
+      }
+      if (!list.length) {
+        container.innerHTML = `
+          <div class="card text-center" style="padding: 30px 16px;">
+            <div style="font-size: 36px; margin-bottom: 8px;">🔍</div>
+            <p style="font-size: 15px; color: var(--text-muted);">No se encontraron oraciones</p>
+          </div>
+        `;
+        return;
+      }
+
+      const totalPages = Math.ceil(list.length / state.itemsPerPage);
+      if (state.currentPage >= totalPages) state.currentPage = 0;
+      if (state.currentPage < 0) state.currentPage = 0;
+
+      const startIdx = state.currentPage * state.itemsPerPage;
+      const pageItems = list.slice(startIdx, startIdx + state.itemsPerPage);
+      const isFirstPage = state.currentPage === 0;
+      const isLastPage = state.currentPage >= totalPages - 1;
+
+      const prayersHTML = pageItems.map(o => {
+        const locked = o.esTesoro && !isTreasureUnlocked(o.id);
+        const fav = isFavorite(o.id);
+        return `
+          <div class="card-wrapper">
+            <div class="prayer-card" onclick="openPrayer(${o.id})">
+              <div class="prayer-thumb">
+                <img src="${o.urlImagen}" alt="${o.titulo}" loading="lazy"
+                  onerror="this.src='https://images.unsplash.com/photo-1548625361-195fe57876a3?w=300'">
+                ${locked ? `
+                  <div class="lock-overlay">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f0d498" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                    </svg>
+                  </div>
+                ` : ''}
+              </div>
+              <div class="prayer-info">
+                <div style="display: flex; gap: 4px; margin-bottom: 4px; flex-wrap: wrap;">
+                  ${o.destacado ? '<span class="badge badge-gold">⭐</span>' : ''}
+                  ${o.esTesoro ? '<span class="badge badge-success">🔑 Tesoro</span>' : ''}
+                  ${fav ? '<span class="badge badge-fav">❤️</span>' : ''}
+                </div>
+                <div class="prayer-title">${o.titulo}</div>
+                <div class="prayer-excerpt">${o.extracto}</div>
+                <div class="prayer-cta">${locked ? '🔒 Ver anuncio' : (o.urlVideo ? '▶️ Ver Video Oración →' : '📖 Leer Oración →')}</div>
+              </div>
+            </div>
+            <button class="card-share-btn" onclick="event.stopPropagation(); shareFromCard(${o.id})">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/>
+              </svg>
+              Compartir
+            </button>
+          </div>
+        `;
+      }).join('');
+
+      const paginationHTML = `
+        <div class="pagination-controls">
+          <button class="pagination-btn prev" onclick="prevPage()" ${isFirstPage ? 'disabled' : ''}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            Anterior
+          </button>
+          <div class="pagination-info">
+            <div class="pagination-current">${state.currentPage + 1} / ${totalPages}</div>
+            <div class="pagination-label">Página</div>
+          </div>
+          <button class="pagination-btn next" onclick="nextPage()" ${isLastPage ? 'disabled' : ''}>
+            Siguiente
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </div>
+      `;
+
+      container.innerHTML = `
+        ${paginationHTML}
+        <div class="prayers-page">${prayersHTML}</div>
+        ${paginationHTML}
+      `;
+    }
+
+    function setFilter(filterName) {
+      const chip = document.querySelector(`#filterChips .chip[data-filter="${filterName}"]`);
+      if (chip) {
+        state.currentFilter = filterName;
+        state.currentPage = 0;
+        $$('#filterChips .chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        renderPrayersList();
+      }
+    }
+
+    function renderDetail(oracion) {
+      const body = $('#detailBody');
+      const isFav = isFavorite(oracion.id);
+      const hasVideo = !!oracion.urlVideo;
+      const nav = getPrevNextPrayers();
+      const prevTitle = nav.prev ? nav.prev.titulo : 'Primera';
+      const nextTitle = nav.next ? nav.next.titulo : 'Primera';
+
+      body.innerHTML = `
+        ${hasVideo ? `
+          <div class="video-wrapper">
+            <video id="prayerVideo" src="${oracion.urlVideo}" poster="${oracion.urlImagen}"
+              controls autoplay playsinline webkit-playsinline preload="auto"
+              style="width:100%; max-height: 300px; display:block; background:#000;">
+              Tu navegador no soporta el reproductor.
+            </video>
+            <button class="btn-fullscreen" id="btnFullscreenVideo" title="Pantalla completa">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/>
+                <path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/>
+              </svg>
+            </button>
+          </div>
+          <div style="text-align:center; font-size:12px; font-weight:700; color: var(--text-muted); margin: 8px 0 4px;">
+            ▶️ Reproduce el video · 📖 Oración escrita abajo
+          </div>
+          <div class="video-nav-container">
+            <button class="video-nav-btn prev" onclick="navigateToPrayer('prev')" title="${prevTitle}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+              Anterior
+            </button>
+            <button class="video-nav-btn next" onclick="navigateToPrayer('next')" title="${nextTitle}">
+              Siguiente
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
+        ` : `
+          <div class="detail-cover">
+            <img src="${oracion.urlImagen}" alt="${oracion.titulo}"
+              onerror="this.src='https://images.unsplash.com/photo-1548625361-195fe57876a3?w=800'">
+          </div>
+          <div class="video-nav-container">
+            <button class="video-nav-btn prev" onclick="navigateToPrayer('prev')" title="${prevTitle}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+              Anterior
+            </button>
+            <button class="video-nav-btn next" onclick="navigateToPrayer('next')" title="${nextTitle}">
+              Siguiente
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
+        `}
+        <div style="display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap;">
+          ${oracion.destacado ? '<span class="badge badge-gold">⭐ Destacada</span>' : ''}
+          ${oracion.esTesoro ? '<span class="badge badge-success">🔑 Tesoro de Fe</span>' : ''}
+          ${isFav ? '<span class="badge badge-fav">❤️ En favoritas</span>' : ''}
+        </div>
+        <h1 class="detail-title">${oracion.titulo}</h1>
+        <p class="detail-excerpt">${oracion.extracto}</p>
+        <div class="card" style="padding: 16px;">
+          <div class="prayer-content">${oracion.textoCompleto}</div>
+        </div>
+        <div class="video-nav-container" style="margin-top: 18px;">
+          <button class="video-nav-btn prev" onclick="navigateToPrayer('prev')" title="${prevTitle}">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            Anterior
+          </button>
+          <button class="video-nav-btn next" onclick="navigateToPrayer('next')" title="${nextTitle}">
+            Siguiente
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </div>
+        <div style="text-align: center; padding: 16px 0; border-top: 1px solid var(--border-gold); margin-top: 16px;">
+          <p style="font-size: 14px; color: var(--text-muted); font-weight: 600;">
+            🕊️ «Donde dos o tres se reúnen en mi nombre, allí estoy Yo»
+          </p>
+        </div>
+      `;
+
+      if (hasVideo) {
+        const video = document.getElementById('prayerVideo');
+        if (video) {
+          trackVideoPlayback(video, oracion);
+          const playPromise = video.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(() => { video.muted = true; video.play().catch(() => {}); });
+          }
+        }
+        const btnFullscreen = document.getElementById('btnFullscreenVideo');
+        if (btnFullscreen) {
+          btnFullscreen.addEventListener('click', (e) => {
+            e.stopPropagation();
+            haptic();
+            openVideoFullscreen(oracion.urlVideo);
+          });
+        }
+      }
+
+      const btnFav = $('#btnFavorite');
+      if (isFav) {
+        btnFav.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#dfba77" stroke="#dfba77" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`;
+        btnFav.style.background = 'rgba(223, 186, 119, 0.3)';
+      } else {
+        btnFav.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`;
+        btnFav.style.background = 'var(--bg-card-alt)';
+      }
+    }
+
+    function openVideoFullscreen(videoUrl) {
+      const overlay = document.getElementById('videoFullscreenOverlay');
+      const video = document.getElementById('fullscreenVideo');
+      if (!overlay || !video) return;
+      const smallVideo = document.getElementById('prayerVideo');
+      if (smallVideo) smallVideo.pause();
+      video.src = videoUrl;
+      overlay.classList.add('show');
+      document.body.style.overflow = 'hidden';
+      video.play().catch(() => {});
+    }
+    function closeVideoFullscreen() {
+      const overlay = document.getElementById('videoFullscreenOverlay');
+      const video = document.getElementById('fullscreenVideo');
+      if (!overlay || !video) return;
+      video.pause(); video.src = '';
+      overlay.classList.remove('show');
+      document.body.style.overflow = '';
+      const smallVideo = document.getElementById('prayerVideo');
+      if (smallVideo) smallVideo.play().catch(() => {});
+    }
+
+    function openExtraTreasure() {
+      haptic();
+      state.extraTreasureMode = true;
+      state.pendingTreasurePrayer = null;
+      startTreasureUnlock();
+    }
+
+    /* ⭐ NUEVO: carga diferida del anuncio Adsterra */
+    function loadNativeBanner() {
+      const container = document.getElementById('container-cd71cd25311e5803f3acf0b564892746');
+      if (!container) return;
+      if (container.dataset.adLoaded === '1') return;   // solo 1 vez por sesión
+      container.dataset.adLoaded = '1';
+
+      const s = document.createElement('script');
+      s.async = true;
+      s.setAttribute('data-cfasync', 'false');
+      s.src = 'https://pl31223030.profitableratecpmnetwork.com/cd71cd25311e5803f3acf0b564892746/invoke.js';
+      document.body.appendChild(s);
+    }
+    /* ⭐ FIN NUEVO */
+
+    function startTreasureUnlock() {
+      const modal = $('#modalTreasure');
+      const countdownCircle = $('#countdownCircle');
+      const countdownText = $('#countdownText');
+      const btnContinue = $('#btnContinueTreasure');
+      const progressFill = $('#progressBarFill');
+      countdownCircle.textContent = CONFIG.TREASURE_COUNTDOWN_SECONDS;
+      countdownCircle.classList.remove('tick');
+      countdownText.textContent = CONFIG.TREASURE_COUNTDOWN_SECONDS;
+      progressFill.style.width = '0%';
+      btnContinue.disabled = true;
+      btnContinue.classList.remove('enabled');
+      btnContinue.innerHTML = `Espera a que termine...`;
+      document.body.style.overflow = 'hidden';
+      showRandomVerse();
+      if (state.verseInterval) clearInterval(state.verseInterval);
+      state.verseInterval = setInterval(showRandomVerse, 8000);
+      let remaining = CONFIG.TREASURE_COUNTDOWN_SECONDS;
+      const total = CONFIG.TREASURE_COUNTDOWN_SECONDS;
+      if (state.treasureTimer) clearInterval(state.treasureTimer);
+      state.treasureTimer = setInterval(() => {
+        remaining -= 1;
+        countdownCircle.textContent = remaining;
+        countdownText.textContent = remaining;
+        progressFill.style.width = ((total - remaining) / total * 100) + '%';
+        countdownCircle.classList.add('tick');
+        setTimeout(() => countdownCircle.classList.remove('tick'), 150);
+        if (remaining <= 0) {
+          clearInterval(state.treasureTimer);
+          clearInterval(state.verseInterval);
+          state.treasureTimer = null; state.verseInterval = null;
+          btnContinue.disabled = false;
+          btnContinue.classList.add('enabled');
+          btnContinue.innerHTML = `¡Reclamar mi Tesoro de Fe!`;
+          haptic();
+        }
+      }, 1000);
+      modal.classList.add('show');
+
+      /* ⭐ NUEVO: carga el anuncio cuando el modal ya está visible */
+      requestAnimationFrame(() => {
+        setTimeout(loadNativeBanner, 150);
+      });
+      /* ⭐ FIN NUEVO */
+    }
+
+    function showRandomVerse() {
+      const verse = BIBLE_VERSES[Math.floor(Math.random() * BIBLE_VERSES.length)];
+      const verseText = $('#verseText');
+      const verseRef = $('#verseRef');
+      const box = $('#verseBox');
+      if (!verseText || !verseRef || !box) return;
+      box.style.opacity = '0';
+      setTimeout(() => {
+        verseText.textContent = verse.text;
+        verseRef.textContent = verse.ref;
+        box.style.opacity = '1';
+      }, 200);
+    }
+
+    function closeTreasureModal() {
+      if (state.treasureTimer) { clearInterval(state.treasureTimer); state.treasureTimer = null; }
+      if (state.verseInterval) { clearInterval(state.verseInterval); state.verseInterval = null; }
+      $('#modalTreasure').classList.remove('show');
+      document.body.style.overflow = '';
+    }
+
+    function confirmTreasureClaim() {
+      if (state.extraTreasureMode) {
+        addTreasure(true);
+        renderStats();
+        haptic();
+        showToast('¡Tesoro extra ganado! 🎁', 'success');
+        state.extraTreasureMode = false;
+        closeTreasureModal();
+        state.pendingTreasurePrayer = null;
+        return;
+      }
+      const prayer = state.pendingTreasurePrayer;
+      if (!prayer) return;
+      unlockTreasure(prayer.id);
+      haptic();
+      showToast('¡Oración desbloqueada!', 'success');
+      closeTreasureModal();
+      state.pendingTreasurePrayer = null;
+      setTimeout(() => showDetail(prayer), 300);
+      renderPrayersList();
+    }
+
+    function renderProfile() {
+      $('#profileStreak').textContent = Storage.get(STORAGE_KEYS.STREAK, 0);
+      $('#profilePrayersRead').textContent = getReadPrayers().length;
+      $('#profileTreasures').textContent = getTotalTreasures();
+      $('#profileFavorites').textContent = getFavorites().length;
+    }
+
+    function switchTab(tab) {
+      const activeVideo = document.getElementById('prayerVideo');
+      if (activeVideo && !activeVideo.paused) try { activeVideo.pause(); } catch (e) {}
+      const fsVideo = document.getElementById('fullscreenVideo');
+      if (fsVideo && !fsVideo.paused) try { fsVideo.pause(); } catch (e) {}
+      haptic();
+      state.currentTab = tab;
+      $$('.view').forEach(v => v.classList.remove('active'));
+      $(`#view-${tab}`).classList.add('active');
+      $$('.nav-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      const titles = {
+        inicio: { title: 'El Santísimo', subtitle: 'Oraciones y Liturgia' },
+        oraciones: { title: 'Oraciones', subtitle: 'Devocionario' },
+        perfil: { title: 'Mi Perfil', subtitle: 'Progreso espiritual' },
+      };
+      $('#headerTitle').textContent = titles[tab].title;
+      $('#headerSubtitle').textContent = titles[tab].subtitle;
+      if (tab === 'oraciones') renderPrayersList();
+      if (tab === 'perfil') renderProfile();
+    }
+
+    function openPrayer(id) {
+      const oracion = state.oraciones.find(o => o.id === id);
+      if (!oracion) return;
+      if (oracion.esTesoro && !isTreasureUnlocked(oracion.id)) {
+        state.pendingTreasurePrayer = oracion;
+        state.extraTreasureMode = false;
+        startTreasureUnlock();
+        haptic();
+        return;
+      }
+      showDetail(oracion);
+    }
+
+    function showDetail(oracion) {
+      const oldVideo = document.getElementById('prayerVideo');
+      if (oldVideo) try { oldVideo.pause(); oldVideo.currentTime = 0; oldVideo.removeAttribute('src'); oldVideo.load(); } catch (e) {}
+      stopVideoTracking();
+      state.selectedPrayer = oracion;
+      renderDetail(oracion);
+      $('#detailView').classList.add('show');
+      document.body.style.overflow = 'hidden';
+      markPrayerAsRead(oracion.id);
+      renderStats();
+    }
+
+    function closeDetail() {
+      stopVideoTracking();
+      const fsOverlay = document.getElementById('videoFullscreenOverlay');
+      if (fsOverlay && fsOverlay.classList.contains('show')) closeVideoFullscreen();
+      const detailVideo = document.getElementById('prayerVideo');
+      if (detailVideo) try { detailVideo.pause(); detailVideo.currentTime = 0; detailVideo.removeAttribute('src'); detailVideo.load(); } catch (e) {}
+      $('#detailView').classList.remove('show');
+      document.body.style.overflow = '';
+      state.selectedPrayer = null;
+      renderStats();
+      renderPrayersList();
+    }
+
+    async function init() {
+      applyFontSize(getCurrentFontSize());
+      const theme = Storage.get(STORAGE_KEYS.THEME, 'light');
+      if (theme === 'dark') document.body.classList.add('dark');
+      updateStreak();
+      state.favorites = getFavorites();
+      state.readPrayers = getReadPrayers();
+      state.unlockedTreasurePrayers = getUnlockedTreasures();
+      try {
+        [state.oraciones, state.lecturas] = await Promise.all([loadOraciones(), loadLecturas()]);
+      } catch (e) { console.error('Load error', e); }
+      renderFeatured();
+      renderStats();
+      renderPrayersList();
+      initFloatingButton();
+      initSmartPopupTriggers();
+
+      $$('.nav-btn').forEach(btn => {
+        btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+      });
+      $('#btnFontSmaller').addEventListener('click', () => changeFontSize('smaller'));
+      $('#btnFontBigger').addEventListener('click', () => changeFontSize('bigger'));
+      $('#searchInput').addEventListener('input', (e) => {
+        state.searchQuery = e.target.value;
+        state.currentPage = 0;
+        renderPrayersList();
+      });
+      $$('#filterChips .chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+          haptic();
+          state.currentFilter = chip.dataset.filter;
+          state.currentPage = 0;
+          $$('#filterChips .chip').forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+          renderPrayersList();
+        });
+      });
+      $('#btnBackDetail').addEventListener('click', closeDetail);
+      const btnCloseFullscreen = document.getElementById('btnCloseFullscreen');
+      if (btnCloseFullscreen) {
+        btnCloseFullscreen.addEventListener('click', () => { haptic(); closeVideoFullscreen(); });
+      }
+      $('#btnFavorite').addEventListener('click', () => {
+        if (!state.selectedPrayer) return;
+        haptic();
+        const isFav = toggleFavorite(state.selectedPrayer.id);
+        showToast(isFav ? '❤️ Añadida a favoritas' : 'Eliminada de favoritas', 'info');
+        renderDetail(state.selectedPrayer);
+        renderStats();
+        renderPrayersList();
+      });
+      $('#btnShareDetail').addEventListener('click', () => {
+        if (!state.selectedPrayer) return;
+        haptic();
+        shareContent(`🕊️ Te comparto esta oración: "${state.selectedPrayer.titulo}"\n\nDescubre más aquí:\n👉`);
+      });
+      $('#btnCancelUnlock').addEventListener('click', () => {
+        haptic();
+        closeTreasureModal();
+        state.pendingTreasurePrayer = null;
+        state.extraTreasureMode = false;
+      });
+      $('#btnContinueTreasure').addEventListener('click', () => {
+        if ($('#btnContinueTreasure').disabled) return;
+        haptic();
+        confirmTreasureClaim();
+      });
+      $('#btnToggleTheme').addEventListener('click', () => {
+        haptic();
+        const isDark = document.body.classList.toggle('dark');
+        Storage.set(STORAGE_KEYS.THEME, isDark ? 'dark' : 'light');
+        showToast(`Tema ${isDark ? 'oscuro' : 'claro'} activado`, 'info');
+      });
+      $('#btnShare').addEventListener('click', () => {
+        haptic();
+        shareContent('🕊️ Te invito a "El Santísimo - Oraciones", un devocionario diario con lecturas litúrgicas, oraciones y tesoros de fe.\n\nÁbrelo aquí:');
+      });
+      $('#btnPrivacy').addEventListener('click', () => {
+        haptic();
+        alert('Política de Privacidad\n\n' +
+          'El Santísimo - Oraciones respeta profundamente tu intimidad espiritual.\n\n' +
+          '• Tus datos (racha, tesoros, favoritos) se guardan SOLO en tu dispositivo.\n' +
+          '• Los anuncios se muestran a través de Adsterra, respetando tu experiencia.\n\n' +
+          'Ad Maiorem Dei Gloriam. 🙏');
+      });
+      $('#btnRefresh').addEventListener('click', async () => {
+        haptic();
+        showToast('Actualizando...', 'info');
+        Storage.set(STORAGE_KEYS.CACHE_ORACIONES, null);
+        Storage.set(STORAGE_KEYS.CACHE_LECTURAS, null);
+        [state.oraciones, state.lecturas] = await Promise.all([loadOraciones(), loadLecturas()]);
+        renderFeatured();
+        renderPrayersList();
+        showToast('¡Actualizado!', 'success');
+      });
+      const wpBackdrop = $('#welcomePopupBackdrop');
+      if (wpBackdrop) {
+        wpBackdrop.addEventListener('click', (e) => { if (e.target === wpBackdrop) closeWelcomePopup(); });
+      }
+    }
+
+    window.openPrayer = openPrayer;
+    window.shareFromCard = shareFromCard;
+    window.setFilter = setFilter;
+    window.openWelcomePopup = openWelcomePopup;
+    window.closeWelcomePopup = closeWelcomePopup;
+    window.dismissFloatingBtn = dismissFloatingBtn;
+    window.trackJoin = trackJoin;
+    window.navigateToPrayer = navigateToPrayer;
+    window.nextPage = nextPage;
+    window.prevPage = prevPage;
+    window.openReadingsModal = openReadingsModal;
+    window.closeReadingsModal = closeReadingsModal;
+    window.openExtraTreasure = openExtraTreasure;
+    window.loadNativeBanner = loadNativeBanner;   /* ⭐ NUEVO */
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>
